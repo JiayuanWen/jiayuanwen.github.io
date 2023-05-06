@@ -1,0 +1,15 @@
+body {
+    top: 0px !important;
+    background-color: rgba(0,0,0,0);
+}
+  
+html, body {
+    background-color: #000;
+    background-size:     cover;                      
+    background-repeat:   no-repeat;
+    margin:     0; 
+    height:     100%;
+    overflow:   hidden; 
+    /*position:   fixed; //this breaks iOS and Chrome WebXR emulator */ 
+}
+

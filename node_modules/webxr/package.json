@@ -1,0 +1,32 @@
+{
+  "name": "webxr",
+  "version": "0.0.0",
+  "description": "An entry point for WebXR tools.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webvrrocks/webxr.git"
+  },
+  "author": "WebVR Rocks authors",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/webvrrocks/webxr-cli/issues"
+  },
+  "homepage": "https://github.com/webvrrocks/webxr-cli#readme",
+  "keywords": [
+    "webxr",
+    "xr",
+    "webvr",
+    "vr",
+    "cli",
+    "terminal",
+    "headless",
+    "browser",
+    "automation",
+    "commandline",
+    "command-line",
+    "testing"
+  ],
+  "scripts": {},
+  "dependencies": {}
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jiayuan Wen's Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="style/home.css"/> <!--<script src="UI.js" defer></script>-->
+    
+    <!-- Site icon handler for different browsers/OSs -->
+    <link rel="apple-touch-icon" sizes="180x180" href="public/images/site_icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/images/site_icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/images/site_icons/favicon-16x16.png">
+    <link rel="manifest" href="public/images/site_icons/site.webmanifest">
+    <link rel="mask-icon" href="public/images/site_icons/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Meta data -->
+    <meta charset="UTF-8">
+    <meta name="msapplication-TileColor" content="#2200d0">
+    <meta name="theme-color" content="#000000">
+    <!-- Required if you want the 3D scene to scale correctly on mobile -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1"> 
+</head>
+    
+<body>
+    <!-- This remote script fixes Firefox importmap incompatibility-->
+    <script async src="/js/es-module-shims.min.js"></script>
+
+    <!-- Import modules so it can be used by js files via `import { ... } from ...` -->
+    <script type="importmap-shim">
+        {
+        "imports": {
+        "three": "../node_modules/three/build/three.module.js",
+        "three/addons/": "../node_modules/three/examples/jsm/",
+        "threeInteract":"../node_modules/three.interactive/build/three.interactive.js"
+            }
+        }
+    </script>
+
+    <!-- 3D view resides here -->
+    <canvas id="3dview" class="webgl"></canvas>
+    <script type="module-shim" src="/js/3DScene.js"></script>
+
+    <!-- UI overlay over 3D view and AR view -->
+    <div id="overlay-content">
+    </div>
+</body>
+</html>
