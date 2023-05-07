@@ -35,11 +35,17 @@
     </script>
 
     <!-- 3D view resides here -->
-    <canvas id="3dview" class="webgl"></canvas>
-    <script type="module-shim" src="/js/3DScene.js"></script>
+    <canvas class="fiber"></canvas>
+    <script type="module-shim" src="/js/Home.js"></script>
 
     <!-- UI overlay over 3D view and AR view -->
     <div id="overlay-content">
+        <!-- Loading screen -->
+        <div class="loading-screen">
+            <!--<img id="loading-icon" src="../public/images/ui/psyche_logo_minimalist.png" />-->
+            <label for="loading-bar" id="loading-label"></label>
+            <progress id="loading-bar" value="0" max="100"></progress>
+        </div>
     </div>
 </body>
 </html>

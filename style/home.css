@@ -12,4 +12,85 @@ html, body {
     overflow:   hidden; 
     /*position:   fixed; //this breaks iOS and Chrome WebXR emulator */ 
 }
+/* --------------------------------------------------------------------------------- 3D Fiber */
+.fiber {
+    float: right;
+    padding-right: 50vw;
+}
 
+/* --------------------------------------------------------------------------------- Loading screen */
+.loading-screen {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 105;
+    align-content: flex-start;
+  }
+  
+    #loading-icon {
+      position: relative;
+      /* top: 10vh; */
+      max-width: 10rem;
+      min-width: 5rem;
+      margin: 3rem 1rem 8rem 1rem;
+    }
+  
+    .loading-screen > label {
+      /* position: relative; */
+      margin: 0.5rem;
+      font-size: 1.4rem;
+      top: 58vh;
+      color: #fff;
+      font-family: "Helvetica", monospace;
+    }
+  
+    #loading-disclaimer {
+      position: absolute;
+      font-size: 0.6rem;
+      text-align: center;
+      bottom: 10px;
+      margin-left: 5px; /* Also set in mainpage.js */
+      margin-right: 5px; /* Also set in mainpage.js */
+      color: #474747;
+      font-family: "Helvetica", monospace;
+    }
+  
+    #loading-bar[value] {
+      /*position: absolute;*/
+      top: 62vh;
+      width: 85%;
+      margin: 1rem 1rem 3rem 1rem;
+      height: 0.4rem;
+      line-height: 0.4rem;
+      border: none;
+      border-radius: 0.2rem;
+  
+      background: white;
+  
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+  
+    #loading-bar[value]::-webkit-progress-value {
+      background: linear-gradient(120deg, #302144 28%, #592651 42%, #a53f5b 56%, #ef5966 70%, #f47c33 84%, #f9a000 95%);
+      border-radius: 0.2rem;
+    }
+    #loading-bar[value]::-webkit-progress-bar {
+      background: white;
+      border-radius: 0.2rem;
+    }
+  
+    #loading-bar[value]::-moz-progress-bar {
+      background: linear-gradient(120deg, #302144 28%, #592651 42%, #a53f5b 56%, #ef5966 70%, #f47c33 84%, #f9a000 95%);
+      border-radius: 0.2rem;
+    }
