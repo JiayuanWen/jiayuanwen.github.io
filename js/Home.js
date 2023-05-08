@@ -16,6 +16,7 @@ import { RGBELoader } from 'three/addons/loaders/RGBELoader.js'
 import WebXRPolyfill from "./helper/webxr-polyfill.module.js";
 import { delay } from "./helper/delay.js";
 import { rgbToHex } from "./helper/rgbToHex.js";
+import { isMobile } from "./helper/mobileCheck.js";
 
 //----------------------------------------------------------------------------------------- 3D Scene
 const scene = new THREE.Scene();
@@ -183,6 +184,7 @@ loadingManager.onLoad = async function() {
 
 	// Play music
 	document.getElementById('player').play();
+	
 
 	// Starts animating the site after everything has loaded
 	animate(); 
@@ -307,8 +309,6 @@ async function fiberColorChange(model_root) {
 	}
 }
 
-
-
 scene.add(fiber_lamp);
 
 //---------------------------------------------------------------------------------------- Lights
@@ -336,7 +336,7 @@ const renderScene = new RenderPass( scene, camera );
 const bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
 bloomPass.threshold = 0;
 bloomPass.strength = 1;
-bloomPass.radius = 1;
+bloomPass.radius = 0.1;
 
 let composer = new EffectComposer( renderer );
 composer.addPass( renderScene );

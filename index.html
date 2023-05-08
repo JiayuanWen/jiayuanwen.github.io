@@ -40,7 +40,7 @@
 
     <!-- 3D view resides here -->
     <canvas class="fiber"></canvas>
-    <script type="module-shim" src="/js/Home3D.js"></script>
+    <script type="module-shim" src="/js/Home.js"></script>
 
     <!-- UI overlay over 3D view and AR view -->
     <div id="overlay-content">
@@ -55,6 +55,13 @@
                     <source src="/audio/ Alan Walker, K-391, Tungevaag, Mangoo - Play (MaTrix Restrung Version).mp3" type="audio/mpeg"/>
                     Your browser does not support audio.
                 </audio>
+                <div id="song-info">
+                    <img src="/textures/Alan_Walker_Play.jpg" id="album-cover"></img>
+                    <div id="song-author">
+                    <h4>Play (MaTrix Restrung Remix)</h4>
+                    <small>Walker, K-391, Tungevaag, Mangoo, DayDreamer</small>
+                    </div>
+                </div>
                 <div id="controls">       
                     <div onclick="document.getElementById('player').play()"><i class="fa-solid fa-play" id="play"></i></div>
                     <div onclick="document.getElementById('player').pause()"><i class="fa-solid fa-pause"></i></div>
