@@ -11,6 +11,7 @@ import {
 	Mesh,
 	MeshStandardMaterial,
 	ShaderMaterial,
+	SRGBColorSpace,
 	UniformsLib,
 	UniformsUtils,
 	Vector3,
@@ -38,6 +39,8 @@ const FILE_LOCATION_NOT_FOUND = 6;
 
 const MAIN_COLOUR_CODE = '16';
 const MAIN_EDGE_COLOUR_CODE = '24';
+
+const COLOR_SPACE_LDRAW = SRGBColorSpace;
 
 const _tempVec0 = new Vector3();
 const _tempVec1 = new Vector3();
@@ -692,7 +695,7 @@ class LDrawParsedCache {
 		result.subobjects = original.subobjects;
 		result.fileName = original.fileName;
 		result.totalFaces = original.totalFaces;
-		result.startingConstructionStep = original.startingConstructionStep;
+		result.startingBuildingStep = original.startingBuildingStep;
 		result.materials = original.materials;
 		result.group = null;
 		return result;
@@ -819,7 +822,7 @@ class LDrawParsedCache {
 		let bfcInverted = false;
 		let bfcCull = true;
 
-		let startingConstructionStep = false;
+		let startingBuildingStep = false;
 
 		// Parse all line commands
 		for ( let lineIndex = 0; lineIndex < numLines; lineIndex ++ ) {
@@ -994,7 +997,7 @@ class LDrawParsedCache {
 
 							case 'STEP':
 
-								startingConstructionStep = true;
+								startingBuildingStep = true;
 
 								break;
 
@@ -1068,9 +1071,10 @@ class LDrawParsedCache {
 						matrix: matrix,
 						fileName: fileName,
 						inverted: bfcInverted,
-						startingConstructionStep: startingConstructionStep
+						startingBuildingStep: startingBuildingStep
 					} );
 
+					startingBuildingStep = false;
 					bfcInverted = false;
 
 					break;
@@ -1233,7 +1237,7 @@ class LDrawParsedCache {
 			author,
 			subobjects,
 			totalFaces,
-			startingConstructionStep,
+			startingBuildingStep,
 			materials,
 			fileName,
 			group: null
@@ -1389,7 +1393,7 @@ class LDrawPartsGeometryCache {
 
 					const subobjectGroup = subobjectInfo;
 					subobject.matrix.decompose( subobjectGroup.position, subobjectGroup.quaternion, subobjectGroup.scale );
-					subobjectGroup.userData.startingConstructionStep = subobject.startingConstructionStep;
+					subobjectGroup.userData.startingBuildingStep = subobject.startingBuildingStep;
 					subobjectGroup.name = subobject.fileName;
 
 					loader.applyMaterialsToMesh( subobjectGroup, subobject.colorCode, info.materials );
@@ -1958,7 +1962,7 @@ class LDrawLoader extends Loader {
 				.then( group => {
 
 					this.applyMaterialsToMesh( group, MAIN_COLOUR_CODE, this.materialLibrary, true );
-					this.computeConstructionSteps( group );
+					this.computeBuildingSteps( group );
 					group.userData.fileName = url;
 					onLoad( group );
 
@@ -1976,7 +1980,7 @@ class LDrawLoader extends Loader {
 			.then( group => {
 
 				this.applyMaterialsToMesh( group, MAIN_COLOUR_CODE, this.materialLibrary, true );
-				this.computeConstructionSteps( group );
+				this.computeBuildingSteps( group );
 				group.userData.fileName = '';
 				onLoad( group );
 
@@ -2161,8 +2165,8 @@ class LDrawLoader extends Loader {
 		let code = null;
 
 		// Triangle and line colors
-		let color = 0xFF00FF;
-		let edgeColor = 0xFF00FF;
+		let fillColor = '#FF00FF';
+		let edgeColor = '#FF00FF';
 
 		// Transparency
 		let alpha = 1;
@@ -2204,12 +2208,12 @@ class LDrawLoader extends Loader {
 
 					case 'VALUE':
 
-						color = lineParser.getToken();
-						if ( color.startsWith( '0x' ) ) {
+						fillColor = lineParser.getToken();
+						if ( fillColor.startsWith( '0x' ) ) {
 
-							color = '#' + color.substring( 2 );
+							fillColor = '#' + fillColor.substring( 2 );
 
-						} else if ( ! color.startsWith( '#' ) ) {
+						} else if ( ! fillColor.startsWith( '#' ) ) {
 
 							throw new Error( 'LDrawLoader: Invalid color while parsing material' + lineParser.getLineNumberString() + '.' );
 
@@ -2311,37 +2315,37 @@ class LDrawLoader extends Loader {
 
 			case FINISH_TYPE_DEFAULT:
 
-				material = new MeshStandardMaterial( { color: color, roughness: 0.3, metalness: 0 } );
+				material = new MeshStandardMaterial( { roughness: 0.3, metalness: 0 } );
 				break;
 
 			case FINISH_TYPE_PEARLESCENT:
 
 				// Try to imitate pearlescency by making the surface glossy
-				material = new MeshStandardMaterial( { color: color, roughness: 0.3, metalness: 0.25 } );
+				material = new MeshStandardMaterial( { roughness: 0.3, metalness: 0.25 } );
 				break;
 
 			case FINISH_TYPE_CHROME:
 
 				// Mirror finish surface
-				material = new MeshStandardMaterial( { color: color, roughness: 0, metalness: 1 } );
+				material = new MeshStandardMaterial( { roughness: 0, metalness: 1 } );
 				break;
 
 			case FINISH_TYPE_RUBBER:
 
 				// Rubber finish
-				material = new MeshStandardMaterial( { color: color, roughness: 0.9, metalness: 0 } );
+				material = new MeshStandardMaterial( { roughness: 0.9, metalness: 0 } );
 				break;
 
 			case FINISH_TYPE_MATTE_METALLIC:
 
 				// Brushed metal finish
-				material = new MeshStandardMaterial( { color: color, roughness: 0.8, metalness: 0.4 } );
+				material = new MeshStandardMaterial( { roughness: 0.8, metalness: 0.4 } );
 				break;
 
 			case FINISH_TYPE_METAL:
 
 				// Average metal finish
-				material = new MeshStandardMaterial( { color: color, roughness: 0.2, metalness: 0.85 } );
+				material = new MeshStandardMaterial( { roughness: 0.2, metalness: 0.85 } );
 				break;
 
 			default:
@@ -2350,18 +2354,18 @@ class LDrawLoader extends Loader {
 
 		}
 
+		material.color.setStyle( fillColor, COLOR_SPACE_LDRAW );
 		material.transparent = isTransparent;
 		material.premultipliedAlpha = true;
 		material.opacity = alpha;
 		material.depthWrite = ! isTransparent;
-		material.color.convertSRGBToLinear();
 
 		material.polygonOffset = true;
 		material.polygonOffsetFactor = 1;
 
 		if ( luminance !== 0 ) {
 
-			material.emissive.set( material.color ).multiplyScalar( luminance );
+			material.emissive.setStyle( fillColor, COLOR_SPACE_LDRAW ).multiplyScalar( luminance );
 
 		}
 
@@ -2369,14 +2373,14 @@ class LDrawLoader extends Loader {
 
 			// This is the material used for edges
 			edgeMaterial = new LineBasicMaterial( {
-				color: edgeColor,
+				color: new Color().setStyle( edgeColor, COLOR_SPACE_LDRAW ),
 				transparent: isTransparent,
 				opacity: alpha,
 				depthWrite: ! isTransparent
 			} );
+			edgeMaterial.color;
 			edgeMaterial.userData.code = code;
 			edgeMaterial.name = name + ' - Edge';
-			edgeMaterial.color.convertSRGBToLinear();
 
 			// This is the material used for conditional edges
 			edgeMaterial.userData.conditionalEdgeMaterial = new LDrawConditionalLineMaterial( {
@@ -2384,11 +2388,10 @@ class LDrawLoader extends Loader {
 				fog: true,
 				transparent: isTransparent,
 				depthWrite: ! isTransparent,
-				color: edgeColor,
+				color: new Color().setStyle( edgeColor, COLOR_SPACE_LDRAW ),
 				opacity: alpha,
 
 			} );
-			edgeMaterial.userData.conditionalEdgeMaterial.color.convertSRGBToLinear();
 			edgeMaterial.userData.conditionalEdgeMaterial.userData.code = code;
 			edgeMaterial.userData.conditionalEdgeMaterial.name = name + ' - Conditional Edge';
 
@@ -2433,9 +2436,9 @@ class LDrawLoader extends Loader {
 
 	}
 
-	computeConstructionSteps( model ) {
+	computeBuildingSteps( model ) {
 
-		// Sets userdata.constructionStep number in Group objects and userData.numConstructionSteps number in the root Group object.
+		// Sets userdata.buildingStep number in Group objects and userData.numBuildingSteps number in the root Group object.
 
 		let stepNumber = 0;
 
@@ -2443,19 +2446,19 @@ class LDrawLoader extends Loader {
 
 			if ( c.isGroup ) {
 
-				if ( c.userData.startingConstructionStep ) {
+				if ( c.userData.startingBuildingStep ) {
 
 					stepNumber ++;
 
 				}
 
-				c.userData.constructionStep = stepNumber;
+				c.userData.buildingStep = stepNumber;
 
 			}
 
 		} );
 
-		model.userData.numConstructionSteps = stepNumber + 1;
+		model.userData.numBuildingSteps = stepNumber + 1;
 
 	}
 

@@ -7,9 +7,10 @@ import * as THREE from "three"
 import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
 import {OrbitControls} from "three/addons/controls/OrbitControls.js";
 import {InteractionManager} from "threeInteract";
-import {EffectComposer} from 'https://threejs.org/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from 'https://threejs.org/examples/jsm/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'https://threejs.org/examples/jsm/postprocessing/UnrealBloomPass.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js'
 
 // Other helper functions
 import WebXRPolyfill from "./helper/webxr-polyfill.module.js";
@@ -32,6 +33,17 @@ const origin = new THREE.Vector3(0,0,0);
 	console.log(" ");
 
 //scene.background = new THREE.Color(0xa5a5a5);
+// Environment map
+new RGBELoader()
+	.setPath( 'textures/env_map/' )
+	.load( 'guangzhou.hdr', function ( texture ) {
+
+		texture.mapping = THREE.EquirectangularReflectionMapping;
+
+		//scene.background = texture;
+		scene.environment = texture;
+
+	} );
 
 //----------------------------------------------------------------------------------------- Renderer
 // Disable anti-aliasing on iOS due to it crashing the site
@@ -59,52 +71,6 @@ renderer.setPixelRatio( window.devicePixelRatio );
 
 // Senderer color mode. Use sRGB to prevent bright image texture
 renderer.outputEncoding = THREE.sRGBEncoding;
-
-// Updates render area on device orientation change (Mobile)
-function onOrientationChange() {
-	setTimeout(function(){
-		switch(window.orientation) 
-		{  
-		case -90:
-		case 90:
-			console.log('Device in landscape mode');
-			console.log( 'width: ' + window.innerWidth, 'height: ' + window.visualViewport.innerHeight );
-			
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix(); 
-
-			// Setting the size of renderer for landscape
-			renderer.setSize( window.innerWidth, window.innerHeight ); 
-			renderer.setPixelRatio( window.devicePixelRatio );
-			break; 
-		default:
-			console.log('Device in portrait mode');
-			console.log( 'width: ' + window.innerWidth, 'height: ' + window.innerHeight );
-
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix(); 
-
-			// Setting the size of renderer for portrait
-			renderer.setSize( window.innerWidth, window.innerHeight ); 
-			renderer.setPixelRatio( window.devicePixelRatio );
-			break; 
-		}
-	},200);
-}
-window.addEventListener('orientationchange', onOrientationChange);
-
-// Updates render area when resizing window (Desktop)
-function onWindowResize(){
-	//console.log( 'width: ' + document.documentElement.clientWidth, 'height: ' + window.innerHeight );
-
-    camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix(); 
-
-	renderer.setSize( window.innerWidth, window.innerHeight ); 
-	renderer.setPixelRatio( window.devicePixelRatio );
-}
-window.addEventListener( 'resize', onWindowResize, false );
-
 
 //----------------------------------------------------------------------------------------- Camera
 const cam_fov = 45;
@@ -328,7 +294,7 @@ async function fiberColorChange(model_root) {
 				color_stage = 1;
 			}
 		}
-		console.log("Color changed");
+		//console.log("Color changed");
 		model_root.traverse((child, i) => {
 			if (child.isMesh) {
 			  child.material = new THREE.MeshBasicMaterial({ color: rgbToHex(red, green, blue)});;
@@ -362,15 +328,69 @@ console.log(backShadow);
 console.log(" ");
 
 //---------------------------------------------------------------------------------------- Composition
+const renderScene = new RenderPass( scene, camera );
 
+const bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
+bloomPass.threshold = 0;
+bloomPass.strength = 1;
+bloomPass.radius = 1;
+
+let composer = new EffectComposer( renderer );
+composer.addPass( renderScene );
+composer.addPass( bloomPass );
+
+//---------------------------------------------------------------------------------------- Window resize handler
+// Updates render area on device orientation change (Mobile)
+function onOrientationChange() {
+	setTimeout(function(){
+		switch(window.orientation) 
+		{  
+		case -90:
+		case 90:
+			console.log('Device in landscape mode');
+			console.log( 'width: ' + window.innerWidth, 'height: ' + window.visualViewport.innerHeight );
+			
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix(); 
+
+			// Setting the size of renderer for landscape
+			renderer.setSize( window.innerWidth, window.innerHeight ); 
+			composer.setSize( window.innerWidth, window.innerHeight );
+			renderer.setPixelRatio( window.devicePixelRatio );
+			break; 
+		default:
+			console.log('Device in portrait mode');
+			console.log( 'width: ' + window.innerWidth, 'height: ' + window.innerHeight );
+
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix(); 
+
+			// Setting the size of renderer for portrait
+			renderer.setSize( window.innerWidth, window.innerHeight ); 
+			composer.setSize( window.innerWidth, window.innerHeight );
+			renderer.setPixelRatio( window.devicePixelRatio );
+			break; 
+		}
+	},200);
+}
+window.addEventListener('orientationchange', onOrientationChange);
+
+// Updates render area when resizing window (Desktop)
+function onWindowResize(){
+	//console.log( 'width: ' + document.documentElement.clientWidth, 'height: ' + window.innerHeight );
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix(); 
+
+	renderer.setSize( window.innerWidth, window.innerHeight ); 
+	composer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setPixelRatio( window.devicePixelRatio );
+}
+window.addEventListener( 'resize', onWindowResize, false );
 
 //---------------------------------------------------------------------------------------- Finalize renderer 
 function animate () {
-	// Required by WebXR
-	renderer.setAnimationLoop(animate);
-	// Use this if only Three.js no WebXR
-	//requestAnimationFrame(renderScene); 
-
+	
 	delta = clock.getDelta();
 
 	// Animation controllers
@@ -378,10 +398,18 @@ function animate () {
 
 	// Allow user to control camera
 	camera_controls.update();
+
+	//
+	composer.render();
 	
 	// Render the 3D scene
-	renderer.render(scene, camera);
-    
+	//renderer.render(scene, camera);
+
+    // Required by WebXR
+	//renderer.setAnimationLoop(animate);
+
+	// Use this if only Three.js no WebXR
+	requestAnimationFrame(animate); 
 	
 
 }

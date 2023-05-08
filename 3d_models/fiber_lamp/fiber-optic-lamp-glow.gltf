@@ -41,8 +41,8 @@
 		{
 			"doubleSided":true,
 			"emissiveFactor":[
-				0.3790930211544037,
-				0.8876099586486816,
+				0.969936192035675,
+				1,
 				1
 			],
 			"extensions":{
@@ -60,9 +60,9 @@
 			"name":"lamb-light",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.9816115498542786,
-					0.9067515730857849,
 					1,
+					0.933512806892395,
+					0.9626210331916809,
 					1
 				],
 				"roughnessFactor":0

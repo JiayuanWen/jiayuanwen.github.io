@@ -1,10 +1,11 @@
+import { addNodeMaterial } from './NodeMaterial.js';
 import MeshStandardNodeMaterial from './MeshStandardNodeMaterial.js';
 
 import { MeshPhysicalMaterial } from 'three';
 
 const defaultValues = new MeshPhysicalMaterial();
 
-export default class MeshPhysicalNodeMaterial extends MeshStandardNodeMaterial {
+class MeshPhysicalNodeMaterial extends MeshStandardNodeMaterial {
 
 	constructor( parameters ) {
 
@@ -30,11 +31,6 @@ export default class MeshPhysicalNodeMaterial extends MeshStandardNodeMaterial {
 		this.thicknessNode = null;
 		this.attenuationDistanceNode = null;
 		this.attenuationColorNode = null;
-
-		this.sheen = 0;
-		this.clearcoat = 0;
-		this.iridescence = 0;
-		this.transmission = 0;
 
 		this.setDefaultValues( defaultValues );
 
@@ -68,3 +64,7 @@ export default class MeshPhysicalNodeMaterial extends MeshStandardNodeMaterial {
 	}
 
 }
+
+export default MeshPhysicalNodeMaterial;
+
+addNodeMaterial( MeshPhysicalNodeMaterial );

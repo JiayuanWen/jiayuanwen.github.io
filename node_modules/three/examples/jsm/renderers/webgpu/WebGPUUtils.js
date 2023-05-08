@@ -8,12 +8,19 @@ class WebGPUUtils {
 
 	}
 
-	getCurrentEncoding() {
+	getCurrentColorSpace() {
 
 		const renderer = this.renderer;
 
 		const renderTarget = renderer.getRenderTarget();
-		return ( renderTarget !== null ) ? renderTarget.texture.encoding : renderer.outputEncoding;
+
+		if ( renderTarget !== null ) {
+
+			return renderTarget.texture.colorSpace;
+
+		}
+
+		return renderer.outputColorSpace;
 
 	}
 
@@ -61,12 +68,12 @@ class WebGPUUtils {
 
 	}
 
-	getPrimitiveTopology( object ) {
+	getPrimitiveTopology( object, material ) {
 
-		if ( object.isMesh ) return GPUPrimitiveTopology.TriangleList;
-		else if ( object.isPoints ) return GPUPrimitiveTopology.PointList;
-		else if ( object.isLineSegments ) return GPUPrimitiveTopology.LineList;
+		if ( object.isPoints ) return GPUPrimitiveTopology.PointList;
+		else if ( object.isLineSegments || ( object.isMesh && material.wireframe === true ) ) return GPUPrimitiveTopology.LineList;
 		else if ( object.isLine ) return GPUPrimitiveTopology.LineStrip;
+		else if ( object.isMesh ) return GPUPrimitiveTopology.TriangleList;
 
 	}
 

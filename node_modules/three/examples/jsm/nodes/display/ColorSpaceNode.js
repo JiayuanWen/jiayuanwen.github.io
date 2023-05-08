@@ -1,7 +1,9 @@
-import TempNode from '../core/Node.js';
-import { ShaderNode, vec3, pow, mul, sub, mix, vec4, lessThanEqual } from '../shadernode/ShaderNodeBaseElements.js';
+import TempNode from '../core/TempNode.js';
+import { mix } from '../math/MathNode.js';
+import { addNodeClass } from '../core/Node.js';
+import { addNodeElement, ShaderNode, nodeObject, vec4 } from '../shadernode/ShaderNode.js';
 
-import { LinearEncoding, sRGBEncoding } from 'three';
+import { LinearEncoding, LinearSRGBColorSpace, sRGBEncoding, SRGBColorSpace } from 'three';
 
 export const LinearToLinear = new ShaderNode( ( inputs ) => {
 
@@ -12,12 +14,11 @@ export const LinearToLinear = new ShaderNode( ( inputs ) => {
 export const LinearTosRGB = new ShaderNode( ( inputs ) => {
 
 	const { value } = inputs;
+	const { rgb } = value;
 
-	const rgb = value.rgb;
-
-	const a = sub( mul( pow( value.rgb, vec3( 0.41666 ) ), 1.055 ), vec3( 0.055 ) );
-	const b = mul( rgb, 12.92 );
-	const factor = vec3( lessThanEqual( rgb, vec3( 0.0031308 ) ) );
+	const a = rgb.pow( 0.41666 ).mul( 1.055 ).sub( 0.055 );
+	const b = rgb.mul( 12.92 );
+	const factor = rgb.lessThanEqual( 0.0031308 );
 
 	const rgbResult = mix( a, b, factor );
 
@@ -32,9 +33,6 @@ const EncodingLib = {
 
 class ColorSpaceNode extends TempNode {
 
-	static LINEAR_TO_LINEAR = 'LinearToLinear';
-	static LINEAR_TO_SRGB = 'LinearTosRGB';
-
 	constructor( method, node ) {
 
 		super( 'vec4' );
@@ -45,7 +43,29 @@ class ColorSpaceNode extends TempNode {
 
 	}
 
-	fromEncoding( encoding ) {
+	fromColorSpace( colorSpace ) {
+
+		let method = null;
+
+		if ( colorSpace === LinearSRGBColorSpace ) {
+
+			method = 'Linear';
+
+		} else if ( colorSpace === SRGBColorSpace ) {
+
+			method = 'sRGB';
+
+		}
+
+		this.method = 'LinearTo' + method;
+
+		return this;
+
+	}
+
+	fromEncoding( encoding ) { // @deprecated, r152
+
+		console.warn( 'THREE.ColorSpaceNode: Method .fromEncoding renamed to .fromColorSpace.' );
 
 		let method = null;
 
@@ -67,29 +87,21 @@ class ColorSpaceNode extends TempNode {
 
 	construct() {
 
-		const method = this.method;
-		const node = this.node;
+		const { method, node } = this;
 
-		let outputNode = null;
-
-		if ( method !== ColorSpaceNode.LINEAR_TO_LINEAR ) {
-
-			const encodingFunctionNode = EncodingLib[ method ];
-
-			outputNode = encodingFunctionNode.call( {
-				value: node
-			} );
-
-		} else {
-
-			outputNode = node;
-
-		}
-
-		return outputNode;
+		return EncodingLib[ method ].call( { value: node } );
 
 	}
 
 }
 
+ColorSpaceNode.LINEAR_TO_LINEAR = 'LinearToLinear';
+ColorSpaceNode.LINEAR_TO_SRGB = 'LinearTosRGB';
+
 export default ColorSpaceNode;
+
+export const colorSpace = ( node, colorSpace ) => nodeObject( new ColorSpaceNode( null, nodeObject( node ) ).fromColorSpace( colorSpace ) );
+
+addNodeElement( 'colorSpace', colorSpace );
+
+addNodeClass( ColorSpaceNode );
