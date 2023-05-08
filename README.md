@@ -1,7 +1,8 @@
-<h1 style="text-align: center;">Jiayuan Wen's Portfilo Site</h1>
-This repository hosts my portfilo site. You can browse the source codes and resources here.
+<h1 align="center">Jiayuan Wen's Portfilo Site</h1>
+
+<p align="center">This repository hosts my portfilo site. You can browse the site's source code and resources here.</p>
 
 <br/>
 
-<b>Site URL:</b> https://jiayuanwen.github.io/
+<div align="center"><b>Site URL:</b> https://jiayuanwen.github.io/</div>
 
