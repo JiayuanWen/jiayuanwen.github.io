@@ -12,8 +12,9 @@ import { RenderPass } from 'https://threejs.org/examples/jsm/postprocessing/Rend
 import { UnrealBloomPass } from 'https://threejs.org/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 // Other helper functions
-import WebXRPolyfill from "./webxr-polyfill.module.js";
-import { Vector3 } from "three";
+import WebXRPolyfill from "./helper/webxr-polyfill.module.js";
+import { delay } from "./helper/delay.js";
+import { rgbToHex } from "./helper/rgbToHex.js";
 
 //----------------------------------------------------------------------------------------- 3D Scene
 const scene = new THREE.Scene();
@@ -106,7 +107,7 @@ window.addEventListener( 'resize', onWindowResize, false );
 
 
 //----------------------------------------------------------------------------------------- Camera
-const cam_fov = 85;
+const cam_fov = 45;
 const cam_renderMin = 0.1
 const cam_renderMax = 1000
 
@@ -132,17 +133,14 @@ camera_controls.dampingFactor = 0.045;
 //camera_controls.autoRotate = true; 
 //camera_controls.autoRotateSpeed = 0.5; 
 
-// Camera orbiting target
-//camera_controls.target = new Vector3(0,0,-50);
+// Camera orbiting central point
+camera_controls.target = new THREE.Vector3(0,3,0);
 
 // Lock y-axis rotation
 camera_controls.minPolarAngle = (Math.PI-10)/2;
 camera_controls.maxPolarAngle = (Math.PI-1)/2;
 
 // Introl zoom animation
-const delay = (delayInms) => {
-	return new Promise(resolve => setTimeout(resolve, delayInms));
-}
 const zoomInAnimation = async() => {
 	camera.position.set(0,0,300);
 	camera.updateProjectionMatrix(); 
@@ -150,16 +148,17 @@ const zoomInAnimation = async() => {
 	camera_controls.enabled = false;
 	camera_controls.update();
 
-	for (var i = 200; i > 8; i*=0.965) {
+	for (var i = 200; i > 12; i*=0.965) {
 		let delayres = await delay(8.2);
 		camera.position.set(i,i,i);
 		camera.updateProjectionMatrix(); 
 
-		i += 0.29
+		i += 0.435
 	}
 	//camera.position.set(camera_default_x,camera_default_y,camera_default_z);
 	camera_controls.enabled = true;
 	camera_controls.enableZoom = false;
+	camera_controls.enablePan = false;
 	camera_controls.update();
 
 	// Reinforce camera zoom after animation ends
@@ -191,7 +190,7 @@ function resetCaster() {
 //----------------------------------------------------------------------------------------- Firefox & Safari WebXR compatibility
 const polyfill = new WebXRPolyfill();
 
-//----------------------------------------------------------------------------------------- Loading screen
+//----------------------------------------------------------------------------------------- Loading management
 const loadingManager = new THREE.LoadingManager();
 
 // Execute on loading start
@@ -208,7 +207,7 @@ loadingManager.onProgress = function(url, loaded, total) {
 
 // Execute on loading complete
 const loadingScreen = document.querySelector('.loading-screen');
-loadingManager.onLoad = function() {
+loadingManager.onLoad = async function() {
 
 	// Loading screen fade
 	loadingScreenFade();
@@ -242,29 +241,125 @@ loadingManager.onError = function(url) {
 //----------------------------------------------------------------------------------------- 3D models
 // Fiber Optic Lamp
 const fiber_lamp = new THREE.Object3D();
-
-const fiber_lamp_mesh = new GLTFLoader(loadingManager);
-fiber_lamp_mesh.load('3d_models/fiber-optic-lamp.gltf', function(gltf) {
-	const model_root = gltf.scene;
-
-	fiber_lamp.add(model_root);
-}, 
-// Called when loading is in progresses
-function (xhr) {
-	if (( xhr.loaded / xhr.total * 100 ) == 100) {
-		console.log("Fiber Lamp: ");
-		console.log(fiber_lamp);
+	// Body
+	const fiber_lamp_body = new GLTFLoader(loadingManager);
+	fiber_lamp_body.load('3d_models/fiber_lamp/fiber-optic-lamp-body.gltf', function(gltf) {
+		const model_root = gltf.scene;
+		fiber_lamp.add(model_root);
+	}, 
+	// Called when loading is in progresses
+	function (xhr) {
+		if (( xhr.loaded / xhr.total * 100 ) == 100) {
+			console.log("Fiber Lamp: ");
+			console.log(fiber_lamp);
+			console.log(" ");
+		}
+	}, 
+	// Called when loading has errors
+	function (error) {
+		console.log("Fiber Lamp Object3D error: ");
+		console.log(error);
 		console.log(" ");
+	})
+
+	// Glow
+	const fiber_lamp_glow = new GLTFLoader(loadingManager);
+	fiber_lamp_glow.load('3d_models/fiber_lamp/fiber-optic-lamp-glow.gltf', function(gltf) {
+		const model_root = gltf.scene;
+		fiberColorChange(model_root);
+		fiber_lamp.add(model_root);
+	}, 
+	// Called when loading is in progresses
+	function (xhr) {
+		if (( xhr.loaded / xhr.total * 100 ) == 100) {
+			console.log("Fiber Lamp: ");
+			console.log(fiber_lamp);
+			console.log(" ");
+		}
+	}, 
+	// Called when loading has errors
+	function (error) {
+		console.log("Fiber Lamp Object3D error: ");
+		console.log(error);
+		console.log(" ");
+	})
+
+// Color changing fibers
+var red = 255; 
+var green = 0;	
+var blue = 0;	
+var color_stage = 1;
+async function fiberColorChange(model_root) {
+	while (true) {
+		// Cycle through all non-monochrome colors
+		if (color_stage == 1) {
+			blue += 1;
+			if (blue >= 254) {
+				color_stage++;
+			}
+		}
+		if (color_stage == 2) {
+			red -= 1;
+			if (red <= 1) {
+				color_stage++;
+			}
+		}
+		if (color_stage == 3) {
+			green += 1;
+			if (green >= 254) {
+				color_stage++;
+			}
+		}
+		if (color_stage == 4) {
+			blue -= 1;
+			if (blue <= 1) {
+				color_stage++;
+			}
+		}
+		if (color_stage == 5) {
+			red += 1;
+			if (red >= 254) {
+				color_stage++;
+			}
+		}
+		if (color_stage == 6) {
+			green -= 1;
+			if (green <= 1) {
+				color_stage = 1;
+			}
+		}
+		console.log("Color changed");
+		model_root.traverse((child, i) => {
+			if (child.isMesh) {
+			  child.material = new THREE.MeshBasicMaterial({ color: rgbToHex(red, green, blue)});;
+			}
+		 });
+		 let delayers = await delay(8.2);
 	}
-}, 
-// Called when loading has errors
-function (error) {
-	console.log("Fiber Lamp Object3D error: ");
-	console.log(error);
-	console.log(" ");
-})
+}
+
+
 
 scene.add(fiber_lamp);
+
+//---------------------------------------------------------------------------------------- Lights
+const lightColor = 0x090909;
+const lightIntensity = 0.8;
+const sunLight = new THREE.DirectionalLight(lightColor, lightIntensity);
+sunLight.position.set(0, 50, 900);
+scene.add(sunLight);
+console.log("Sunlight setting set: "); 
+console.log(sunLight);
+console.log(" ");
+
+const shadowColor = 0xffffff;
+const shadowBrightness = 1;
+const backShadow = new THREE.HemisphereLight(shadowColor, shadowColor, shadowBrightness);
+backShadow.position.set(0, 50, 900);
+scene.add(backShadow);
+console.log("Shadow settings set: ");
+console.log(backShadow);
+console.log(" ");
 
 //---------------------------------------------------------------------------------------- Composition
 

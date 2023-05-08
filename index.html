@@ -21,7 +21,7 @@
     
 <body>
     <!-- This remote script fixes Firefox importmap incompatibility-->
-    <script async src="/js/es-module-shims.min.js"></script>
+    <script async src="/js/helper/es-module-shims.min.js"></script>
 
     <!-- Import modules so it can be used by js files via `import { ... } from ...` -->
     <script type="importmap-shim">
@@ -40,6 +40,11 @@
 
     <!-- UI overlay over 3D view and AR view -->
     <div id="overlay-content">
+        <!-- Title -->
+        <h1 id="site-title">Jiayuan Wen</h1>
+
+        <!-- Menu -->
+
         <!-- Loading screen -->
         <div class="loading-screen">
             <!--<img id="loading-icon" src="../public/images/ui/psyche_logo_minimalist.png" />-->
