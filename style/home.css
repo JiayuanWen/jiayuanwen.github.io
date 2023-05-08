@@ -28,6 +28,22 @@ html, body {
 
 }
 
+/* --------------------------------------------------------------------------------- Fullscreen Button */
+#fullscreen {
+    position: absolute;
+    color: rgb(73, 73, 73);
+    font-size: 3.2rem;
+    right: 10px;
+    top: 6px;
+}
+#fullscreen > i {
+
+}
+#fullscreen > i:hover {
+    color: rgb(180, 244, 255);
+    cursor: pointer;
+}
+
 /* --------------------------------------------------------------------------------- Music Player */
 .music-player {
     position: absolute;

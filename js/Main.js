@@ -183,7 +183,7 @@ loadingManager.onLoad = async function() {
 	zoomInAnimation();
 
 	// Play music
-	document.getElementById('player').play();
+	//document.getElementById('player').play();
 	
 
 	// Starts animating the site after everything has loaded
@@ -409,10 +409,10 @@ function animate () {
 	//renderer.render(scene, camera);
 
     // Required by WebXR
-	//renderer.setAnimationLoop(animate);
+	renderer.setAnimationLoop(animate);
 
 	// Use this if only Three.js no WebXR
-	requestAnimationFrame(animate); 
+	//requestAnimationFrame(animate); 
 	
 
 }

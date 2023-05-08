@@ -40,14 +40,20 @@
 
     <!-- 3D view resides here -->
     <canvas class="fiber"></canvas>
-    <script type="module-shim" src="/js/Home.js"></script>
+    <script type="module-shim" src="/js/Main.js"></script>
 
     <!-- UI overlay over 3D view and AR view -->
     <div id="overlay-content">
         <!-- Title -->
-        <h1 id="site-title">Jiayuan Wen</h1>
+        <h1 id="site-title">Site is still under construction. But here's a cup of coffee to cheer you up ☕</h1>
+
+        <!-- Fullscreen button -->
+        <div id="fullscreen">
+            <i id="fullscreen-toggle" class="fa-solid fa-expand"></i>
+        </div>
 
         <!-- Menu -->
+
 
         <!-- Music player -->
         <div class="music-player">
@@ -74,10 +80,13 @@
 
         <!-- Loading screen -->
         <div class="loading-screen">
-            <!--<img id="loading-icon" src="../public/images/ui/psyche_logo_minimalist.png" />-->
+            <img id="loading-icon" src="/site_icon/Logo.png" />
             <label for="loading-bar" id="loading-label"></label>
-            <progress id="loading-bar" value="0" max="100"></progress>
+            <progress id="loading-bar" value="0" max="100">0</progress>%
         </div>
+
+        <!-- UI functions -->
+        <script type="module-shim" src="/js/UI.js"></script>
     </div>
 </body>
 </html>
