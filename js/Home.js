@@ -2,15 +2,15 @@
 import * as THREE from "three"
 
 // Three.js addons
-// Every addon is imported beginning with "../node_modules/three/examples/jsm/"
+// Every addon is imported beginning with "three/addons/..."
 // Full addon list: https://github.com/mrdoob/three.js/tree/dev/examples/jsm
-import {GLTFLoader} from "../node_modules/three/examples/jsm/loaders/GLTFLoader.js";
-import {OrbitControls} from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
+import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
+import {OrbitControls} from "three/addons/controls/OrbitControls.js";
 import {InteractionManager} from "threeInteract";
-import { EffectComposer } from '../node_modules/three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../node_modules/three/examples/jsm/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from '../node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js';
-import { RGBELoader } from '../node_modules/three/examples/jsm/loaders/RGBELoader.js'
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js'
 
 // Other helper functions
 import WebXRPolyfill from "./helper/webxr-polyfill.module.js";
