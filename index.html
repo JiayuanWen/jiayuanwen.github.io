@@ -5,18 +5,22 @@
     <link rel="stylesheet" type="text/css" href="style/home.css"/> <!--<script src="UI.js" defer></script>-->
     
     <!-- Site icon handler for different browsers/OSs -->
+    <!--
     <link rel="apple-touch-icon" sizes="180x180" href="public/images/site_icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="public/images/site_icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="public/images/site_icons/favicon-16x16.png">
     <link rel="manifest" href="public/images/site_icons/site.webmanifest">
     <link rel="mask-icon" href="public/images/site_icons/safari-pinned-tab.svg" color="#5bbad5">
-
+    -->
     <!-- Meta data -->
     <meta charset="UTF-8">
     <meta name="msapplication-TileColor" content="#2200d0">
     <meta name="theme-color" content="#000000">
     <!-- Required if you want the 3D scene to scale correctly on mobile -->
     <meta name="viewport" content="width=device-width, minimum-scale=1"> 
+
+    <!-- Scripts -->
+    <script src="/js/helper/fontawesome.js" crossorigin="anonymous"></script>
 </head>
     
 <body>
@@ -36,7 +40,7 @@
 
     <!-- 3D view resides here -->
     <canvas class="fiber"></canvas>
-    <script type="module-shim" src="/js/Home.js"></script>
+    <script type="module-shim" src="/js/Home3D.js"></script>
 
     <!-- UI overlay over 3D view and AR view -->
     <div id="overlay-content">
@@ -44,6 +48,22 @@
         <h1 id="site-title">Jiayuan Wen</h1>
 
         <!-- Menu -->
+
+        <!-- Music player -->
+        <div class="music-player">
+                <audio id="player">
+                    <source src="/audio/ Alan Walker, K-391, Tungevaag, Mangoo - Play (MaTrix Restrung Version).mp3" type="audio/mpeg"/>
+                    Your browser does not support audio.
+                </audio>
+                <div id="controls">       
+                    <div onclick="document.getElementById('player').play()"><i class="fa-solid fa-play" id="play"></i></div>
+                    <div onclick="document.getElementById('player').pause()"><i class="fa-solid fa-pause"></i></div>
+                    <div onclick="document.getElementById('player').volume += 0.1"><i class="fa-solid fa-volume-high"></i></div>
+                    <div onclick="document.getElementById('player').volume -= 0.1"><i class="fa-solid fa-volume-low"></i></div>
+                    <input type="range" value="0" id="player-progress">
+                </div>
+                <script type="module-shim" src="/js/helper/musicplayer.js"></script>
+        </div>
 
         <!-- Loading screen -->
         <div class="loading-screen">
