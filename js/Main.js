@@ -183,7 +183,8 @@ loadingManager.onLoad = async function() {
 	zoomInAnimation();
 
 	// Play music
-	//document.getElementById('player').play();
+	document.getElementById('player').pause();
+	document.getElementById("song-info").style.opacity = 0;
 	
 
 	// Starts animating the site after everything has loaded
