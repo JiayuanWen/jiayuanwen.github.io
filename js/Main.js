@@ -109,6 +109,7 @@ camera_controls.maxPolarAngle = (Math.PI-1)/2;
 
 // Introl zoom animation
 const zoomInAnimation = async() => {
+
 	camera.position.set(0,0,300);
 	camera.updateProjectionMatrix(); 
 	
@@ -116,7 +117,7 @@ const zoomInAnimation = async() => {
 	camera_controls.update();
 
 	for (var i = 200; i > 12; i*=0.965) {
-		let delayres = await delay(8.2);
+		let delayres = await delay(8.2); 
 		camera.position.set(i,i,i);
 		camera.updateProjectionMatrix(); 
 
@@ -177,6 +178,15 @@ loadingManager.onProgress = function(url, loaded, total) {
 // Execute on loading complete
 const loadingScreen = document.querySelector('.loading-screen');
 loadingManager.onLoad = async function() {
+	let delayer = await delay(100);
+	// Hide percentage
+	loadingPercent.style.opacity = 0;
+
+	// Set loading indicator (the spinning cube) to random image, then hide.
+	// Set to random image is to prevent site lag due to gif eating resources.
+	// Keeping a animated gif isn't a good idea after all.
+	document.getElementById('loading-indicator').style.opacity = 0;
+	document.getElementById('loading-indicator').src = "/textures/Alan_Walker_Play.jpg";
 
 	// Loading screen fade
 	loadingScreenFade();
