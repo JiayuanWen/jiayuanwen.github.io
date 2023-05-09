@@ -167,9 +167,11 @@ loadingManager.onStart = function(url, item, total) {
 
 // Execute during loading
 const loadingBar = document.getElementById('loading-bar');
+const loadingPercent = document.getElementById('loading-percent');
 loadingManager.onProgress = function(url, loaded, total) {
 
 	loadingBar.value = (loaded / total) * 100;
+	loadingPercent.textContent =  parseInt((loaded / total) * 100)+' %';
 }
 
 // Execute on loading complete

@@ -44,8 +44,8 @@
 
     <!-- UI overlay over 3D view and AR view -->
     <div id="overlay-content">
-        <!-- Title -->
-        <h1 id="site-title">Site is still under construction. But here's a cup of coffee to cheer you up ☕</h1>
+        <!-- Self Intro -->
+        <h1 id="site-title">Site still under construction. Here's a cup of coffee to cheer you up ☕</h1>
 
         <!-- Fullscreen button -->
         <div id="fullscreen">
@@ -80,8 +80,10 @@
         <!-- Loading screen -->
         <div class="loading-screen">
             <img id="loading-icon" src="/site_icon/Logo.png" />
-            <label for="loading-bar" id="loading-label"></label>
-            <progress id="loading-bar" value="0" max="100">0</progress>%
+            <!--<label for="loading-bar" id="loading-label"></label>-->
+            <img id="loading-indicator" src="/textures/loading_indicator.gif" />
+            <div id="loading-percent">0 %</div>
+            <progress id="loading-bar" value="0" max="100">0</progress>
         </div>
 
         <!-- UI functions -->
