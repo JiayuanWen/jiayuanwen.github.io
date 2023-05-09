@@ -24,7 +24,10 @@
 </head>
     
 <body>
-    <!-- This remote script fixes Firefox importmap incompatibility-->
+    <!-- GitHub page doesn't update unless there're changes to index.js. This does nothing otherwise.-->
+    <script></script>
+
+    <!-- This script fixes Firefox importmap incompatibility-->
     <script async src="/js/helper/es-module-shims.min.js"></script>
 
     <!-- Import modules so it can be used by js files via `import { ... } from ...` -->
