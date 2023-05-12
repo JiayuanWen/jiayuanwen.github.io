@@ -10,7 +10,11 @@ import {InteractionManager} from "threeInteract";
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
-import { RGBELoader } from 'three/addons/loaders/RGBELoader.js'
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+
+// Advanced UI elements
+import { selfIntroFadeIn } from "./helper/UI/selfintro-fade.js";
+import { mainMenuFadeIn } from "./helper/UI/mainmenu-fade.js";
 
 // Other helper functions
 import WebXRPolyfill from "./helper/webxr-polyfill.module.js";
@@ -194,7 +198,11 @@ loadingManager.onLoad = async function() {
 	// Zoom animation
 	zoomInAnimation();
 
-	// Play music
+	// Fade in effect for self introduction and main menu
+	selfIntroFadeIn(3000);
+	mainMenuFadeIn(4000);
+
+	// Handle music
 	document.getElementById('player').pause();
 	document.getElementById("song-info").style.opacity = 0;
 	

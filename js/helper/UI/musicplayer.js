@@ -1,4 +1,4 @@
-import { delay } from "./delay.js";
+import { delay } from "../delay.js";
 
 let progress = document.getElementById("player-progress");
 let song = document.getElementById("player");

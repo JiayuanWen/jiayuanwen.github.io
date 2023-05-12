@@ -46,16 +46,42 @@ html, body {
     }
     */
 
-/* --------------------------------------------------------------------------------- Fullscreen Button */
+/* --------------------------------------------------------------------------------- Main Menu */
+#main-menu-container {
+    position: absolute;
+    left: 40.7vw;
+    top: 55vh;
+    font-size: calc((3.5vh + 3.5vw)/2);
+    color: rgb(133, 133, 133);
+    font-family: Futura;
+    /*list-style-type: none;*/
+}
+
+#main-menu {
+    text-align: left;
+}
+    #main-menu > li {
+        margin-bottom: 40px;
+        transition: 0.3s;
+    }
+        #main-menu > li:hover {
+            color: rgb(255, 255, 255);
+            transform: translateX(10px);
+            cursor: pointer;
+        }
+
+
+/* --------------------------------------------------------------------------------- Fullscreen button */
 #fullscreen {
     position: absolute;
-    color: rgb(95, 95, 95);
+    color: rgb(0, 0, 0);
     font-size: 3.2rem;
     right: 10px;
     top: 6px;
+    transition: 0.3s;
 }
 #fullscreen > i {
-
+    transition: 0.3s;
 }
 #fullscreen > i:hover {
     color: rgb(255, 255, 255);
@@ -70,7 +96,13 @@ html, body {
     bottom: 20px;
     text-align: center;
     width: 350px;
+    opacity: 0;
+    transition: 0.3s;
 }
+    .music-player:hover {
+        opacity: 1;
+    }
+
 #controls {
     display: flex;
     color: #c0c0c0;
@@ -136,7 +168,7 @@ html, body {
     display: flex;
     flex-direction: row;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(255, 255, 255);
+    color: rgb(170, 170, 170);
     text-align: left;
 }
 #song-author {
