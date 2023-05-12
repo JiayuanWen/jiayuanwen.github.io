@@ -15,6 +15,7 @@ import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 // Advanced UI elements
 import { selfIntroFadeIn } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFadeIn } from "./helper/UI/mainmenu-fade.js";
+import { contactInfoFadeIn } from "./helper/UI/contactinfo-fade.js";
 
 // Other helper functions
 import WebXRPolyfill from "./helper/webxr-polyfill.module.js";
@@ -201,6 +202,7 @@ loadingManager.onLoad = async function() {
 	// Fade in effect for self introduction and main menu
 	selfIntroFadeIn(3000);
 	mainMenuFadeIn(4000);
+	contactInfoFadeIn(4000);
 
 	// Handle music
 	document.getElementById('player').pause();
