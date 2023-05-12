@@ -202,7 +202,7 @@ loadingManager.onLoad = async function() {
 	// Fade in effect for self introduction and main menu
 	selfIntroFadeIn(3000);
 	mainMenuFadeIn(4000);
-	contactInfoFadeIn(4000);
+	contactInfoFadeIn(5000);
 
 	// Handle music
 	document.getElementById('player').pause();
