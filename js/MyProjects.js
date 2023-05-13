@@ -10,6 +10,10 @@ import { delay } from "./helper/delay.js";
 //---------------------------------------------------------------------------------------- About Me click handle
 document.getElementById("my-projects").addEventListener("click", function() {
 
+    // Enable back button to allow visitors to go back
+    document.getElementById("back-button").style.pointerEvents = "auto";
+    document.getElementById("back-button").style.display = "block";
+
     // Hide main page
     selfIntroFade(10,"Out");
     mainMenuFade(10,"Out");

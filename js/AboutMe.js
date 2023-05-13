@@ -9,11 +9,16 @@ import { delay } from "./helper/delay.js";
 
 //---------------------------------------------------------------------------------------- About Me click handle
 document.getElementById("about-me").addEventListener("click", async function() {
+
+    // Enable back button to allow visitors to go back
+    document.getElementById("back-button").style.pointerEvents = "auto";
+    document.getElementById("back-button").style.display = "block";
+
     // Hide main page
     selfIntroFade(10,"Out");
     mainMenuFade(10,"Out");
 
-    // Move lamp to side
+    // Move lamp to side 
     document.getElementById("fiber-lamp").style.transition = "2s";
     document.getElementById("fiber-lamp").style.paddingRight = "90vw";
     
@@ -24,3 +29,4 @@ document.getElementById("about-me").addEventListener("click", async function() {
     // Make page interactable
     document.getElementById("aboutme").style.pointerEvents = "auto";
 })
+

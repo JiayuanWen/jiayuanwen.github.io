@@ -183,7 +183,12 @@ loadingManager.onProgress = function(url, loaded, total) {
 // Execute on loading complete
 const loadingScreen = document.querySelector('.loading-screen');
 loadingManager.onLoad = async function() {
+
+	// We don't need the back button for main page, disable click on that
+	document.getElementById("back-button").style.pointerEvents = "none";
+
 	let delayer = await delay(100);
+
 	// Hide percentage
 	loadingPercent.style.opacity = 0;
 

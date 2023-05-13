@@ -5,6 +5,8 @@
 
      <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="style/main.css"/>
+
+    <!-- Component stylesheets -->
     <link rel="stylesheet" type="text/css" href="style/components/3dfiber.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/selfintroduction.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/contactinfo.css"/>
@@ -12,6 +14,9 @@
     <link rel="stylesheet" type="text/css" href="style/components/fullscreen.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/musicplayer.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/loadingscreen.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/backbutton.css"/>
+
+    <!-- Page/section stylesheets -->
     <link rel="stylesheet" type="text/css" href="style/aboutme.css"/>
     
     <!-- Site icon handler for different browsers/OSs -->
@@ -72,7 +77,10 @@
         <!-- Below are UI stuff that must be on top of everything -->
 
         <!-- Back to home button -->
-        
+        <div id="back-button">
+            <ion-icon name="arrow-back-sharp"></ion-icon>
+            <script type="module-shim" src="/js/helper/UI/back-button.js"></script>
+        </div>
 
         <!-- Fullscreen button -->
         <div id="fullscreen">
