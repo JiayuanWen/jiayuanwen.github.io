@@ -26,6 +26,11 @@ progress.onchange = async function() {
     song.play();
     song.currentTime = progress.value;
 
+    // Set Play/Pause button icon to pause if song is paused.
+    if (play.getAttribute('name') === 'play-sharp') {
+        play.setAttribute('name','pause-sharp');
+    }
+
     // Show info if song is paused
     infoOpacity = 0;
     if (!info.style.opacity) {
@@ -41,24 +46,16 @@ progress.onchange = async function() {
         info.style.opacity = infoOpacity;
         let delayer = await delay(12.5);
         //console.log(infoOpacity);
-    }
-    
-    // Set Play/Pause button icon to pause if song is paused.
-    if (play.classList.contains("fa-play")) {
-        play.classList.remove("fa-play");
-        play.classList.add("fa-pause");
-    }
+    }  
 }
 
 // Play/Pause button, also show/hide song info
 play.addEventListener("click", async function() {
     var infoOpacity;
     // If song is playing
-    if (play.classList.contains("fa-pause")) {
+    if (play.getAttribute('name') === 'pause-sharp') {
         song.pause();
-        play.classList.remove("fa-pause");
-        play.classList.add("fa-play");
-
+        play.setAttribute('name','play-sharp');
         infoOpacity = 1;
         if (!info.style.opacity) {
             info.style.opacity = 0;
@@ -73,10 +70,9 @@ play.addEventListener("click", async function() {
         }
     }
     // If song is not playing
-    else if (play.classList.contains("fa-play")) {
+    else if (play.getAttribute('name') === 'play-sharp') {
         song.play();
-        play.classList.add("fa-pause");
-        play.classList.remove("fa-play"); 
+        play.setAttribute('name','pause-sharp'); 
 
         infoOpacity = 0;
         if (!info.style.opacity) {

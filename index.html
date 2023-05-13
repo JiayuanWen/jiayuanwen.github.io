@@ -2,7 +2,17 @@
 <html lang="en">
 <head>
     <title>Jiayuan Wen's Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="style/home.css"/> <!--<script src="UI.js" defer></script>-->
+
+     <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="style/main.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/3dfiber.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/selfintroduction.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/contactinfo.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/mainmenu.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/fullscreen.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/musicplayer.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/loadingscreen.css"/>
+    <link rel="stylesheet" type="text/css" href="style/aboutme.css"/>
     
     <!-- Site icon handler for different browsers/OSs -->
     <link rel="apple-touch-icon" sizes="180x180" href="site_icon/apple-touch-icon.png">
@@ -19,8 +29,11 @@
     <!-- Required if you want the 3D scene to scale correctly on mobile -->
     <meta name="viewport" content="width=device-width, minimum-scale=1"> 
 
-    <!-- Scripts -->
+    <!-- Required for including Font Awesome -->
     <script src="/js/helper/fontawesome.js" crossorigin="anonymous"></script>
+
+    <!-- Required for loading separate html files -->
+    <script src="https://www.w3schools.com/lib/w3data.js"></script>
 </head>
     
 <body>
@@ -46,59 +59,42 @@
     <div id="overlay-content">
         <!-- Self Intro -->
         <h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
-        <!-- Contact information -->
-        <div id="contact-info">
-            <a rel="noopener noreferrer" target="about:blank" href="https://www.github.com/JiayuanWen"><i class="fa-brands fa-square-github"></i></a>
-            <a rel="noopener noreferrer" target="about:blank" href="https://www.linkedin.com/in/jiayuanwen/"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="mailto:jbw5872@psu.edu"><i class="fa-solid fa-square-envelope"></i></a>
-        </div>
+        <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>
 
         <!-- Menu -->
-        <div id="main-menu-container">
-            <ul id="main-menu">
-                <li id="about-me">About Me</li> <script type="module-shim" src="/js/AboutMe.js"></script>
-                <li id="my-projects">My Projects</li> <script type="module-shim" src="/js/MyProjects.js"></script>
-            </ul>
-        </div>
+        <div w3-include-html="/page_components/main_menu.html"></div> 
+
+        <!-- About Me -->
+        <div w3-include-html="/pages/about_me.html"></div> 
+
+
+
+        <!-- Below are UI stuff that must be on top of everything -->
+
+        <!-- Back to home button -->
+        
 
         <!-- Fullscreen button -->
         <div id="fullscreen">
-            <i id="fullscreen-toggle" class="fa-solid fa-expand"></i>
+            <ion-icon id="fullscreen-toggle" name="expand-sharp"></ion-icon>
+            <script type="module-shim" src="/js/helper/UI/fullscreen-button.js"></script>
         </div>
 
         <!-- Music player -->
-        <div class="music-player">
-                <audio id="player" loop>
-                    <source src="/audio/ Alan Walker, K-391, Tungevaag, Mangoo - Play (MaTrix Restrung Version).mp3" type="audio/mpeg"/>
-                    Your browser does not support audio.
-                </audio>
-                <div id="song-info">
-                    <img src="/textures/Alan_Walker_Play.jpg" id="album-cover"></img>
-                    <div id="song-author">
-                    <h4>Play (MaTrix Restrung Remix)</h4>
-                    <small>Walker, K-391, Tungevaag, Mangoo, DayDreamer</small>
-                    </div>
-                </div>
-                <div id="controls">       
-                    <div><i class="fa-solid fa-play" id="play"></i></div>
-                    <div onclick="document.getElementById('player').volume += 0.1"><i class="fa-solid fa-volume-high"></i></div>
-                    <div onclick="document.getElementById('player').volume -= 0.1"><i class="fa-solid fa-volume-low"></i></div>
-                    <input type="range" value="0" id="player-progress">
-                </div>
-                <script type="module-shim" src="/js/helper/UI/musicplayer.js"></script>
-        </div>
+        <div w3-include-html="/page_components/music_player.html"></div> 
 
         <!-- Loading screen -->
-        <div class="loading-screen">
-            <img id="loading-icon" src="/site_icon/Logo.png" />
-            <!--<label for="loading-bar" id="loading-label"></label>-->
-            <img id="loading-indicator" src="/textures/loading_indicator.gif" />
-            <div id="loading-percent">0 %</div>
-            <progress id="loading-bar" value="0" max="100">0</progress>
-        </div>
+        <div w3-include-html="/page_components/loading_screen.html"></div> 
 
-        <!-- UI functions -->
-        <script type="module-shim" src="/js/UI.js"></script>
+        <!-- Contact information -->
+        <div w3-include-html="/page_components/contact_info.html"></div> 
+
+        <!-- Required for loading separate html files -->
+        <script>w3IncludeHTML();</script>
+
+        <!-- Required for ionicons to work -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </div>
 </body>
 </html>

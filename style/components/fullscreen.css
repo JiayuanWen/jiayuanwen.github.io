@@ -1,0 +1,16 @@
+/* --------------------------------------------------------------------------------- Fullscreen button */
+#fullscreen {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-size: 3.2rem;
+    right: 10px;
+    top: 6px;
+    transition: 0.3s;
+}
+#fullscreen-toggle {
+    transition: 0.3s;
+}
+#fullscreen-toggle:hover {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}

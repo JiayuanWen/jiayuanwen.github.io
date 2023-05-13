@@ -1,0 +1,20 @@
+<div class="music-player">
+    <audio id="player" loop>
+        <source src="/audio/ Alan Walker, K-391, Tungevaag, Mangoo - Play (MaTrix Restrung Version).mp3" type="audio/mpeg"/>
+        Your browser does not support audio.
+    </audio>
+    <div id="song-info">
+        <img src="/textures/Alan_Walker_Play.jpg" id="album-cover"></img>
+        <div id="song-author">
+        <h4>Play (MaTrix Restrung Remix)</h4>
+        <small>Walker, K-391, Tungevaag, Mangoo, DayDreamer</small>
+        </div>
+    </div>
+    <div id="controls">       
+        <div><ion-icon id="play" name="play-sharp"></ion-icon></div>
+        <div onclick="document.getElementById('player').volume += 0.1"><ion-icon name="volume-high-sharp"></ion-icon></div>
+        <div onclick="document.getElementById('player').volume -= 0.1"><ion-icon name="volume-low-sharp"></ion-icon></div>
+        <input type="range" value="0" id="player-progress">
+    </div>
+    <script type="module-shim" src="/js/helper/UI/musicplayer.js"></script>
+</div>

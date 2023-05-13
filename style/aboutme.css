@@ -1,0 +1,27 @@
+#aboutme {
+    transition: 0s;
+    /*display: "none"; Does't work*/
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* --------------------------------------------------------------------------------- Selfie */
+#aboutme-selfie {
+    position: absolute;
+    width: calc((40.2vh + 40.2vw)/2);
+    left: 5vw;
+    top: 10vh;
+    border-style: groove;
+    border-width: 20px;
+    border-color: rgb(0, 0, 0);
+}
+
+/* --------------------------------------------------------------------------------- Page 1 */
+#aboutme-page1 {
+    opacity: 1;
+}
+
+/* --------------------------------------------------------------------------------- Page 2 */
+#aboutme-page2 {
+    opacity: 0;
+}

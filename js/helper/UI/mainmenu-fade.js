@@ -16,6 +16,7 @@ export async function mainMenuFade(delay_, mode) {
         }
     } 
     else {
+        document.getElementById("main-menu-container").style.pointerEvents = "none";
         opacity = 1;
         while (opacity > 0) {
             opacity -= 0.01;

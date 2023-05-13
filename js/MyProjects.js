@@ -14,6 +14,6 @@ document.getElementById("my-projects").addEventListener("click", function() {
     selfIntroFade(10,"Out");
     mainMenuFade(10,"Out");
 
-    document.getElementById("fiber-lamp").style.transition = "2s";
+    document.getElementById("fiber-lamp").style.transition = "1.9s";
     document.getElementById("fiber-lamp").style.paddingRight = "0vw"; 
 })

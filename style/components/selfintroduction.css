@@ -1,0 +1,27 @@
+/* --------------------------------------------------------------------------------- Self Intro */
+#site-intro {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    left: 42vw;
+    top: 20vh;
+    font-size: calc((5.1vh + 5.1vw)/2); 
+    font-family: Impact, Charcoal, sans-serif;
+    margin-right: 20px;
+    font-weight: 100;
+    text-shadow: -1px -1px 0 rgb(170, 170, 170), 1px -1px 0 rgb(170, 170, 170), -1px 1px 0 rgb(170, 170, 170), 1px 1px 0 rgb(170, 170, 170);
+}
+    #site-intro > hi {
+        font-size: calc((5.8vh + 5.8vw)/2);
+    }
+
+    #site-intro > name {
+        font-size: calc((5.8vh + 5.8vw)/2);
+        color: rgb(0, 0, 0);
+        text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
+    }
+
+    /*
+    #site-intro > senglow {
+        color: rgb(226, 226, 226);
+    }
+    */
