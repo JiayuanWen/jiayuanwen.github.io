@@ -12,17 +12,18 @@ html, body {
     overflow:   hidden; 
     /*position:   fixed; //this breaks iOS and Chrome WebXR emulator */ 
 }
-/* --------------------------------------------------------------------------------- 3D Fiber */
+/* --------------------------------------------------------------------------------- 3D Fiber Lamp */
 .fiber {
     float: right;
     padding-right: 50vw;
+    transition: 0s;
 }
 
 /* --------------------------------------------------------------------------------- Self Intro */
 #site-intro {
     position: absolute;
     color: rgb(0, 0, 0);
-    left: 41vw;
+    left: 42vw;
     top: 20vh;
     font-size: calc((5.1vh + 5.1vw)/2); 
     font-family: Impact, Charcoal, sans-serif;
@@ -75,7 +76,7 @@ html, body {
 /* --------------------------------------------------------------------------------- Main Menu */
 #main-menu-container {
     position: absolute;
-    left: 39vw;
+    left: 39.7vw;
     top: 51.5vh;
     font-size: calc((3.5vh + 3.5vw)/2);
     color: rgb(133, 133, 133);

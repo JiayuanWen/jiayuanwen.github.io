@@ -1,8 +1,8 @@
 import { delay } from "../delay.js"
 
-export async function selfIntroFade(delay_, mode) {
+export async function fiberLampFade(delay_, mode) {
     var opacity = 0;
-    document.getElementById("site-intro").style.opacity = opacity;
+    document.getElementById("fiber-lamp").style.opacity = opacity;
 
     let delayer = await delay(delay_);
 
@@ -10,7 +10,7 @@ export async function selfIntroFade(delay_, mode) {
         opacity = 0;
         while (opacity < 1) {
             opacity += 0.01;
-            document.getElementById("site-intro").style.opacity = opacity;
+            document.getElementById("fiber-lamp").style.opacity = opacity;
     
             let delayer = await delay (5.8);
         }
@@ -20,11 +20,11 @@ export async function selfIntroFade(delay_, mode) {
         opacity = 1;
         while (opacity > 0) {
             opacity -= 0.01;
-            document.getElementById("site-intro").style.opacity = opacity;
+            document.getElementById("fiber-lamp").style.opacity = opacity;
     
             let delayer = await delay (5.8);
         }
-        document.getElementById("site-intro").style.display = "none";
+        document.getElementById("fiber-lamp").style.opacity = "none";
     }
 }
     

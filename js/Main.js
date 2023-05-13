@@ -13,8 +13,8 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 
 // Advanced UI elements
-import { selfIntroFadeIn } from "./helper/UI/selfintro-fade.js";
-import { mainMenuFadeIn } from "./helper/UI/mainmenu-fade.js";
+import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
+import { mainMenuFade } from "./helper/UI/mainmenu-fade.js";
 import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
 
 // Other helper functions
@@ -200,8 +200,8 @@ loadingManager.onLoad = async function() {
 	zoomInAnimation();
 
 	// Fade in effect for self introduction and main menu
-	selfIntroFadeIn(1000);
-	mainMenuFadeIn(1000);
+	selfIntroFade(1000, "In");
+	mainMenuFade(1000, "In");
 	contactInfoFade(1000, "In");
 
 	// Handle music
