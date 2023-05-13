@@ -29,14 +29,15 @@
     top: 10vh;
 }
 
-#aboutme-page1 > p {
+#aboutme-page1 > #self-info {
     position: absolute;
-    font-size: calc((2.1vh + 2.1vw)/2);
+    font-size: calc((1.5vh + 1.5vw)/2);
     font-family: "Lucida Console", Monaco, monospace;
     font-weight: 100;
-    line-height: 50px;
+    line-height: calc((3.7vh + 3.7vw)/2);
     left: 45vw;
     top: 25vh;
+    margin-right: 70px;
 }
 
 /* --------------------------------------------------------------------------------- Page 2 */
