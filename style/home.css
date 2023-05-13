@@ -25,7 +25,7 @@ html, body {
     left: 41vw;
     top: 20vh;
     font-size: calc((5.1vh + 5.1vw)/2); 
-    font-family: Futura;
+    font-family: Impact, Charcoal, sans-serif;
     margin-right: 20px;
     font-weight: 100;
     text-shadow: -1px -1px 0 rgb(170, 170, 170), 1px -1px 0 rgb(170, 170, 170), -1px 1px 0 rgb(170, 170, 170), 1px 1px 0 rgb(170, 170, 170);
@@ -85,11 +85,12 @@ html, body {
 #main-menu {
     text-align: left;
     list-style-type: none;
+    font-family: "Lucida Console", Monaco, monospace;
 }
     #main-menu > li {
         margin-bottom: 40px;
         transition: 0.3s;
-        text-decoration: underline;
+        /*text-decoration: underline;*/
         text-decoration-thickness: from-font;
     }
         #main-menu > li:hover {
