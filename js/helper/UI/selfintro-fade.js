@@ -7,6 +7,12 @@ export async function selfIntroFade(delay_, mode) {
     // Wait delay_ miliseconds before continuing
     let delayer = await delay(delay_);
 
+    // Different font size for firefox
+    if (navigator.userAgent.indexOf("Firefox") != -1) {
+        document.getElementById("site-intro").style.fontSize = "calc((4.1vh + 4.1vw)/2)";
+    }
+    
+
     // Fade in effect
     if (mode == "In") {
         opacity = 0;

@@ -1,25 +1,27 @@
 /* --------------------------------------------------------------------------------- Main Menu */
 #main-menu-container {
     position: absolute;
-    left: 39.7vw;
-    top: 51.5vh;
+    left: 42vw;
+    bottom: 20.5vh;
     font-size: calc((3.5vh + 3.5vw)/2);
     color: rgb(133, 133, 133);
     font-family: Futura;
 }
 
 #main-menu {
+    display: flex;
+    flex-direction: column;
     text-align: left;
     list-style-type: none;
     font-family: "Lucida Console", Monaco, monospace;
 }
-    #main-menu > li {
+    #main-menu > a {
         margin-bottom: 40px;
         transition: 0.3s;
         /*text-decoration: underline;*/
         text-decoration-thickness: from-font;
     }
-        #main-menu > li:hover {
+        #main-menu > a:hover {
             color: rgb(255, 255, 255);
             transform: translateX(10px);
             cursor: pointer;

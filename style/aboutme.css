@@ -5,8 +5,12 @@
     opacity: 0;
 }
 
-/* --------------------------------------------------------------------------------- Selfie */
-#aboutme-selfie {
+/* --------------------------------------------------------------------------------- Page 1 */
+#aboutme-page1 {
+    opacity: 1;
+}
+
+#aboutme-page1 > #aboutme-selfie {
     position: absolute;
     width: calc((40.2vh + 40.2vw)/2);
     left: 5vw;
@@ -16,9 +20,23 @@
     border-color: rgb(0, 0, 0);
 }
 
-/* --------------------------------------------------------------------------------- Page 1 */
-#aboutme-page1 {
-    opacity: 1;
+#aboutme-page1 > h1 {
+    position: absolute;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: calc((4.7vh + 4.7vw)/2);
+    font-weight: 300;
+    left: 45vw;
+    top: 10vh;
+}
+
+#aboutme-page1 > p {
+    position: absolute;
+    font-size: calc((2.1vh + 2.1vw)/2);
+    font-family: "Lucida Console", Monaco, monospace;
+    font-weight: 100;
+    line-height: 50px;
+    left: 45vw;
+    top: 25vh;
 }
 
 /* --------------------------------------------------------------------------------- Page 2 */
