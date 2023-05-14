@@ -50,16 +50,16 @@ export async function toggleAboutMe(mode) {
         document.getElementById("aboutme-page1").style.opacity= "1";
         document.getElementById("aboutme-page1").style.pointerEvents = "none";
 
-        document.getElementById("aboutme-page1-selfie").style.transition = "1s";
+        document.getElementById("aboutme-page1-selfie").style.transition = "0s";
         document.getElementById("aboutme-page1-selfie").style.left = "5vw";
 
-        document.getElementById("aboutme-page1-info").style.transition = "1s";
+        document.getElementById("aboutme-page1-info").style.transition = "0s";
         document.getElementById("aboutme-page1-info").style.top = "22vh";
 
         document.getElementById("aboutme-page2").style.opacity= "0";
         document.getElementById("aboutme-page2").style.pointerEvents = "none";
 
-        document.getElementById("aboutme").style.transition = "2s";
+        document.getElementById("aboutme").style.transition = "1s";
         document.getElementById("aboutme").style.opacity= "0";
 
         // Disable page interaction
@@ -109,4 +109,16 @@ document.getElementById("to-page2").addEventListener("click", async function() {
     document.getElementById("aboutme-page2").style.opacity= "1";
     document.getElementById("aboutme-page2").style.pointerEvents = "auto";
 })
+
+//---------------------------------------------------------------------------------------- Parallax effect
+document.addEventListener("mousemove", parallax);
+
+function parallax(e) {
+    var moving_value_background = document.getElementById("aboutme-page2-background").getAttribute("depth");
+    var x_background = (e.clientX * moving_value_background) / 250;
+    var y_background = (e.clientY * moving_value_background) / 250;
+
+    document.getElementById("aboutme-page1-background").style.transform = "translateX(" + x_background + "px) translateY(" + y_background + "px) scale(1.1)";
+    document.getElementById("aboutme-page2-background").style.transform = "translateX(" + x_background + "px) translateY(" + y_background + "px) scale(1.1)";
+}
 
