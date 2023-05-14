@@ -15,13 +15,33 @@
     transform: translateX(-10%) translateY(-50%);
     font-size: calc((4.0vh + 4.0vw)/2);
 }
+    #scroll-indicator > #scroll-up{
+        transition: 0.3s;
+    }
+        #scroll-indicator > #scroll-up:hover {
+            color:blueviolet;
+            transform: translateY(-10%);
+        }
+        #scroll-indicator > #scroll-up:active {
+            color:rgb(43, 153, 226);
+        }
+
     #scroll-indicator > #scroll-down {
         position: fixed;
         bottom: 1vh;
         right: 0%;
         transform: translateX(-10%);
         font-size: calc((4.3vh + 4.3vw)/2);
+        transition: 0.3s;
     }
+        #scroll-indicator > #scroll-down:hover {
+            color:blueviolet;
+            transform: translateX(-10%) translateY(10%);
+        }
+        #scroll-indicator > #scroll-down:active {
+            color:rgb(43, 153, 226);
+            transform: translateX(-10%);
+        }
 
 /* --------------------------------------------------------------------------------- Page 1 */
 #aboutme-page1 {
