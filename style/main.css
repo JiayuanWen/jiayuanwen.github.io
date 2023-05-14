@@ -3,6 +3,9 @@ body {
     color: white !important;
     overflow-y:  hidden; 
     overflow-x: hidden;
+    font-family: "Lucida Console", Monaco, monospace;
+
+
 }
   
 html, body {
@@ -39,5 +42,25 @@ body::-webkit-scrollbar {
 @keyframes spin {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
+}
+
+/* Hyperlink color */
+a:link {
+    color:rgb(255, 255, 255);
+}
+a:visited {
+    color:rgb(139, 139, 139);
+}
+a:hover {
+    color:rgb(200, 255, 0);
+}
+
+/* Site credit */
+#site-credit {
+    position: fixed;
+    color: rgb(139, 139, 139);
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 

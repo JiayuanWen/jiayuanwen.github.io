@@ -171,6 +171,13 @@ const loadingManager = new THREE.LoadingManager();
 // Execute on loading start
 loadingManager.onStart = function(url, item, total) {
 
+	if (isMobile()) {
+		alert("The site currently isn't optimized for mobile devices. It is best to visit on PC for the time being.");
+	}
+	else {
+		//alert("Note: Site is still under construction.");
+	}
+
 }
 
 // Execute during loading
