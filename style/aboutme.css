@@ -10,11 +10,19 @@
     opacity: 1;
 }
 
+#aboutme-page1 > #background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url(/textures/env_map/guangzhou.jpg);
+    background-size: cover;
+}
+
 #aboutme-page1 > #aboutme-selfie {
     position: absolute;
-    width: calc((40.2vh + 40.2vw)/2);
+    width: calc((37.2vh + 37.2vw)/2);
     left: 5vw;
-    top: 10vh;
+    top: 12vh;
     border-style: groove;
     border-width: 20px;
     border-color: rgb(0, 0, 0);
@@ -38,6 +46,22 @@
     left: 45vw;
     top: 25vh;
     margin-right: 70px;
+}
+
+#to-page2 {
+    position: absolute;
+    font-size: calc((3vh + 3vw)/2);
+    left: 65vw;
+    top: 17.5vh;
+    color: rgb(136, 136, 136);
+    transition: 0.3s;
+}
+#to-page2 {
+    position: absolute;
+    font-size: calc((3vh + 3vw)/2);
+    left: 65vw;
+    top: 17.5vh;
+    color: rgb(136, 136, 136);
 }
 
 /* --------------------------------------------------------------------------------- Page 2 */

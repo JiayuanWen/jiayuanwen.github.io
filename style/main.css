@@ -1,16 +1,30 @@
 body {
     top: 0px !important;
     color: white !important;
+    overflow-y:  hidden; 
+    overflow-x: hidden;
 }
   
 html, body {
-    background-color: #000;
+    background-color: rgb(0, 0, 0);
+    background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)), url(/textures/env_map/guangzhou.jpg);
     background-size:     cover;                      
     background-repeat:   no-repeat;
     margin:     0; 
     height:     100%;
-    overflow:   hidden; 
+    
     /*position:   fixed; //this breaks iOS and Chrome WebXR emulator */ 
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
 

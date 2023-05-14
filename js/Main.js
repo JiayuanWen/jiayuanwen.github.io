@@ -23,7 +23,7 @@ import { delay } from "./helper/delay.js";
 import { rgbToHex } from "./helper/rgbToHex.js";
 import { isMobile } from "./helper/mobileCheck.js";
 
-//----------------------------------------------------------------------------------------- 3D Scene
+//----------------------------------------------------------------------------------------- 3D Scene for fiber lamp
 const scene = new THREE.Scene();
 
 // Use delta so system calculate animation using universal ticks instead of base on 
@@ -47,6 +47,7 @@ new RGBELoader()
 		texture.mapping = THREE.EquirectangularReflectionMapping;
 
 		//scene.background = texture;
+		scene.background = null;
 		scene.environment = texture;
 
 	} );
@@ -70,6 +71,7 @@ const renderer = new THREE.WebGLRenderer({
 	antialias: antialiasingiOSToggle()
 });
 renderer.setClearColor( 0x000000, 0 );
+//renderer.autoclear = false;
 
 // Setting the size of rendered 
 renderer.setSize( window.innerWidth, window.innerHeight ); 
@@ -340,34 +342,25 @@ async function fiberColorChange(model_root) {
 scene.add(fiber_lamp);
 
 //---------------------------------------------------------------------------------------- Lights
-const lightColor = 0x090909;
-const lightIntensity = 0.8;
-const sunLight = new THREE.DirectionalLight(lightColor, lightIntensity);
-sunLight.position.set(0, 50, 900);
-scene.add(sunLight);
-console.log("Sunlight setting set: "); 
-console.log(sunLight);
-console.log(" ");
 
-const shadowColor = 0xffffff;
-const shadowBrightness = 1;
-const backShadow = new THREE.HemisphereLight(shadowColor, shadowColor, shadowBrightness);
-backShadow.position.set(0, 50, 900);
-scene.add(backShadow);
-console.log("Shadow settings set: ");
-console.log(backShadow);
-console.log(" ");
 
 //---------------------------------------------------------------------------------------- Composition
-const renderScene = new RenderPass( scene, camera );
+const renderPass = new RenderPass( scene, camera );
+
+var renderTarger_params = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBAFormat, stencilBuffer: false };
+var renderTarget = new THREE.WebGLRenderTarget( 
+	window.innerWidth, 
+	window.innerHeight, 
+	renderTarger_params
+);
 
 const bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
 bloomPass.threshold = 0;
 bloomPass.strength = 1;
 bloomPass.radius = 0.1;
 
-let composer = new EffectComposer( renderer );
-composer.addPass( renderScene );
+let composer = new EffectComposer( renderer, renderTarget );
+composer.addPass( renderPass );
 composer.addPass( bloomPass );
 
 //---------------------------------------------------------------------------------------- Window resize handler
@@ -431,16 +424,17 @@ function animate () {
 	camera_controls.update();
 
 	//
+	//renderer.clear();
 	composer.render();
 	
 	// Render the 3D scene
 	//renderer.render(scene, camera);
 
     // Required by WebXR
-	renderer.setAnimationLoop(animate);
+	//renderer.setAnimationLoop(animate);
 
 	// Use this if only Three.js no WebXR
-	//requestAnimationFrame(animate); 
+	requestAnimationFrame(animate); 
 	
 
 }

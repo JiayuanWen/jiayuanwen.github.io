@@ -21,12 +21,33 @@ document.getElementById("about-me").addEventListener("click", async function() {
     // Move lamp to side 
     document.getElementById("fiber-lamp").style.transition = "2s";
     document.getElementById("fiber-lamp").style.paddingRight = "90vw";
+    document.getElementById("fiber-lamp").style.opacity = "0";
     
-    // Show about me page
-    document.getElementById("aboutme").style.transition = "2s";
-    document.getElementById("aboutme").style.opacity= "1";
-
-    // Make page interactable
-    document.getElementById("aboutme").style.pointerEvents = "auto";
+    toggleAboutMe("In");
 })
+
+//---------------------------------------------------------------------------------------- About Me page show/hide
+export async function toggleAboutMe(mode) {
+    if (mode == "In") {
+        document.getElementById("aboutme").style.transition = "2s";
+        document.getElementById("aboutme").style.opacity= "1";
+
+        // Make page interactable
+        document.getElementById("aboutme").style.pointerEvents = "auto";
+
+        // Make page scrollable
+        document.getElementsByTagName('body')[0].style.overflowY = "auto";
+    }
+    else {
+        document.getElementById("aboutme").style.transition = "2s";
+        document.getElementById("aboutme").style.opacity= "0";
+
+        // Disable page interaction
+        document.getElementById("aboutme").style.pointerEvents = "none";
+        
+        // Make page unscrollable
+        window.scrollTo(0,0);
+        document.getElementsByTagName('body')[0].style.overflowY = "hidden";
+    }
+}
 

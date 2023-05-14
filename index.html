@@ -60,21 +60,18 @@
     <canvas class="fiber" id="fiber-lamp"></canvas>
     <script type="module-shim" src="/js/Main.js"></script>
 
-    <!-- UI overlay over 3D view-->
-    <div id="overlay-content">
-        <!-- Self Intro -->
-        <h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
-        <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>
 
-        <!-- Menu -->
-        <div w3-include-html="/page_components/main_menu.html"></div> 
+    <!-- Self Intro -->
+    <h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
+    <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>
 
-        <!-- About Me -->
-        <div w3-include-html="/pages/about_me.html"></div> 
+    <!-- Menu -->
+    <div w3-include-html="/page_components/main_menu.html"></div> 
 
+    <!-- About Me -->
+    <div w3-include-html="/pages/about_me.html"></div> 
 
-
-        <!-- Below are UI stuff that must be on top of everything -->
+     <!-- Below are UI stuff that must be on top of everything -->
 
         <!-- Back to home button -->
         <div id="back-button">
@@ -97,12 +94,11 @@
         <!-- Contact information -->
         <div w3-include-html="/page_components/contact_info.html"></div> 
 
-        <!-- Required for loading separate html files -->
-        <script>w3IncludeHTML();</script>
+    <!-- Required for loading separate html files -->
+    <script>w3IncludeHTML();</script>
 
-        <!-- Required for ionicons to work -->
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </div>
+    <!-- Required for ionicons to work -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

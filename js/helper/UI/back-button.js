@@ -1,9 +1,11 @@
 // Advanced UI elements
 import { selfIntroFade } from "./selfintro-fade.js";
 import { mainMenuFade } from "./mainmenu-fade.js";
+import { toggleAboutMe } from "../../AboutMe.js";
 
 // Other helper functions
 import { delay } from "../delay.js";
+
 
 //---------------------------------------------------------------------------------------- Elements old properties for back button
 var lamp_pos_old = document.getElementById("fiber-lamp").style.paddingRight; //Save old position
@@ -16,13 +18,12 @@ document.getElementById("back-button").addEventListener("click", async function(
     document.getElementById("back-button").style.display = "none";
 
     // Hide about me page
-    document.getElementById("aboutme").style.transition = "2s";
-    document.getElementById("aboutme").style.opacity= "0";
-    document.getElementById("aboutme").style.pointerEvents = "none";
+    toggleAboutMe("Out");
 
     // Move lamp back
     document.getElementById("fiber-lamp").style.transition = "2s";
     document.getElementById("fiber-lamp").style.paddingRight = lamp_pos_old;
+    document.getElementById("fiber-lamp").style.opacity = "1";
 
     // Show main page
     selfIntroFade(10,"In");

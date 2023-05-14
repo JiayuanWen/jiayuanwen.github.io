@@ -9,8 +9,10 @@
 }
 #fullscreen-toggle {
     transition: 0.3s;
+    opacity: 0;
 }
 #fullscreen-toggle:hover {
     color: rgb(255, 255, 255);
+    opacity: 1;
     cursor: pointer;
 }
