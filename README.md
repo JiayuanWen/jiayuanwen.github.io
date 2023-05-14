@@ -4,8 +4,6 @@
 <br/>
 <br/>
 
-<div align="center"><img src=""></img></div>
-
 <p align="center">This repository hosts my portfilo site. You can browse the site's source code and resources here.</p>
 
 <br/>
