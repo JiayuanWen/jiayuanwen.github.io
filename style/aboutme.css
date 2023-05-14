@@ -5,6 +5,24 @@
     opacity: 0;
 }
 
+#scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    position: fixed;
+    top: 50%;
+    right: 0%;
+    transform: translateX(-10%) translateY(-50%);
+    font-size: calc((4.0vh + 4.0vw)/2);
+}
+    #scroll-indicator > #scroll-down {
+        position: fixed;
+        bottom: 1vh;
+        right: 0%;
+        transform: translateX(-10%);
+        font-size: calc((4.3vh + 4.3vw)/2);
+    }
+
 /* --------------------------------------------------------------------------------- Page 1 */
 #aboutme-page1 {
     opacity: 1;
@@ -35,7 +53,7 @@
     white-space: nowrap;
     font-size: calc((4.7vh + 4.7vw)/2);
     font-weight: 300;
-    left: 45vw;
+    left: 41vw;
     top: 7%;
 }
 
@@ -45,11 +63,12 @@
     font-family: "Lucida Console", Monaco, monospace;
     font-weight: 100;
     line-height: calc((3.7vh + 3.7vw)/2);
-    left: 45vw;
+    left: 41vw;
     top: 22vh;
-    margin-right: 70px;
+    margin-right: 100px;
 }
 
+/*
 #to-page2 {
     position: absolute;
     font-size: calc((3vh + 3vw)/2);
@@ -63,11 +82,15 @@
         cursor: pointer;
         transform: translateX(7px);
     }
+*/
 
 /* --------------------------------------------------------------------------------- Page 2 */
 #aboutme-page2 {
-    opacity: 0;
-    pointer-events: none;
+    position: absolute;
+    top: 98vh;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
 }
 
 #aboutme-page2-background {
@@ -82,7 +105,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 33vh;
+    top: 30vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(8vw, 1fr));
     grid-gap: 1vh;
@@ -115,24 +138,10 @@
     left: 50%;
     transform: translateX(-50%);
     top: 10vh;
+    white-space: nowrap;
 }
-
 
 /*
-#to-page1 {
-    position: absolute;
-    font-size: calc((3vh + 3vw)/2);
-    left: 4vw;
-    top: 50%;
-    color: rgb(136, 136, 136);
-    transition: 0.3s;
-}
-    #to-page1:hover {
-        color: rgb(255, 255, 255);
-        cursor: pointer;
-        transform: translateX(-7px);
-    }
-*/
 #to-page1 {
     position: absolute;
     font-size: calc((3vh + 3vw)/2);
@@ -160,3 +169,11 @@
         cursor: pointer;
         transform: translateX(7px),;
     }
+*/
+
+/* --------------------------------------------------------------------------------- Page 3 */
+#aboutme-page3 {
+    position: absolute;
+    top: 190vh;
+    opacity: 1;
+}

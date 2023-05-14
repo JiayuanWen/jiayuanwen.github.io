@@ -1,3 +1,5 @@
+window.scrollTo(0,0);
+
 // Essential Three.JS modules
 import * as THREE from "three"
 
