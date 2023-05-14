@@ -18,7 +18,7 @@
     background-size: cover;
 }
 
-#aboutme-page1 > #aboutme-selfie {
+#aboutme-page1-selfie {
     position: absolute;
     width: calc((37.2vh + 37.2vw)/2);
     left: 5vw;
@@ -29,17 +29,17 @@
     border-color: rgb(0, 0, 0);
 }
 
-#aboutme-page1 > h1 {
+.aboutme-page1-title {
     position: absolute;
     font-family: "Lucida Console", Monaco, monospace;
     white-space: nowrap;
     font-size: calc((4.7vh + 4.7vw)/2);
     font-weight: 300;
     left: 45vw;
-    top: 7vh;
+    top: 7%;
 }
 
-#aboutme-page1 > #self-info {
+#aboutme-page1-info {
     position: absolute;
     font-size: calc((1.5vh + 1.5vw)/2);
     font-family: "Lucida Console", Monaco, monospace;
@@ -54,7 +54,7 @@
     position: absolute;
     font-size: calc((3vh + 3vw)/2);
     left: 65vw;
-    top: 16vh;
+    top: 15.5%;
     color: rgb(136, 136, 136);
     transition: 0.3s;
 }
@@ -68,8 +68,6 @@
 #aboutme-page2 {
     opacity: 0;
     pointer-events: none;
-    width: 100vw;
-    height: 100vh;
 }
 
 #aboutme-page2 > #background {
@@ -109,7 +107,7 @@
         animation: spin 2s;
     }
 
-#aboutme-page2 > h1 {
+.aboutme-page2-title {
     position: absolute;
     font-family: "Lucida Console", Monaco, monospace;
     font-size: calc((4.7vh + 4.7vw)/2);

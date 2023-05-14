@@ -34,6 +34,12 @@ export async function toggleAboutMe(mode) {
         document.getElementById("aboutme").style.transition = "2s";
         document.getElementById("aboutme").style.opacity= "1";
 
+        document.getElementById("aboutme-page1-selfie").style.transition = "1s";
+        document.getElementById("aboutme-page1-selfie").style.left = "5vw";
+
+        document.getElementById("aboutme-page1-info").style.transition = "1s";
+        document.getElementById("aboutme-page1-info").style.top = "22vh";
+
         // Make page interactable
         document.getElementById("aboutme").style.pointerEvents = "auto";
 
@@ -43,6 +49,12 @@ export async function toggleAboutMe(mode) {
     else {
         document.getElementById("aboutme-page1").style.opacity= "1";
         document.getElementById("aboutme-page1").style.pointerEvents = "none";
+
+        document.getElementById("aboutme-page1-selfie").style.transition = "1s";
+        document.getElementById("aboutme-page1-selfie").style.left = "5vw";
+
+        document.getElementById("aboutme-page1-info").style.transition = "1s";
+        document.getElementById("aboutme-page1-info").style.top = "22vh";
 
         document.getElementById("aboutme-page2").style.opacity= "0";
         document.getElementById("aboutme-page2").style.pointerEvents = "none";
@@ -70,6 +82,13 @@ document.getElementById("to-page1").addEventListener("click", async function() {
     document.getElementById("aboutme-page1").style.transition = "1s";
     document.getElementById("aboutme-page1").style.opacity= "1";
     document.getElementById("aboutme-page1").style.pointerEvents = "auto";
+
+    document.getElementById("aboutme-page1-selfie").style.transition = "1s";
+    document.getElementById("aboutme-page1-selfie").style.left = "5vw";
+
+    document.getElementById("aboutme-page1-info").style.transition = "1s";
+    document.getElementById("aboutme-page1-info").style.top = "22vh";
+    
 })
 
 //---------------------------------------------------------------------------------------- To page 2
@@ -78,6 +97,12 @@ document.getElementById("to-page2").addEventListener("click", async function() {
     document.getElementById("aboutme-page1").style.transition = "1s";
     document.getElementById("aboutme-page1").style.opacity= "0";
     document.getElementById("aboutme-page1").style.pointerEvents = "none";
+
+    document.getElementById("aboutme-page1-selfie").style.transition = "1s";
+    document.getElementById("aboutme-page1-selfie").style.left = "-20vw";
+
+    document.getElementById("aboutme-page1-info").style.transition = "1s";
+    document.getElementById("aboutme-page1-info").style.top = "-22vh";
 
     // Show page 2 and enable interaction on it
     document.getElementById("aboutme-page2").style.transition = "1s";
