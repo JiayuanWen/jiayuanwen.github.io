@@ -29,6 +29,8 @@ document.getElementById("about-me").addEventListener("click", async function() {
 //---------------------------------------------------------------------------------------- About Me page show/hide
 export async function toggleAboutMe(mode) {
     if (mode == "In") {
+        document.getElementById("aboutme-page1").style.pointerEvents = "auto";
+
         document.getElementById("aboutme").style.transition = "2s";
         document.getElementById("aboutme").style.opacity= "1";
 
@@ -39,6 +41,12 @@ export async function toggleAboutMe(mode) {
         document.getElementsByTagName('body')[0].style.overflowY = "auto";
     }
     else {
+        document.getElementById("aboutme-page1").style.opacity= "1";
+        document.getElementById("aboutme-page1").style.pointerEvents = "none";
+
+        document.getElementById("aboutme-page2").style.opacity= "0";
+        document.getElementById("aboutme-page2").style.pointerEvents = "none";
+
         document.getElementById("aboutme").style.transition = "2s";
         document.getElementById("aboutme").style.opacity= "0";
 
@@ -50,4 +58,30 @@ export async function toggleAboutMe(mode) {
         document.getElementsByTagName('body')[0].style.overflowY = "hidden";
     }
 }
+
+//---------------------------------------------------------------------------------------- To page 1
+document.getElementById("to-page1").addEventListener("click", async function() {
+    // Hide page 2 and disable interaction on it
+    document.getElementById("aboutme-page2").style.transition = "1s";
+    document.getElementById("aboutme-page2").style.opacity= "0";
+    document.getElementById("aboutme-page2").style.pointerEvents = "none";
+
+    // Show page 1 and enable interaction on it
+    document.getElementById("aboutme-page1").style.transition = "1s";
+    document.getElementById("aboutme-page1").style.opacity= "1";
+    document.getElementById("aboutme-page1").style.pointerEvents = "auto";
+})
+
+//---------------------------------------------------------------------------------------- To page 2
+document.getElementById("to-page2").addEventListener("click", async function() {
+    // Hide page 1 and disable interaction on it
+    document.getElementById("aboutme-page1").style.transition = "1s";
+    document.getElementById("aboutme-page1").style.opacity= "0";
+    document.getElementById("aboutme-page1").style.pointerEvents = "none";
+
+    // Show page 2 and enable interaction on it
+    document.getElementById("aboutme-page2").style.transition = "1s";
+    document.getElementById("aboutme-page2").style.opacity= "1";
+    document.getElementById("aboutme-page2").style.pointerEvents = "auto";
+})
 

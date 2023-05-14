@@ -1,6 +1,6 @@
 /* --------------------------------------------------------------------------------- Music Player */
 .music-player {
-    position: absolute;
+    position: fixed;
     background: rgba(0, 0, 0, 0);
     left: 20px;
     bottom: 20px;

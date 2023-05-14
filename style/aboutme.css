@@ -22,7 +22,8 @@
     position: absolute;
     width: calc((37.2vh + 37.2vw)/2);
     left: 5vw;
-    top: 12vh;
+    top: 50%;
+    transform: translatey(-50%);
     border-style: groove;
     border-width: 20px;
     border-color: rgb(0, 0, 0);
@@ -31,10 +32,11 @@
 #aboutme-page1 > h1 {
     position: absolute;
     font-family: "Lucida Console", Monaco, monospace;
+    white-space: nowrap;
     font-size: calc((4.7vh + 4.7vw)/2);
     font-weight: 300;
     left: 45vw;
-    top: 10vh;
+    top: 7vh;
 }
 
 #aboutme-page1 > #self-info {
@@ -44,7 +46,7 @@
     font-weight: 100;
     line-height: calc((3.7vh + 3.7vw)/2);
     left: 45vw;
-    top: 25vh;
+    top: 22vh;
     margin-right: 70px;
 }
 
@@ -52,19 +54,111 @@
     position: absolute;
     font-size: calc((3vh + 3vw)/2);
     left: 65vw;
-    top: 17.5vh;
+    top: 16vh;
     color: rgb(136, 136, 136);
     transition: 0.3s;
 }
-#to-page2 {
-    position: absolute;
-    font-size: calc((3vh + 3vw)/2);
-    left: 65vw;
-    top: 17.5vh;
-    color: rgb(136, 136, 136);
-}
+    #to-page2:hover {
+        color: rgb(98, 0, 255);
+        cursor: pointer;
+        transform: translateX(7px);
+    }
 
 /* --------------------------------------------------------------------------------- Page 2 */
 #aboutme-page2 {
     opacity: 0;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
 }
+
+#aboutme-page2 > #background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url(/textures/env_map/guangzhou_vil.jpg);
+    background-size: cover;
+}
+
+.experience-grid {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 33vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8vw, 1fr));
+    grid-gap: 1vh;
+    width: 40vw;
+}
+/*
+    .experience-grid :nth-last-child(-n+2):nth-child(odd) {
+        grid-column: 2 / 3;
+    }
+*/
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        width: 10vw;
+        color: white;
+        font-size: calc((8vh + 8vw)/2);
+        /*background-color: aliceblue;*/
+    }
+    .icon:hover {
+        animation: spin 2s;
+    }
+
+#aboutme-page2 > h1 {
+    position: absolute;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: calc((4.7vh + 4.7vw)/2);
+    font-weight: 300;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10vh;
+}
+
+
+/*
+#to-page1 {
+    position: absolute;
+    font-size: calc((3vh + 3vw)/2);
+    left: 4vw;
+    top: 50%;
+    color: rgb(136, 136, 136);
+    transition: 0.3s;
+}
+    #to-page1:hover {
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        transform: translateX(-7px);
+    }
+*/
+#to-page1 {
+    position: absolute;
+    font-size: calc((3vh + 3vw)/2);
+    left: 26vw;
+    top: 17.5vh;
+    color: rgb(136, 136, 136);
+    transition: 0.3s;
+}
+    #to-page1:hover {
+        color: rgb(255, 230, 0);
+        cursor: pointer;
+        transform: translateX(-7px);
+    }
+
+#to-page3 {
+    position: absolute;
+    font-size: calc((3vh + 3vw)/2);
+    left: 93vw;
+    top: 50%;
+    color: rgb(136, 136, 136);
+    transition: 0.3s;
+}
+    #to-page3:hover {
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        transform: translateX(7px),;
+    }
