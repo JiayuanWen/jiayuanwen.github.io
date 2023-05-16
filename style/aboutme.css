@@ -131,11 +131,6 @@
     grid-gap: 1vh;
     width: 40vw;
 }
-/*
-    .experience-grid :nth-last-child(-n+2):nth-child(odd) {
-        grid-column: 2 / 3;
-    }
-*/
     .icon {
         display: flex;
         align-items: center;
