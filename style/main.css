@@ -68,7 +68,7 @@ a:hover {
         position: fixed;
         color: rgb(139, 139, 139);
         bottom: 1.9%;
-        left: 1%;
+        left: 2%;
         transform: translateX(-1%);
     }
 }

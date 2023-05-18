@@ -6,6 +6,8 @@ import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
 
 // Other helper functions
 import { delay } from "./helper/delay.js";
+import { isMobile } from "./helper/mobileCheck.js";
+import { getDeviceOrientation } from "./helper/orientationMode.js";
 
 //---------------------------------------------------------------------------------------- About Me click handle
 document.getElementById("about-me").addEventListener("click", async function() {
@@ -41,15 +43,6 @@ export async function toggleAboutMe(mode) {
     else {
         document.getElementById("aboutme-page1").style.opacity= "1";
 
-        document.getElementById("aboutme-page1-selfie").style.transition = "0s";
-        document.getElementById("aboutme-page1-selfie").style.left = "5vw";
-
-        document.getElementById("aboutme-page1-info").style.transition = "0s";
-        document.getElementById("aboutme-page1-info").style.top = "22vh";
-
-        //document.getElementById("aboutme-page2").style.opacity= "0";
-        //document.getElementById("aboutme-page2").style.pointerEvents = "none";
-
         document.getElementById("aboutme").style.transition = "1s";
         document.getElementById("aboutme").style.opacity= "0";
 
@@ -61,6 +54,40 @@ export async function toggleAboutMe(mode) {
         document.getElementsByTagName('body')[0].style.overflowY = "hidden";
     }
 }
+//---------------------------------------------------------------------------------------- Mobile layout
+if (isMobile) {
+    // Initially check user's device orientation, change stylesheet accordingly
+    var device_orientation = getDeviceOrientation(false);
+
+    if (device_orientation == "portrait") {
+        toggleMobileLayout_AboutMe(true);
+    }
+    else {
+        toggleMobileLayout_AboutMe(false);
+    };
+
+    // Continue to listen for user's device orientation, change stylesheet accordingly
+    window.addEventListener('orientationchange', () => {
+        var device_orientation = getDeviceOrientation(false);
+
+        if (device_orientation == "portrait") {
+            toggleMobileLayout_AboutMe(true);
+        }
+        else {
+            toggleMobileLayout_AboutMe(false);
+        };
+    });
+}
+function toggleMobileLayout_AboutMe(mode_) {
+    if (mode_ == true) {
+        document.getElementById("aboutme-style").setAttribute("href", "style/aboutme-mobile.css");
+    }
+    else {
+        document.getElementById("aboutme-style").setAttribute("href", "style/aboutme.css");
+    }
+}
+
+
 
 //---------------------------------------------------------------------------------------- To page 1
 /*

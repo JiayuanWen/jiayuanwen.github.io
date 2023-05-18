@@ -174,7 +174,7 @@ const loadingManager = new THREE.LoadingManager();
 loadingManager.onStart = function(url, item, total) {
 
 	if (isMobile()) {
-		alert("The site currently isn't optimized for mobile devices. It is best to visit on PC for the time being.");
+		//alert("The site currently isn't optimized for mobile devices. It is best to visit on PC for the time being.");
 	}
 	else {
 		//alert("Note: Site is still under construction.");
