@@ -1,11 +1,13 @@
 let scrollingUp;
 let scrollingDown;
 
+let speed = 3.1;
+
 const onMouseDownScrollUp = () => {
     scrollingUp = setInterval(
         function() {
             console.log("Scrolling");
-            window.scrollBy(0,-2);
+            window.scrollBy(0,-speed);
         }, 8.2
     )
 }
@@ -13,7 +15,7 @@ const onMouseDownScrollDown = () => {
     scrollingDown = setInterval(
         function() {
             console.log("Scrolling");
-            window.scrollBy(0,2);
+            window.scrollBy(0,speed);
         }, 8.2
     )
 }
