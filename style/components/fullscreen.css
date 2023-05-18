@@ -1,6 +1,6 @@
 /* --------------------------------------------------------------------------------- Fullscreen button */
 #fullscreen {
-    position: absolute;
+    position: fixed;
     color: rgb(0, 0, 0);
     font-size: 3.2rem;
     right: 10px;

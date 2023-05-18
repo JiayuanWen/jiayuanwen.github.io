@@ -6,10 +6,26 @@
     bottom: 1vh;
     color: rgb(73, 73, 73);
 }
+@media only screen and (max-width: 560px) {
+    #contact-info {
+        font-size: 2.1rem;
+        position: fixed;
+        left: 1vw;
+        bottom: 5vh;
+        color: rgb(73, 73, 73);
+    }
+}
     #contact-info > a{
         color: rgb(73, 73, 73);
         margin-right: 30px;
         transition: 0.3s;
+    }
+    @media only screen and (max-width: 560px) {
+        #contact-info > a{
+            color: rgb(73, 73, 73);
+            margin-right: 10px;
+            transition: 0.3s;
+        }
     }
     #contact-info > a:hover{
         cursor: pointer;

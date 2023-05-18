@@ -3,6 +3,7 @@ import { delay } from "../delay.js"
 export async function contactInfoFade(delay_, mode) {
     var opacity = 0;
     document.getElementById("contact-info").style.opacity = opacity;
+    document.getElementById("site-credit").style.opacity = opacity;
 
     let delayer = await delay(delay_);
 
@@ -11,7 +12,8 @@ export async function contactInfoFade(delay_, mode) {
         while (opacity < 1) {
             opacity += 0.01;
             document.getElementById("contact-info").style.opacity = opacity;
-    
+            document.getElementById("site-credit").style.opacity = opacity;
+
             let delayer = await delay (5.8);
         }
     }
@@ -20,7 +22,8 @@ export async function contactInfoFade(delay_, mode) {
         while (opacity > 0) {
             opacity -= 0.01;
             document.getElementById("contact-info").style.opacity = opacity;
-    
+            document.getElementById("site-credit").style.opacity = opacity;
+
             let delayer = await delay (5.8);
         }
         document.getElementById("contact-info").style.display = "none";

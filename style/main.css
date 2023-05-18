@@ -59,8 +59,17 @@ a:hover {
 #site-credit {
     position: fixed;
     color: rgb(139, 139, 139);
-    bottom: 3%;
+    bottom: 1.9%;
     left: 50%;
     transform: translateX(-50%);
+}
+@media only screen and (max-width: 800px) {
+    #site-credit {
+        position: fixed;
+        color: rgb(139, 139, 139);
+        bottom: 1.9%;
+        left: 1%;
+        transform: translateX(-1%);
+    }
 }
 

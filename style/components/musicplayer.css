@@ -8,6 +8,8 @@
     width: 350px;
     opacity: 0;
     transition: 0.3s;
+
+    pointer-events: none;
 }
     .music-player:hover {
         opacity: 1;

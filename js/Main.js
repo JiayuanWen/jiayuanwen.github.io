@@ -215,10 +215,11 @@ loadingManager.onLoad = async function() {
 	// Zoom animation
 	zoomInAnimation();
 
-	// Fade in effect for self introduction and main menu
+	// Fade in effect for all main page elements
 	selfIntroFade(1000, "In");
 	mainMenuFade(1000, "In");
 	contactInfoFade(1000, "In");
+	
 
 	// Handle music
 	document.getElementById('player').pause();
