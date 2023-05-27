@@ -55,7 +55,7 @@ export async function toggleAboutMe(mode) {
     }
 }
 //---------------------------------------------------------------------------------------- Mobile layout
-if (isMobile) {
+if (isMobile()) {
     // Initially check user's device orientation, change stylesheet accordingly
     var device_orientation = getDeviceOrientation(false);
 
@@ -78,6 +78,7 @@ if (isMobile) {
         };
     });
 }
+
 function toggleMobileLayout_AboutMe(mode_) {
     if (mode_ == true) {
         document.getElementById("aboutme-style").setAttribute("href", "style/aboutme-mobile.css");

@@ -1,5 +1,5 @@
-import { isMobile } from "../mobileCheck";
-import { isTouchScreen } from "../touchScreenCheck";
+import { isMobile } from "../mobileCheck.js";
+import { isTouchScreen } from "../touchScreenCheck.js";
 
 let scrollingUp;
 let scrollingDown;
@@ -37,6 +37,6 @@ document.getElementById("scroll-up").addEventListener("mouseup", scrollingStop);
 document.getElementById("scroll-down").addEventListener("mouseup", scrollingStop);
 
 // Scrolling is buggy on touch screen, disable them
-if (isTouchScreen || isMobile) {
+if (isTouchScreen() || isMobile()) {
     document.getElementById("scroll-indicator").style.pointerEvents = "none";
 }
