@@ -2,7 +2,7 @@
 #main-menu-container {
     position: absolute;
     left: 42vw;
-    bottom: 20.5vh;
+    bottom: 15.5vh;
     font-size: calc((3.5vh + 3.5vw)/2);
     color: rgb(133, 133, 133);
     font-family: Futura;
