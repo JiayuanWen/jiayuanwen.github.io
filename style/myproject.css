@@ -15,7 +15,7 @@
     top: 50vh;
     margin: 0 auto;
 
-    border-radius: 30px;
+    border-radius: 30px; /*Set in MyProject.js*/
     border-color: white;
     border: 1px;
     border-style: solid;
@@ -32,8 +32,41 @@
     top: 50vh; 
     margin: 0 auto;
 
-    background: black;
-    opacity: 40%;
+    background: #00000066;
 
     border-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    opacity: 0%;
 }
+
+.project-item {
+    transition: 0.2s;
+
+    margin: 20px;
+    border: 1px solid #777;
+    float: left;
+    width: 420px;
+    height: 350px;
+
+    border-radius: 10px;
+}
+  
+    .project-item:hover {
+        border: 1px solid #ccc;
+    }
+
+    .project-item img {
+        width: 420px;
+        height: 236px;
+
+        border-radius: 10px;
+    }
+
+    .project-item .desc {
+        padding: 15px;
+        text-align: center;
+    }

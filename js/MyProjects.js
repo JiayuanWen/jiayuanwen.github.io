@@ -7,6 +7,7 @@ import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
 // Other helpful functions
 import { delay } from "./helper/delay.js";
 
+
 //---------------------------------------------------------------------------------------- About Me click handle
 document.getElementById("my-projects").addEventListener("click", async function() {
 
@@ -33,11 +34,25 @@ document.getElementById("my-projects").addEventListener("click", async function(
     document.getElementById("project-border").style.height = "87vh";
     document.getElementById("project-border").style.width = "95vw";
     document.getElementById("project-border").style.top = "5vh";
+    document.getElementById("project-border").style.borderRadius = "30px";
+
+    document.getElementById("project-container").style.pointerEvents = "auto";
+
+    // Show projects
+    loadProjects();
+
+    delayer = await delay(1000);
+    document.getElementById("project-container").style.opacity = "100%";
 })
 
 //---------------------------------------------------------------------------------------- Back button function
 document.getElementById("back-button").addEventListener("click", async function() {
+    //Hide projects
+    document.getElementById("project-container").style.pointerEvents = "none";
+    document.getElementById("project-container").style.opacity = "0%";
+
     // Hide project container
+    let delayer = await delay(1000);
     document.getElementById("project-container").style.height = "0.1vh";
     document.getElementById("project-container").style.width = "0.1vw";
     document.getElementById("project-container").style.top = "50vh"; 
@@ -45,7 +60,33 @@ document.getElementById("back-button").addEventListener("click", async function(
     document.getElementById("project-border").style.height = "0.1vh";
     document.getElementById("project-border").style.width = "0.1vw";
     document.getElementById("project-border").style.top = "50vh";
-
+    document.getElementById("project-border").style.borderRadius = "30px";
     
     document.getElementById("myproject").style.visibility = "hidden";
 })
+
+//---------------------------------------------------------------------------------------- Loading projects from data folder
+async function loadProjects() {
+    let projI = 1;
+    let filePath = `/data/projects/proj${projI}/display.html`;
+    let projTotal = 3;
+
+    let projDiv;
+
+    for (let i = 1; i <= projTotal; i++) {
+        projI = i;
+        filePath = `/data/projects/proj${projI}/display.html`;
+        console.log(i);
+
+        // Create project element
+        projDiv = document.createElement('div');
+        projDiv.setAttribute('id',`project-${projI}`);
+
+        console.log(projDiv.outerHTML);
+
+        // Insert project element to container
+        document.getElementById("project-container").insertAdjacentHTML('beforeend',projDiv.outerHTML);
+
+        $(`#project-${projI}`).load(filePath);
+    }
+}
