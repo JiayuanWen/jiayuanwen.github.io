@@ -47,7 +47,9 @@ document.getElementById("my-projects").addEventListener("click", async function(
     document.getElementById("project-container").style.opacity = "100%";
 
     // Make page scrollable
-    document.getElementsByTagName('body')[0].style.overflowY = "auto";
+    if (isMobile()) {
+        document.getElementsByTagName('body')[0].style.overflowY = "auto";
+    }
 })
 
 //---------------------------------------------------------------------------------------- Back button function
