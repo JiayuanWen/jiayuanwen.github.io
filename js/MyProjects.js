@@ -6,6 +6,8 @@ import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
 
 // Other helpful functions
 import { delay } from "./helper/delay.js";
+import { isMobile } from "./helper/mobileCheck.js";
+import { getDeviceOrientation } from "./helper/orientationMode.js";
 
 
 //---------------------------------------------------------------------------------------- About Me click handle
@@ -43,6 +45,9 @@ document.getElementById("my-projects").addEventListener("click", async function(
 
     delayer = await delay(1000);
     document.getElementById("project-container").style.opacity = "100%";
+
+    // Make page scrollable
+    document.getElementsByTagName('body')[0].style.overflowY = "auto";
 })
 
 //---------------------------------------------------------------------------------------- Back button function
@@ -50,6 +55,10 @@ document.getElementById("back-button").addEventListener("click", async function(
     //Hide projects
     document.getElementById("project-container").style.pointerEvents = "none";
     document.getElementById("project-container").style.opacity = "0%";
+
+    // Make page unscrollable
+    window.scrollTo(0,0);
+    document.getElementsByTagName('body')[0].style.overflowY = "hidden";
 
     // Hide project container
     let delayer = await delay(1000);
@@ -88,5 +97,39 @@ async function loadProjects() {
         document.getElementById("project-container").insertAdjacentHTML('beforeend',projDiv.outerHTML);
 
         $(`#project-${projI}`).load(filePath);
+    }
+}
+
+//---------------------------------------------------------------------------------------- Mobile layout
+if (isMobile()) {
+    // Initially check user's device orientation, change stylesheet accordingly
+    var device_orientation = getDeviceOrientation(false);
+
+    if (device_orientation == "portrait") {
+        toggleMobileLayout_AboutMe(true);
+    }
+    else {
+        toggleMobileLayout_AboutMe(false);
+    };
+
+    // Continue to listen for user's device orientation, change stylesheet accordingly
+    window.addEventListener('orientationchange', () => {
+        var device_orientation = getDeviceOrientation(false);
+
+        if (device_orientation == "portrait") {
+            toggleMobileLayout_AboutMe(true);
+        }
+        else {
+            toggleMobileLayout_AboutMe(false);
+        };
+    });
+}
+
+function toggleMobileLayout_AboutMe(mode_) {
+    if (mode_ == true) {
+        document.getElementById("myproject-style").setAttribute("href", "style/myproject-mobile.css");
+    }
+    else {
+        document.getElementById("myproject-style").setAttribute("href", "style/myproject.css");
     }
 }

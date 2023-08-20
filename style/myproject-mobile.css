@@ -1,0 +1,80 @@
+#myproject {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+#project-border {
+    transition: 1.4s;
+
+    height: 1vh; /*Set in MyProject.js*/
+    width: 1vw; /*Set in MyProject.js*/
+
+    position: absolute;
+    left: 1.5vw;
+    right: 1.5vw;
+    top: 50vh;
+    margin: 0 auto;
+
+    border-radius: 30px; /*Set in MyProject.js*/
+    border-color: white;
+    border: 1px;
+    border-style: solid;
+
+    opacity: 0;
+}
+#project-container {
+    transition: 1.4s;
+
+    height: 1vh; /*Set in MyProject.js*/
+    width: 1vw; /*Set in MyProject.js*/
+
+    position: absolute;
+    left: 1.5vw;
+    right: 1.5vw;
+    top: 50vh; 
+    margin: 0 auto;
+
+    background: #00000066;
+
+    border-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    opacity: 0%;
+}
+
+.project-item {
+    transition: 0.2s;
+
+    margin: 20px;
+    border: 1px solid #777;
+    float: left;
+    width: 330px;
+    height: 350px;
+
+    border-radius: 10px;
+}
+  
+    .project-item:hover {
+        border: 1px solid #ccc;
+    }
+
+    .project-item img {
+        width: 330px;
+        height: 186px;
+
+        border-radius: 10px;
+    }
+
+    .project-item .desc {
+        padding: 15px;
+        text-align: center;
+    }
+
+#project-page-bottom {
+    position: absolute;
+
+    top: 200vh;
+}
