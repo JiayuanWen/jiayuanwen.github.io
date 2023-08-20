@@ -28,7 +28,13 @@ document.getElementById("about-me").addEventListener("click", async function() {
     toggleAboutMe("In");
 })
 
-//---------------------------------------------------------------------------------------- About Me page show/hide
+//---------------------------------------------------------------------------------------- Back button function
+document.getElementById("back-button").addEventListener("click", async function() {
+    // Hide about me page
+    toggleAboutMe("Out");
+})
+
+//---------------------------------------------------------------------------------------- About Me page show/hide (helper)
 export async function toggleAboutMe(mode) {
     if (mode == "In") {
         document.getElementById("aboutme").style.transition = "2s";

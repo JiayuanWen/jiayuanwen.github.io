@@ -17,9 +17,6 @@ document.getElementById("back-button").addEventListener("click", async function(
     document.getElementById("back-button").style.pointerEvents = "none";
     document.getElementById("back-button").style.display = "none";
 
-    // Hide about me page
-    toggleAboutMe("Out");
-
     // Move lamp back
     document.getElementById("fiber-lamp").style.transition = "2s";
     document.getElementById("fiber-lamp").style.paddingRight = lamp_pos_old;

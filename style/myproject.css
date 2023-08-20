@@ -1,0 +1,39 @@
+#myproject {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+#project-border {
+    transition: 1.4s;
+
+    height: 1vh; /*Set in MyProject.js*/
+    width: 1vw; /*Set in MyProject.js*/
+
+    position: absolute;
+    left: 1.5vw;
+    right: 1.5vw;
+    top: 50vh;
+    margin: 0 auto;
+
+    border-radius: 30px;
+    border-color: white;
+    border: 1px;
+    border-style: solid;
+}
+#project-container {
+    transition: 1.4s;
+
+    height: 1vh; /*Set in MyProject.js*/
+    width: 1vw; /*Set in MyProject.js*/
+
+    position: absolute;
+    left: 0.01vw;
+    right: 1vw;
+    top: 0vh; /*Relative to #project-border, no need to set.*/
+    margin: 0 auto;
+
+    background: black;
+    opacity: 40%;
+
+    border-radius: 30px;
+}
