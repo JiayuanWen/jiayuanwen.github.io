@@ -27,9 +27,9 @@
     width: 1vw; /*Set in MyProject.js*/
 
     position: absolute;
-    left: 0.01vw;
-    right: 1vw;
-    top: 0vh; /*Relative to #project-border, no need to set.*/
+    left: 1.5vw;
+    right: 1.5vw;
+    top: 50vh; 
     margin: 0 auto;
 
     background: black;

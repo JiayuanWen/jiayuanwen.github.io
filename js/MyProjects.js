@@ -28,7 +28,7 @@ document.getElementById("my-projects").addEventListener("click", async function(
 
     document.getElementById("project-container").style.height = "87vh";
     document.getElementById("project-container").style.width = "95vw";
-    document.getElementById("project-container").style.top = "0vh";
+    document.getElementById("project-container").style.top = "5vh";
 
     document.getElementById("project-border").style.height = "87vh";
     document.getElementById("project-border").style.width = "95vw";
@@ -40,7 +40,7 @@ document.getElementById("back-button").addEventListener("click", async function(
     // Hide project container
     document.getElementById("project-container").style.height = "0.1vh";
     document.getElementById("project-container").style.width = "0.1vw";
-    document.getElementById("project-container").style.top = "0vh"; // Relative to #project-border, no need to set.
+    document.getElementById("project-container").style.top = "50vh"; 
 
     document.getElementById("project-border").style.height = "0.1vh";
     document.getElementById("project-border").style.width = "0.1vw";
