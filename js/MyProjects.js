@@ -79,14 +79,16 @@ document.getElementById("back-button").addEventListener("click", async function(
 //---------------------------------------------------------------------------------------- Loading projects from data folder
 async function loadProjects() {
     let projI = 1;
-    let filePath = `/data/projects/proj${projI}/display.html`;
+    // Project descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
+    let filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
     let projTotal = 3;
 
     let projDiv;
 
     for (let i = 1; i <= projTotal; i++) {
         projI = i;
-        filePath = `/data/projects/proj${projI}/display.html`;
+        // Project descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
+        filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
         console.log(i);
 
         // Create project element
