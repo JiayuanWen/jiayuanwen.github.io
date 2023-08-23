@@ -28,6 +28,10 @@ document.getElementById("blogs").addEventListener("click", async function() {
     //
     document.getElementById('no-blog').style.opacity = "100%";
 
+    // Show stars
+    let delayer = await delay(500);
+    document.getElementById("stars-bg").style.opacity = "50%";
+
     // Make page scrollable
     if (isMobile()) {
         document.getElementsByTagName('body')[0].style.overflowY = "auto";
@@ -44,8 +48,12 @@ document.getElementById("back-button").addEventListener("click", async function(
     //
     document.getElementById('no-blog').style.opacity = "0%";
 
+    // Hide stars
+    let delayer = await delay(500);
+    document.getElementById("stars-bg").style.opacity = "0%";
+
     // 
-    let delayer = await delay(1000);
+    delayer = await delay(1000);
 
 })
 

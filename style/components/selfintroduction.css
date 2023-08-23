@@ -11,6 +11,8 @@
     text-shadow: -1px -1px 0 rgb(170, 170, 170), 1px -1px 0 rgb(170, 170, 170), -1px 1px 0 rgb(170, 170, 170), 1px 1px 0 rgb(170, 170, 170);
 
     display: none;
+
+    z-index: 1;
 }
     #site-intro > hi {
         font-size: calc((5.8vh + 5.8vw)/2);

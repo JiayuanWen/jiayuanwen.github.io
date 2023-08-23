@@ -25,13 +25,21 @@ document.getElementById("about-me").addEventListener("click", async function() {
     document.getElementById("fiber-lamp").style.paddingRight = "90vw";
     document.getElementById("fiber-lamp").style.opacity = "0";
     
+    // Show About Me
     toggleAboutMe("In");
+
+    // Show stars
+    let delayer = await delay(500);
+    document.getElementById("stars-bg").style.opacity = "50%";
 })
 
 //---------------------------------------------------------------------------------------- Back button function
 document.getElementById("back-button").addEventListener("click", async function() {
     // Hide about me page
     toggleAboutMe("Out");
+
+    // Hide stars
+    document.getElementById("stars-bg").style.opacity = "0%";
 })
 
 //---------------------------------------------------------------------------------------- About Me page show/hide (helper)

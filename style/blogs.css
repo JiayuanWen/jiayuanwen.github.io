@@ -1,10 +1,4 @@
-#blog-canvas {
-    position: absolute;
 
-    background: #232323;
-    height: 50vh; /*Set in MyProject.js*/
-    width: 50vw;
-}
 
 #no-blog {
     transition: 1.4s;
@@ -19,4 +13,6 @@
     margin: 0 auto;
 
     opacity: 0%;
+
+    z-index: 1;
 }

@@ -8,6 +8,8 @@
     font-family: Futura;
 
     display: none;
+
+    z-index: 1;
 }
 
 #main-menu {

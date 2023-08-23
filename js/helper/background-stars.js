@@ -1,12 +1,13 @@
 // Copyright (c) 2022 by Leon (https://codepen.io/LeonGr/pen/eYoZJB)
-console.log("test");
 
-var canvas = document.getElementById("blog-canvas"),
+//console.log("test");
+
+var canvas = document.getElementById("stars-bg"),
     ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var stars = [], // Array that contains the stars
-    FPS = 60, // Frames per second
+    FPS = 75, // Frames per second
     x = 100; // Number of stars
 
 class star{

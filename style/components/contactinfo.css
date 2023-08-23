@@ -5,6 +5,7 @@
     right: 1vw;
     bottom: 1vh;
     color: rgb(73, 73, 73);
+    z-index: 1;
 }
 @media only screen and (max-width: 560px) {
     #contact-info {
@@ -13,6 +14,7 @@
         left: 1vw;
         bottom: 5vh;
         color: rgb(73, 73, 73);
+        z-index: 1;
     }
 }
     #contact-info > a{
