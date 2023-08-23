@@ -30,6 +30,7 @@ document.getElementById("blogs").addEventListener("click", async function() {
 
     // Show stars
     let delayer = await delay(500);
+    document.getElementById("stars-bg").style.visibility = "visible";
     document.getElementById("stars-bg").style.opacity = "50%";
 
     // Make page scrollable
@@ -40,6 +41,7 @@ document.getElementById("blogs").addEventListener("click", async function() {
 
 //---------------------------------------------------------------------------------------- Back button function
 document.getElementById("back-button").addEventListener("click", async function() {
+    let delayer;
 
     // Make page unscrollable
     window.scrollTo(0,0);
@@ -49,11 +51,13 @@ document.getElementById("back-button").addEventListener("click", async function(
     document.getElementById('no-blog').style.opacity = "0%";
 
     // Hide stars
-    let delayer = await delay(500);
+    delayer = await delay(500);
     document.getElementById("stars-bg").style.opacity = "0%";
+    delayer = await delay(3000); 
+    document.getElementById("stars-bg").style.visibility = "hidden";
 
     // 
-    delayer = await delay(1000);
+    //delayer = await delay(1000);
 
 })
 
