@@ -51,7 +51,7 @@
     border: 1px solid #777;
     float: left;
     width: 420px;
-    height: 350px;
+    height: 370px;
 
     border-radius: 10px;
 }
@@ -68,6 +68,33 @@
     }
 
     .project-item .desc {
-        padding: 15px;
+        height:75px;
+
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+
         text-align: center;
+        font-size: smaller;
+    }
+
+    .project-item .tools {
+        display: flex;
+
+        justify-content: right;
+
+        opacity: 20%;
+
+        bottom: 1px;
+    }
+
+    .project-item .tools img{
+        width: 30px;
+        height: 30px;
+
+        padding-bottom: 0px;
+        padding-left: 8px;
+        padding-right: 8px;
+
+        
     }
