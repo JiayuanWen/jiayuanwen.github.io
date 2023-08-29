@@ -77,30 +77,38 @@ document.getElementById("back-button").addEventListener("click", async function(
 })
 
 //---------------------------------------------------------------------------------------- Loading projects from data folder
+let onetimefuncRan = 0; // Below function only runs once
+let projectsNumber = 5; // Set when you add a project in https://github.com/JiayuanWen/JiayuanWen.github.io.data
 async function loadProjects() {
-    let projI = 1;
-    // Project descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
-    let filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
-    let projTotal = 3;
-
-    let projDiv;
-
-    for (let i = 1; i <= projTotal; i++) {
-        projI = i;
+    
+    if (onetimefuncRan > 0) {
+        return;
+    } else {
+        let projI = 1;
         // Project descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
-        filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
-        console.log(i);
+        let filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
+        let projTotal = projectsNumber;
 
-        // Create project element
-        projDiv = document.createElement('div');
-        projDiv.setAttribute('id',`project-${projI}`);
+        let projDiv;
 
-        console.log(projDiv.outerHTML);
+        for (let i = 1; i <= projTotal; i++) {
+            projI = i;
+            // Project descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
+            filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
+            console.log(i);
 
-        // Insert project element to container
-        document.getElementById("project-container").insertAdjacentHTML('beforeend',projDiv.outerHTML);
+            // Create project element
+            projDiv = document.createElement('div');
+            projDiv.setAttribute('id',`project-${projI}`);
 
-        $(`#project-${projI}`).load(filePath);
+            console.log(projDiv.outerHTML);
+
+            // Insert project element to container
+            document.getElementById("project-container").insertAdjacentHTML('beforeend',projDiv.outerHTML);
+
+            $(`#project-${projI}`).load(filePath);
+        }
+        onetimefuncRan = 1;
     }
 }
 
