@@ -73,7 +73,7 @@
 
 .aboutme-page1-title {
     position: absolute;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: monospace, Monaco, monospace;
     white-space: nowrap;
     font-size: calc((4.7vh + 4.7vw)/2);
     font-weight: 300;
@@ -85,7 +85,7 @@
 #aboutme-page1-info {
     position: absolute;
     font-size: calc((1.5vh + 1.5vw)/2);
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: monospace, Monaco, monospace;
     font-weight: 100;
     line-height: calc((3.7vh + 3.7vw)/2);
     left: 41vw;
@@ -130,7 +130,7 @@
 
 .aboutme-page2-title {
     position: absolute;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: monospace, Monaco, monospace;
     font-size: calc((4.7vh + 4.7vw)/2);
     font-weight: 300;
     left: 50%;

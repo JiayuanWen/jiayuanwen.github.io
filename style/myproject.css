@@ -122,8 +122,14 @@
         
     }
 
-    #project-page-bottom {
-        position: fixed;
-    
-        top: 1vh;
-    }
+#more-project {
+    position: fixed;
+    right: 80px;
+    bottom: 100px;
+}
+
+#project-page-bottom {
+    position: fixed;
+
+    top: 1vh;
+}

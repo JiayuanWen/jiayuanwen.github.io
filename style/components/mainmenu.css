@@ -17,7 +17,7 @@
     flex-direction: column;
     text-align: left;
     list-style-type: none;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: monospace, monospace, monospace;
 }
     #main-menu > a {
         margin-bottom: 40px;
