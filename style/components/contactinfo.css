@@ -17,26 +17,33 @@
         z-index: 1;
     }
 }
+
+#contact-info > a{
+    color: rgb(73, 73, 73);
+    margin-right: 30px;
+    transition: 0.3s;
+}
+@media only screen and (max-width: 560px) {
     #contact-info > a{
         color: rgb(73, 73, 73);
-        margin-right: 30px;
+        margin-right: 10px;
         transition: 0.3s;
     }
-    @media only screen and (max-width: 560px) {
-        #contact-info > a{
-            color: rgb(73, 73, 73);
-            margin-right: 10px;
-            transition: 0.3s;
-        }
+}
+
+#contact-info > a:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+    #contact-info > a > i {
+        transition: 0.3s;
     }
-    #contact-info > a:hover{
-        cursor: pointer;
+    #contact-info > a > i:hover{
         transform: translateY(-5px);
+        color: rgb(255, 255, 255);
     }
-        #contact-info > a > i {
-            transition: 0.3s;
-        }
-        #contact-info > a > i:hover{
-            transform: translateY(-5px);
-            color: rgb(255, 255, 255);
-        }
+    #contact-info > a > i:active{
+        transform: translateY(-10px);
+        color: rgb(119, 0, 255);
+    }

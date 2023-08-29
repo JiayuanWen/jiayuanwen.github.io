@@ -30,4 +30,9 @@
             transform: translateX(10px);
             cursor: pointer;
         }
+        #main-menu > a:active {
+            color: rgb(73, 73, 73);
+            transform: translateX(15px);
+            cursor: pointer;
+        }
 
