@@ -84,7 +84,7 @@ let projectsNumber = 5; // Set when you add a project in https://github.com/Jiay
 async function loadProjects() {
     
     let projI = 1;
-    // Project descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
+    // Project images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
     let filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
     let projTotal = projectsNumber;
 
@@ -92,7 +92,7 @@ async function loadProjects() {
 
     for (let i = 1; i <= projTotal; i++) {
         projI = i;
-        // Project descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
+        // Project images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
         filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
 
         // Create project element
@@ -103,6 +103,7 @@ async function loadProjects() {
         // Insert project element to container
         document.getElementById("project-container").insertAdjacentHTML('beforeend',projDiv.outerHTML);
 
+        // Load project from https://github.com/JiayuanWen/JiayuanWen.github.io.data
         $(`#project-${projI}`).load(filePath);
     }
 }
