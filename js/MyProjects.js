@@ -99,7 +99,6 @@ async function loadProjects() {
         projDiv = document.createElement('div');
         projDiv.setAttribute('id',`project-${projI}`);
 
-
         // Insert project element to container
         document.getElementById("project-container").insertAdjacentHTML('beforeend',projDiv.outerHTML);
 
