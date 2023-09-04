@@ -10,7 +10,7 @@ import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
 
 
-//---------------------------------------------------------------------------------------- Mu Projects click handle
+//---------------------------------------------------------------------------------------- My Projects click handle
 document.getElementById("my-projects").addEventListener("click", async function() {
 
     // Enable back button to allow visitors to go back

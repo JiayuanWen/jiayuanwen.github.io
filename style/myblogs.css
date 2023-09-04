@@ -1,7 +1,9 @@
 
 
 #blog-container {
-    background-color: aliceblue;
+    transition: 1.4s;
+    
+    background-color: rgb(255, 255, 255);
 
     position: absolute;
     left: 18.5vw;
