@@ -6,10 +6,6 @@ import { toggleAboutMe } from "../../AboutMe.js";
 // Other helper functions
 import { delay } from "../delay.js";
 
-
-//---------------------------------------------------------------------------------------- Elements old properties for back button
-var lamp_pos_old = document.getElementById("fiber-lamp").style.paddingRight; //Save old position
-
 //---------------------------------------------------------------------------------------- Back button click handle
 document.getElementById("back-button").addEventListener("click", async function() {
 
@@ -19,7 +15,7 @@ document.getElementById("back-button").addEventListener("click", async function(
 
     // Move lamp back
     document.getElementById("fiber-lamp").style.transition = "2s";
-    document.getElementById("fiber-lamp").style.paddingRight = lamp_pos_old;
+    document.getElementById("fiber-lamp").style.paddingRight = "50vw";
     document.getElementById("fiber-lamp").style.opacity = "1";
 
     // Show main page

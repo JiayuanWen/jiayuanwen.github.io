@@ -1,0 +1,51 @@
+
+
+#blog-container {
+    background-color: aliceblue;
+
+    position: absolute;
+    left: 18.5vw;
+    right: 18.5vw;
+    top: 0.1vh;
+    margin: 0 auto;
+
+    height: 100vh; /*Set in MyProject.js*/
+    width: 60vw; /*Set in MyProject.js*/
+
+    opacity: 0%;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+#no-blog {
+    transition: 1.4s;
+
+    height: 2vh; /*Set in MyProject.js*/
+    width: 21vw; /*Set in MyProject.js*/
+
+    position: absolute;
+    left: 5.5vw;
+    right: 5.5vw;
+    top: 50vh;
+    margin: 0 auto;
+
+    opacity: 0%;
+
+    z-index: 1;
+}
+
+md-block {
+
+    position: absolute;
+    left: 18.5vw;
+    right: 18.5vw;
+    top: 10vh;
+    margin: 0 auto;
+
+    opacity: 100%;
+
+    z-index: 1;
+    
+}

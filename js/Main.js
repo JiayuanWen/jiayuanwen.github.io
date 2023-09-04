@@ -24,6 +24,7 @@ import WebXRPolyfill from "./helper/webxr-polyfill.module.js";
 import { delay } from "./helper/delay.js";
 import { rgbToHex } from "./helper/rgbToHex.js";
 import { isMobile } from "./helper/mobileCheck.js";
+import { gpuEnabled } from "./helper/gpu-detect.js";
 
 //----------------------------------------------------------------------------------------- 3D Scene for fiber lamp
 const scene = new THREE.Scene();
@@ -76,7 +77,7 @@ renderer.setClearColor( 0x000000, 0 );
 //renderer.autoclear = false;
 
 // Setting the size of rendered 
-renderer.setSize( window.innerWidth, window.innerHeight ); 
+renderer.setSize( 1, 1 ); 
 renderer.setPixelRatio( window.devicePixelRatio );
 
 // Senderer color mode. Use sRGB to prevent bright image texture
@@ -118,7 +119,7 @@ camera_controls.maxPolarAngle = (Math.PI-1)/2;
 
 // Introl zoom animation
 const zoomInAnimation = async() => {
-
+	/*
 	camera.position.set(0,0,300);
 	camera.updateProjectionMatrix(); 
 	
@@ -132,37 +133,25 @@ const zoomInAnimation = async() => {
 
 		i += 0.435
 	}
+	*/
+
 	//camera.position.set(camera_default_x,camera_default_y,camera_default_z);
 	camera_controls.enabled = true;
 	camera_controls.enableZoom = false;
 	camera_controls.enablePan = false;
 	camera_controls.update();
-
+	
 	// Reinforce camera zoom after animation ends
 	//camera_controls.maxDistance = 31; 
+
+	camera.position.set(12,12,12);
+
+	renderer.setSize( window.innerWidth, window.innerHeight ); 
+
+	document.getElementById("fiber-lamp").style.paddingRight = "50vw";
+	document.getElementById("fiber-lamp").style.paddingTop = "0vh";
 }
 
-//----------------------------------------------------------------------------------------- Raycaster setup 
-const raycaster = new THREE.Raycaster();
-const pointer = new THREE.Vector2();
-
-// Detect user mouse movement on PC, or touch screen activity on mobile or tablets
-function onPointerMove( event ) {
-	// Calculate pointer position in normalized device coordinates
-	// (-1 to +1) for both components
-	pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-}
-window.addEventListener( 'pointermove', onPointerMove );
-
-// By default a ray stays there after being casted
-// for disable ray when not needed
-function resetCaster() {
-	pointer.x = null;
-	pointer.y = null;
-	raycaster.set((new THREE.Vector3(9999,9999,9999)), (new THREE.Vector3(9999,9999,9999)));
-	raycaster.params.Points.threshold = 0.01;
-}
 
 //----------------------------------------------------------------------------------------- Firefox & Safari WebXR compatibility
 const polyfill = new WebXRPolyfill();
@@ -226,8 +215,15 @@ loadingManager.onLoad = async function() {
 	document.getElementById("song-info").style.opacity = 0;
 	
 
-	// Starts animating the site after everything has loaded
-	animate(); 
+	// Check if user has hardware acceleration enabled
+	if (gpuEnabled()) {
+		// Starts animating the site after everything has loaded
+		animate();
+	}
+	else {
+		
+	}
+	 
 
 }
 function loadingScreenFade() {

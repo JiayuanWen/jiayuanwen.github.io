@@ -20,7 +20,7 @@
     <!-- Page/section stylesheets -->
     <link rel="stylesheet" type="text/css" href="style/aboutme.css" id="aboutme-style"/>
     <link rel="stylesheet" type="text/css" href="style/myproject.css" id="myproject-style"/>
-    <link rel="stylesheet" type="text/css" href="style/blogs.css" id="blogs-style"/>
+    <link rel="stylesheet" type="text/css" href="style/myblogs.css" id="blogs-style"/>
 
     <!-- Required stylesheet for DevIcons to work-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -50,7 +50,10 @@
     <script src="/js/helper/jquery.min.js"></script>
 
     <!-- For MarkDown rendering -->
-    <script src="/js/helper/md-block.js"></script>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
+    <!-- GPU Detection -->
+    <script src="/js/helper/gpu-detect.js"></script>
 </head>
     
 <body>
@@ -68,7 +71,7 @@
         }
     </script>
 
-    <!-- 3D view resides here -->
+    <!-- 3D lamp resides here -->
     <canvas class="fiber" id="fiber-lamp"></canvas>
     <script type="module-shim" src="/js/Main.js"></script>
 
@@ -80,16 +83,16 @@
     <!-- Menu -->
     <div w3-include-html="/page_components/main_menu.html"></div> 
 
-    <!-- About Me -->
-    <div w3-include-html="/pages/about_me.html"></div> 
-    <script type="module-shim" src="/js/helper/UI/manual-scroll.js"></script>
+        <!-- About Me -->
+        <div w3-include-html="/pages/about_me.html"></div> 
+        <script type="module-shim" src="/js/helper/UI/manual-scroll.js"></script>
 
-    <!-- My Project -->
-    <div w3-include-html="/pages/my_projects.html"></div> 
+        <!-- My Project -->
+        <div w3-include-html="/pages/my_projects.html"></div> 
 
-    <!-- Blogs -->
-    <div w3-include-html="/pages/blogs.html"></div> 
-    <script type="module-shim" src="/js/helper/background-stars.js"></script>
+        <!-- Blogs -->
+        <div w3-include-html="/pages/my_blogs.html"></div>
+        <script type="module-shim" src="/js/helper/background-stars.js"></script>
 
      <!-- Below are UI stuff that must be on top of everything -->
 
