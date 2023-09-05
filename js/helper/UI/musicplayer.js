@@ -1,3 +1,4 @@
+/*
 import { delay } from "../delay.js";
 
 let progress = document.getElementById("player-progress");
@@ -88,3 +89,4 @@ play.addEventListener("click", async function() {
         }
     }
 })
+*/

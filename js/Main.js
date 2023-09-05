@@ -168,7 +168,6 @@ loadingManager.onStart = function(url, item, total) {
 	else {
 		//alert("Note: Site is still under construction.");
 	}
-
 }
 
 // Execute during loading
@@ -178,6 +177,11 @@ loadingManager.onProgress = function(url, loaded, total) {
 
 	loadingBar.value = (loaded / total) * 100;
 	loadingPercent.textContent =  parseInt((loaded / total) * 100)+' %';
+}
+
+// Execute on error loading
+loadingManager.onError = function (url) {
+	alert("If site does not load, try refresh.");
 }
 
 // Execute on loading complete
