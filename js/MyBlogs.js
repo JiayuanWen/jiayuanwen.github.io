@@ -60,7 +60,7 @@ document.getElementById("blogs").addEventListener("click", async function() {
         // 
         //delayer = await delay(1000);
 
-        // Remove back buttom function to prevent function overlaps
+        // Remove back buttom function on click to prevent function overlaps
         document.getElementById("back-button").removeEventListener("click", backButton);
     })
 })
