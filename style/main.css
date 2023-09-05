@@ -77,3 +77,28 @@ a:hover {
     }
 }
 
+/* Disclaimer in case site won't load */
+#loading-disclaimer {
+    position: fixed;
+    color: rgb(139, 139, 139);
+    bottom: 1.9%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    visibility: hidden;
+}
+@media only screen and (max-width: 800px) {
+    #loading-disclaimer {
+        position: fixed;
+        color: rgb(139, 139, 139);
+        bottom: 1.9%;
+        left: 2%;
+        transform: translateX(-1%);
+        z-index: 1;
+
+        visibility: hidden;
+    }
+    
+}
+
