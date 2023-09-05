@@ -25,9 +25,10 @@ document.getElementById("blogs").addEventListener("click", async function() {
     document.getElementById("fiber-lamp").style.transition = "1.9s";
     document.getElementById("fiber-lamp").style.paddingRight = "90vw"; 
 
-    //
+    // Show blogs
     document.getElementById('blog-background').style.opacity = "7%";
-    document.getElementById('no-blog').style.opacity = "100%";
+    //document.getElementById('no-blog').style.opacity = "100%";
+    document.getElementById('blog-container').style.opacity = "100%";
 
     // Show stars
     let delayer = await delay(500);
@@ -47,15 +48,15 @@ document.getElementById("blogs").addEventListener("click", async function() {
         window.scrollTo(0,0);
         document.getElementsByTagName('body')[0].style.overflowY = "hidden";
 
-        //
+        // Hide blogs
         document.getElementById('blog-background').style.opacity = "0%";
-        document.getElementById('no-blog').style.opacity = "0%";
+        //document.getElementById('no-blog').style.opacity = "0%";
+        document.getElementById('blog-container').style.opacity = "0%";
 
         // Hide stars
         delayer = await delay(500);
         document.getElementById("stars-bg").style.opacity = "0%";
-        delayer = await delay(3000); 
-        document.getElementById("stars-bg").style.visibility = "hidden";
+        //delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
 
         // 
         //delayer = await delay(1000);
@@ -74,10 +75,10 @@ if (isMobile()) {
     var device_orientation = getDeviceOrientation(false);
 
     if (device_orientation == "portrait") {
-        toggleMobileLayout_AboutMe(true);
+        toggleMobileLayout_MyBlogs(true);
     }
     else {
-        toggleMobileLayout_AboutMe(false);
+        toggleMobileLayout_MyBlogs(false);
     };
 
     // Continue to listen for user's device orientation, change stylesheet accordingly
@@ -85,10 +86,10 @@ if (isMobile()) {
         var device_orientation = getDeviceOrientation(false);
 
         if (device_orientation == "portrait") {
-            toggleMobileLayout_AboutMe(true);
+            toggleMobileLayout_MyBlogs(true);
         }
         else {
-            toggleMobileLayout_AboutMe(false);
+            toggleMobileLayout_MyBlogs(false);
         };
     });
 }

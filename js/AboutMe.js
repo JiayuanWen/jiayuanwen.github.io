@@ -42,7 +42,7 @@ document.getElementById("about-me").addEventListener("click", async function() {
 
         // Hide stars
         document.getElementById("stars-bg").style.opacity = "0%";
-        delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
+        //delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
 
         // Remove back buttom function on click to prevent function overlaps
         document.getElementById("back-button").removeEventListener("click", backButton);
