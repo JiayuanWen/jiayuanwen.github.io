@@ -32,19 +32,24 @@ document.getElementById("about-me").addEventListener("click", async function() {
     let delayer = await delay(500);
     document.getElementById("stars-bg").style.visibility = "visible";
     document.getElementById("stars-bg").style.opacity = "50%";
+
+    //---------------------------------------------------------------------------------------- Back button function
+    document.getElementById("back-button").addEventListener("click", async function backButton() {
+        let delayer;
+        
+        // Hide about me page
+        toggleAboutMe("Out");
+
+        // Hide stars
+        document.getElementById("stars-bg").style.opacity = "0%";
+        delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
+
+        // Remove back buttom function to prevent function overlaps
+        document.getElementById("back-button").removeEventListener("click", backButton);
+    })
 })
 
-//---------------------------------------------------------------------------------------- Back button function
-document.getElementById("back-button").addEventListener("click", async function() {
-    let delayer;
-    
-    // Hide about me page
-    toggleAboutMe("Out");
 
-    // Hide stars
-    document.getElementById("stars-bg").style.opacity = "0%";
-    delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
-})
 
 //---------------------------------------------------------------------------------------- About Me page show/hide (helper)
 export async function toggleAboutMe(mode) {

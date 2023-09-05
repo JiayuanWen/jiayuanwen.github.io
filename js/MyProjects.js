@@ -50,34 +50,39 @@ document.getElementById("my-projects").addEventListener("click", async function(
     if (isMobile()) {
         document.getElementsByTagName('body')[0].style.overflowY = "auto";
     }
+
+    //---------------------------------------------------------------------------------------- Back button function
+    document.getElementById("back-button").addEventListener("click", async function backButton() {
+        //Hide projects
+        document.getElementById("project-container").style.pointerEvents = "none";
+        document.getElementById("project-container").style.opacity = "0%";
+
+        // Make page unscrollable
+        window.scrollTo(0,0);
+        document.getElementsByTagName('body')[0].style.overflowY = "hidden";
+
+        // Hide project container
+        let delayer = await delay(1000);
+        document.getElementById("project-container").style.height = "0.1vh";
+        document.getElementById("project-container").style.width = "0.1vw";
+        document.getElementById("project-container").style.top = "50vh"; 
+
+        document.getElementById("project-border").style.height = "0.1vh";
+        document.getElementById("project-border").style.width = "0.1vw";
+        document.getElementById("project-border").style.top = "50vh";
+        document.getElementById("project-border").style.borderRadius = "30px";
+        
+        document.getElementById("myproject").style.visibility = "hidden";
+        
+        // Remove projects
+        removeProjects();
+
+        // Remove back buttom function on click to prevent function overlaps
+        document.getElementById("back-button").removeEventListener("click", backButton);
+    })
 })
 
-//---------------------------------------------------------------------------------------- Back button function
-document.getElementById("back-button").addEventListener("click", async function() {
-    //Hide projects
-    document.getElementById("project-container").style.pointerEvents = "none";
-    document.getElementById("project-container").style.opacity = "0%";
 
-    // Make page unscrollable
-    window.scrollTo(0,0);
-    document.getElementsByTagName('body')[0].style.overflowY = "hidden";
-
-    // Hide project container
-    let delayer = await delay(1000);
-    document.getElementById("project-container").style.height = "0.1vh";
-    document.getElementById("project-container").style.width = "0.1vw";
-    document.getElementById("project-container").style.top = "50vh"; 
-
-    document.getElementById("project-border").style.height = "0.1vh";
-    document.getElementById("project-border").style.width = "0.1vw";
-    document.getElementById("project-border").style.top = "50vh";
-    document.getElementById("project-border").style.borderRadius = "30px";
-    
-    document.getElementById("myproject").style.visibility = "hidden";
-    
-    // Remove projects
-    removeProjects();
-})
 
 //---------------------------------------------------------------------------------------- Loading projects from data folder
 let projectsNumber = 5; // Set when you add a project in https://github.com/JiayuanWen/JiayuanWen.github.io.data
@@ -124,10 +129,10 @@ if (isMobile()) {
     var device_orientation = getDeviceOrientation(false);
 
     if (device_orientation == "portrait") {
-        toggleMobileLayout_AboutMe(true);
+        toggleMobileLayout_MyProjects(true);
     }
     else {
-        toggleMobileLayout_AboutMe(false);
+        toggleMobileLayout_MyProjects(false);
     };
 
     // Continue to listen for user's device orientation, change stylesheet accordingly
@@ -135,15 +140,15 @@ if (isMobile()) {
         var device_orientation = getDeviceOrientation(false);
 
         if (device_orientation == "portrait") {
-            toggleMobileLayout_AboutMe(true);
+            toggleMobileLayout_MyProjects(true);
         }
         else {
-            toggleMobileLayout_AboutMe(false);
+            toggleMobileLayout_MyProjects(false);
         };
     });
 }
 
-function toggleMobileLayout_AboutMe(mode_) {
+function toggleMobileLayout_MyProjects(mode_) {
     if (mode_ == true) {
         document.getElementById("myproject-style").setAttribute("href", "style/myproject-mobile.css");
     }

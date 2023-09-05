@@ -21,6 +21,16 @@
     border: 1px;
     border-style: solid;
 }
+    @media screen and (max-height: 906px) { /* Hide border when projects go out of bound*/
+        #project-border {
+            opacity: 0%;
+        }
+    }
+    @media screen and (max-width: 1488px) { /* Hide border when projects go out of bound*/
+        #project-border {
+            opacity: 0%;
+        }
+    }
 #project-container {
     transition: 1.4s;
 

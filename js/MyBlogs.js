@@ -26,7 +26,7 @@ document.getElementById("blogs").addEventListener("click", async function() {
     document.getElementById("fiber-lamp").style.paddingRight = "90vw"; 
 
     //
-    document.getElementById('blog-container').style.opacity = "7%";
+    document.getElementById('blog-background').style.opacity = "7%";
     document.getElementById('no-blog').style.opacity = "100%";
 
     // Show stars
@@ -38,30 +38,34 @@ document.getElementById("blogs").addEventListener("click", async function() {
     if (isMobile()) {
         document.getElementsByTagName('body')[0].style.overflowY = "auto";
     }
+
+    //---------------------------------------------------------------------------------------- Back button function
+    document.getElementById("back-button").addEventListener("click", async function backButton() {
+        let delayer;
+
+        // Make page unscrollable
+        window.scrollTo(0,0);
+        document.getElementsByTagName('body')[0].style.overflowY = "hidden";
+
+        //
+        document.getElementById('blog-background').style.opacity = "0%";
+        document.getElementById('no-blog').style.opacity = "0%";
+
+        // Hide stars
+        delayer = await delay(500);
+        document.getElementById("stars-bg").style.opacity = "0%";
+        delayer = await delay(3000); 
+        document.getElementById("stars-bg").style.visibility = "hidden";
+
+        // 
+        //delayer = await delay(1000);
+
+        // Remove back buttom function to prevent function overlaps
+        document.getElementById("back-button").removeEventListener("click", backButton);
+    })
 })
 
-//---------------------------------------------------------------------------------------- Back button function
-document.getElementById("back-button").addEventListener("click", async function() {
-    let delayer;
 
-    // Make page unscrollable
-    window.scrollTo(0,0);
-    document.getElementsByTagName('body')[0].style.overflowY = "hidden";
-
-    //
-    document.getElementById('blog-container').style.opacity = "0%";
-    document.getElementById('no-blog').style.opacity = "0%";
-
-    // Hide stars
-    delayer = await delay(500);
-    document.getElementById("stars-bg").style.opacity = "0%";
-    delayer = await delay(3000); 
-    document.getElementById("stars-bg").style.visibility = "hidden";
-
-    // 
-    //delayer = await delay(1000);
-
-})
 
 
 //---------------------------------------------------------------------------------------- Mobile layout
@@ -89,7 +93,7 @@ if (isMobile()) {
     });
 }
 
-function toggleMobileLayout_AboutMe(mode_) {
+function toggleMobileLayout_MyBlogs(mode_) {
     if (mode_ == true) {
         document.getElementById("myproject-style").setAttribute("href", "style/myproject-mobile.css");
     }
