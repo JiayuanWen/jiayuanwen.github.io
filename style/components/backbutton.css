@@ -1,4 +1,6 @@
 #back-button {
+    transition: 1s;
+
     position: fixed;
     font-size: 3.2rem;
     left: 10px;

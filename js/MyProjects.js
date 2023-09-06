@@ -14,10 +14,6 @@ import { getDeviceOrientation } from "./helper/orientationMode.js";
 document.getElementById("my-projects").addEventListener("click", async function() { 
     let delayer;
 
-    // Enable back button to allow visitors to go back
-    document.getElementById("back-button").style.pointerEvents = "auto";
-    document.getElementById("back-button").style.display = "block";
-
     // Hide main page
     selfIntroFade(10,"Out");
     mainMenuFade(10,"Out");
@@ -37,6 +33,10 @@ document.getElementById("my-projects").addEventListener("click", async function(
     if (isMobile()) {
         document.getElementsByTagName('body')[0].style.overflowY = "auto";
     }
+
+    // Enable back button to allow visitors to go back
+    document.getElementById("back-button").style.pointerEvents = "auto";
+    document.getElementById("back-button").style.display = "block";
 
     //---------------------------------------------------------------------------------------- Back button function
     document.getElementById("back-button").addEventListener("click", async function backButton() {

@@ -47,6 +47,9 @@ body::-webkit-scrollbar {
 }
 
 /* Hyperlink color */
+a {
+    transition: 0.3s;
+}
 a:link {
     color:rgb(255, 255, 255);
 }

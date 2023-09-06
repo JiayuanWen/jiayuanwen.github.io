@@ -1,7 +1,6 @@
 // Advanced UI elements
 import { selfIntroFade } from "./selfintro-fade.js";
 import { mainMenuFade } from "./mainmenu-fade.js";
-import { toggleAboutMe } from "../../AboutMe.js";
 
 // Other helper functions
 import { delay } from "../delay.js";
@@ -21,7 +20,7 @@ document.getElementById("back-button").addEventListener("click", async function(
 
     // Show main page
     selfIntroFade(10,"In");
-    mainMenuFade(10,"In");
+    mainMenuFade(500,"In");
 
     // Restore transition speed of some elements
     let delayer = await delay(2100);

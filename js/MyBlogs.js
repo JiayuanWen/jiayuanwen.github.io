@@ -41,6 +41,9 @@ document.getElementById("blogs").addEventListener("click", async function() {
         document.getElementsByTagName('body')[0].style.overflowY = "auto";
     }
 
+    // Make page interactable
+    document.getElementById('blog-container').style.pointerEvents = "auto";
+
     //---------------------------------------------------------------------------------------- Back button function
     document.getElementById("back-button").addEventListener("click", async function backButton() {
         let delayer;
@@ -67,11 +70,14 @@ document.getElementById("blogs").addEventListener("click", async function() {
 
         // Unload blog list
         removeBlogs();
+
+        // Make page uninteractable
+    document.getElementById('blog-container').style.pointerEvents = "none";
     })
 })
 
 //---------------------------------------------------------------------------------------- Load/Remove blogs from data repository
-let blogsTotal = 2; // Set when you add a blog in https://github.com/JiayuanWen/JiayuanWen.github.io.data
+let blogsTotal = 1; // Set when you add a blog in https://github.com/JiayuanWen/JiayuanWen.github.io.data
 async function loadBlogs() {
     let blogI = 1;
     // Blog images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
@@ -79,20 +85,30 @@ async function loadBlogs() {
 
     let blogDiv;
 
+    var blogID;
+
     for (let i = 1; i <= blogsTotal; i++) {
         blogI = i;
         // Blog images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
         filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/blogs/blog${blogI}/preview.html`;
 
         // Create blog element
-        blogDiv = document.createElement('div');
+        blogDiv = document.createElement('a');
         blogDiv.setAttribute('id',`blog-${blogI}`);
+        blogDiv.setAttribute('class',`blog-clicklistener`);
+        //blogDiv.setAttribute('href',`a`);
 
         // Insert blog element to container
         document.getElementById("blog-container").insertAdjacentHTML('beforeend',blogDiv.outerHTML);
 
         // Load blog from https://github.com/JiayuanWen/JiayuanWen.github.io.data
         $(`#blog-${blogI}`).load(filePath);
+
+        blogID = document.getElementById(`blog-${blogI}`).id;
+
+        // Add click handle to each blog
+        // For addEventListener in a loop with variables: https://stackoverflow.com/a/38860151
+        document.getElementById(`blog-${blogI}`).addEventListener("click", expandBlog.bind(this,blogID), false);
     }
 }
 async function removeBlogs() {
@@ -106,6 +122,10 @@ async function removeBlogs() {
     }
 }
 
+//---------------------------------------------------------------------------------------- Click handle for each blog
+function expandBlog(blogID) {
+    console.log(blogID);
+}
 
 //---------------------------------------------------------------------------------------- Mobile layout
 if (isMobile()) {

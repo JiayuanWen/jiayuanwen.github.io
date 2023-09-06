@@ -5,7 +5,7 @@
 import { isMobile } from "./mobileCheck.js";
 
 let stars_count = 100;
-if (isMobile) {
+if (isMobile()) {
     stars_count = 30;
 } else {
     stars_count = 100;

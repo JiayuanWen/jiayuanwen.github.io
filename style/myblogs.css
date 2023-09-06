@@ -64,8 +64,17 @@
     flex-direction: column;
     align-items: center;
 }
+    #blog-container > a {
+        color: #fff;
+        transition: 0.1s;
+        cursor: pointer;
+    }
+    #blog-container > a:active {
+        color: rgb(162, 0, 255);
+    }
 
 .blog-box {
+    transition: 0.3s;
     
     border-radius: 20px;
 
@@ -79,7 +88,7 @@
 
     float: left;
 
-    border: solid 1px #ffffff;
+    border: solid 1px #b1b1b1;
 
     overflow: hidden;
 
@@ -87,6 +96,12 @@
     white-space: nowrap;
     
 }
+    .blog-box:hover {
+        border: solid 1px #ffffff;
+    }
+    .blog-box:active {
+        border: solid 1px #a200ff;
+    }
     .blog-thumb {
         /*border: #ffffff 1px solid;*/
 
