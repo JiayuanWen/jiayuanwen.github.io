@@ -64,10 +64,13 @@ document.getElementById("blogs").addEventListener("click", async function() {
 
         // Remove back buttom function on click to prevent function overlaps
         document.getElementById("back-button").removeEventListener("click", backButton);
+
+        // Unload blog list
+        removeBlogs();
     })
 })
 
-//---------------------------------------------------------------------------------------- Load blogs from data repository
+//---------------------------------------------------------------------------------------- Load/Remove blogs from data repository
 let blogsTotal = 2; // Set when you add a blog in https://github.com/JiayuanWen/JiayuanWen.github.io.data
 async function loadBlogs() {
     let blogI = 1;
@@ -90,6 +93,16 @@ async function loadBlogs() {
 
         // Load blog from https://github.com/JiayuanWen/JiayuanWen.github.io.data
         $(`#blog-${blogI}`).load(filePath);
+    }
+}
+async function removeBlogs() {
+    let delayer = await delay(1000);
+
+    let blogI = 1;
+
+    for (let i = 1; i <= blogsTotal; i++) {
+        blogI = i;
+        document.getElementById(`blog-${blogI}`).outerHTML = "";
     }
 }
 

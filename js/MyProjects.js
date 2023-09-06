@@ -87,7 +87,7 @@ async function showProjects() {
 
     document.getElementById("project-container").style.pointerEvents = "auto";
 
-    if (!isMobile) {
+    if (!isMobile()) {
         delayer = await delay(1000);
         document.getElementById("project-container").style.opacity = "100%";
     } else {
