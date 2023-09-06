@@ -98,7 +98,7 @@ async function showProjects() {
 
 
 
-//---------------------------------------------------------------------------------------- Loading projects from data folder
+//---------------------------------------------------------------------------------------- Loading projects from data repository
 let projectsNumber = 5; // Set when you add a project in https://github.com/JiayuanWen/JiayuanWen.github.io.data
 async function loadProjects() {
     

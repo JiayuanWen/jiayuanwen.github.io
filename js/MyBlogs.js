@@ -10,7 +10,7 @@ import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
 
 
-//---------------------------------------------------------------------------------------- Blogs click handle
+//---------------------------------------------------------------------------------------- My Blogs click handle
 document.getElementById("blogs").addEventListener("click", async function() {
 
     // Enable back button to allow visitors to go back
@@ -29,6 +29,7 @@ document.getElementById("blogs").addEventListener("click", async function() {
     document.getElementById('blog-background').style.opacity = "7%";
     //document.getElementById('no-blog').style.opacity = "100%";
     document.getElementById('blog-container').style.opacity = "100%";
+    loadBlogs();
 
     // Show stars
     let delayer = await delay(500);
@@ -66,7 +67,31 @@ document.getElementById("blogs").addEventListener("click", async function() {
     })
 })
 
+//---------------------------------------------------------------------------------------- Load blogs from data repository
+let blogsTotal = 2; // Set when you add a blog in https://github.com/JiayuanWen/JiayuanWen.github.io.data
+async function loadBlogs() {
+    let blogI = 1;
+    // Blog images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
+    let filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/blogs/blog${blogI}/preview.html`;
 
+    let blogDiv;
+
+    for (let i = 1; i <= projTotal; i++) {
+        blogI = i;
+        // Blog images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
+        filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/blogs/blog${blogI}/preview.html`;
+
+        // Create blog element
+        blogDiv = document.createElement('div');
+        blogDiv.setAttribute('id',`blog-${blogI}`);
+
+        // Insert blog element to container
+        document.getElementById("blog-container").insertAdjacentHTML('beforeend',blogDiv.outerHTML);
+
+        // Load blog from https://github.com/JiayuanWen/JiayuanWen.github.io.data
+        $(`#blog-${blogI}`).load(filePath);
+    }
+}
 
 
 //---------------------------------------------------------------------------------------- Mobile layout
