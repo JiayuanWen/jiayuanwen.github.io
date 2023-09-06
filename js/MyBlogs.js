@@ -76,7 +76,7 @@ async function loadBlogs() {
 
     let blogDiv;
 
-    for (let i = 1; i <= projTotal; i++) {
+    for (let i = 1; i <= blogsTotal; i++) {
         blogI = i;
         // Blog images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
         filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/blogs/blog${blogI}/preview.html`;
