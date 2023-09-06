@@ -4,7 +4,7 @@
 <br/>
 <br/>
 
-<p align="center">This repository hosts my website site. You can browse the site's source code and resources here.</p>
+<p align="center">This repository hosts my website. You can browse the site's source code and resources here.</p>
 
 <br/>
 
