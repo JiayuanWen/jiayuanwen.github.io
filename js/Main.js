@@ -26,6 +26,9 @@ import { rgbToHex } from "./helper/rgbToHex.js";
 import { isMobile } from "./helper/mobileCheck.js";
 import { gpuEnabled } from "./helper/gpu-detect.js";
 
+// Dev outputs for dev purposes
+let dev_output = false;
+
 //----------------------------------------------------------------------------------------- 3D Scene for fiber lamp
 const scene = new THREE.Scene();
 
@@ -36,10 +39,12 @@ let delta = null;
 
 // Origin
 const origin = new THREE.Vector3(0,0,0);
-	console.log("Origin x:"+origin.x); 
-	console.log("Origin y:"+origin.y);
-	console.log("Origin z:"+origin.z);
-	console.log(" ");
+	if (dev_output) {
+		console.log("Origin x:"+origin.x); 
+		console.log("Origin y:"+origin.y);
+		console.log("Origin z:"+origin.z);
+		console.log(" ");
+	}
 
 //scene.background = new THREE.Color(0xa5a5a5);
 // Environment map
@@ -163,7 +168,7 @@ const loadingManager = new THREE.LoadingManager();
 loadingManager.onStart = function(url, item, total) {
 
 	if (isMobile()) {
-		//alert("The site currently isn't optimized for mobile devices. It is best to visit on PC for the time being.");
+		alert("The site is currently not optimized for mobile devices. It is best to visit on PC for the time being.");
 	}
 	else {
 		//alert("Note: Site is still under construction.");
@@ -181,15 +186,9 @@ loadingManager.onProgress = function(url, loaded, total) {
 
 // Execute on error loading
 loadingManager.onError = function (url) {
-	alert("If site does not load, try refresh.");
+	
 }
-async function showDisclaimer() {
-	let delayer = await delay(5700);
-	if (loadingBar.value != 100) {
-		document.getElementById("loading-disclaimer").style.visibility = "visible";
-	}
-}
-showDisclaimer();
+
 
 // Execute on loading complete
 const loadingScreen = document.querySelector('.loading-screen');
@@ -267,7 +266,7 @@ const fiber_lamp = new THREE.Object3D();
 	}, 
 	// Called when loading is in progresses
 	function (xhr) {
-		if (( xhr.loaded / xhr.total * 100 ) == 100) {
+		if (( xhr.loaded / xhr.total * 100 ) == 100 && dev_output) {
 			console.log("Fiber Lamp: ");
 			console.log(fiber_lamp);
 			console.log(" ");
@@ -289,8 +288,8 @@ const fiber_lamp = new THREE.Object3D();
 	}, 
 	// Called when loading is in progresses
 	function (xhr) {
-		if (( xhr.loaded / xhr.total * 100 ) == 100) {
-			console.log("Fiber Lamp: ");
+		if (( xhr.loaded / xhr.total * 100 ) == 100 && dev_output) {
+			console.log("Fiber Glow: ");
 			console.log(fiber_lamp);
 			console.log(" ");
 		}

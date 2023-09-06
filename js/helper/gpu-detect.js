@@ -19,6 +19,7 @@ export function gpuEnabled() {
 
     // Sample output:
     //
+    console.log("GPU in-use:")
     console.log(renderer);
     // Output ATI Technologies Inc. AMD Radeon R9 M370X OpenGL Engine
 
@@ -36,4 +37,4 @@ export function gpuEnabled() {
     }
     
     return false;
-}
+};

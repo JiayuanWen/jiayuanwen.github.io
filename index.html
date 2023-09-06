@@ -53,7 +53,7 @@
     <script type="module" src="https://md-block.verou.me/md-block.js"></script>
 
     <!-- GPU Detection -->
-    <script src="/js/helper/gpu-detect.js"></script>
+    <script type="module" src="/js/helper/gpu-detect.js"></script>
 </head>
     
 <body>
@@ -75,50 +75,55 @@
     <canvas class="fiber" id="fiber-lamp"></canvas>
     <script type="module-shim" src="/js/Main.js"></script>
 
+    <!-- Main Screen section -->
+    <!---->
+    <!---->    <!-- Self Intro -->
+    <!---->        <h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
+    <!---->        <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>
+    <!---->
+    <!---->    <!-- Menu -->
+    <!---->        <div w3-include-html="/page_components/main_menu.html"></div> 
+    <!---->
+    <!-- End of Main Screen section -->
 
-    <!-- Self Intro -->
-    <h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
-    <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>
-
-    <!-- Menu -->
-    <div w3-include-html="/page_components/main_menu.html"></div> 
-
-        <!-- About Me -->
+    <!-- About Me -->
         <div w3-include-html="/pages/about_me.html"></div> 
         <script type="module-shim" src="/js/helper/UI/manual-scroll.js"></script>
 
-        <!-- My Project -->
+    <!-- My Project -->
         <div w3-include-html="/pages/my_projects.html"></div> 
 
-        <!-- Blogs -->
+    <!-- Blogs -->
         <div w3-include-html="/pages/my_blogs.html"></div>
         <script type="module-shim" src="/js/helper/background-stars.js"></script>
 
-     <!-- Below are UI stuff that must be on top of everything -->
-
-        <!-- Back to home button -->
-        <div id="back-button">
-            <ion-icon name="arrow-back-sharp"></ion-icon>
-            <script type="module-shim" src="/js/helper/UI/back-button.js"></script>
-        </div>
-
-        <!-- Fullscreen button -->
-        <div id="fullscreen">
-            <ion-icon id="fullscreen-toggle" name="expand-sharp"></ion-icon>
-            <script type="module-shim" src="/js/helper/UI/fullscreen-button.js"></script>
-        </div>
-
-        <!-- Music player -->
-        <div w3-include-html="/page_components/music_player.html"></div> 
-
-        <!-- Loading screen -->
-        <div w3-include-html="/page_components/loading_screen.html"></div> 
-
-        <!-- Site credit & source code -->
-        <div id="site-credit">Built by me, hosted on <a href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.</div>
-
-        <!-- Contact information -->
-        <div w3-include-html="/page_components/contact_info.html"></div> 
+    <!-- Below are UI stuff that must be on top of everything -->
+    <!---->
+    <!---->    <!-- Back to home button -->
+    <!---->    <div id="back-button">
+    <!---->        <ion-icon name="arrow-back-sharp"></ion-icon>
+    <!---->        <script type="module-shim" src="/js/helper/UI/back-button.js"></script>
+    <!---->    </div>
+    <!---->
+    <!---->    <!-- Fullscreen button -->
+    <!---->    <div id="fullscreen">
+    <!---->        <ion-icon id="fullscreen-toggle" name="expand-sharp"></ion-icon>
+    <!---->        <script type="module-shim" src="/js/helper/UI/fullscreen-button.js"></script>
+    <!---->    </div>
+    <!---->
+    <!---->    <!-- Music player -->
+    <!---->    <div w3-include-html="/page_components/music_player.html"></div> 
+    <!---->
+    <!---->    <!-- Loading screen -->
+    <!---->    <div w3-include-html="/page_components/loading_screen.html"></div> 
+    <!---->
+    <!---->    <!-- Site credit & source code -->
+    <!---->    <div id="site-credit">Built by me, hosted on <a href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.</div>
+    <!---->
+    <!---->    <!-- Contact information -->
+    <!---->    <div w3-include-html="/page_components/contact_info.html"></div> 
+    <!---->
+    <!-- End of UI Stuff -->
 
     <!-- Required for loading separate html files -->
     <script>w3IncludeHTML();</script>
@@ -129,5 +134,8 @@
 
     <!-- Background stars -->
     <canvas id="stars-bg"></canvas>
+
+    <!-- Disclaimer -->
+    <script type="module-shim" src="/js/helper/disclaimer.js"></script>
 </body>
 </html>
