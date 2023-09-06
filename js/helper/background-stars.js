@@ -2,13 +2,22 @@
 
 //console.log("test");
 
+import { isMobile } from "./mobileCheck.js";
+
+let stars_count = 100;
+if (isMobile) {
+    stars_count = 30;
+} else {
+    stars_count = 100;
+}
+
 var canvas = document.getElementById("stars-bg"),
     ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var stars = [], // Array that contains the stars
     FPS = 75, // Frames per second
-    x = 100; // Number of stars
+    x = stars_count; // Number of stars
 
 class star{
     constructor() {

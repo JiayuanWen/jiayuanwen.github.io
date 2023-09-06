@@ -19,7 +19,26 @@
 
     pointer-events: none;
 }
+    #blog-background-blocker {
+        transition: 1.4s;
+        
+        background-color: rgb(0, 0, 0);
 
+        position: absolute;
+        left: 18.5vw;
+        right: 18.5vw;
+        top: 0.001vh;
+        margin: 0 auto;
+
+        height: 100vh; 
+        width: 60vw; 
+
+        opacity: 0%;
+
+        z-index: 1;
+
+        pointer-events: none;
+    }
 
 #blog-container {
     transition: 1.4s;
@@ -103,6 +122,8 @@
         float:left;
 
         font-size: 17px;
+
+        white-space: normal;
     }
 
 #no-blog {

@@ -11,7 +11,8 @@ import { getDeviceOrientation } from "./helper/orientationMode.js";
 
 
 //---------------------------------------------------------------------------------------- My Projects click handle
-document.getElementById("my-projects").addEventListener("click", async function() {
+document.getElementById("my-projects").addEventListener("click", async function() { 
+    let delayer;
 
     // Enable back button to allow visitors to go back
     document.getElementById("back-button").style.pointerEvents = "auto";
@@ -21,30 +22,16 @@ document.getElementById("my-projects").addEventListener("click", async function(
     selfIntroFade(10,"Out");
     mainMenuFade(10,"Out");
 
+    // Show projects
+    loadProjects();
+    showProjects()
+
     // Move lamp to center
     document.getElementById("fiber-lamp").style.transition = "1.9s";
     document.getElementById("fiber-lamp").style.paddingRight = "0vw"; 
-
-    // Show project container
-    let delayer = await delay(100);
-    document.getElementById("myproject").style.visibility = "visible";
-
-    document.getElementById("project-container").style.height = "87vh";
-    document.getElementById("project-container").style.width = "95vw";
-    document.getElementById("project-container").style.top = "5vh";
-
-    document.getElementById("project-border").style.height = "87vh";
-    document.getElementById("project-border").style.width = "95vw";
-    document.getElementById("project-border").style.top = "5vh";
-    document.getElementById("project-border").style.borderRadius = "30px";
-
-    document.getElementById("project-container").style.pointerEvents = "auto";
-
-    // Show projects
-    loadProjects();
-
-    delayer = await delay(1000);
-    document.getElementById("project-container").style.opacity = "100%";
+    delayer = await delay(1900);
+    document.getElementById("fiber-lamp").style.position = "fixed";
+    
 
     // Make page scrollable
     if (isMobile()) {
@@ -82,6 +69,33 @@ document.getElementById("my-projects").addEventListener("click", async function(
     })
 })
 
+//---------------------------------------------------------------------------------------- Show/Hide projects
+async function showProjects() {
+    let delayer;
+
+    delayer = await delay(100);
+    document.getElementById("myproject").style.visibility = "visible";
+
+    document.getElementById("project-container").style.height = "87vh";
+    document.getElementById("project-container").style.width = "95vw";
+    document.getElementById("project-container").style.top = "5vh";
+
+    document.getElementById("project-border").style.height = "87vh";
+    document.getElementById("project-border").style.width = "95vw";
+    document.getElementById("project-border").style.top = "5vh";
+    document.getElementById("project-border").style.borderRadius = "30px";
+
+    document.getElementById("project-container").style.pointerEvents = "auto";
+
+    if (!isMobile) {
+        delayer = await delay(1000);
+        document.getElementById("project-container").style.opacity = "100%";
+    } else {
+        document.getElementById("project-container").style.opacity = "100%";
+    }
+    
+}
+
 
 
 //---------------------------------------------------------------------------------------- Loading projects from data folder
@@ -112,7 +126,7 @@ async function loadProjects() {
     }
 }
 
-//---------------------------------------------------------------------------------------- Remove projects from 
+//---------------------------------------------------------------------------------------- Remove projects from page
 async function removeProjects() {
     let projI = 1;
     let projTotal = projectsNumber;

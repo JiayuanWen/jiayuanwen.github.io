@@ -1,10 +1,15 @@
 /* --------------------------------------------------------------------------------- 3D Fiber Lamp */
 .fiber {
+    position:static;
+
     float: right;
     /*padding-right: 50vw;*/
     padding-right: 100vw;
     padding-top: 50vh;
     transition: 4s;
-    z-index: 1;
 
+
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
