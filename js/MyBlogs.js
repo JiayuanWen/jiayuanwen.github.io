@@ -77,11 +77,12 @@ document.getElementById("blogs").addEventListener("click", async function() {
 })
 
 //---------------------------------------------------------------------------------------- Load/Remove blogs from data repository
-let blogsTotal = 1; // Set when you add a blog in https://github.com/JiayuanWen/JiayuanWen.github.io.data
+let blogsTotal = 1; 
+
 async function loadBlogs() {
     let blogI = 1;
-    // Blog images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
-    let filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/blogs/blog${blogI}/preview.html`;
+    // Blog images and descriptions hosted on https://github.com/JiayuanWen/blogs
+    let filePath = `https://raw.githubusercontent.com/JiayuanWen/blogs/main/resources/blog${blogI}/preview.html`;
 
     let blogDiv;
 
@@ -89,8 +90,8 @@ async function loadBlogs() {
 
     for (let i = 1; i <= blogsTotal; i++) {
         blogI = i;
-        // Blog images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
-        filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/blogs/blog${blogI}/preview.html`;
+        // Blog images and descriptions hosted on https://github.com/JiayuanWen/blogs
+        filePath = `https://raw.githubusercontent.com/JiayuanWen/blogs/main/resources/blog${blogI}/preview.html`;
 
         // Create blog element
         blogDiv = document.createElement('a');
