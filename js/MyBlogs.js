@@ -130,6 +130,9 @@ function expandBlog(blogID) {
 
     // Load blog from https://github.com/JiayuanWen/JiayuanWen.github.io.data
     //$(`#blog-content`).load(articlePath);
+
+    // Redirect to blog article
+    window.location.href = `http://jiayuanwen.github.io/blogs/redirector/${blogID}/redirect.html`;
 }
 
 //---------------------------------------------------------------------------------------- Mobile layout
