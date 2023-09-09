@@ -132,7 +132,7 @@ function expandBlog(blogID) {
     //$(`#blog-content`).load(articlePath);
 
     // Redirect to blog article
-    window.location.href = `http://jiayuanwen.github.io/blogs/redirector/${blogID}/redirect.html`;
+    window.location.href = `http://jiayuanwen.github.io/blogs/resources/${blogID}/redirect.html`;
 }
 
 //---------------------------------------------------------------------------------------- Mobile layout
