@@ -175,11 +175,11 @@
     z-index: 1;
 }
 
-md-block {
+zero-md {
 
     position: absolute;
-    left: 5.5vw;
-    right: 5.5vw;
+    left: 20.5vw;
+    right: 20.5vw;
     top: 10vh;
     margin: 0 auto;
 

@@ -125,10 +125,10 @@ async function removeBlogs() {
 function expandBlog(blogID) {
     console.log(blogID);
 
-    // Load full blog from https://github.com/JiayuanWen/JiayuanWen.github.io.data
+    // (deprecated) Load full blog from https://github.com/JiayuanWen/JiayuanWen.github.io.data
     //let articlePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/blogs/${blogID}/article.html`;
 
-    // Load blog from https://github.com/JiayuanWen/JiayuanWen.github.io.data
+    // (deprecated) Load blog from https://github.com/JiayuanWen/JiayuanWen.github.io.data
     //$(`#blog-content`).load(articlePath);
 
     // Redirect to blog article
