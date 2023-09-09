@@ -26,7 +26,7 @@ document.getElementById("blogs").addEventListener("click", async function() {
     document.getElementById("fiber-lamp").style.paddingRight = "90vw"; 
 
     // Show blogs
-    document.getElementById('blog-background').style.opacity = "7%";
+    document.getElementById('blog-background').style.opacity = "100%";
     //document.getElementById('no-blog').style.opacity = "100%";
     document.getElementById('blog-container').style.opacity = "100%";
     loadBlogs();
