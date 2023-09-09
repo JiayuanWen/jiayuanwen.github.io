@@ -102,7 +102,7 @@ async function loadBlogs() {
         // Insert blog element to container
         document.getElementById("blog-container").insertAdjacentHTML('beforeend',blogDiv.outerHTML);
 
-        // Load blog from https://github.com/JiayuanWen/JiayuanWen.github.io.data
+        // Load blog element
         $(`#blog${blogI}`).load(filePath);
 
         // Add click handle and assign id to each blog

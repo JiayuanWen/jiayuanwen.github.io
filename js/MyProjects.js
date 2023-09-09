@@ -99,20 +99,20 @@ async function showProjects() {
 
 
 //---------------------------------------------------------------------------------------- Loading projects from data repository
-let projectsNumber = 5; // Set when you add a project in https://github.com/JiayuanWen/JiayuanWen.github.io.data
+let projectsNumber = 5; // Set when you add a project in https://github.com/JiayuanWen/projects
 async function loadProjects() {
     
     let projI = 1;
-    // Project images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
-    let filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
+    // Project images and descriptions hosted on https://github.com/JiayuanWen/projects
+    let filePath = `https://raw.githubusercontent.com/JiayuanWen/projects/main/projects/proj${projI}/display.html`;
     let projTotal = projectsNumber;
 
     let projDiv;
 
     for (let i = 1; i <= projTotal; i++) {
         projI = i;
-        // Project images and descriptions hosted on https://github.com/JiayuanWen/JiayuanWen.github.io.data
-        filePath = `https://raw.githubusercontent.com/JiayuanWen/JiayuanWen.github.io.data/main/projects/proj${projI}/display.html`;
+        // Project images and descriptions hosted on https://github.com/JiayuanWen/projects
+        filePath = `https://raw.githubusercontent.com/JiayuanWen/projects/main/projects/proj${projI}/display.html`;
 
         // Create project element
         projDiv = document.createElement('div');
