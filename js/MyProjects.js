@@ -49,6 +49,7 @@ document.getElementById("my-projects").addEventListener("click", async function(
         document.getElementsByTagName('body')[0].style.overflowY = "hidden";
 
         // Hide project container
+        document.getElementById("project-border").style.opacity = "100%";
         let delayer = await delay(1000);
         document.getElementById("project-container").style.height = "0.1vh";
         document.getElementById("project-container").style.width = "0.1vw";
@@ -73,13 +74,14 @@ document.getElementById("my-projects").addEventListener("click", async function(
 async function showProjects() {
     let delayer;
 
-    delayer = await delay(100);
+
     document.getElementById("myproject").style.visibility = "visible";
 
     document.getElementById("project-container").style.height = "87vh";
     document.getElementById("project-container").style.width = "95vw";
     document.getElementById("project-container").style.top = "5vh";
 
+    document.getElementById("project-border").style.opacity = "100%";
     document.getElementById("project-border").style.height = "87vh";
     document.getElementById("project-border").style.width = "95vw";
     document.getElementById("project-border").style.top = "5vh";
@@ -88,8 +90,9 @@ async function showProjects() {
     document.getElementById("project-container").style.pointerEvents = "auto";
 
     if (!isMobile()) {
-        delayer = await delay(1000);
+        delayer = await delay(800);
         document.getElementById("project-container").style.opacity = "100%";
+        document.getElementById("project-border").style.opacity = "0%";
     } else {
         document.getElementById("project-container").style.opacity = "100%";
     }

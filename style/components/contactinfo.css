@@ -45,5 +45,5 @@
     }
     #contact-info > a > i:active{
         transform: translateY(-10px);
-        color: rgb(119, 0, 255);
+        color: rgb(120, 153, 0);
     }

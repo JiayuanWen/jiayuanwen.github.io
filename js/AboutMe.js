@@ -30,8 +30,8 @@ document.getElementById("about-me").addEventListener("click", async function() {
 
     // Show stars
     let delayer = await delay(500);
-    document.getElementById("stars-bg").style.visibility = "visible";
-    document.getElementById("stars-bg").style.opacity = "50%";
+    document.getElementById("stars-bg-purple").style.visibility = "visible";
+    document.getElementById("stars-bg-purple").style.opacity = "50%";
 
     //---------------------------------------------------------------------------------------- Back button function
     document.getElementById("back-button").addEventListener("click", async function backButton() {
@@ -41,7 +41,7 @@ document.getElementById("about-me").addEventListener("click", async function() {
         toggleAboutMe("Out");
 
         // Hide stars
-        document.getElementById("stars-bg").style.opacity = "0%";
+        document.getElementById("stars-bg-purple").style.opacity = "0%";
         //delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
 
         // Remove back buttom function on click to prevent function overlaps

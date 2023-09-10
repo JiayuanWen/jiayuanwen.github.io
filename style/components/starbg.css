@@ -1,5 +1,22 @@
 /* --------------------------------------------------------------------------------- Stars background */
-#stars-bg {
+#stars-bg-grey {
+    position: fixed;
+    transition: 3.0s;
+
+    background: #00000000;
+
+    height: 100%; 
+    width: 100%;
+
+    z-index: 0;
+
+    opacity: 0%;
+    pointer-events: none;
+    visibility: hidden;
+
+}
+
+#stars-bg-purple {
     position: fixed;
     transition: 3.0s;
 

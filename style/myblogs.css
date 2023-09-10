@@ -56,14 +56,14 @@
 .blog-box {
     transition: 0.3s;
     
-    border-radius: 20px;
+    border-radius: 10px;
 
     width: 56.6vw;
     height: 220px;
 
     margin-top: 30px;
 
-    background-color: #33333380;
+    background-color: #29292980;
     opacity: 100%;
 
     float: left;
@@ -82,7 +82,7 @@
     }
     .blog-box:active {
         border: solid 0px #a200ff;
-        background-color: #41004e80;
+        background-color: #23241f80;
     }
     .blog-thumb {
         /*border: #ffffff 1px solid;*/
@@ -101,7 +101,7 @@
         display:inline;
         float:left;
 
-        font-size: 40px;
+        font-size: 28px;
         font-weight: bold;
     }
     .blog-date {
@@ -135,6 +135,22 @@
         font-size: 17px;
 
         white-space: normal;
+    }
+    .blog-read-more {
+        position: absolute;
+
+        right: 50px;
+        margin-top: 190px;
+
+        display:inline;
+        float:right;
+
+        font-size: 15px;
+        font-weight: light;
+
+        color:rgb(211, 211, 211);
+
+        text-decoration-line: underline;
     }
 
 #no-blog {

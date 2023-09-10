@@ -33,8 +33,8 @@ document.getElementById("blogs").addEventListener("click", async function() {
 
     // Show stars
     let delayer = await delay(500);
-    document.getElementById("stars-bg").style.visibility = "visible";
-    document.getElementById("stars-bg").style.opacity = "50%";
+    document.getElementById("stars-bg-grey").style.visibility = "visible";
+    document.getElementById("stars-bg-grey").style.opacity = "50%";
 
     // Make page scrollable
     if (isMobile()) {
@@ -59,7 +59,7 @@ document.getElementById("blogs").addEventListener("click", async function() {
 
         // Hide stars
         delayer = await delay(500);
-        document.getElementById("stars-bg").style.opacity = "0%";
+        document.getElementById("stars-bg-grey").style.opacity = "0%";
         //delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
 
         // 

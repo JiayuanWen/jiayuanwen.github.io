@@ -11,7 +11,7 @@ if (isMobile()) {
     stars_count = 100;
 }
 
-var canvas = document.getElementById("stars-bg"),
+var canvas = document.getElementById("stars-bg-grey"),
     ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -39,7 +39,7 @@ function draw() {
     ctx.globalCompositeOperation = "lighter";
     for (var i = 0, x = stars.length; i < x; i++) {
         var s = stars[i];
-        ctx.fillStyle = "#6931f9";
+        ctx.fillStyle = "#cccccc";
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
         ctx.fill();
@@ -58,7 +58,7 @@ function draw() {
         }
     }
     ctx.lineWidth = 0.12;
-    ctx.strokeStyle = '#6931f9';
+    ctx.strokeStyle = '#cccccc';
     ctx.stroke();
 }
 function distance( point1, point2 ){
