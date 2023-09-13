@@ -13,6 +13,8 @@
     display: none;
 
     z-index: 1;
+
+    pointer-events: none;
 }
     #site-intro > hi {
         font-size: calc((5.8vh + 5.8vw)/2);

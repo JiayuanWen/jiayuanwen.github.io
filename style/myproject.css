@@ -94,7 +94,7 @@
         height: 236px;
 
         border-radius: 10px;
-        object-fit: contain;
+
     }
     .project-item img:hover {
         -webkit-transform: scale(1.05);
