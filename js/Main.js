@@ -221,8 +221,8 @@ loadingManager.onLoad = async function() {
 	
 
 	// Handle music
-	document.getElementById('player').pause();
-	document.getElementById("song-info").style.opacity = 0;
+	//document.getElementById('player').pause();
+	//document.getElementById("song-info").style.opacity = 0;
 	
 
 	// Check if user has hardware acceleration enabled
