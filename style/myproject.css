@@ -159,7 +159,7 @@
             position: relative;
             display: flex;
             justify-content: right;   
-            opacity: 0%;    
+            opacity: 20%;    
             translate: 0 -25px;
         }
     }
@@ -199,6 +199,16 @@
             padding-bottom: 0px;
             padding-left: 8px;
             padding-right: 8px;
+        }
+    }
+    @media screen and (max-height: 777px) {
+        .project-item .tools img{
+            width: 15px;
+            height: 15px;
+    
+            padding-bottom: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
         }
     }
 
