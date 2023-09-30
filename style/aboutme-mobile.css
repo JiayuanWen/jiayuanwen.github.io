@@ -213,3 +213,15 @@
     opacity: 1;
 }
 */
+
+/* --------------------------------------------------------------------------------- Page bottom for setting page scroll limit */
+#aboutme-page-bottom {
+    position: absolute;
+
+    top: 1800px; /*Set in MyProject.js*/
+
+    height: 1px;
+    width: 1px;
+
+    background-color: #000000;
+}

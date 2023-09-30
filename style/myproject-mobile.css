@@ -50,16 +50,18 @@
     transition: 0.2s;
 
     margin: 20px;
-    border: 1px solid #777;
+    border: 0px solid #777;
     float: left;
     width: 330px;
     height: 370px;
 
     border-radius: 10px;
+
+    background-color: rgba(44, 44, 44, 0.89);
 }
   
     .project-item:hover {
-        border: 1px solid #ccc;
+        border: 0px solid #ccc;
     }
 
     .project-item img {
