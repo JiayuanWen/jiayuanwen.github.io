@@ -71,8 +71,8 @@
 
     border: 0px solid rgb(128, 128, 128);
     float: left;
-    width: 420px;
-    height: 370px;
+    width: 22vw;
+    height: 40vh;
 
     border-radius: 10px;
 
@@ -94,8 +94,8 @@
     .project-item img {
         transition: 0.8s;
 
-        width: 420px;
-        height: 236px;
+        width: 22vw;
+        height: auto;
 
         border-radius: 10px;
 
@@ -117,28 +117,89 @@
         padding-right: 15px;
 
         text-align: center;
-        font-size: smaller;
+        font-size: 1.5vh;
     }
 
     .project-item .tools {
+        position: relative;
         display: flex;
-
         justify-content: right;
-
         opacity: 20%;
-
         bottom: 1px;
     }
-
+    @media screen and (max-height: 900px) {
+        .project-item .tools {
+            position: relative;
+            display: flex;
+            justify-content: right;   
+            opacity: 20%;    
+            translate: 0 -12px;
+        }
+    }   
+    @media screen and (max-height: 840px) {
+        .project-item .tools {
+            position: relative;
+            display: flex;
+            justify-content: right;   
+            opacity: 20%;    
+            translate: 0 -20px;
+        }
+    }
+    @media screen and (max-height: 808px) {
+        .project-item .tools {
+            position: relative;
+            display: flex;
+            justify-content: right;   
+            opacity: 20%;    
+            translate: 0 -25px;
+        }
+    }
+    @media screen and (max-height: 777px) {
+        .project-item .tools {
+            position: relative;
+            display: flex;
+            justify-content: right;   
+            opacity: 0%;    
+            translate: 0 -25px;
+        }
+    }
     .project-item .tools img{
         width: 30px;
         height: 30px;
 
         padding-bottom: 0px;
         padding-left: 8px;
-        padding-right: 8px;
-
-        
+        padding-right: 8px;    
+    }
+    @media screen and (max-height: 900px) {
+        .project-item .tools img{
+            width: 25px;
+            height: 25px;
+    
+            padding-bottom: 0px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+    @media screen and (max-height: 840px) {
+        .project-item .tools img{
+            width: 20px;
+            height: 20px;
+    
+            padding-bottom: 0px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+    @media screen and (max-height: 808px) {
+        .project-item .tools img{
+            width: 20px;
+            height: 20px;
+    
+            padding-bottom: 0px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
     }
 
 #more-project {

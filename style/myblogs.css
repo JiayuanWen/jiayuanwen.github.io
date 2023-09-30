@@ -103,7 +103,27 @@
 
         font-size: 28px;
         font-weight: bold;
+
+        white-space: normal;
     }
+        @media screen and (max-width: 1524px) {
+            .blog-title {
+                position: absolute;
+        
+                left: 402px;
+                margin-top: 14px;
+        
+                display:inline;
+                float:left;
+
+                width: 24vw;
+        
+                font-size: 28px;
+                font-weight: bold;
+        
+                white-space: normal;
+            }
+        }
     .blog-date {
         position: absolute;
 
@@ -118,6 +138,22 @@
 
         color:rgb(136, 136, 136)
     }
+        @media screen and (max-width: 1524px) {
+            .blog-date {
+                position: absolute;
+        
+                left: 402px;
+                margin-top: 85px;
+        
+                display:inline;
+                float:left;
+        
+                font-size: 15px;
+                font-weight: light;
+        
+                color:rgb(136, 136, 136)
+            }
+        }
     .blog-preview {
         /*border: #ffffff 1px solid;*/
 
@@ -136,6 +172,46 @@
 
         white-space: normal;
     }
+        @media screen and (max-width: 1777px) {
+            .blog-preview {
+                /*border: #ffffff 1px solid;*/
+        
+                position: absolute;
+        
+                left: 402px;
+                margin-top: 98px;
+        
+                width: 30vw;
+                height: 150px;
+        
+                display:inline;
+                float:left;
+        
+                font-size: 17px;
+        
+                white-space: normal;
+            }
+        }
+        @media screen and (max-width: 1524px) {
+            .blog-preview {
+                /*border: #ffffff 1px solid;*/
+        
+                position: absolute;
+        
+                left: 402px;
+                margin-top: 110px;
+        
+                width: 30vw;
+                height: 150px;
+        
+                display:inline;
+                float:left;
+        
+                font-size: 17px;
+        
+                white-space: normal;
+            }
+        }
     .blog-read-more {
         position: absolute;
 
@@ -152,6 +228,11 @@
 
         text-decoration-line: underline;
     }
+        @media screen and (max-width: 1524px) {
+            .blog-read-more {
+                opacity: 0;
+            }
+        }
 
 #no-blog {
     transition: 1.4s;

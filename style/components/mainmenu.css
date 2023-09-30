@@ -25,6 +25,38 @@
         /*text-decoration: underline;*/
         text-decoration-thickness: from-font;
     }
+    @media screen and (max-height: 835px) {
+        #main-menu > a {
+            margin-bottom: 20px;
+            transition: 0.3s;
+            /*text-decoration: underline;*/
+            text-decoration-thickness: from-font;
+        }
+    }
+    @media screen and (max-height: 710px) {
+        #main-menu > a {
+            margin-bottom: 10px;
+            transition: 0.3s;
+            /*text-decoration: underline;*/
+            text-decoration-thickness: from-font;
+        }
+    }
+    @media screen and (max-height: 660px) {
+        #main-menu {
+            display: flex;
+            flex-direction: row;
+            text-align: left;
+            list-style-type: none;
+            font-family: monospace, monospace, monospace;
+        }
+        #main-menu > a {
+            margin-bottom: 30px;
+            margin-right: 80px;
+            transition: 0.3s;
+            /*text-decoration: underline;*/
+            text-decoration-thickness: from-font;
+        }
+    }
         #main-menu > a:hover {
             color: rgb(255, 255, 255);
             transform: translateX(10px);
