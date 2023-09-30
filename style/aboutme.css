@@ -57,6 +57,8 @@
     height: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url(/textures/env_map/guangzhou.jpg);
     background-size: cover;
+    opacity: 1;
+    transition: 0.5s;
 }
 
 #aboutme-page1-selfie {
@@ -126,6 +128,7 @@
     height: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url(/textures/env_map/guangzhou_vil.jpg);
     background-size: cover;
+    z-index: 1;
 }
 
 .aboutme-page2-title {

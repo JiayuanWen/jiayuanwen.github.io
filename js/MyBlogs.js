@@ -3,12 +3,13 @@ import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFade } from "./helper/UI/mainmenu-fade.js";
 import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
 import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
+import { backToHomepage } from "./helper/UI/back-button.js";
 
 // Other helpful functions
 import { delay } from "./helper/delay.js";
 import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
-
+import { gpuEnabled } from "./helper/gpu-detect.js";
 
 //---------------------------------------------------------------------------------------- My Blogs click handle
 document.getElementById("blogs").addEventListener("click", async function() {
@@ -24,6 +25,9 @@ document.getElementById("blogs").addEventListener("click", async function() {
     // Move lamp aside
     document.getElementById("fiber-lamp").style.transition = "1.9s";
     document.getElementById("fiber-lamp").style.paddingRight = "90vw"; 
+
+    document.getElementById("fiber-lamp-lite").style.left = "-100%";
+    document.getElementById("fiber-lamp-lite").style.opacity = "0";
 
     // Show blogs
     document.getElementById('blog-background').style.opacity = "100%";
@@ -47,6 +51,8 @@ document.getElementById("blogs").addEventListener("click", async function() {
     //---------------------------------------------------------------------------------------- Back button function
     document.getElementById("back-button").addEventListener("click", async function backButton() {
         let delayer;
+
+        backToHomepage(1);
 
         // Make page unscrollable
         window.scrollTo(0,0);
@@ -72,7 +78,7 @@ document.getElementById("blogs").addEventListener("click", async function() {
         removeBlogs();
 
         // Make page uninteractable
-    document.getElementById('blog-container').style.pointerEvents = "none";
+        document.getElementById('blog-container').style.pointerEvents = "none";
     })
 })
 

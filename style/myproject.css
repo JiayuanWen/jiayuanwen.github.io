@@ -20,6 +20,8 @@
     border-color: white;
     border-width: 1px;
     border-style: solid;
+
+    z-index: 1;
 }
     @media screen and (max-height: 906px) { /* Hide border when projects go out of bound*/
         #project-border {
@@ -55,6 +57,8 @@
     /*column-gap: 30px;*/
 
     opacity: 0%;
+
+    z-index: 1;
 }
 
 .project-item {

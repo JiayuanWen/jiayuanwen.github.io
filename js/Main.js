@@ -228,10 +228,36 @@ loadingManager.onLoad = async function() {
 	// Check if user has hardware acceleration enabled
 	if (gpuEnabled()) {
 		// Starts animating the site after everything has loaded
-		animate();
+		//animate();
+		document.getElementById("fiber-lamp").style.opacity = "0";
+
+		let bgDiv = document.createElement('div');
+		bgDiv.setAttribute("id",`fiber-lamp-lite`);
+		document.body.insertAdjacentHTML('beforeend',bgDiv.outerHTML);
+
+		let vid = document.createElement('video');
+		vid.setAttribute('id',`fiber-lamp-lite-video`);
+		vid.setAttribute('src',`/textures/Background/lamp.webm`);
+		vid.setAttribute('autoplay',``);
+		vid.setAttribute('loop',``);
+		vid.setAttribute('muted',``);
+		document.getElementById('fiber-lamp-lite').insertAdjacentHTML('beforeend',vid.outerHTML);
+
+		
 	}
 	else {
-		
+		// Otherwise, play a video instead. Less resources while retaining site's intended style.
+		bgDiv
+
+		bgDiv = document.createElement('video');
+		bgDiv.setAttribute('id',`fiber-lamp-lite`);
+		bgDiv.setAttribute('src',`/textures/Background/lamp.webm`);
+		bgDiv.setAttribute('autoplay',``);
+		bgDiv.setAttribute('loop',``);
+		bgDiv.setAttribute('muted',``);
+
+		document.body.insertAdjacentHTML('beforeend',bgDiv.outerHTML);
+
 	}
 	 
 

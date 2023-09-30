@@ -3,14 +3,17 @@ import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFade } from "./helper/UI/mainmenu-fade.js";
 import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
 import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
+import { backToHomepage } from "./helper/UI/back-button.js";
 
 // Other helper functions
 import { delay } from "./helper/delay.js";
 import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
+import { gpuEnabled } from "./helper/gpu-detect.js";
 
 //---------------------------------------------------------------------------------------- About Me click handle
-document.getElementById("about-me").addEventListener("click", async function() {
+document.getElementById("about-me").addEventListener("click", async function() { 
+    let delayer;
 
     // Enable back button to allow visitors to go back
     document.getElementById("back-button").style.pointerEvents = "auto";
@@ -24,12 +27,26 @@ document.getElementById("about-me").addEventListener("click", async function() {
     document.getElementById("fiber-lamp").style.transition = "2s";
     document.getElementById("fiber-lamp").style.paddingRight = "90vw";
     document.getElementById("fiber-lamp").style.opacity = "0";
+
+    document.getElementById("fiber-lamp-lite").style.left = "-100%";
+    document.getElementById("fiber-lamp-lite").style.opacity = "0";
     
     // Show About Me
-    toggleAboutMe("In");
+    document.getElementById("aboutme-page1-background").style.opacity= "1";
+    if (!gpuEnabled()) {
+        delayer = await delay(900);
+    }
+    document.getElementById("aboutme").style.transition = "2s";
+    document.getElementById("aboutme").style.opacity= "1";
+
+    // Make page interactable
+    document.getElementById("aboutme").style.pointerEvents = "auto";
+
+    // Make page scrollable
+    document.getElementsByTagName('body')[0].style.overflowY = "auto";
 
     // Show stars
-    let delayer = await delay(500);
+    delayer = await delay(500);
     document.getElementById("stars-bg-purple").style.visibility = "visible";
     document.getElementById("stars-bg-purple").style.opacity = "50%";
 
@@ -38,34 +55,9 @@ document.getElementById("about-me").addEventListener("click", async function() {
         let delayer;
         
         // Hide about me page
-        toggleAboutMe("Out");
-
-        // Hide stars
-        document.getElementById("stars-bg-purple").style.opacity = "0%";
-        //delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
-
-        // Remove back buttom function on click to prevent function overlaps
-        document.getElementById("back-button").removeEventListener("click", backButton);
-    })
-})
-
-
-
-//---------------------------------------------------------------------------------------- About Me page show/hide (helper)
-export async function toggleAboutMe(mode) {
-    if (mode == "In") {
-        document.getElementById("aboutme").style.transition = "2s";
-        document.getElementById("aboutme").style.opacity= "1";
-
-        // Make page interactable
-        document.getElementById("aboutme").style.pointerEvents = "auto";
-
-        // Make page scrollable
-        document.getElementsByTagName('body')[0].style.overflowY = "auto";
-    }
-    else {
+        document.getElementById("aboutme-page1-background").style.opacity= "0";
+        //delayer = await delay(500);
         document.getElementById("aboutme-page1").style.opacity= "1";
-
         document.getElementById("aboutme").style.transition = "1s";
         document.getElementById("aboutme").style.opacity= "0";
 
@@ -75,8 +67,22 @@ export async function toggleAboutMe(mode) {
         // Make page unscrollable
         window.scrollTo(0,0);
         document.getElementsByTagName('body')[0].style.overflowY = "hidden";
-    }
-}
+
+        // Hide stars
+        document.getElementById("stars-bg-purple").style.opacity = "0%";
+        //delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
+
+        if (!gpuEnabled()) {
+            backToHomepage(800);
+        } else {
+            backToHomepage(1);
+        }
+        
+
+        // Remove back buttom function on click to prevent function overlaps
+        document.getElementById("back-button").removeEventListener("click", backButton);
+    })
+})
 //---------------------------------------------------------------------------------------- Mobile layout
 if (isMobile()) {
     // Initially check user's device orientation, change stylesheet accordingly

@@ -3,6 +3,7 @@ import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFade } from "./helper/UI/mainmenu-fade.js";
 import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
 import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
+import { backToHomepage } from "./helper/UI/back-button.js";
 
 // Other helpful functions
 import { delay } from "./helper/delay.js";
@@ -25,6 +26,8 @@ document.getElementById("my-projects").addEventListener("click", async function(
     // Move lamp to center
     document.getElementById("fiber-lamp").style.transition = "1.9s";
     document.getElementById("fiber-lamp").style.paddingRight = "0vw"; 
+    document.getElementById("fiber-lamp-lite").style.left = "50%";
+    document.getElementById("fiber-lamp-lite").style.right = "50%";
     delayer = await delay(1900);
     document.getElementById("fiber-lamp").style.position = "fixed";
     
@@ -40,6 +43,8 @@ document.getElementById("my-projects").addEventListener("click", async function(
 
     //---------------------------------------------------------------------------------------- Back button function
     document.getElementById("back-button").addEventListener("click", async function backButton() {
+        backToHomepage(1);
+
         //Hide projects
         document.getElementById("project-container").style.pointerEvents = "none";
         document.getElementById("project-container").style.opacity = "0%";
