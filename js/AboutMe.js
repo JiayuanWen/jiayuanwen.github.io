@@ -24,12 +24,15 @@ document.getElementById("about-me").addEventListener("click", async function() {
     mainMenuFade(10,"Out");
 
     // Move lamp to side 
-    document.getElementById("fiber-lamp").style.transition = "2s";
-    document.getElementById("fiber-lamp").style.paddingRight = "90vw";
-    document.getElementById("fiber-lamp").style.opacity = "0";
-
-    document.getElementById("fiber-lamp-lite").style.left = "-100%";
-    document.getElementById("fiber-lamp-lite").style.opacity = "0";
+    if (gpuEnabled()) {
+        document.getElementById("fiber-lamp").style.transition = "2s";
+        document.getElementById("fiber-lamp").style.paddingRight = "90vw";
+        document.getElementById("fiber-lamp").style.opacity = "0";
+    }
+    else {
+        document.getElementById("fiber-lamp-lite").style.left = "-100%";
+        document.getElementById("fiber-lamp-lite").style.opacity = "0";
+    }
     
     // Show About Me
     document.getElementById("aboutme-page1-background").style.opacity= "1";

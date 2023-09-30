@@ -9,11 +9,13 @@ import { backToHomepage } from "./helper/UI/back-button.js";
 import { delay } from "./helper/delay.js";
 import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
+import { gpuEnabled } from "./helper/gpu-detect.js";
 
 
 //---------------------------------------------------------------------------------------- My Projects click handle
 document.getElementById("my-projects").addEventListener("click", async function() { 
     let delayer;
+    let elementCheck;
 
     // Hide main page
     selfIntroFade(10,"Out");
@@ -24,13 +26,16 @@ document.getElementById("my-projects").addEventListener("click", async function(
     showProjects()
 
     // Move lamp to center
-    document.getElementById("fiber-lamp").style.transition = "1.9s";
-    document.getElementById("fiber-lamp").style.paddingRight = "0vw"; 
-    document.getElementById("fiber-lamp-lite").style.left = "50%";
-    document.getElementById("fiber-lamp-lite").style.right = "50%";
-    delayer = await delay(1900);
-    document.getElementById("fiber-lamp").style.position = "fixed";
-    
+    if (gpuEnabled()) {
+        document.getElementById("fiber-lamp").style.transition = "1.9s";
+        document.getElementById("fiber-lamp").style.paddingRight = "0vw"; 
+        delayer = await delay(1900);
+        document.getElementById("fiber-lamp").style.position = "fixed";
+    }
+    else {
+        document.getElementById("fiber-lamp-lite").style.left = "50%";
+        document.getElementById("fiber-lamp-lite").style.right = "50%";
+    }
 
     // Make page scrollable
     if (isMobile()) {

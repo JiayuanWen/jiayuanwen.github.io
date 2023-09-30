@@ -23,11 +23,14 @@ document.getElementById("blogs").addEventListener("click", async function() {
     mainMenuFade(10,"Out");
 
     // Move lamp aside
-    document.getElementById("fiber-lamp").style.transition = "1.9s";
-    document.getElementById("fiber-lamp").style.paddingRight = "90vw"; 
-
-    document.getElementById("fiber-lamp-lite").style.left = "-100%";
-    document.getElementById("fiber-lamp-lite").style.opacity = "0";
+    if (gpuEnabled()) {
+        document.getElementById("fiber-lamp").style.transition = "1.9s";
+        document.getElementById("fiber-lamp").style.paddingRight = "90vw"; 
+    }
+    else {
+        document.getElementById("fiber-lamp-lite").style.left = "-100%";
+        document.getElementById("fiber-lamp-lite").style.opacity = "0";
+    }
 
     // Show blogs
     document.getElementById('blog-background').style.opacity = "100%";
