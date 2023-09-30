@@ -40,6 +40,7 @@ document.getElementById("my-projects").addEventListener("click", async function(
     // Make page scrollable
     if (isMobile()) {
         document.getElementsByTagName('body')[0].style.overflowY = "auto";
+        document.getElementById("project-page-bottom").style.top = "2150px";
     }
 
     // Enable back button to allow visitors to go back
@@ -77,6 +78,10 @@ document.getElementById("my-projects").addEventListener("click", async function(
 
         // Remove back buttom function on click to prevent function overlaps
         document.getElementById("back-button").removeEventListener("click", backButton);
+
+        if (isMobile()) {
+            document.getElementById("project-page-bottom").style.top = "0px";
+        }
     })
 })
 

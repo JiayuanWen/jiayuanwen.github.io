@@ -21,7 +21,7 @@
     border: 1px;
     border-style: solid;
 
-    opacity: 0;
+    visibility: hidden;
 }
 #project-container {
     transition: 1.4s;
@@ -98,7 +98,7 @@
 #project-page-bottom {
     position: absolute;
 
-    top: 2150px;
+    top: 0px; /*Set in MyProject.js*/
 
     height: 1px;
     width: 1px;
