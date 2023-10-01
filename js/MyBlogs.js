@@ -11,6 +11,40 @@ import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
 import { gpuEnabled } from "./helper/gpu-detect.js";
 
+//---------------------------------------------------------------------------------------- Mobile layout
+if (isMobile()) {
+    // Initially check user's device orientation, change stylesheet accordingly
+    var device_orientation = getDeviceOrientation(false);
+
+    if (device_orientation == "portrait") {
+        toggleMobileLayout_MyBlogs(true);
+    }
+    else {
+        toggleMobileLayout_MyBlogs(false);
+    };
+
+    // Continue to listen for user's device orientation, change stylesheet accordingly
+    window.addEventListener('orientationchange', () => {
+        var device_orientation = getDeviceOrientation(false);
+
+        if (device_orientation == "portrait") {
+            toggleMobileLayout_MyBlogs(true);
+        }
+        else {
+            toggleMobileLayout_MyBlogs(false);
+        };
+    });
+}
+
+function toggleMobileLayout_MyBlogs(mode_) {
+    if (mode_ == true) {
+        document.getElementById("myblogs-style").setAttribute("href", "style/myblogs-mobile.css");
+    }
+    else {
+        document.getElementById("myblogs-style").setAttribute("href", "style/myblogs.css");
+    }
+}
+
 //---------------------------------------------------------------------------------------- My Blogs click handle
 document.getElementById("blogs").addEventListener("click", async function() {
 
@@ -34,6 +68,9 @@ document.getElementById("blogs").addEventListener("click", async function() {
 
     // Show blogs
     document.getElementById('blog-background').style.opacity = "100%";
+    if (isMobile()) {
+        document.getElementById('blog-background').style.opacity = "0%";
+    }
     //document.getElementById('no-blog').style.opacity = "100%";
     document.getElementById('blog-container').style.opacity = "100%";
     loadBlogs();
@@ -145,36 +182,3 @@ function expandBlog(blogID) {
     window.location.href = `http://jiayuanwen.github.io/blogs/resources/${blogID}/redirect.html`;
 }
 
-//---------------------------------------------------------------------------------------- Mobile layout
-if (isMobile()) {
-    // Initially check user's device orientation, change stylesheet accordingly
-    var device_orientation = getDeviceOrientation(false);
-
-    if (device_orientation == "portrait") {
-        toggleMobileLayout_MyBlogs(true);
-    }
-    else {
-        toggleMobileLayout_MyBlogs(false);
-    };
-
-    // Continue to listen for user's device orientation, change stylesheet accordingly
-    window.addEventListener('orientationchange', () => {
-        var device_orientation = getDeviceOrientation(false);
-
-        if (device_orientation == "portrait") {
-            toggleMobileLayout_MyBlogs(true);
-        }
-        else {
-            toggleMobileLayout_MyBlogs(false);
-        };
-    });
-}
-
-function toggleMobileLayout_MyBlogs(mode_) {
-    if (mode_ == true) {
-        document.getElementById("myproject-style").setAttribute("href", "style/myproject-mobile.css");
-    }
-    else {
-        document.getElementById("myproject-style").setAttribute("href", "style/myproject.css");
-    }
-}

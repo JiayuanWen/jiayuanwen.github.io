@@ -218,7 +218,7 @@
 #aboutme-page-bottom {
     position: absolute;
 
-    top: 1800px; /*Set in MyProject.js*/
+    top: 0px; /*Set in MyProject.js*/
 
     height: 1px;
     width: 1px;

@@ -47,6 +47,7 @@ document.getElementById("about-me").addEventListener("click", async function() {
 
     // Make page scrollable
     document.getElementsByTagName('body')[0].style.overflowY = "auto";
+    document.getElementById('aboutme-page-bottom').style.top = "1800px";
 
     // Show stars
     delayer = await delay(500);
@@ -70,6 +71,7 @@ document.getElementById("about-me").addEventListener("click", async function() {
         // Make page unscrollable
         window.scrollTo(0,0);
         document.getElementsByTagName('body')[0].style.overflowY = "hidden";
+        document.getElementById('aboutme-page-bottom').style.top = "0px";
 
         // Hide stars
         document.getElementById("stars-bg-purple").style.opacity = "0%";
