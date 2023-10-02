@@ -226,7 +226,7 @@ loadingManager.onLoad = async function() {
 	
 
 	// Check if user has hardware acceleration enabled
-	if (gpuEnabled()) {
+	if (!gpuEnabled()) {
 		// Starts animating the site after everything has loaded
 		animate();
 		
@@ -239,7 +239,7 @@ loadingManager.onLoad = async function() {
 
 		let bgDiv = document.createElement('div');
 		bgDiv.setAttribute("id",`fiber-lamp-lite`);
-		document.body.insertAdjacentHTML('beforeend',bgDiv.outerHTML);
+		document.body.insertAdjacentHTML('afterbegin',bgDiv.outerHTML);
 
 		let vid = document.createElement('video');
 		vid.setAttribute('id',`fiber-lamp-lite-video`);
@@ -247,7 +247,7 @@ loadingManager.onLoad = async function() {
 		vid.setAttribute('autoplay',``);
 		vid.setAttribute('loop',``);
 		vid.setAttribute('muted',``);
-		document.getElementById('fiber-lamp-lite').insertAdjacentHTML('beforeend',vid.outerHTML);
+		document.getElementById('fiber-lamp-lite').insertAdjacentHTML('afterbegin',vid.outerHTML);
 	}
 	 
 
