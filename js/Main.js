@@ -226,7 +226,7 @@ loadingManager.onLoad = async function() {
 	
 
 	// Check if user has hardware acceleration enabled
-	if (!gpuEnabled()) {
+	if (gpuEnabled()) {
 		// Starts animating the site after everything has loaded
 		animate();
 		
