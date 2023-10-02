@@ -1,7 +1,6 @@
 // Advanced UI elements
 import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFade } from "./helper/UI/mainmenu.js";
-import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
 import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
 import { backToHomepage } from "./helper/UI/back-button.js";
 
@@ -46,6 +45,7 @@ function toggleMobileLayout_MyBlogs(mode_) {
 }
 
 //---------------------------------------------------------------------------------------- My Blogs click handle
+if (isMobile()) {
 document.getElementById("blogs").addEventListener("click", async function() {
 
     // Enable back button to allow visitors to go back
@@ -122,6 +122,7 @@ document.getElementById("blogs").addEventListener("click", async function() {
     })
 })
 
+}
 //---------------------------------------------------------------------------------------- Load/Remove blogs from data repository
 let blogsTotal = 1; 
 

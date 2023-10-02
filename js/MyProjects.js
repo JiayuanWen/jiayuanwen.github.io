@@ -1,7 +1,7 @@
 // Advanced UI elements
 import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFade } from "./helper/UI/mainmenu.js";
-import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
+import { contactInfoFade } from "./helper/UI/contactinfo.js";
 import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
 import { backToHomepage } from "./helper/UI/back-button.js";
 
@@ -13,6 +13,7 @@ import { gpuEnabled } from "./helper/gpu-detect.js";
 
 
 //---------------------------------------------------------------------------------------- My Projects click handle
+if (isMobile()) {
 document.getElementById("my-projects").addEventListener("click", async function() { 
     let delayer;
     let elementCheck;
@@ -84,6 +85,8 @@ document.getElementById("my-projects").addEventListener("click", async function(
         }
     })
 })
+
+}
 
 //---------------------------------------------------------------------------------------- Show/Hide projects
 async function showProjects() {

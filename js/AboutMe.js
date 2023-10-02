@@ -1,7 +1,7 @@
 // Advanced UI elements
 import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFade } from "./helper/UI/mainmenu.js";
-import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
+import { contactInfoFade } from "./helper/UI/contactinfo.js";
 import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
 import { backToHomepage } from "./helper/UI/back-button.js";
 
@@ -12,6 +12,7 @@ import { getDeviceOrientation } from "./helper/orientationMode.js";
 import { gpuEnabled } from "./helper/gpu-detect.js";
 
 //---------------------------------------------------------------------------------------- About Me click handle
+if (isMobile()) {
 document.getElementById("about-me").addEventListener("click", async function() { 
     let delayer;
 
@@ -89,6 +90,8 @@ document.getElementById("about-me").addEventListener("click", async function() {
  
     })
 })
+
+}
 //---------------------------------------------------------------------------------------- Mobile layout
 if (isMobile()) {
     // Initially check user's device orientation, change stylesheet accordingly
@@ -122,6 +125,7 @@ function toggleMobileLayout_AboutMe(mode_) {
         document.getElementById("aboutme-style").setAttribute("href", "style/aboutme.css");
     }
 }
+
 
 
 

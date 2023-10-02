@@ -19,17 +19,14 @@ else { // For PC
 }
 
 //----------------------------------------------------------------------------------------- Clock
-document.onreadystatechange = function () {
-    if (document.readyState == "complete") {
-        var clockElement = document.getElementById("time");
-        function updateClock ( clock ) {
-            clock.innerHTML = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        }
-        setInterval(function () {
-            updateClock( clockElement );
-        }, 1000);
+
+setInterval(function () {
+    var clockElement = document.getElementById("time");
+    if (document.readyState == "complete" && !isMobile()) {
+        clockElement.innerHTML = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     }
-}
+}, 1000);
+
 
 //----------------------------------------------------------------------------------------- Material You wallpaper color
 /*

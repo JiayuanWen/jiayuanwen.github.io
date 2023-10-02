@@ -1,44 +1,20 @@
 #start-menu {
-    transition: 0.2s;
-
     position: fixed;
-    bottom: 0px; /*Set in js/helper/UI/contactinfo.js*/
-    left: 5px;
+    bottom: 0px;
+    left: 0px;
 
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    background-color: rgba(31, 31, 31, 0.705);
+    background-color: rgba(255, 255, 255, 0);
 
     height: 500px;
     width: 500px;
 
     border-radius: 20px;
 
-    opacity: 0;
+    z-index: 1;
+
+    pointer-events: none;
+
 }
-
-#sep-name {
-    position: fixed;
-    top: 110px;
-    left: 20px;
-    font-size: 18px;
-    color: rgb(95, 95, 95);
-}
-#sep-line {
-    position: fixed;
-    top: 150px;
-    left: 8px;
-
-    width: 480px;
-
-    border: solid 1px rgb(59, 59, 59);
-}
-
-#site-credit {
-    visibility: hidden;
-}
-
-/* --------------------------------------------------------------------------------- Avatar & Name*/
 #contact-avatar {
     position: fixed;
 
@@ -47,6 +23,8 @@
 
     top: 15px;
     left: 15px;
+
+    opacity: 0;
 }
 #contact-name {
     position: fixed;
@@ -57,6 +35,10 @@
     font-size: 20px;
     font-weight:800;
 
+    opacity: 0;
+}
+#sep-line {
+    opacity: 0;
 }
 
 /* --------------------------------------------------------------------------------- Contact info */
@@ -64,14 +46,13 @@
     font-size: 2.1rem;
     position: fixed;
 
-    left: 20px;
-    top: 180px;
-
-    display: flex;
-    flex-direction: column;
+    right: 1vw;
+    bottom: 1vh;
 
     color: rgb(73, 73, 73);
     z-index: 1;
+
+    pointer-events: all;
 }
 @media only screen and (max-width: 560px) {
     #contact-info {
@@ -85,22 +66,37 @@
 }
 
 #contact-info > a{
-    color: rgb(255, 255, 255);
-    margin-bottom: 25px;
+    color: rgb(73, 73, 73);
+    margin-right: 30px;
     transition: 0.3s;
-    text-decoration: none;
+}
+@media only screen and (max-width: 560px) {
+    #contact-info > a{
+        color: rgb(73, 73, 73);
+        margin-right: 10px;
+        transition: 0.3s;
+        text-decoration: none;
+    }
 }
 
 #contact-info > a:hover{
     cursor: pointer;
-    transform: translateX(5px);
+    transform: translateY(-5px);
 }
-#contact-info > a:active{
-    transform: translateX(10px);
-    color: rgb(36, 36, 36);
-}
+
+    #contact-info > a > i {
+        transition: 0.3s;
+    }
+    #contact-info > a > i:hover{
+        transform: translateY(-5px);
+        color: rgb(255, 255, 255);
+    }
+    #contact-info > a > i:active{
+        transform: translateY(-10px);
+        color: rgb(36, 36, 36);
+    }
 
 #contact-info > a > span {
     font-size: 15px;
-    
+    visibility: hidden;
 }

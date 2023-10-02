@@ -17,7 +17,7 @@ import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 // Advanced UI elements
 import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFade } from "./helper/UI/mainmenu.js";
-import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
+import { contactInfoFade } from "./helper/UI/contactinfo.js";
 
 // Other helper functions
 import WebXRPolyfill from "./helper/webxr-polyfill.module.js";
@@ -200,7 +200,10 @@ loadingManager.onLoad = async function() {
 	zoomInAnimation();
 
 	// Fade in effect for all main page elements
-	selfIntroFade(1000, "In");
+	if (isMobile()) {
+		selfIntroFade(1000, "In");
+	}
+	
 	if (isMobile()) {
 		mainMenuFade(1000, "In");
 	} else {
@@ -241,11 +244,29 @@ loadingManager.onLoad = async function() {
 	}
 	*/
 
-	// 2D static background 
-	let menuElement = document.getElementById("main-menu-container");
-	let wallpaper_i = Math.floor(Math.random() * 2) + 1;
-	document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
-	document.body.getElementById("wallpaper").src = `/textures/Background/wallpapers/${wallpaper_i}.jpg`;
+
+	if (isMobile()) {
+		document.getElementById("fiber-lamp").style.opacity = "0";
+
+		let bgDiv = document.createElement('div');
+		bgDiv.setAttribute("id",`fiber-lamp-lite`);
+		document.body.insertAdjacentHTML('afterbegin',bgDiv.outerHTML);
+
+		let vid = document.createElement('video');
+		vid.setAttribute('id',`fiber-lamp-lite-video`);
+		vid.setAttribute('src',`/textures/Background/lamp.webm`);
+		vid.setAttribute('autoplay',``);
+		vid.setAttribute('loop',``);
+		vid.setAttribute('muted',``);
+		document.getElementById('fiber-lamp-lite').insertAdjacentHTML('afterbegin',vid.outerHTML);
+	}
+	else {
+		let menuElement = document.getElementById("main-menu-container");
+		let wallpaper_i = Math.floor(Math.random() * 2) + 1;
+		document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
+	}
+	
+	
 }
 function loadingScreenFade() {
     var fadeOutEffect = setInterval(function () {
