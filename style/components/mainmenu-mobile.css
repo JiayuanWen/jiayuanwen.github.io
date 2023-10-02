@@ -1,0 +1,70 @@
+/* --------------------------------------------------------------------------------- Main Menu */
+#main-menu-container {
+    position: absolute;
+    left: 42vw;
+    bottom: 15.5vh;
+    font-size: calc((3.5vh + 3.5vw)/2);
+    color: rgb(133, 133, 133);
+    font-family: Futura;
+
+    display: none;
+
+    z-index: 1;
+}
+
+#main-menu {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    list-style-type: none;
+    font-family: monospace, monospace, monospace;
+}
+    #main-menu > a {
+        margin-bottom: 40px;
+        transition: 0.3s;
+        /*text-decoration: underline;*/
+        text-decoration-thickness: from-font;
+    }
+    @media screen and (max-height: 835px) {
+        #main-menu > a {
+            margin-bottom: 20px;
+            transition: 0.3s;
+            /*text-decoration: underline;*/
+            text-decoration-thickness: from-font;
+        }
+    }
+    @media screen and (max-height: 710px) {
+        #main-menu > a {
+            margin-bottom: 10px;
+            transition: 0.3s;
+            /*text-decoration: underline;*/
+            text-decoration-thickness: from-font;
+        }
+    }
+    @media screen and (max-height: 660px) {
+        #main-menu {
+            display: flex;
+            flex-direction: row;
+            text-align: left;
+            list-style-type: none;
+            font-family: monospace, monospace, monospace;
+        }
+        #main-menu > a {
+            margin-bottom: 30px;
+            margin-right: 80px;
+            transition: 0.3s;
+            /*text-decoration: underline;*/
+            text-decoration-thickness: from-font;
+        }
+    }
+        #main-menu > a:hover {
+            color: rgb(255, 255, 255);
+            transform: translateX(10px);
+            cursor: pointer;
+        }
+        #main-menu > a:active {
+            color: rgb(73, 73, 73);
+            transform: translateX(15px);
+            cursor: pointer;
+        }
+

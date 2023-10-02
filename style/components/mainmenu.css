@@ -1,70 +1,108 @@
 /* --------------------------------------------------------------------------------- Main Menu */
 #main-menu-container {
     position: absolute;
-    left: 42vw;
-    bottom: 15.5vh;
-    font-size: calc((3.5vh + 3.5vw)/2);
-    color: rgb(133, 133, 133);
+    bottom: 0.7vh;
+    left: 0.2vw;
+    right: 0.2vw;
+    margin: 0 auto;
+
+    font-size: 38px;
+    color: rgb(255, 255, 255);
     font-family: Futura;
 
-    display: none;
+    display: flex;
+    justify-content: center;
 
     z-index: 1;
+    
+    width: 99.5vw;
+    height: 50px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    
+    /*background-color: rgba(42, 42, 94, 0.445);*/
+    background-color: rgba(31, 31, 31, 0.863);
+    border-radius: 999px;
 }
 
 #main-menu {
     display: flex;
-    flex-direction: column;
-    text-align: left;
+    flex-direction: row;
+    justify-content: center;
     list-style-type: none;
     font-family: monospace, monospace, monospace;
+
 }
     #main-menu > a {
-        margin-bottom: 40px;
+        margin-top: 7px;
+        margin-left: 5px;
+        margin-right: 5px;
         transition: 0.3s;
         /*text-decoration: underline;*/
         text-decoration-thickness: from-font;
+        color: rgb(255, 255, 255);
     }
-    @media screen and (max-height: 835px) {
-        #main-menu > a {
-            margin-bottom: 20px;
-            transition: 0.3s;
-            /*text-decoration: underline;*/
-            text-decoration-thickness: from-font;
+        #main-menu > a:link {
+            color: rgb(255, 255, 255);
         }
-    }
-    @media screen and (max-height: 710px) {
-        #main-menu > a {
-            margin-bottom: 10px;
-            transition: 0.3s;
-            /*text-decoration: underline;*/
-            text-decoration-thickness: from-font;
-        }
-    }
-    @media screen and (max-height: 660px) {
-        #main-menu {
-            display: flex;
-            flex-direction: row;
-            text-align: left;
-            list-style-type: none;
-            font-family: monospace, monospace, monospace;
-        }
-        #main-menu > a {
-            margin-bottom: 30px;
-            margin-right: 80px;
-            transition: 0.3s;
-            /*text-decoration: underline;*/
-            text-decoration-thickness: from-font;
-        }
-    }
         #main-menu > a:hover {
             color: rgb(255, 255, 255);
-            transform: translateX(10px);
+            transform: translateY(-10px);
             cursor: pointer;
         }
         #main-menu > a:active {
             color: rgb(73, 73, 73);
-            transform: translateX(15px);
+            transform: translateY(-15px);
             cursor: pointer;
         }
 
+#menu-assets {
+    display: flex;
+    flex-direction: row;
+
+    position: absolute;
+    
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: monospace, monospace, monospace;
+
+    right: 15px;
+    bottom: 14px;
+}
+    #menu-assets ion-icon {
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    #menu-assets #time {
+        font-size: 18px;
+        margin-left: 22px;
+    }
+
+#home-button {
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 999px;
+    /*border: solid 1px;*/
+
+    background-color: rgba(0, 0, 0, 0.123);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.4s;
+}
+#home-button:hover {
+    cursor: pointer;
+    background-color: rgba(61, 61, 61, 0.493);
+}
+    #home-button img {
+        height: 20px;
+        width: auto;
+    }

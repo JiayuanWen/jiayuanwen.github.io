@@ -16,7 +16,7 @@ import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 
 // Advanced UI elements
 import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
-import { mainMenuFade } from "./helper/UI/mainmenu-fade.js";
+import { mainMenuFade } from "./helper/UI/mainmenu.js";
 import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
 
 // Other helper functions
@@ -111,9 +111,6 @@ camera_controls.minDistance = 0.41;
 camera_controls.enableDamping = true;
 camera_controls.dampingFactor = 0.045;
 
-// Make camera orbit around
-//camera_controls.autoRotate = true; 
-//camera_controls.autoRotateSpeed = 0.5; 
 
 // Camera orbiting central point
 camera_controls.target = new THREE.Vector3(0,3,0);
@@ -124,21 +121,6 @@ camera_controls.maxPolarAngle = (Math.PI-1)/2;
 
 // Introl zoom animation
 const zoomInAnimation = async() => {
-	/*
-	camera.position.set(0,0,300);
-	camera.updateProjectionMatrix(); 
-	
-	camera_controls.enabled = false;
-	camera_controls.update();
-
-	for (var i = 200; i > 12; i*=0.965) {
-		let delayres = await delay(8.2); 
-		camera.position.set(i,i,i);
-		camera.updateProjectionMatrix(); 
-
-		i += 0.435
-	}
-	*/
 
 	//camera.position.set(camera_default_x,camera_default_y,camera_default_z);
 	camera_controls.enabled = true;
@@ -146,14 +128,17 @@ const zoomInAnimation = async() => {
 	camera_controls.enablePan = false;
 	camera_controls.update();
 	
-	// Reinforce camera zoom after animation ends
-	//camera_controls.maxDistance = 31; 
+
 
 	camera.position.set(12,12,12);
 
 	renderer.setSize( window.innerWidth, window.innerHeight ); 
 
+	/*
 	document.getElementById("fiber-lamp").style.paddingRight = "50vw";
+	document.getElementById("fiber-lamp").style.paddingTop = "0vh";
+	*/
+	document.getElementById("fiber-lamp").style.paddingRight = "0vw";
 	document.getElementById("fiber-lamp").style.paddingTop = "0vh";
 }
 
@@ -216,7 +201,12 @@ loadingManager.onLoad = async function() {
 
 	// Fade in effect for all main page elements
 	selfIntroFade(1000, "In");
-	mainMenuFade(1000, "In");
+	if (isMobile()) {
+		mainMenuFade(1000, "In");
+	} else {
+		mainMenuFade(1,"In");
+	}
+	
 	contactInfoFade(1000, "In");
 	
 
@@ -224,8 +214,8 @@ loadingManager.onLoad = async function() {
 	//document.getElementById('player').pause();
 	//document.getElementById("song-info").style.opacity = 0;
 	
-
 	// Check if user has hardware acceleration enabled
+	/*
 	if (gpuEnabled()) {
 		// Starts animating the site after everything has loaded
 		animate();
@@ -249,8 +239,13 @@ loadingManager.onLoad = async function() {
 		vid.setAttribute('muted',``);
 		document.getElementById('fiber-lamp-lite').insertAdjacentHTML('afterbegin',vid.outerHTML);
 	}
-	 
+	*/
 
+	// 2D static background 
+	let menuElement = document.getElementById("main-menu-container");
+	let wallpaper_i = Math.floor(Math.random() * 2) + 1;
+	document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
+	document.body.getElementById("wallpaper").src = `/textures/Background/wallpapers/${wallpaper_i}.jpg`;
 }
 function loadingScreenFade() {
     var fadeOutEffect = setInterval(function () {

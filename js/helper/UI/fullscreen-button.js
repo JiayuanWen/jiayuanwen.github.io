@@ -19,7 +19,7 @@ function fullscreenToggle() {
         } else if (docElm.msRequestFullscreen) {
             docElm.msRequestFullscreen();
         }
-        document.getElementById("fullscreen-toggle").setAttribute("name","close-sharp");
+        document.getElementById("fullscreen-toggle").setAttribute("name","close");
     } else {
         if (document.exitFullscreen) {
             document.exitFullscreen();
@@ -30,6 +30,6 @@ function fullscreenToggle() {
         } else if (document.msExitFullscreen) {
             document.msExitFullscreen();
         }
-        document.getElementById("fullscreen-toggle").setAttribute("name","expand-sharp");
+        document.getElementById("fullscreen-toggle").setAttribute("name","scan");
     }
 }

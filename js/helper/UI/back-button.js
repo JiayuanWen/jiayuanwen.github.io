@@ -1,10 +1,11 @@
 // Advanced UI elements
 import { selfIntroFade } from "./selfintro-fade.js";
-import { mainMenuFade } from "./mainmenu-fade.js";
+import { mainMenuFade } from "./mainmenu.js";
 
 // Other helper functions
 import { delay } from "../delay.js";
 import { gpuEnabled } from "../gpu-detect.js";
+import { isMobile } from "../mobileCheck.js";
 
 //---------------------------------------------------------------------------------------- Back button function
 export async function backToHomepage(lamp_delay) {
@@ -23,7 +24,7 @@ export async function backToHomepage(lamp_delay) {
     if (gpuEnabled()) {
         document.getElementById("fiber-lamp").style.position = "static";
         document.getElementById("fiber-lamp").style.transition = "2s";
-        document.getElementById("fiber-lamp").style.paddingRight = "50vw";
+        document.getElementById("fiber-lamp").style.paddingRight = "0vw";
         document.getElementById("fiber-lamp").style.opacity = "1";
 
     }

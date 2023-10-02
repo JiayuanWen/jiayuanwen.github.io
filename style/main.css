@@ -11,7 +11,7 @@ body {
 }
   
 html, body {
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 1);
     background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)), url(/textures/env_map/guangzhou.jpg);
     background-size:     cover;                      
     background-repeat:   no-repeat;
@@ -121,3 +121,9 @@ a:active {
     
 }
 
+/* Used for color picking algorithms to pick color base on wallpaper, no need to be visible */
+#wallpaper {
+    opacity: 0;
+    height: 1000px;
+    width: auto;
+}

@@ -19,7 +19,7 @@
     #loading-icon {
       position: relative;
       /* top: 10vh; */
-      max-width: 20rem;
+      max-width: 15rem;
       min-width: 5rem;
       margin: 3rem 1rem 8rem 1rem;
     }
@@ -30,7 +30,7 @@
       font-size: 1.4rem;
       top: 58vh;
       color: #fff;
-      font-family: "Helvetica", monospace;
+      font-family: monospace, monospace, monospace;
     }
     #loading-indicator {
         max-width: 7rem;
@@ -39,7 +39,7 @@
     }
   
     #loading-percent {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: monospace, monospace, monospace;
         font-weight: 520;
         font-size: 2rem;
     }

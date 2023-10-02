@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="style/components/3dfiber.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/selfintroduction.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/contactinfo.css"/>
-    <link rel="stylesheet" type="text/css" href="style/components/mainmenu.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/mainmenu.css" id="mainmenu-style"/>
     <link rel="stylesheet" type="text/css" href="style/components/fullscreen.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/musicplayer.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/loadingscreen.css"/>
@@ -54,6 +54,7 @@
 
     <!-- GPU Detection -->
     <script type="module" src="/js/helper/gpu-detect.js"></script>
+    
 </head>
     
 <body>
@@ -75,26 +76,35 @@
     <canvas class="fiber" id="fiber-lamp"></canvas>
     <script type="module-shim" src="/js/Main.js"></script>
 
+    <!-- Background wallpaper -->
+    <img id="wallpaper" src="/textures/Background/wallpapers/1.jpg" height="1000px"></img>
+
     <!-- Main Screen section -->
     
         <!-- Self Intro -->
-            <h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
-            <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>
+            <!--<h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
+            <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>-->
     
         <!-- Menu -->
-            <div w3-include-html="/page_components/main_menu.html"></div> 
+        <script type="module-shim" src="/js/helper/UI/mainmenu.js"></script>
+            <div id="main-menu-container">
+
+            </div>
+            
     
     <!-- End of Main Screen section -->
 
     <!-- About Me -->
         <div w3-include-html="/pages/about_me.html"></div> 
+        <script type="module-shim" src="/js/AboutMe.js"></script>
         <script type="module-shim" src="/js/helper/background-stars-purple.js"></script>
-        <script type="module-shim" src="/js/helper/UI/manual-scroll.js"></script>
 
     <!-- My Project -->
+        <script type="module-shim" src="/js/MyProjects.js"></script>
         <div w3-include-html="/pages/my_projects.html"></div> 
 
-    <!-- Blogs -->
+    <!-- My Blogs -->
+        <script type="module-shim" src="/js/MyBlogs.js"></script>
         <div w3-include-html="/pages/my_blogs.html"></div>
         <script type="module-shim" src="/js/helper/background-stars-grey.js"></script>
 
@@ -107,10 +117,10 @@
         </div>
     
         <!-- Fullscreen button -->
-        <!--<div id="fullscreen">
-            <ion-icon id="fullscreen-toggle" name="expand-sharp"></ion-icon>
+        <div id="fullscreen">
+            <ion-icon id="fullscreen-toggle" name="scan">
             <script type="module-shim" src="/js/helper/UI/fullscreen-button.js"></script>
-        </div>-->
+        </div>
     
         <!-- Music player -->
         <!--<div w3-include-html="/page_components/music_player.html"></div>-->
@@ -119,7 +129,7 @@
         <div w3-include-html="/page_components/loading_screen.html"></div> 
     
         <!-- Site credit & source code -->
-        <div id="site-credit">Built by me, hosted on <a href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.</div>
+        <!--<div id="site-credit">Built by me, hosted on <a href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.</div>-->
     
         <!-- Contact information -->
         <div w3-include-html="/page_components/contact_info.html"></div> 

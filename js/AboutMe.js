@@ -1,6 +1,6 @@
 // Advanced UI elements
 import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
-import { mainMenuFade } from "./helper/UI/mainmenu-fade.js";
+import { mainMenuFade } from "./helper/UI/mainmenu.js";
 import { contactInfoFade } from "./helper/UI/contactinfo-fade.js";
 import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
 import { backToHomepage } from "./helper/UI/back-button.js";
@@ -47,7 +47,7 @@ document.getElementById("about-me").addEventListener("click", async function() {
 
     // Make page scrollable
     document.getElementsByTagName('body')[0].style.overflowY = "auto";
-    document.getElementById('aboutme-page-bottom').style.top = "1800px";
+    document.getElementById('aboutme-page-bottom').style.top = "1750px";
 
     // Show stars
     delayer = await delay(500);
@@ -77,15 +77,16 @@ document.getElementById("about-me").addEventListener("click", async function() {
         document.getElementById("stars-bg-purple").style.opacity = "0%";
         //delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
 
+        // Show homepage
         if (!gpuEnabled()) {
             backToHomepage(800);
         } else {
             backToHomepage(1);
-        }
-        
+        }        
 
         // Remove back buttom function on click to prevent function overlaps
         document.getElementById("back-button").removeEventListener("click", backButton);
+ 
     })
 })
 //---------------------------------------------------------------------------------------- Mobile layout
