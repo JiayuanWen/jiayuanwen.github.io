@@ -53,20 +53,21 @@ export async function contactInfoFade(delay_, mode) {
 }
 
 //----------------------------------------------------------------------------------------- Start button (bottom left) click handle 
-document.onreadystatechange = function () {
-    document.getElementById("home-button").addEventListener("click", async function backButton() {
-        console.log("Hello");
-        let starMenu = document.getElementById("start-menu");
+for (var i=0; i < 3; i++) {
+    document.onreadystatechange = function () {
+        document.getElementById("home-button").addEventListener("click", async function backButton() {
+            let starMenu = document.getElementById("start-menu");
 
-        if (starMenu.style.opacity == 0) {
-            starMenu.style.opacity = "1";
-            starMenu.style.bottom = "60px";
-        } else {
-            starMenu.style.opacity = "0";
-            starMenu.style.bottom = "0px";
-        }
-        
-        
+            if (starMenu.style.opacity == 0) {
+                starMenu.style.opacity = "1";
+                starMenu.style.bottom = "60px";
+            } else {
+                starMenu.style.opacity = "0";
+                starMenu.style.bottom = "0px";
+            }
+            
+            
 
-    })
+        })
+    }
 }
