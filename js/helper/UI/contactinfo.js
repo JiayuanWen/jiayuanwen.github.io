@@ -56,10 +56,13 @@ export async function contactInfoFade(delay_, mode) {
 async function startMenuButton() {
             
     let starMenu = document.getElementById("start-menu");
+    let delayer;
 
     if (starMenu.style.opacity == 0) {
         starMenu.style.opacity = "1";
         starMenu.style.bottom = "60px";
+        // Hide tooltip on menu show
+        document.getElementById("home-button-tooltip").style.opacity = "0";
     } else {
         starMenu.style.opacity = "0";
         starMenu.style.bottom = "0px";
@@ -74,3 +77,22 @@ var applyHomeButtonFunction = setInterval(function () {
         window.clearInterval(applyHomeButtonFunction);
     }
 }, 500);
+
+//----------------------------------------------------------------------------------------- Tooltip on hover
+i = 1;
+let hoverLoop = setInterval( function () {
+    document.getElementById("home-button").onmouseover = async function() { 
+        let delayer = await delay(500);
+        // Only show tooltip if Start menu is not shown
+        if (document.getElementById("start-menu").style.opacity == 0) {
+            document.getElementById("home-button-tooltip").style.opacity = "1";
+        }
+    }
+    document.getElementById("home-button").onmouseout  = async function() { 
+        let delayer = await delay(500);
+        document.getElementById("home-button-tooltip").style.opacity = "0";
+    }
+    if (++i === 5) {
+        clearInterval(hoverLoop);
+    }
+}, 1000);

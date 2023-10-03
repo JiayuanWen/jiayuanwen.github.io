@@ -19,14 +19,57 @@ else { // For PC
 }
 
 //----------------------------------------------------------------------------------------- Clock
-
 setInterval(function () {
     var clockElement = document.getElementById("time");
     if (document.readyState == "complete" && !isMobile()) {
         clockElement.innerHTML = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     }
 }, 1000);
+//----------------------------------------------------------------------------------------- Calender Date
+function formatDate(date) {
+    const month = date.toLocaleDateString('en-US', { month: 'long' });
+    const day = date.getDate();
+    const suffix = day === 1 ? 'st' : day === 2 ? 'nd' : day === 3 ? 'rd' : 'th';
+  
+    return `${month}, ${day}${suffix}`;
+}
 
+setInterval(function () {
+    var yearElement = document.getElementById("year");
+    var dateElement = document.getElementById("date");
+    var clockBigElement = document.getElementById("time-big");
+
+    if (document.readyState == "complete" && !isMobile()) {
+        yearElement.innerHTML = new Date().toLocaleDateString([], { year: 'numeric' });
+        dateElement.innerHTML = formatDate(new Date());
+        clockBigElement.innerHTML = new Date().toLocaleTimeString([],{ hour12: false });
+    }
+}, 1000);
+//----------------------------------------------------------------------------------------- Calender button (bottom right) click handle 
+async function calenderClick() {
+            
+    let calenderMenu = document.getElementById("calender-container");
+    let delayer;
+
+    if (calenderMenu.style.opacity == 0) {
+        calenderMenu.style.opacity = "1";
+        calenderMenu.style.bottom = "60px";
+        // Hide tooltip on menu show
+        document.getElementById("time-tooltip").style.opacity = "0";
+    } else {
+        calenderMenu.style.opacity = "0";
+        calenderMenu.style.bottom = "0px";
+    }
+}
+let i = 0;
+var timeButtonFunction = setInterval(function () {
+    if (document.readyState == "complete" && !isMobile()) {
+        document.getElementById("time-container").addEventListener("click", function() {calenderClick()})
+    }
+    if (++i === 5) {
+        window.clearInterval(timeButtonFunction);
+    }
+}, 500);
 
 //----------------------------------------------------------------------------------------- Material You wallpaper color
 /*
@@ -76,5 +119,22 @@ export async function mainMenuFade(delay_, mode) {
     
 }
 
-
+//----------------------------------------------------------------------------------------- Tooltip on hover (Time)
+let a = 1;
+let hoverLoop = setInterval( function () {
+    document.getElementById("time-container").onmouseover = async function() { 
+        let delayer = await delay(500);
+        // Only show tooltip if Start menu is not shown
+        if (true) {
+            document.getElementById("time-tooltip").style.opacity = "1";
+        }
+    }
+    document.getElementById("time-container").onmouseout  = async function() { 
+        let delayer = await delay(500);
+        document.getElementById("time-tooltip").style.opacity = "0";
+    }
+    if (++a === 5) {
+        clearInterval(hoverLoop);
+    }
+}, 1000);
 

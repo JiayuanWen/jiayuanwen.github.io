@@ -1,7 +1,7 @@
 #start-menu {
     transition: 0.2s;
 
-    position: fixed;
+    position: absolute;
     bottom: 0px; /*Set in js/helper/UI/contactinfo.js*/
     left: 5px;
 
@@ -15,6 +15,8 @@
     border-radius: 20px;
 
     opacity: 0;
+
+    z-index: 50;
 }
 
 #sep-name {

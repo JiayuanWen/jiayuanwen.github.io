@@ -153,7 +153,7 @@ const loadingManager = new THREE.LoadingManager();
 loadingManager.onStart = function(url, item, total) {
 
 	if (isMobile()) {
-		//alert("The site is currently not optimized for mobile devices. It is best to visit on PC for the time being.");
+		alert("The site is currently not optimized for mobile devices. It is best to visit on PC for the time being.");
 	}
 	else {
 		//alert("Note: Site is still under construction.");
@@ -262,7 +262,7 @@ loadingManager.onLoad = async function() {
 	}
 	else {
 		let menuElement = document.getElementById("main-menu-container");
-		let wallpaper_i = Math.floor(Math.random() * 2) + 1;
+		let wallpaper_i = Math.floor(Math.random() * 1) + 1;
 		document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
 	}
 	
