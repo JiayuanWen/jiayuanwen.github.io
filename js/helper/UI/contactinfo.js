@@ -78,21 +78,4 @@ var applyHomeButtonFunction = setInterval(function () {
     }
 }, 500);
 
-//----------------------------------------------------------------------------------------- Tooltip on hover
-i = 1;
-let hoverLoop = setInterval( function () {
-    document.getElementById("home-button").onmouseover = async function() { 
-        let delayer = await delay(500);
-        // Only show tooltip if Start menu is not shown
-        if (document.getElementById("start-menu").style.opacity == 0) {
-            document.getElementById("home-button-tooltip").style.opacity = "1";
-        }
-    }
-    document.getElementById("home-button").onmouseout  = async function() { 
-        let delayer = await delay(500);
-        document.getElementById("home-button-tooltip").style.opacity = "0";
-    }
-    if (++i === 5) {
-        clearInterval(hoverLoop);
-    }
-}, 1000);
+

@@ -119,22 +119,5 @@ export async function mainMenuFade(delay_, mode) {
     
 }
 
-//----------------------------------------------------------------------------------------- Tooltip on hover (Time)
-let a = 1;
-let hoverLoop = setInterval( function () {
-    document.getElementById("time-container").onmouseover = async function() { 
-        let delayer = await delay(500);
-        // Only show tooltip if Start menu is not shown
-        if (true) {
-            document.getElementById("time-tooltip").style.opacity = "1";
-        }
-    }
-    document.getElementById("time-container").onmouseout  = async function() { 
-        let delayer = await delay(500);
-        document.getElementById("time-tooltip").style.opacity = "0";
-    }
-    if (++a === 5) {
-        clearInterval(hoverLoop);
-    }
-}, 1000);
+
 

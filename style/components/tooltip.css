@@ -1,0 +1,93 @@
+/* --------------------------------------------------------------------------------- Tooltip (Time)*/
+#time-tooltip-container { 
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    font-size: 15px;
+    font-family: monospace, monospace, monospace;
+    text-align: center;
+    line-height: 30px;
+
+    border-radius: 999px;
+
+    z-index: 5;
+}
+#time-tooltip { 
+    transition: 0.22s;
+
+    position: absolute;
+    bottom: 55px;
+    right: 2px;
+
+    border-radius: 999px;
+    background-color: rgb(29, 29, 29);
+
+    width: 160px;
+    height: 30px;
+
+    opacity: 0;
+
+    z-index: 5;
+}
+/* --------------------------------------------------------------------------------- Tooltip (Contact info) */
+#home-button-tooltip-container { 
+    position: absolute;
+    bottom: 0;
+
+    font-size: 15px;
+    font-family: monospace, monospace, monospace;
+    text-align: center;
+    line-height: 30px;
+
+    border-radius: 999px;
+
+    z-index: 5;
+}
+#home-button-tooltip { 
+    transition: 0.22s;
+
+    position: absolute;
+    bottom: 55px;
+
+    border-radius: 999px;
+    background-color: rgb(29, 29, 29);
+
+    width: 200px;
+    height: 30px;
+
+    opacity: 0;
+
+    z-index: 5;
+}
+/* --------------------------------------------------------------------------------- Tooltip (Terminal icon) */
+#terminal-tooltip-container { 
+    position: absolute;
+    bottom: 0px;
+    left: 46%;
+
+    font-size: 15px;
+    font-family: monospace, monospace, monospace;
+    text-align: center;
+    line-height: 30px;
+
+    border-radius: 999px;
+
+    z-index: 5;
+}
+#terminal-tooltip { 
+    transition: 0.22s;
+
+    position: absolute;
+    bottom: 55px;
+
+    border-radius: 999px;
+    background-color: rgb(34, 34, 34);
+
+    width: 200px;
+    height: 30px;
+
+    opacity: 0;
+
+    z-index: 5;
+}
