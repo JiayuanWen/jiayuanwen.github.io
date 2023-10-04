@@ -1,0 +1,120 @@
+#terminal-window {
+    position: absolute;
+    left: 440px;
+    top: 120px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(31, 31, 31, 0.705);
+
+    height: 500px;
+    width: 700px;
+
+    z-index: 1;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+#terminal-windowheader {
+    position: absolute;
+    left: 00px;
+    top: 00px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(31, 31, 31, 0.705);
+
+    height: 30px;
+    width: 700px;
+
+    z-index: 1;
+
+    border-radius: 0px;
+
+    overflow: hidden;
+}
+    #terminal-close {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        
+        color: gray;
+    }
+    #terminal-minimize {
+        position: absolute;
+        right: 20px;
+        top: 4px;
+        
+        color: gray;
+    }
+        #terminal-close:hover, #terminal-minimize:hover {
+            color: rgb(255, 255, 255);
+        }
+    #terminal-ico {
+        position: absolute;
+        left: 6px;
+        top: 4px;
+        
+        color: rgb(255, 255, 255);
+    }
+    #terminal-name {
+        position: absolute;
+        top: 4px;
+
+        width: inherit;
+
+        text-align: center;
+        font-size: small;
+        color: rgb(100, 100, 100);
+    }
+
+#terminal-text {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+
+    overflow-y: auto;
+    overflow-x: auto;
+    
+    width: 700px;
+
+    margin: 0;
+
+    font-size: small;
+    white-space: pre-wrap;
+    
+}
+    #terminal-text::-webkit-scrollbar {
+        width: 12px;
+    }
+    #terminal-text::-webkit-scrollbar-track-piece {
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 999px;
+    }
+    #terminal-text::-webkit-scrollbar-thumb:vertical {
+        transition: 0.25s;
+        background-color: rgb(68, 68, 68);
+        border-radius: 999px;
+    }
+        #terminal-text::-webkit-scrollbar-thumb:vertical:hover {
+            background-color: rgb(75, 75, 75);
+            border-radius: 999px;
+        }
+    .terminal-color {
+        color: rgb(156, 69, 255);
+
+    }
+    .terminal-color {
+        font-weight: bolder;
+
+    }
+    
+    #terminal-sys-info {
+        position: absolute;
+        left: 290px;
+        top: 7px;
+
+        line-height: 16px;
+    }

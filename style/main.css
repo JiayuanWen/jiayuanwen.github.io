@@ -70,10 +70,10 @@ a:visited {
     color:rgb(139, 139, 139);
 }
 a:hover {
-    color:rgb(188, 201, 0);
+    color:rgb(98, 0, 255);
 }
 a:active {
-    color:rgb(75, 107, 0);
+    color:rgb(29, 0, 107);
 }
 
 /* --------------------------------------------------------------------------------- Site credit at bottom */

@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="style/components/backbutton.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/starbg.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/tooltip.css"/>
+    <link rel="stylesheet" type="text/css" href="style/components/terminal.css"/>
 
     <!-- Page/section stylesheets -->
     <link rel="stylesheet" type="text/css" href="style/aboutme.css" id="aboutme-style"/>
@@ -53,8 +54,11 @@
     <!-- For MarkDown rendering -->
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
 
-    <!-- GPU Detection -->
+    <!-- GPU detection -->
     <script type="module" src="/js/helper/gpu-detect.js"></script>
+
+    <!-- Browser info detection -->
+    <script type="module" src="/js/helper/platform.js"></script>
     
 </head>
     
@@ -78,10 +82,16 @@
     <script type="module-shim" src="/js/Main.js"></script>
 
     <!-- Terminal window -->
+    <div w3-include-html="/pages/my_blogs.html"></div>
     <script type="module-shim" src="/js/helper/UI/terminal.js"></script>
 
+    <!-- Contact information -->
+    <div id="contact-info-container">
+
+    </div>
+
     <!-- About Me -->
-        <div w3-include-html="/pages/about_me.html"></div> 
+        <div w3-include-html="/page_components/terminal.html"></div> 
         <script type="module-shim" src="/js/AboutMe.js"></script>
         <script type="module-shim" src="/js/helper/background-stars-purple.js"></script>
 
@@ -135,10 +145,7 @@
         <!-- Site credit & source code -->
         <div id="site-credit">Built by me, hosted on <a href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.</div>
     
-        <!-- Contact information -->
-        <div id="contact-info-container">
-
-        </div>
+        
     
     <!-- End of UI Stuff -->
 

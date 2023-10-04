@@ -38,3 +38,24 @@ export function gpuEnabled() {
     
     return false;
 };
+
+export function detectGPU() {
+    var canvas = document.createElement('canvas');
+    var gl;
+    var debugInfo;
+    var vendor;
+    var renderer;
+
+    try {
+        gl = canvas.getContext('webgl', { powerPreference: "high-performance" }) || canvas.getContext('experimental-webgl', { powerPreference: "high-performance" });
+    } catch (e) {
+    }
+
+    if (gl) {
+    debugInfo = gl.getExtension('WEBGL_debug_renderer_info'); console.log(debugInfo);
+    vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL); console.log(vendor);
+    renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL); console.log(renderer);
+    }
+
+    return renderer;
+}

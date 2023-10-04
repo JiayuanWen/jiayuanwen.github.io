@@ -40,9 +40,9 @@ let homeOnHover = setInterval( function () {
         clearInterval(homeOnHover);
     }
 }, 1000);
-//----------------------------------------------------------------------------------------- Home button tooltip
+//----------------------------------------------------------------------------------------- Icon button tooltip
 i = 0;
-let terminalOnHover = setInterval( function () {
+let iconOnHover = setInterval( function () {
     document.getElementById("terminal").onmouseover = async function() { 
         let delayer = await delay(500);
         // Only show tooltip if Start menu is not shown
@@ -54,8 +54,19 @@ let terminalOnHover = setInterval( function () {
         let delayer = await delay(500);
         document.getElementById("terminal-tooltip").style.opacity = "0";
     }
+    document.getElementById("social").onmouseover = async function() { 
+        let delayer = await delay(500);
+        // Only show tooltip if Start menu is not shown
+        if (true) {
+            document.getElementById("social-tooltip").style.opacity = "1";
+        }
+    }
+    document.getElementById("social").onmouseout  = async function() { 
+        let delayer = await delay(500);
+        document.getElementById("social-tooltip").style.opacity = "0";
+    }
     if (++i === 5) {
-        clearInterval(terminalOnHover);
+        clearInterval(iconOnHover);
     }
 }, 1000);
 

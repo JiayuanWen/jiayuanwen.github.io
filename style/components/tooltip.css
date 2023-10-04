@@ -60,8 +60,8 @@
 
     z-index: 5;
 }
-/* --------------------------------------------------------------------------------- Tooltip (Terminal icon) */
-#terminal-tooltip-container { 
+/* --------------------------------------------------------------------------------- Tooltip (Middle icons) */
+#terminal-tooltip-container, #social-tooltip-container { 
     position: absolute;
     bottom: 0px;
     left: 46%;
@@ -75,7 +75,7 @@
 
     z-index: 5;
 }
-#terminal-tooltip { 
+#terminal-tooltip, #social-tooltip{ 
     transition: 0.22s;
 
     position: absolute;
