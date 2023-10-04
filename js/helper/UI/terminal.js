@@ -34,6 +34,9 @@ var failSafeLoop = setInterval(function () {
   document.getElementById("terminal-close").addEventListener('click', function(){ 
     terminalElement.transition = "0.3s";
     terminalElement.opacity = 0; 
+
+    document.getElementById("terminal-line").innerHTML = " \nPress 'H' for a list of avaliable shortcuts.\n"+commandEnd;
+    $("#terminal-text").scrollTop(0);
   });
 
   if (++i === 5) {
@@ -44,19 +47,25 @@ var failSafeLoop = setInterval(function () {
 //----------------------------------------------------------------------------------------- Terminal functions
 let commandEnd = `[<color class="terminal-color">user</color>@<color class="terminal-color">jiayuanwen-site</color> ~]$\n\n`;
 
+// For some easter egg function
+var prevKey = null;
+
 $(document).on("keypress", function (e) {
   console.log(e.which);
 
   //----------------------------------------------------------------------------------------- When user pressed 'H'
-  if (e.which == "104" || e.which == "72" ) {
+  if ((e.which == "104" || e.which == "72") && document.getElementById("terminal-window").style.opacity != 0) {
     document.getElementById("terminal-line").innerHTML += 
 `
 ============ List of shortcuts ============ \n
 'A' - About me
 'P' - My projects
 'B' - My blogs
+'F' - Fun facts about me
 'T' - List of features on this website
 'C' - Clear terminal output
+
+*Pages can be long, don't forget to scroll.
 
 `
 +commandEnd;
@@ -64,7 +73,8 @@ $(document).on("keypress", function (e) {
 $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
   }
 
-  if (e.which == "116" || e.which == "84" ) {
+  // 'T' for site feature
+  if ((e.which == "116" || e.which == "84") && document.getElementById("terminal-window").style.opacity != 0) {
     document.getElementById("terminal-line").innerHTML += 
 `\n
 ============ Site Features ============ \n
@@ -76,12 +86,27 @@ $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
 $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
   }
 
-  if (e.which == "99" || e.which == "67" ) {
-    document.getElementById("terminal-line").innerHTML = " \n"
-+commandEnd;
+  // 'C' for Clear terminal
+  if ((e.which == "99" || e.which == "67") && document.getElementById("terminal-window").style.opacity != 0) {
+    document.getElementById("terminal-line").innerHTML = " \nPress 'H' for a list of avaliable shortcuts.\n"+commandEnd;
 
-$("#terminal-text").scrollTop(0);
+    $("#terminal-text").scrollTop(0);
   }
+
+  // Some easter egg (technically not if you see this)
+  if ((e.which == "115") && document.getElementById("terminal-window").style.opacity != 0) {
+    prevKey = e.which;
+  }
+  if ((e.which == "117") && prevKey == "115" && document.getElementById("terminal-window").style.opacity != 0) {
+    prevKey = e.which;
+  }
+  if ((e.which == "100") && prevKey == "117" && document.getElementById("terminal-window").style.opacity != 0) {
+    prevKey = e.which;
+  }
+  if ((e.which == "111") && prevKey == "100" && document.getElementById("terminal-window").style.opacity != 0) {
+    document.getElementById("terminal-line").innerHTML += "Uh.. I don't think this is a real terminal \n"+commandEnd+'\n\n';
+  }
+
 
 })
 

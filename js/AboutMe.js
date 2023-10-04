@@ -16,7 +16,7 @@ let commandEnd = `[<color class="terminal-color">user</color>@<color class="term
 
 $(document).on("keypress", function (e) {
     //When user pressed 'A'
-  if (e.which == "97" || e.which == "65" ) {
+  if ((e.which == "97" || e.which == "65") && document.getElementById("terminal-window").style.opacity != 0) {
     document.getElementById("terminal-line").innerHTML += 
 `\n
 ============ About Me ============
@@ -36,7 +36,7 @@ Whether I'm working independently or collaborating with a team, I bring a strong
 
 With 4+ years of experience working on personal and academic projects, I am experienced with the following technologies:
 
-<b id="experience-heading">Software Development</b>
+<c id="experience-heading">Software Development</c>
 
     <element id="experiences">•<i class="devicon-c-plain"></i> C</element>
         <element id="experience-level">Intermediate</element>
@@ -51,7 +51,7 @@ With 4+ years of experience working on personal and academic projects, I am expe
         <element id="experience-level">Intermediate</element>
 
 
-<b id="experience-heading">Web Development</b>
+<c id="experience-heading">Web Development</c>
 
     <element id="experiences">•<i class="devicon-javascript-plain"></i> JavaScript</element>
         <element id="experience-level">Proficient</element>
@@ -69,7 +69,7 @@ With 4+ years of experience working on personal and academic projects, I am expe
         <element id="experience-level">Proficient</element>
 
 
-<b id="experience-heading">Database</b>
+<c id="experience-heading">Database</c>
 
     <element id="experiences">•<i class="devicon-sqlite-plain"></i> SQLite</element>
         <element id="experience-level">Intermediate</element>
@@ -87,13 +87,13 @@ With 4+ years of experience working on personal and academic projects, I am expe
         <element id="experience-level">Intermediate</element>
 
 
-<b id="experience-heading">Mobile Development</b>
+<c id="experience-heading">Mobile Development</c>
 
     <element id="experiences">•<i class="devicon-androidstudio-plain"></i> Android Studio</element>
         <element id="experience-level">Beginner</element>
 
 
-<b id="experience-heading">Collaboration</b>
+<c id="experience-heading">Collaboration</c>
 
     <element id="experiences">•<i class="devicon-git-plain"></i> git</element>
         <element id="experience-level">Proficient</element>
@@ -102,7 +102,7 @@ With 4+ years of experience working on personal and academic projects, I am expe
         <element id="experience-level">Proficient</element>
 
 
-<b id="experience-heading">Other</b>
+<c id="experience-heading">Other</c>
 
     <element id="experiences">•<i class="devicon-lua-plain-wordmark"></i> Lua Script</element>
         <element id="experience-level">Proficient</element>

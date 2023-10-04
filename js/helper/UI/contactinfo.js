@@ -52,7 +52,7 @@ export async function contactInfoFade(delay_, mode) {
     
 }
 
-//----------------------------------------------------------------------------------------- Start button (bottom left) click handle 
+//----------------------------------------------------------------------------------------- My Social click handle 
 async function startMenuButton() {
             
     let starMenu = document.getElementById("start-menu");
