@@ -59,6 +59,7 @@ $(document).on("keypress", function (e) {
 `
 ============ List of shortcuts ============ \n
 'A' - About me
+'E' - My experiences
 'P' - My projects
 'B' - My blogs
 'F' - Fun facts about me
@@ -70,7 +71,7 @@ $(document).on("keypress", function (e) {
 `
 +commandEnd;
 
-$("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
+    $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
   }
 
   // 'T' for site feature
@@ -83,7 +84,7 @@ $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
 `
 +commandEnd;
 
-$("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
+    $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
   }
 
   // 'C' for Clear terminal
@@ -105,6 +106,7 @@ $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
   }
   if ((e.which == "111") && prevKey == "100" && document.getElementById("terminal-window").style.opacity != 0) {
     document.getElementById("terminal-line").innerHTML += "Uh.. I don't think this is a real terminal \n"+commandEnd+'\n\n';
+    $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
   }
 
 

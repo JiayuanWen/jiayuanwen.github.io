@@ -30,86 +30,92 @@ I enjoy developing video games and other forms of artistic mediums, as well as u
 I like experimenting with new programming languages and tools, and strive to strike a balance between functionality and user experience in my work. 
 
 Whether I'm working independently or collaborating with a team, I bring a strong attention to detail and a passion for continuous learning to every project I undertake.
-`+
-`
----
 
+`+commandEnd;
+
+    $("#terminal-text").scrollTop($("#terminal-text").scrollTop()+300);
+  }
+
+  // When user press 'E'
+  if ((e.which == "101" || e.which == "69") && document.getElementById("terminal-window").style.opacity != 0) {
+    document.getElementById("terminal-line").innerHTML += 
+`\n
 With 4+ years of experience working on personal and academic projects, I am experienced with the following technologies:
 
 <c id="experience-heading">Software Development</c>
 
-    <element id="experiences">•<i class="devicon-c-plain"></i> C</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<i class="devicon-c-plain"></i> C</element>
+    <element id="experience-level">Intermediate</element>
 
-    <element id="experiences">•<i class="devicon-cplusplus-plain"></i> C++</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<i class="devicon-cplusplus-plain"></i> C++</element>
+    <element id="experience-level">Intermediate</element>
 
-    <element id="experiences">•<i class="devicon-java-plain"></i> Java</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<i class="devicon-java-plain"></i> Java</element>
+    <element id="experience-level">Intermediate</element>
 
-    <element id="experiences">•<i class="devicon-bash-plain"></i> Bash</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<i class="devicon-bash-plain"></i> Bash</element>
+    <element id="experience-level">Intermediate</element>
 
 
 <c id="experience-heading">Web Development</c>
 
-    <element id="experiences">•<i class="devicon-javascript-plain"></i> JavaScript</element>
-        <element id="experience-level">Proficient</element>
+<element id="experiences">•<i class="devicon-javascript-plain"></i> JavaScript</element>
+    <element id="experience-level">Proficient</element>
 
-    <element id="experiences">•<i class="devicon-nodejs-plain"></i> Node.js</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<i class="devicon-nodejs-plain"></i> Node.js</element>
+    <element id="experience-level">Intermediate</element>
 
-    <element id="experiences">•<i class="devicon-nodejs-plain"></i> Experss</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<i class="devicon-nodejs-plain"></i> Experss</element>
+    <element id="experience-level">Intermediate</element>
 
-    <element id="experiences">•<i class="devicon-html5-plain-wordmark"></i> HTML</element>
-        <element id="experience-level">Proficient</element>
+<element id="experiences">•<i class="devicon-html5-plain-wordmark"></i> HTML</element>
+    <element id="experience-level">Proficient</element>
 
-    <element id="experiences">•<i class="devicon-css3-plain-wordmark"></i> CSS</element>
-        <element id="experience-level">Proficient</element>
+<element id="experiences">•<i class="devicon-css3-plain-wordmark"></i> CSS</element>
+    <element id="experience-level">Proficient</element>
 
 
 <c id="experience-heading">Database</c>
 
-    <element id="experiences">•<i class="devicon-sqlite-plain"></i> SQLite</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<i class="devicon-sqlite-plain"></i> SQLite</element>
+    <element id="experience-level">Intermediate</element>
 
-    <element id="experiences">•<i class="devicon-mysql-plain"></i> MySQL</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<i class="devicon-mysql-plain"></i> MySQL</element>
+    <element id="experience-level">Intermediate</element>
 
-    <element id="experiences">•<i class="devicon-mongodb-plain"></i> MongoDB</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<i class="devicon-mongodb-plain"></i> MongoDB</element>
+    <element id="experience-level">Intermediate</element>
 
-    <element id="experiences">•<i class="devicon-rstudio-plain"></i> R</element>
-        <element id="experience-level">Beginner</element>
+<element id="experiences">•<i class="devicon-rstudio-plain"></i> R</element>
+    <element id="experience-level">Beginner</element>
 
-    <element id="experiences">•<ion-icon name="calendar"></ion-icon> SAS</element>
-        <element id="experience-level">Intermediate</element>
+<element id="experiences">•<ion-icon name="calendar"></ion-icon> SAS</element>
+    <element id="experience-level">Intermediate</element>
 
 
 <c id="experience-heading">Mobile Development</c>
 
-    <element id="experiences">•<i class="devicon-androidstudio-plain"></i> Android Studio</element>
-        <element id="experience-level">Beginner</element>
+<element id="experiences">•<i class="devicon-androidstudio-plain"></i> Android Studio</element>
+    <element id="experience-level">Beginner</element>
 
 
 <c id="experience-heading">Collaboration</c>
 
-    <element id="experiences">•<i class="devicon-git-plain"></i> git</element>
-        <element id="experience-level">Proficient</element>
+<element id="experiences">•<i class="devicon-git-plain"></i> git</element>
+    <element id="experience-level">Proficient</element>
 
-    <element id="experiences">•<i class="devicon-github-original"></i> GitHub</element>
-        <element id="experience-level">Proficient</element>
+<element id="experiences">•<i class="devicon-github-original"></i> GitHub</element>
+    <element id="experience-level">Proficient</element>
 
 
 <c id="experience-heading">Other</c>
 
-    <element id="experiences">•<i class="devicon-lua-plain-wordmark"></i> Lua Script</element>
-        <element id="experience-level">Proficient</element>
+<element id="experiences">•<i class="devicon-lua-plain-wordmark"></i> Lua Script</element>
+    <element id="experience-level">Proficient</element>
 `
 +'\n'+commandEnd;
 
-$("#terminal-text").scrollTop($("#terminal-text").scrollTop()+300);
+    $("#terminal-text").scrollTop($("#terminal-text").scrollTop()+300);
   }
 })
 
