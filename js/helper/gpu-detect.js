@@ -52,9 +52,9 @@ export function detectGPU() {
     }
 
     if (gl) {
-    debugInfo = gl.getExtension('WEBGL_debug_renderer_info'); console.log(debugInfo);
-    vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL); console.log(vendor);
-    renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL); console.log(renderer);
+        debugInfo = gl.getExtension('WEBGL_debug_renderer_info'); console.log(debugInfo);
+        vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL); console.log(vendor);
+        renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL); console.log(renderer);
     }
 
     return renderer;

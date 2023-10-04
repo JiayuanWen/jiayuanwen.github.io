@@ -1,11 +1,9 @@
 import { isMobile } from "./mobileCheck.js";
 import { delay } from "./delay.js";
 
-let i = 0;
-
 if (!isMobile()) {
 //----------------------------------------------------------------------------------------- Time tooltip
-i = 0;
+let i = 0;
 let timeOnHover = setInterval( function () {
     document.getElementById("time-container").onmouseover = async function() { 
         let delayer = await delay(500);
@@ -23,7 +21,7 @@ let timeOnHover = setInterval( function () {
     }
 }, 1000);
 //----------------------------------------------------------------------------------------- Home button tooltip
-i = 0;
+let a = 0;
 let homeOnHover = setInterval( function () {
     document.getElementById("home-button").onmouseover = async function() { 
         let delayer = await delay(500);
@@ -36,12 +34,12 @@ let homeOnHover = setInterval( function () {
         let delayer = await delay(500);
         document.getElementById("home-button-tooltip").style.opacity = "0";
     }
-    if (++i === 5) {
+    if (++a === 5) {
         clearInterval(homeOnHover);
     }
 }, 1000);
 //----------------------------------------------------------------------------------------- Icon button tooltip
-i = 0;
+let b = 0;
 let iconOnHover = setInterval( function () {
     document.getElementById("terminal").onmouseover = async function() { 
         let delayer = await delay(500);
@@ -65,7 +63,7 @@ let iconOnHover = setInterval( function () {
         let delayer = await delay(500);
         document.getElementById("social-tooltip").style.opacity = "0";
     }
-    if (++i === 5) {
+    if (++b === 5) {
         clearInterval(iconOnHover);
     }
 }, 1000);

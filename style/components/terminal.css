@@ -1,4 +1,6 @@
 #terminal-window {
+    transition: 0s;
+
     position: absolute;
     left: 440px;
     top: 120px;
@@ -15,6 +17,8 @@
     border-radius: 12px;
 
     overflow: hidden;
+
+    opacity: 0;
 }
 
 #terminal-windowheader {
@@ -76,18 +80,20 @@
     left: 0px;
 
     overflow-y: auto;
-    overflow-x: auto;
+
     
-    width: 700px;
+    width: 697px;
+    height: 500px;
 
     margin: 0;
+    margin-left: 3px;
 
     font-size: small;
     white-space: pre-wrap;
     
 }
     #terminal-text::-webkit-scrollbar {
-        width: 12px;
+        width: 7px;
     }
     #terminal-text::-webkit-scrollbar-track-piece {
         background-color: rgba(255, 255, 255, 0);
@@ -95,7 +101,7 @@
     }
     #terminal-text::-webkit-scrollbar-thumb:vertical {
         transition: 0.25s;
-        background-color: rgb(68, 68, 68);
+        background-color: rgba(173, 173, 173, 0.521);
         border-radius: 999px;
     }
         #terminal-text::-webkit-scrollbar-thumb:vertical:hover {
@@ -118,3 +124,13 @@
 
         line-height: 16px;
     }
+
+#terminal-line {
+    position: absolute;
+
+    width: 700px;
+    white-space: pre-wrap;
+    
+    margin-left: 0px;
+    margin-right: 15px;
+}

@@ -11,6 +11,108 @@ import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
 import { gpuEnabled } from "./helper/gpu-detect.js";
 
+//---------------------------------------------------------------------------------------- For terminal version
+let commandEnd = `[<color class="terminal-color">user</color>@<color class="terminal-color">jiayuanwen-site</color> ~]$\n\n`;
+
+$(document).on("keypress", function (e) {
+    //When user pressed 'A'
+  if (e.which == "97" || e.which == "65" ) {
+    document.getElementById("terminal-line").innerHTML += 
+`\n
+============ About Me ============
+
+<img id="aboutme-selfie" src="/textures/AboutMe/selfie.jpg"></img>
+
+I graduated from Pennsylvania State University with a B.S. in Computer Science. 
+
+I enjoy developing video games and other forms of artistic mediums, as well as utilizing my skills in programming to solve problems I encounter in my daily lives.
+
+I like experimenting with new programming languages and tools, and strive to strike a balance between functionality and user experience in my work. 
+
+Whether I'm working independently or collaborating with a team, I bring a strong attention to detail and a passion for continuous learning to every project I undertake.
+`+
+`
+---
+
+With 4+ years of experience working on personal and academic projects, I am experienced with the following technologies:
+
+<b id="experience-heading">Software Development</b>
+
+    <element id="experiences">•<i class="devicon-c-plain"></i> C</element>
+        <element id="experience-level">Intermediate</element>
+
+    <element id="experiences">•<i class="devicon-cplusplus-plain"></i> C++</element>
+        <element id="experience-level">Intermediate</element>
+
+    <element id="experiences">•<i class="devicon-java-plain"></i> Java</element>
+        <element id="experience-level">Intermediate</element>
+
+    <element id="experiences">•<i class="devicon-bash-plain"></i> Bash</element>
+        <element id="experience-level">Intermediate</element>
+
+
+<b id="experience-heading">Web Development</b>
+
+    <element id="experiences">•<i class="devicon-javascript-plain"></i> JavaScript</element>
+        <element id="experience-level">Proficient</element>
+
+    <element id="experiences">•<i class="devicon-nodejs-plain"></i> Node.js</element>
+        <element id="experience-level">Intermediate</element>
+
+    <element id="experiences">•<i class="devicon-nodejs-plain"></i> Experss</element>
+        <element id="experience-level">Intermediate</element>
+
+    <element id="experiences">•<i class="devicon-html5-plain-wordmark"></i> HTML</element>
+        <element id="experience-level">Proficient</element>
+
+    <element id="experiences">•<i class="devicon-css3-plain-wordmark"></i> CSS</element>
+        <element id="experience-level">Proficient</element>
+
+
+<b id="experience-heading">Database</b>
+
+    <element id="experiences">•<i class="devicon-sqlite-plain"></i> SQLite</element>
+        <element id="experience-level">Intermediate</element>
+
+    <element id="experiences">•<i class="devicon-mysql-plain"></i> MySQL</element>
+        <element id="experience-level">Intermediate</element>
+
+    <element id="experiences">•<i class="devicon-mongodb-plain"></i> MongoDB</element>
+        <element id="experience-level">Intermediate</element>
+
+    <element id="experiences">•<i class="devicon-rstudio-plain"></i> R</element>
+        <element id="experience-level">Beginner</element>
+
+    <element id="experiences">•<ion-icon name="calendar"></ion-icon> SAS</element>
+        <element id="experience-level">Intermediate</element>
+
+
+<b id="experience-heading">Mobile Development</b>
+
+    <element id="experiences">•<i class="devicon-androidstudio-plain"></i> Android Studio</element>
+        <element id="experience-level">Beginner</element>
+
+
+<b id="experience-heading">Collaboration</b>
+
+    <element id="experiences">•<i class="devicon-git-plain"></i> git</element>
+        <element id="experience-level">Proficient</element>
+
+    <element id="experiences">•<i class="devicon-github-original"></i> GitHub</element>
+        <element id="experience-level">Proficient</element>
+
+
+<b id="experience-heading">Other</b>
+
+    <element id="experiences">•<i class="devicon-lua-plain-wordmark"></i> Lua Script</element>
+        <element id="experience-level">Proficient</element>
+`
++'\n'+commandEnd;
+
+$("#terminal-text").scrollTop($("#terminal-text").scrollTop()+300);
+  }
+})
+
 //---------------------------------------------------------------------------------------- About Me click handle
 if (isMobile()) {
 document.getElementById("about-me").addEventListener("click", async function() { 

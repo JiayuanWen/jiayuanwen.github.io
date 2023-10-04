@@ -1,3 +1,16 @@
+/* --------------------------------------------------------------------------------- For terminal version */
+#experiences {
+    font-size: 16px;
+}
+#experience-level {
+    color: rgb(153, 153, 153);
+}
+#experience-heading {
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------------- General */
 #aboutme {
     transition: 0s;
     /*display: "none"; Does't work*/
@@ -71,6 +84,14 @@
     border-width: 20px;
     border-color: rgb(0, 0, 0);
     z-index: 1;
+}
+#aboutme-selfie {
+    width: 250px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 20px;
 }
 
 .aboutme-page1-title {

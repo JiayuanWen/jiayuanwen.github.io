@@ -1,8 +1,90 @@
 import { detectGPU } from "../gpu-detect.js";
 import { isMobile } from "../mobileCheck.js";
 import { getInternetSpeed } from "../speedtest.js";
+import { delay } from "../delay.js"; let delayer;
 
-let i;
+//----------------------------------------------------------------------------------------- Terminal icon click handler
+let i = 0;
+let terminalElement = document.getElementById("terminal-window").style;
+var failSafeLoop = setInterval(function () {
+  if (document.readyState == "complete" && !isMobile()) {
+
+    document.getElementById("terminal").addEventListener('click', async function(){ 
+
+      if (terminalElement.opacity == 0) {
+        // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+        terminalElement.transition = "0.3s";
+        terminalElement.opacity = 1;
+
+        // Unset transition so window can be dragged.
+        delayer = await delay(400);
+        terminalElement.transition = "0s";
+
+        
+      }
+      else {
+        terminalElement.opacity = 0;
+      }
+    }, false);
+  }
+  document.getElementById("terminal-minimize").addEventListener('click', function(){ 
+    terminalElement.transition = "0.3s";
+    terminalElement.opacity = 0; 
+  });
+  document.getElementById("terminal-close").addEventListener('click', function(){ 
+    terminalElement.transition = "0.3s";
+    terminalElement.opacity = 0; 
+  });
+
+  if (++i === 5) {
+    window.clearInterval(failSafeLoop);
+  }
+})
+
+//----------------------------------------------------------------------------------------- Terminal functions
+let commandEnd = `[<color class="terminal-color">user</color>@<color class="terminal-color">jiayuanwen-site</color> ~]$\n\n`;
+
+$(document).on("keypress", function (e) {
+  console.log(e.which);
+
+  //----------------------------------------------------------------------------------------- When user pressed 'H'
+  if (e.which == "104" || e.which == "72" ) {
+    document.getElementById("terminal-line").innerHTML += 
+`
+============ List of shortcuts ============ \n
+'A' - About me
+'P' - My projects
+'B' - My blogs
+'T' - List of features on this website
+'C' - Clear terminal output
+
+`
++commandEnd;
+
+$("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
+  }
+
+  if (e.which == "116" || e.which == "84" ) {
+    document.getElementById("terminal-line").innerHTML += 
+`\n
+============ Site Features ============ \n
+* You can put the site on fullscreen mode by clicking on the up right corner.
+
+`
++commandEnd;
+
+$("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
+  }
+
+  if (e.which == "99" || e.which == "67" ) {
+    document.getElementById("terminal-line").innerHTML = " \n"
++commandEnd;
+
+$("#terminal-text").scrollTop(0);
+  }
+
+})
+
 
 //----------------------------------------------------------------------------------------- Make the DIV element draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
@@ -50,8 +132,8 @@ function dragElement(elmnt) {
   }
 
   //----------------------------------------------------------------------------------------- Detect user system & browser info
-  i = 0;
-  var failSafeLoop = setInterval(function () {
+ let a = 0;
+  var failSafeLoop2 = setInterval(function () {
     if (document.readyState == "complete" && !isMobile()) {
 
       // OS name & version
@@ -85,8 +167,8 @@ function dragElement(elmnt) {
       // Current internet speed
       // See below and /js/helper/speedtest.js 
 
-    if (++i === 5) {
-      window.clearInterval(failSafeLoop);
+    if (++a === 5) {
+      window.clearInterval(failSafeLoop2);
     }
 }, 500);
 
