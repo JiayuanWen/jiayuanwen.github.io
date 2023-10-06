@@ -9,8 +9,6 @@
     <!-- Component stylesheets -->
     <link rel="stylesheet" type="text/css" href="style/components/3dfiber.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/selfintroduction.css"/>
-    <link rel="stylesheet" type="text/css" href="style/components/contactinfo.css" id="contactinfo-style"/>
-    <link rel="stylesheet" type="text/css" href="style/components/mainmenu.css" id="mainmenu-style"/>
     <link rel="stylesheet" type="text/css" href="style/components/fullscreen.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/musicplayer.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/loadingscreen.css"/>
@@ -91,6 +89,7 @@
 
     <!-- Contact information -->
     <div w3-include-html="/page_components/contact_info.html"></div>
+    <link rel="stylesheet" type="text/css" href="style/components/contactinfo.css" id="contactinfo-style"/>
 
     <!-- About Me -->
         <div w3-include-html="/page_components/terminal.html"></div> 
@@ -106,26 +105,15 @@
         <div w3-include-html="/pages/my_blogs.html"></div>
         <script type="module-shim" src="/js/helper/background-stars-grey.js"></script>
 
-    <!-- Main Screen section -->
-    
-            <!-- Self Intro -->
-            <h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
-            <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>
-
-            <!-- Menu -->
-            <script type="module-shim" src="/js/helper/UI/mainmenu.js"></script>
-            <div id="main-menu-container">
-
-            </div>
+    <!-- Self Introduction -->
+    <h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
+    <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>
             
-
-    <!-- End of Main Screen section -->
 
     <!-- Below are UI stuff that must be on top of everything -->
 
-        <!-- Tooltips on hover for OS style UI -->
+        <!-- Tooltips on hover -->
         <link rel="stylesheet" type="text/css" href="style/components/tooltip.css"/>
-        <script type="module-shim" src="/js/helper/tooltipHandler.js"></script>
     
         <!-- Back to home button -->
         <div id="back-button">
@@ -146,7 +134,17 @@
         <div w3-include-html="/page_components/loading_screen.html"></div> 
     
         <!-- Site credit & source code -->
-        <div id="site-credit">Built by me, hosted on <a href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.</div>
+        <!--<div id="site-credit">Built by me, hosted on <a href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.</div>-->
+
+         <!-- Main Menu bar -->
+        <script type="module-shim" src="/js/helper/UI/mainmenu.js"></script>
+        <div id="main-menu-container"></div>
+        <link rel="stylesheet" type="text/css" href="style/components/mainmenu.css" id="mainmenu-style"/>
+            <!-- Time -->
+            <script type="module-shim" src="/js/helper/UI/calender.js"></script>
+            <!-- Start Menu -->
+            <script type="module-shim" src="/js/helper/UI/startmenu.js"></script>
+            <link rel="stylesheet" type="text/css" href="style/components/startmenu.css" id="mainmenu-style"/>
     
     <!-- End of UI Stuff -->
 

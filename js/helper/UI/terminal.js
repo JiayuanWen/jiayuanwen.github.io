@@ -22,21 +22,24 @@ var failSafeLoop = setInterval(function () {
         // Unset transition so window can be dragged.
         delayer = await delay(400);
         terminalElement.transition = "0s";
-
+        terminalElement.pointerEvents = "auto";
         
       }
       else {
         terminalElement.opacity = 0;
+        terminalElement.pointerEvents = "none";
       }
     }, false);
   }
   document.getElementById("terminal-minimize").addEventListener('click', function(){ 
     terminalElement.transition = "0.3s";
     terminalElement.opacity = 0; 
+    terminalElement.pointerEvents = "none";
   });
   document.getElementById("terminal-close").addEventListener('click', function(){ 
     terminalElement.transition = "0.3s";
     terminalElement.opacity = 0; 
+    terminalElement.pointerEvents = "none";
 
     document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable commands.\n`+commandEnd;
     $("#terminal-text").scrollTop(0);
@@ -46,6 +49,23 @@ var failSafeLoop = setInterval(function () {
     window.clearInterval(failSafeLoop);
   }
 })
+
+//----------------------------------------------------------------------------------------- Tooltip handler
+let b = 0;
+let iconOnHover = setInterval( function () {
+    document.getElementById("terminal").onmouseover = async function() { 
+        // Only show tooltip if Start menu is not shown
+        if (true) {
+            document.getElementById("terminal-tooltip").style.opacity = "1";
+        }
+    }
+    document.getElementById("terminal").onmouseout  = async function() { 
+        document.getElementById("terminal-tooltip").style.opacity = "0";
+    }
+    if (++b === 5) {
+      clearInterval(iconOnHover);
+  }
+}, 1000);
 
 //----------------------------------------------------------------------------------------- Terminal functions
 let commandEnd = `[<color class="terminal-color">user</color>@<color class="terminal-color">jiayuanwen-site</color> ~]$\n\n`;
@@ -63,10 +83,8 @@ $(document).on("keypress", function (e) {
 ============ List of shortcuts ============ \n
 'A' - About me
 'E' - My experiences
-'P' - My projects
 'B' - My blogs
 'F' - Fun facts about me
-'T' - Other features on this website
 'C' - Clear terminal output
 
 *Pages can be long, don't forget to scroll.
@@ -77,18 +95,6 @@ $(document).on("keypress", function (e) {
     $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
   }
 
-  // 'T' for site feature
-  if ((e.which == "116" || e.which == "84") && document.getElementById("terminal-window").style.opacity != 0) {
-    document.getElementById("terminal-line").innerHTML += 
-`\n
-============ Site Features ============ \n
-* You can put the site on fullscreen mode by clicking on the up right corner.
-
-`
-+commandEnd;
-
-    $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
-  }
 
   // 'C' for Clear terminal
   if ((e.which == "99" || e.which == "67") && document.getElementById("terminal-window").style.opacity != 0) {

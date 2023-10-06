@@ -3,8 +3,8 @@
     transition: 0s;
 
     position: absolute;
-    left: 440px;
-    top: 120px;
+    left: 820px;
+    top: 60px;
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
@@ -20,6 +20,7 @@
     overflow: hidden;
 
     opacity: 0;
+    pointer-events: none;
 
     display: flex;
     justify-content: center;
@@ -78,30 +79,14 @@
         color: rgb(100, 100, 100);
     }
 
-/* --------------------------------------------------------------------------------- Separation line */
-#sep-name {
-    position: fixed;
-    top: 110px;
-    left: 20px;
-    font-size: 18px;
-    color: rgb(95, 95, 95);
-}
-#sep-line {
-    position: fixed;
-    top: 150px;
-    left: 8px;
 
-    width: 680px;
-
-    border: solid 1px rgb(59, 59, 59);
-}
 
 /* --------------------------------------------------------------------------------- Avatar & Name*/
 #contact-avatar {
     position: absolute;
 
     border-radius: 999px;
-    height: 140px;
+    height: 120px;
 
     top: 45px;
     left: 15px;
@@ -109,37 +94,45 @@
 #contact-name {
     position: absolute;
 
-    top: 25px;
-    left: 130px;
+    top: 76px;
+    left: 150px;
 
     font-size: 20px;
     font-weight:800;
 
 }
 
+/* --------------------------------------------------------------------------------- Separation line */
+#sep-name {
+    position: absolute;
+    top: 185px;
+    left: 20px;
+    font-size: 18px;
+    color: rgb(95, 95, 95);
+}
+#sep-line {
+    position: absolute;
+    top: 220px;
+    left: 8px;
+
+    width: 320px;
+
+    border: solid 1px rgb(59, 59, 59);
+}
+
 /* --------------------------------------------------------------------------------- Contact info */
 #contact-info {
     font-size: 2.1rem;
-    position: fixed;
+    position: absolute;
 
     left: 20px;
-    top: 180px;
+    top: 260px;
 
     display: flex;
     flex-direction: column;
 
     color: rgb(73, 73, 73);
     z-index: 1;
-}
-@media only screen and (max-width: 560px) {
-    #contact-info {
-        font-size: 2.1rem;
-        position: fixed;
-        left: 1vw;
-        bottom: 5vh;
-        color: rgb(73, 73, 73);
-        z-index: 1;
-    }
 }
 
 #contact-info > a{

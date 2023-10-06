@@ -4,7 +4,7 @@ import { enableDrag } from "../draggablewindow.js";
 
 let delayer;
 
-//----------------------------------------------------------------------------------------- My Social icon click handler
+//----------------------------------------------------------------------------------------- Contact icon click handler
 let a = 0;
 let contactElement = document.getElementById("social-window").style;
 var failSafeLoop1 = setInterval(function () {
@@ -20,22 +20,24 @@ var failSafeLoop1 = setInterval(function () {
         // Unset transition so window can be dragged.
         delayer = await delay(400);
         contactElement.transition = "0s";
-
+        contactElement.pointerEvents = "auto"; 
         
       }
       else {
         contactElement.opacity = 0;
+        contactElement.pointerEvents = "none"; 
       }
     }, false);
   }
   document.getElementById("social-minimize").addEventListener('click', function(){ 
     contactElement.transition = "0.3s";
-    contactElement.opacity = 0; 
+    contactElement.opacity = 0;
+    contactElement.pointerEvents = "none"; 
   });
   document.getElementById("social-close").addEventListener('click', function(){ 
     contactElement.transition = "0.3s";
     contactElement.opacity = 0; 
-
+    contactElement.pointerEvents = "none"; 
     //$("#terminal-text").scrollTop(0);
   });
 
@@ -43,6 +45,23 @@ var failSafeLoop1 = setInterval(function () {
     window.clearInterval(failSafeLoop1);
   }
 })
+
+//----------------------------------------------------------------------------------------- Tooltip handler
+let ci = 0;
+let iconOnHover = setInterval( function () {
+    document.getElementById("social").onmouseover = async function() { 
+        // Only show tooltip if Start menu is not shown
+        if (true) {
+            document.getElementById("social-tooltip").style.opacity = "1";
+        }
+    }
+    document.getElementById("social").onmouseout  = async function() { 
+        document.getElementById("social-tooltip").style.opacity = "0";
+    }
+    if (++ci === 5) {
+      clearInterval(iconOnHover);
+  }
+}, 1000);
 
 //----------------------------------------------------------------------------------------- Make the terminal draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
