@@ -35,7 +35,7 @@ var failSafeLoop = setInterval(function () {
     terminalElement.transition = "0.3s";
     terminalElement.opacity = 0; 
 
-    document.getElementById("terminal-line").innerHTML = " \nPress 'H' for a list of avaliable shortcuts.\n"+commandEnd;
+    document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable shortcuts.\n`+commandEnd;
     $("#terminal-text").scrollTop(0);
   });
 
@@ -89,7 +89,7 @@ $(document).on("keypress", function (e) {
 
   // 'C' for Clear terminal
   if ((e.which == "99" || e.which == "67") && document.getElementById("terminal-window").style.opacity != 0) {
-    document.getElementById("terminal-line").innerHTML = " \nPress 'H' for a list of avaliable shortcuts.\n"+commandEnd;
+    document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable shortcuts.\n`+commandEnd;
 
     $("#terminal-text").scrollTop(0);
   }
