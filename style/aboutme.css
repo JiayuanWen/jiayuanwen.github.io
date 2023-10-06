@@ -1,13 +1,41 @@
 /* --------------------------------------------------------------------------------- For terminal version */
+experience {
+    padding-right: 15px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+experience > section {
+    border: 1px solid white;
+    border-radius: 15px;
+
+    width: 200px;
+    height: 320px;
+
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 20px;
+}
+
 #experiences {
     font-size: 16px;
+    
+    margin-left: 15px;
 }
 #experience-level {
     color: rgb(153, 153, 153);
 }
 #experience-heading {
+    display: block;
+
     font-size: 15px;
     text-decoration: underline;
+    text-align: center;
+
+    width: 200px;
 }
 
 /* --------------------------------------------------------------------------------- General */
