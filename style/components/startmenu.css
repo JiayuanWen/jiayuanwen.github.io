@@ -1,0 +1,21 @@
+#start-menu {
+    transition: 0.2s;
+
+    position: absolute;
+    bottom: 0px; /*Set in js/helper/UI/contactinfo.js*/
+    left: 5px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(26, 26, 26, 0.733);
+
+    height: 500px;
+    width: 500px;
+
+    border-radius: 20px;
+
+    opacity: 0;
+
+    z-index: 50;
+}
+

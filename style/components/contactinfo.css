@@ -1,24 +1,84 @@
-#start-menu {
-    transition: 0.2s;
+/* --------------------------------------------------------------------------------- For windowed version */
+#social-window {
+    transition: 0s;
 
     position: absolute;
-    bottom: 0px; /*Set in js/helper/UI/contactinfo.js*/
-    left: 5px;
+    left: 440px;
+    top: 120px;
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    background-color: rgba(26, 26, 26, 0.733);
+    background-color: rgb(37, 37, 37);
 
     height: 500px;
-    width: 500px;
+    width: 700px;
 
-    border-radius: 20px;
+    z-index: 2;
+
+    border-radius: 12px;
+
+    overflow: hidden;
 
     opacity: 0;
 
-    z-index: 50;
+    display: flex;
+    justify-content: center;
 }
 
+#social-windowheader {
+    position: absolute;
+    left: 00px;
+    top: 00px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(31, 31, 31, 0.705);
+
+    height: 30px;
+    width: 700px;
+
+    z-index: 1;
+
+    border-radius: 0px;
+
+    overflow: hidden;
+}
+    #social-close {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        
+        color: gray;
+    }
+    #social-minimize {
+        position: absolute;
+        right: 20px;
+        top: 4px;
+        
+        color: gray;
+    }
+        #social-close:hover, #social-minimize:hover {
+            color: rgb(255, 255, 255);
+        }
+    #social-ico {
+        position: absolute;
+        left: 6px;
+        top: 4px;
+        
+        color: rgb(255, 255, 255);
+    }
+    #social-name {
+        position: absolute;
+        top: 4px;
+
+        width: inherit;
+
+        text-align: center;
+        font-size: small;
+        color: rgb(100, 100, 100);
+    }
+
+/* --------------------------------------------------------------------------------- Separation line */
 #sep-name {
     position: fixed;
     top: 110px;
@@ -31,27 +91,23 @@
     top: 150px;
     left: 8px;
 
-    width: 480px;
+    width: 680px;
 
     border: solid 1px rgb(59, 59, 59);
 }
 
-#site-credit {
-    visibility: hidden;
-}
-
 /* --------------------------------------------------------------------------------- Avatar & Name*/
 #contact-avatar {
-    position: fixed;
+    position: absolute;
 
     border-radius: 999px;
-    height: 80px;
+    height: 140px;
 
-    top: 15px;
+    top: 45px;
     left: 15px;
 }
 #contact-name {
-    position: fixed;
+    position: absolute;
 
     top: 25px;
     left: 130px;

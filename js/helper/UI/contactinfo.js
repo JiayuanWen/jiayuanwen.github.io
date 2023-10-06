@@ -1,5 +1,52 @@
 import { delay } from "../delay.js"
 import { isMobile } from "../mobileCheck.js";
+import { enableDrag } from "../draggablewindow.js";
+
+let delayer;
+
+//----------------------------------------------------------------------------------------- My Social icon click handler
+let a = 0;
+let contactElement = document.getElementById("social-window").style;
+var failSafeLoop1 = setInterval(function () {
+  if (document.readyState == "complete" && !isMobile()) {
+
+    document.getElementById("social").addEventListener('click', async function(){ 
+
+      if (contactElement.opacity == 0) {
+        // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+        contactElement.transition = "0.3s";
+        contactElement.opacity = 1;
+
+        // Unset transition so window can be dragged.
+        delayer = await delay(400);
+        contactElement.transition = "0s";
+
+        
+      }
+      else {
+        contactElement.opacity = 0;
+      }
+    }, false);
+  }
+  document.getElementById("social-minimize").addEventListener('click', function(){ 
+    contactElement.transition = "0.3s";
+    contactElement.opacity = 0; 
+  });
+  document.getElementById("social-close").addEventListener('click', function(){ 
+    contactElement.transition = "0.3s";
+    contactElement.opacity = 0; 
+
+    //$("#terminal-text").scrollTop(0);
+  });
+
+  if (++a === 5) {
+    window.clearInterval(failSafeLoop1);
+  }
+})
+
+//----------------------------------------------------------------------------------------- Make the terminal draggable
+// More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
+enableDrag(document.getElementById("social-window"));
 
 //----------------------------------------------------------------------------------------- Menu layout base on type of system
 if (isMobile()) { // For mobile
