@@ -118,30 +118,6 @@ export async function contactInfoFade(delay_, mode) {
     
 }
 
-//----------------------------------------------------------------------------------------- My Social click handle 
-async function startMenuButton() {
-            
-    let starMenu = document.getElementById("start-menu");
-    let delayer;
 
-    if (starMenu.style.opacity == 0) {
-        starMenu.style.opacity = "1";
-        starMenu.style.bottom = "60px";
-        // Hide tooltip on menu show
-        document.getElementById("home-button-tooltip").style.opacity = "0";
-    } else {
-        starMenu.style.opacity = "0";
-        starMenu.style.bottom = "0px";
-    }
-}
-let i = 0;
-var applyHomeButtonFunction = setInterval(function () {
-    if (document.readyState == "complete" && !isMobile()) {
-        document.getElementById("home-button").addEventListener("click", function() {startMenuButton()})
-    }
-    if (++i === 5) {
-        window.clearInterval(applyHomeButtonFunction);
-    }
-}, 500);
 
 

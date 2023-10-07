@@ -54,7 +54,6 @@ var failSafeLoop = setInterval(function () {
 let b = 0;
 let iconOnHover = setInterval( function () {
     document.getElementById("terminal").onmouseover = async function() { 
-        // Only show tooltip if Start menu is not shown
         if (true) {
             document.getElementById("terminal-tooltip").style.opacity = "1";
         }
@@ -79,12 +78,11 @@ $(document).on("keypress", function (e) {
   //----------------------------------------------------------------------------------------- When user pressed 'H'
   if ((e.which == "104" || e.which == "72") && document.getElementById("terminal-window").style.opacity != 0) {
     document.getElementById("terminal-line").innerHTML += 
-`
-============ List of shortcuts ============ \n
+`============ List of commands ============ \n
 'A' - About me
 'E' - My experiences
-'B' - My blogs
 'F' - Fun facts about me
+'S' - Site credits
 'C' - Clear terminal output
 
 *Pages can be long, don't forget to scroll.
@@ -101,6 +99,29 @@ $(document).on("keypress", function (e) {
     document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable shortcuts.\n`+commandEnd;
 
     $("#terminal-text").scrollTop(0);
+  }
+
+  // 'S' for Site credit
+  if ((e.which == "115" || e.which == "83") && document.getElementById("terminal-window").style.opacity != 0) {
+        document.getElementById("terminal-line").innerHTML += 
+`============ Credits / Component Used ============ \n
+* <a href="https://www.w3schools.com/howto/howto_html_include.asp">HTML loader v1.31</a> by <a href="https://www.w3schools.com/">W3Schools.com</a>
+* <a href="https://github.com/bestiejs/platform.js/">Platform.js</a> by <a href="https://github.com/bestiejs">BestieJS Modules</a>
+* <a href="https://gist.github.com/cvan/042b2448fcecefafbb6a91469484cdf8#file-webgl-detect-gpu-js">GPU detection</a> by <a href="https://github.com/cvan">Christopher Van</a>
+* <a href="https://fontawesome.com/icons">Font Awesome icons</a> by <a href="https://fontawesome.com/">Font Awesome</a>
+* <a href="https://ionic.io/ionicons">ionicons</a> by <a href="https://ionic.io/">ionic</a>
+* <a href="https://codepen.io/LeonGr/pen/eYoZJB">Background stars</a> by <a href="https://codepen.io/LeonGr">Leon</a>
+* <a href="https://prismjs.com/index.html">Prism syntax highlighter</a> by <a href="https://prismjs.com/index.html#credits">The Prism Team</a>
+* <a href="https://github.com/zerodevx/zero-md">zero-md</a> by <a href="https://github.com/zerodevx">Jason Lee</a>
+* <a href="https://www.geeksforgeeks.org/how-to-detect-network-speed-using-javascript/#">Internet speed test</a> by <a href="https://auth.geeksforgeeks.org/user/romy421kumari">romy421kumari</a>
+* <a href="">Email form</a> by <a href="https://usebasin.com/">Basin</a>
+
+Built by me, hosted on <a rel="noopener noreferrer" target="about:blank" href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.
+
+`
++commandEnd;
+
+    $("#terminal-text").scrollTop($("#terminal-text")[0].scrollHeight);
   }
 
   // Some easter egg (technically not if you see this)

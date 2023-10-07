@@ -31,7 +31,7 @@
     background-color: rgba(31, 31, 31, 0.705);
 
     height: 30px;
-    width: 700px;
+    width: inherit;
 
     z-index: 1;
 

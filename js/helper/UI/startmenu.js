@@ -1,6 +1,7 @@
 import { delay } from "../delay.js";
+import { isMobile } from "../mobileCheck.js";
 
-//----------------------------------------------------------------------------------------- Home button tooltip
+//----------------------------------------------------------------------------------------- Start Menu button tooltip
 let a = 0;
 let homeOnHover = setInterval( function () {
     document.getElementById("home-button").onmouseover = async function() { 
@@ -16,3 +17,29 @@ let homeOnHover = setInterval( function () {
         clearInterval(homeOnHover);
     }
 }, 1000);
+
+//----------------------------------------------------------------------------------------- Start Menu button click handle 
+async function startMenuButton() {
+            
+    let starMenu = document.getElementById("start-menu");
+    let delayer;
+
+    if (starMenu.style.opacity == 0) {
+        starMenu.style.opacity = "1";
+        starMenu.style.bottom = "60px";
+        // Hide tooltip on menu show
+        document.getElementById("home-button-tooltip").style.opacity = "0";
+    } else {
+        starMenu.style.opacity = "0";
+        starMenu.style.bottom = "0px";
+    }
+}
+let st = 0;
+var applyHomeButtonFunction = setInterval(function () {
+    if (document.readyState == "complete" && !isMobile()) {
+        document.getElementById("home-button").addEventListener("click", function() {startMenuButton()})
+    }
+    if (++st === 5) {
+        window.clearInterval(applyHomeButtonFunction);
+    }
+}, 500);

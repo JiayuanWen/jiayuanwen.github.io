@@ -10,6 +10,22 @@ import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
 import { gpuEnabled } from "./helper/gpu-detect.js";
 
+//----------------------------------------------------------------------------------------- Tooltip handler
+let b = 0;
+let iconOnHover = setInterval( function () {
+    document.getElementById("blog").onmouseover = async function() { 
+        if (true) {
+            document.getElementById("blog-tooltip").style.opacity = "1";
+        }
+    }
+    document.getElementById("blog").onmouseout  = async function() { 
+        document.getElementById("blog-tooltip").style.opacity = "0";
+    }
+    if (++b === 5) {
+      clearInterval(iconOnHover);
+  }
+}, 1000);
+
 //---------------------------------------------------------------------------------------- Mobile layout
 if (isMobile()) {
     // Initially check user's device orientation, change stylesheet accordingly

@@ -386,13 +386,14 @@ async function fiberColorChange(model_root) {
 		 let delayers = await delay(8.2);
 	}
 }
-
+/*
 scene.add(fiber_lamp);
-
+*/
 //---------------------------------------------------------------------------------------- Lights
 
 
 //---------------------------------------------------------------------------------------- Composition
+/*
 const renderPass = new RenderPass( scene, camera );
 
 var renderTarger_params = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBAFormat, stencilBuffer: false };
@@ -410,9 +411,10 @@ bloomPass.radius = 0.1;
 let composer = new EffectComposer( renderer, renderTarget );
 composer.addPass( renderPass );
 composer.addPass( bloomPass );
-
+*/
 //---------------------------------------------------------------------------------------- Window resize handler
 // Updates render area on device orientation change (Mobile)
+/*
 function onOrientationChange() {
 	setTimeout(function(){
 		switch(window.orientation) 
@@ -459,7 +461,7 @@ function onWindowResize(){
 	renderer.setPixelRatio( window.devicePixelRatio );
 }
 window.addEventListener( 'resize', onWindowResize, false );
-
+*/
 //---------------------------------------------------------------------------------------- Finalize renderer 
 function animate () {
 	

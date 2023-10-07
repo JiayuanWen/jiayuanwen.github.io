@@ -8,10 +8,10 @@
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    background-color: rgb(37, 37, 37);
+    background-color: rgba(37, 37, 37, 0.774);
 
-    height: 500px;
-    width: 700px;
+    height: 720px;
+    width: 750px;
 
     z-index: 2;
 
@@ -33,10 +33,10 @@
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    background-color: rgba(31, 31, 31, 0.705);
+    background-color: rgb(31, 31, 31);
 
     height: 30px;
-    width: 700px;
+    width: inherit;
 
     z-index: 1;
 
@@ -89,13 +89,13 @@
     height: 120px;
 
     top: 45px;
-    left: 15px;
+    left: 35px;
 }
 #contact-name {
     position: absolute;
 
     top: 76px;
-    left: 150px;
+    left: 170px;
 
     font-size: 20px;
     font-weight:800;
@@ -106,26 +106,26 @@
 #sep-name {
     position: absolute;
     top: 185px;
-    left: 20px;
+    left: 40px;
     font-size: 18px;
-    color: rgb(95, 95, 95);
+    color: rgb(255, 255, 255);
 }
 #sep-line {
     position: absolute;
     top: 220px;
-    left: 8px;
+    left: 28px;
 
     width: 320px;
 
-    border: solid 1px rgb(59, 59, 59);
+    border: solid 1px rgb(139, 50, 255);
 }
 
-/* --------------------------------------------------------------------------------- Contact info */
+/* --------------------------------------------------------------------------------- Social Media links */
 #contact-info {
     font-size: 2.1rem;
     position: absolute;
 
-    left: 20px;
+    left: 40px;
     top: 260px;
 
     display: flex;
@@ -148,7 +148,7 @@
 }
 #contact-info > a:active{
     transform: translateX(10px);
-    color: rgb(36, 36, 36);
+    color: rgb(132, 0, 255);
 }
 
 #contact-info > a > span {
@@ -156,4 +156,116 @@
     
 }
 
+/* --------------------------------------------------------------------------------- Inquiry form */
+#inquiry-form{
+    position: absolute;
+    top: 50px;
+    right: 40px;
 
+    opacity: 1;
+
+    height: inherit;
+    width: 310px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#inquiry-form > sectitle {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    
+    margin-bottom: 25px;
+    
+}
+
+#inquiry-form-sep {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+
+    width: 310px;
+
+    border: blueviolet 1px solid;
+
+    opacity: 1;
+}
+
+#inquiry-form > label{
+    margin-bottom: 5px;
+}
+
+#inquiry-form > .input-box{
+    margin-bottom: 15px;
+    
+    height: 40px;
+
+    background-color: rgba(0, 0, 0, 0); 
+
+    border: solid rgb(255, 255, 255) 1px;
+    border-radius: 5px;
+
+    color: white;
+    font-family: monospace;
+}
+
+#inquiry-form > textarea{
+    margin-bottom: 15px;
+    
+    height: 100px;
+
+    background-color: rgba(0, 0, 0, 0); 
+
+    border: solid rgb(255, 255, 255) 1px;
+    border-radius: 5px;
+
+    color: white;
+    font-family: monospace;
+}
+    #inquiry-form > textarea::-webkit-scrollbar {
+        width: 7px;
+    }
+    #inquiry-form > textarea::-webkit-scrollbar-track-piece {
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 999px;
+    }
+    #inquiry-form > textarea::-webkit-scrollbar-thumb:vertical {
+        transition: 0.25s;
+        background-color: rgba(173, 173, 173, 0.521);
+        border-radius: 999px;
+    }
+    #inquiry-form > textarea::-webkit-scrollbar-thumb:vertical:hover {
+            background-color: rgb(75, 75, 75);
+            border-radius: 999px;
+        }
+        #inquiry-form > textarea::-webkit-scrollbar {
+            width: 7px;
+        }
+
+#inquiry-submit {
+    transition: 0.25s;
+
+    margin-bottom: 15px;
+    
+    height: 40px;
+    width: 110px;
+
+    background-color: rgb(111, 0, 255); 
+
+    border: solid rgb(255, 255, 255) 0px;
+    border-radius: 5px;
+
+    color: white;
+    font-family: monospace;
+    font-weight: bolder;
+}
+    #inquiry-submit:hover {
+        background-color: rgb(255, 255, 255); 
+        color:black;
+        cursor: pointer;
+    }
+    #inquiry-submit:active {
+        background-color: rgb(43, 43, 43); 
+        color:rgb(255, 255, 255);
+        cursor: pointer;
+    }

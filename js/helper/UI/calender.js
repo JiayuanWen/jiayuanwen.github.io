@@ -4,8 +4,6 @@ import { delay } from "../delay.js";
 let ta = 0;
 let timeOnHover = setInterval( function () {
     document.getElementById("time-container").onmouseover = async function() { 
-        let delayer = await delay(200);
-        // Only show tooltip if Start menu is not shown
         if (true) {
             document.getElementById("time-tooltip").style.opacity = "1";
         }
