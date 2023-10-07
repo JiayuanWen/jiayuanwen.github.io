@@ -7,30 +7,34 @@ import { enableDrag } from "../draggablewindow.js";
 let delayer;
 
 //----------------------------------------------------------------------------------------- Terminal icon click handler
-let i = 0;
-let terminalElement = document.getElementById("terminal-window").style;
-var failSafeLoop = setInterval(function () {
-  if (document.readyState == "complete" && !isMobile()) {
+jQuery(window).on("load", function () {
+  let terminalElement = document.getElementById("terminal-window").style;
 
-    document.getElementById("terminal").addEventListener('click', async function(){ 
+  console.log("Assign click to Terminal: OK");
+  document.getElementById("terminal").addEventListener('click', async function(){ 
 
-      if (terminalElement.opacity == 0) {
-        // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-        terminalElement.transition = "0.3s";
-        terminalElement.opacity = 1;
+    if (terminalElement.opacity == 0) {
+      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+      terminalElement.transition = "0.3s";
+      terminalElement.opacity = 1;
 
-        // Unset transition so window can be dragged.
-        delayer = await delay(400);
-        terminalElement.transition = "0s";
-        terminalElement.pointerEvents = "auto";
-        
-      }
-      else {
-        terminalElement.opacity = 0;
-        terminalElement.pointerEvents = "none";
-      }
-    }, false);
-  }
+      // Unset transition so window can be dragged.
+      delayer = await delay(400);
+      terminalElement.transition = "0s";
+      terminalElement.pointerEvents = "auto";
+      
+    }
+    else {
+      terminalElement.transition = "0.3s";
+      terminalElement.opacity = 0;
+
+
+      delayer = await delay(400);
+      terminalElement.transition = "0s";
+      terminalElement.pointerEvents = "none";
+    }
+  }, false);
+
   document.getElementById("terminal-minimize").addEventListener('click', function(){ 
     terminalElement.transition = "0.3s";
     terminalElement.opacity = 0; 
@@ -44,27 +48,22 @@ var failSafeLoop = setInterval(function () {
     document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable commands.\n`+commandEnd;
     $("#terminal-text").scrollTop(0);
   });
-
-  if (++i === 5) {
-    window.clearInterval(failSafeLoop);
-  }
-})
+  
+});
 
 //----------------------------------------------------------------------------------------- Tooltip handler
-let b = 0;
-let iconOnHover = setInterval( function () {
-    document.getElementById("terminal").onmouseover = async function() { 
-        if (true) {
-            document.getElementById("terminal-tooltip").style.opacity = "1";
-        }
+jQuery(window).on("load", function () {
+  document.getElementById("terminal").onmouseover = async function() { 
+    if (true) {
+        document.getElementById("terminal-tooltip").style.opacity = "1";
     }
-    document.getElementById("terminal").onmouseout  = async function() { 
-        document.getElementById("terminal-tooltip").style.opacity = "0";
-    }
-    if (++b === 5) {
-      clearInterval(iconOnHover);
   }
-}, 1000);
+  document.getElementById("terminal").onmouseout  = async function() { 
+    document.getElementById("terminal-tooltip").style.opacity = "0";
+  }
+});
+
+
 
 //----------------------------------------------------------------------------------------- Terminal functions
 let commandEnd = `[<color class="terminal-color">user</color>@<color class="terminal-color">jiayuanwen-site</color> ~]$\n\n`;
@@ -187,7 +186,7 @@ enableDrag(document.getElementById("terminal-window"));
       // Current internet speed
       // See below and /js/helper/speedtest.js 
 
-    if (++a === 5) {
+    if (++a === 9) {
       window.clearInterval(failSafeLoop2);
     }
 }, 500);

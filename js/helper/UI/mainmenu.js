@@ -45,31 +45,7 @@ setInterval(function () {
         clockBigElement.innerHTML = new Date().toLocaleTimeString([],{ hour12: false });
     }
 }, 1000);
-//----------------------------------------------------------------------------------------- Calender button (bottom right) click handle 
-async function calenderClick() {
-            
-    let calenderMenu = document.getElementById("calender-container");
-    let delayer;
 
-    if (calenderMenu.style.opacity == 0) {
-        calenderMenu.style.opacity = "1";
-        calenderMenu.style.bottom = "60px";
-        // Hide tooltip on menu show
-        document.getElementById("time-tooltip").style.opacity = "0";
-    } else {
-        calenderMenu.style.opacity = "0";
-        calenderMenu.style.bottom = "0px";
-    }
-}
-let i = 0;
-var timeButtonFunction = setInterval(function () {
-    if (document.readyState == "complete" && !isMobile()) {
-        document.getElementById("time-container").addEventListener("click", function() {calenderClick()})
-    }
-    if (++i === 5) {
-        window.clearInterval(timeButtonFunction);
-    }
-}, 500);
 
 //----------------------------------------------------------------------------------------- Material You wallpaper color
 /*

@@ -7,9 +7,10 @@ let delayer;
 //----------------------------------------------------------------------------------------- Contact icon click handler
 let a = 0;
 let contactElement = document.getElementById("social-window").style;
-var failSafeLoop1 = setInterval(function () {
-  if (document.readyState == "complete" && !isMobile()) {
 
+jQuery(window).on("load", function () {
+  contactElement = document.getElementById("social-window").style;
+  console.log("Assign click to Contact: OK");
     document.getElementById("social").addEventListener('click', async function(){ 
 
       if (contactElement.opacity == 0) {
@@ -24,44 +25,37 @@ var failSafeLoop1 = setInterval(function () {
         
       }
       else {
-        contactElement.opacity = 0;
         contactElement.pointerEvents = "none"; 
+        contactElement.transition = "0.3s";
+        contactElement.opacity = 0;
       }
     }, false);
-  }
-  document.getElementById("social-minimize").addEventListener('click', function(){ 
-    contactElement.transition = "0.3s";
-    contactElement.opacity = 0;
-    contactElement.pointerEvents = "none"; 
-  });
-  document.getElementById("social-close").addEventListener('click', function(){ 
-    contactElement.transition = "0.3s";
-    contactElement.opacity = 0; 
-    contactElement.pointerEvents = "none"; 
-    //$("#terminal-text").scrollTop(0);
-  });
 
-  if (++a === 5) {
-    window.clearInterval(failSafeLoop1);
-  }
-})
+    document.getElementById("social-minimize").addEventListener('click', function(){ 
+      contactElement.transition = "0.3s";
+      contactElement.opacity = 0;
+      contactElement.pointerEvents = "none"; 
+    });
+    document.getElementById("social-close").addEventListener('click', function(){ 
+      contactElement.transition = "0.3s";
+      contactElement.opacity = 0; 
+      contactElement.pointerEvents = "none"; 
+      //$("#terminal-text").scrollTop(0);
+    });
+});
 
 //----------------------------------------------------------------------------------------- Tooltip handler
-let ci = 0;
-let iconOnHover = setInterval( function () {
-    document.getElementById("social").onmouseover = async function() { 
-        // Only show tooltip if Start menu is not shown
-        if (true) {
-            document.getElementById("social-tooltip").style.opacity = "1";
-        }
-    }
-    document.getElementById("social").onmouseout  = async function() { 
-        document.getElementById("social-tooltip").style.opacity = "0";
-    }
-    if (++ci === 5) {
-      clearInterval(iconOnHover);
+jQuery(window).on("load", function () {
+  document.getElementById("social").onmouseover = async function() { 
+      // Only show tooltip if Start menu is not shown
+      if (true) {
+          document.getElementById("social-tooltip").style.opacity = "1";
+      }
   }
-}, 1000);
+  document.getElementById("social").onmouseout  = async function() { 
+      document.getElementById("social-tooltip").style.opacity = "0";
+  }
+});
 
 //----------------------------------------------------------------------------------------- Make the terminal draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
@@ -119,7 +113,6 @@ export async function contactInfoFade(delay_, mode) {
 }
 
 //----------------------------------------------------------------------------------------- hCAPTCHA
-console.log("Captcha ready");
 window.onSubmit = function(token) { document.getElementById("inquiry-form").submit(); }; 
 
 

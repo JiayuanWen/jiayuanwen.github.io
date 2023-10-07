@@ -25,6 +25,9 @@
     background-color: rgba(31, 31, 31, 0.863);
     border-radius: 999px;
     
+    opacity: 0;
+
+    transition: 0.5s;
 }
 
 #main-menu {

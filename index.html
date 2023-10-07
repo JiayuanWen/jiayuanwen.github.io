@@ -83,11 +83,12 @@
 
     <!-- Background stuff resides here -->
     <canvas class="fiber" id="fiber-lamp"></canvas>
-    <script type="module-shim" src="/js/Main.js"></script>
+    
 
     <!-- Terminal window -->
     <div w3-include-html="/pages/my_blogs.html"></div>
     <link rel="stylesheet" type="text/css" href="style/components/terminal.css"/>
+    <script type="module-shim" src="/js/helper/UI/terminal.js"></script>
 
     <!-- Contact information -->
     <div w3-include-html="/page_components/contact_info.html"></div>
@@ -164,5 +165,8 @@
 
     <!-- Disclaimer -->
     <script type="module-shim" src="/js/helper/disclaimer.js"></script>
+
+    <!-- Site main load script -->
+    <script type="module-shim" src="/js/Main.js"></script>
 </body>
 </html>
