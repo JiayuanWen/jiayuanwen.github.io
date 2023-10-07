@@ -124,6 +124,9 @@
 
         line-height: 16px;
     }
+        #terminal-sys-info > img {
+            padding-top: 3px;
+        }
 
 #terminal-line {
     position: absolute;
@@ -133,4 +136,20 @@
     
     margin-left: 0px;
     margin-right: 15px;
+}
+    #terminal-line > a {
+        color: rgb(255, 255, 0);
+    }
+    #terminal-line > a:hover {
+        color: rgb(255, 255, 255);
+    }
+    #terminal-line > #site-source-link {
+        color: rgb(137, 74, 255);
+    }
+    #terminal-line > #site-source-link:hover {
+        color: rgb(255, 255, 255);
+    }
+    
+.modal-bg, .container {
+    background-color: rgb(255, 0, 0);
 }

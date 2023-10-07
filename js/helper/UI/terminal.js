@@ -104,7 +104,7 @@ $(document).on("keypress", function (e) {
   // 'S' for Site credit
   if ((e.which == "115" || e.which == "83") && document.getElementById("terminal-window").style.opacity != 0) {
         document.getElementById("terminal-line").innerHTML += 
-`============ Credits / Component Used ============ \n
+`============ Credits / Components Used ============ \n
 * <a href="https://www.w3schools.com/howto/howto_html_include.asp">HTML loader v1.31</a> by <a href="https://www.w3schools.com/">W3Schools.com</a>
 * <a href="https://github.com/bestiejs/platform.js/">Platform.js</a> by <a href="https://github.com/bestiejs">BestieJS Modules</a>
 * <a href="https://gist.github.com/cvan/042b2448fcecefafbb6a91469484cdf8#file-webgl-detect-gpu-js">GPU detection</a> by <a href="https://github.com/cvan">Christopher Van</a>
@@ -116,7 +116,7 @@ $(document).on("keypress", function (e) {
 * <a href="https://www.geeksforgeeks.org/how-to-detect-network-speed-using-javascript/#">Internet speed test</a> by <a href="https://auth.geeksforgeeks.org/user/romy421kumari">romy421kumari</a>
 * <a href="">Email form</a> by <a href="https://usebasin.com/">Basin</a>
 
-Built by me, hosted on <a rel="noopener noreferrer" target="about:blank" href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.
+Built by me, hosted on <a id="site-source-link" rel="noopener noreferrer" target="about:blank" href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.
 
 `
 +commandEnd;
@@ -158,6 +158,9 @@ enableDrag(document.getElementById("terminal-window"));
 
       // Browser name & version
       document.getElementById("user-browser").innerHTML = platform.name+' '+platform.version;
+
+      // Browser/System language
+      document.getElementById("user-lang").innerHTML = navigator.language;
 
       // Web engine name
       document.getElementById("user-engine").innerHTML = platform.layout;
