@@ -268,7 +268,8 @@ loadingManager.onLoad = async function() {
 	
 	
 }
-function loadingScreenFade() {
+async function loadingScreenFade() {
+	let delayer = await delay(500);
     var fadeOutEffect = setInterval(function () {
         if (!loadingScreen.style.opacity) {
             loadingScreen.style.opacity = 1;

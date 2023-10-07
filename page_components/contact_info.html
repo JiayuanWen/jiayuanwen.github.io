@@ -19,8 +19,10 @@
         <a href="mailto:wenjiaxiaoyuan@gmail.com"><i class="fa-solid fa-square-envelope"></i> <span>wenjiaxiaoyuan@gmail.com</span></a>
     </div>
 
-    <script> function onSubmit(token) { document.getElementById("inquiry-form").submit(); } </script>
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <script type="text/javascript">
+        //window.onSubmit = function(token) { document.getElementById("inquiry-form").submit(); }; 
+        // Took me too long to figure out that for html file loaded through w3-include-html, codes implemented this way DOES NOT WORK! Only imported js scripts work.
+    </script>
     <form action="https://usebasin.com/f/4d510fa268ad" method="POST" enctype="multipart/form-data" id="inquiry-form" autocomplete="on">
         <sectitle>Business Inquiry</sectitle>
         <hr id="inquiry-form-sep"/>
@@ -36,11 +38,9 @@
         <label for="inquiry-msg">Message</label>
         <textarea name="message" id="inquiry-msg" placeholder="Type your message" autocomplete="off"></textarea>
 
-        <div class="h-captcha" data-sitekey="7fe715a1-151f-4c63-b497-bd971974df05"></div>
+        <!--<<div class="h-captcha" data-sitekey="7fe715a1-151f-4c63-b497-bd971974df05"></div>-->
         <!--<input id="inquiry-submit" type="submit" value="Submit"/>-->
         <button id="inquiry-submit" class="h-captcha" data-sitekey="7fe715a1-151f-4c63-b497-bd971974df05" data-callback='onSubmit' data-badge="inline">Submit</button>
-        
-
     </form>
     <!--
     <iframe src="https://usebasin.com/form/4d510fa268ad/view/d627181b384e?iframe=true" frameborder="0" style="border: none; overflow: hidden;" onload="var self = this; self.contentWindow.postMessage('getHeight', '*'); setInterval(function() { self.contentWindow.postMessage('getHeight', '*'); }, 500); window.addEventListener('message', function(event) { if (event.data.action === 'setHeight') { self.style.height = event.data.height + 'px'; } });" width="100%"></iframe>

@@ -75,8 +75,8 @@ if (isMobile()) { // For mobile
     document.getElementById("contactinfo-style").setAttribute("href", "style/components/contactinfo-mobile.css");
 }
 else { // For PC
-    let menuHTML = "/page_components/contact_info.html";
-    $(`#contact-info-container`).load(menuHTML);
+    //let menuHTML = "/page_components/contact_info.html";
+    //$(`#contact-info-container`).load(menuHTML);
 
     document.getElementById("contactinfo-style").setAttribute("href", "style/components/contactinfo.css");
 }
@@ -118,6 +118,8 @@ export async function contactInfoFade(delay_, mode) {
     
 }
 
-
+//----------------------------------------------------------------------------------------- hCAPTCHA
+console.log("Captcha ready");
+window.onSubmit = function(token) { document.getElementById("inquiry-form").submit(); }; 
 
 
