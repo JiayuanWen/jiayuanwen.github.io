@@ -22,7 +22,7 @@
     backdrop-filter: blur(40px);
     
     /*background-color: rgba(31, 31, 31, 0.863);*/
-    background-color: rgba(31, 31, 31, 0.863);
+    background-color: rgb(24, 24, 24);
     border-radius: 999px;
     
     opacity: 0;
@@ -108,7 +108,7 @@
 }
     #time-container:hover {
         cursor: pointer;
-        background-color: rgba(61, 61, 61, 0.493);
+        background-color: rgba(89, 0, 255, 0.815);
     }
 #time {
     text-align: center;
@@ -128,7 +128,7 @@
     border-radius: 999px;
     border: solid 1px rgba(0, 0, 0, 0);
 
-    background-color: rgba(0, 0, 0, 0.123);
+    background-color: rgba(0, 0, 0, 0);
 
     display: flex;
     justify-content: center;
@@ -139,7 +139,7 @@
 }
 #home-button:hover {
     cursor: pointer;
-    background-color: rgba(61, 61, 61, 0.493);
+    background-color: rgba(89, 0, 255, 0.815);
 }
     #home-button img {
         transition: 0.25s;
