@@ -73,7 +73,7 @@ jQuery(window).on("load", function () {
 
 // Execute on loading complete
 async function loadingComplete() {
-	delayer = await delay(100);
+	delayer = await delay(10);
 
 	// Hide percentage
 	if (loadingPercent) {

@@ -33,6 +33,6 @@ async function startMenuButton() {
 }
 jQuery(window).on("load", function () {
     starMenu = document.getElementById("start-menu");
-    console.log("Assign click to Start Menu button: OK");
+    console.log("Assign click to Start Menu: OK");
     document.getElementById("home-button").addEventListener("click", function() {startMenuButton()})
 });

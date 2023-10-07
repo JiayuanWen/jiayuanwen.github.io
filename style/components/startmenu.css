@@ -7,15 +7,27 @@
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    background-color: rgba(26, 26, 26, 0.733);
+    background-color: rgba(27, 27, 27, 0.733);
 
     height: 500px;
     width: 500px;
 
-    border-radius: 20px;
+    border-radius: 10px;
 
     opacity: 0;
 
     z-index: 50;
+
+    overflow: hidden;
+}
+
+#startmenu-sep {
+    position: absolute;
+    top: 50px;
+    left: 25px;
+
+    width: 450px;
+
+    border: 1px solid rgb(83, 83, 83);
 }
 

@@ -33,7 +33,8 @@
 /* --------------------------------------------------------------------------------- Tooltip (Home) */
 #home-button-tooltip-container { 
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
+    left: 0px;
 
     font-size: 15px;
     font-family: monospace, monospace, monospace;
@@ -49,6 +50,7 @@
 
     position: absolute;
     bottom: 55px;
+    left: 0px;
 
     border-radius: 999px;
     background-color: rgb(29, 29, 29);
