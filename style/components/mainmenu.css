@@ -1,10 +1,10 @@
 /* --------------------------------------------------------------------------------- Main Menu */
 #main-menu-container {
     position: absolute;
-    bottom: 0.7vh;
-    left: 0.2vw;
-    right: 0.2vw;
-    margin: 0 auto;
+    bottom: 0vh;
+    left: 0.0vw;
+    right: 0.0vw;
+    margin: 0px auto;
 
     font-size: 38px;
     color: rgb(255, 255, 255);
@@ -15,15 +15,21 @@
 
     z-index: 90;
     
-    width: 99.5vw;
+    width: 99.9vw;
     height: 50px;
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
     
     /*background-color: rgba(31, 31, 31, 0.863);*/
-    background-color: rgb(24, 24, 24);
-    border-radius: 999px;
+    background-color: rgba(27, 27, 27, 0.87);
+
+    border-radius: 25px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-style:unset;
+    border-bottom: 0px;
+    border-color: #27005a;
     
     opacity: 0;
 
@@ -139,7 +145,7 @@
 }
 #home-button:hover {
     cursor: pointer;
-    background-color: rgba(89, 0, 255, 0.815);
+    background-color: #652dff;
 }
     #home-button img {
         transition: 0.25s;
