@@ -17,12 +17,16 @@ async function calenderClick() {
         calenderMenu.style.bottom = "0px";
     }
 }
-
+let timeContainer;
 $(document).ready(function() {
-    if (document.readyState == "complete" && !isMobile()) {
-        console.log("Assign click to Calender: OK");
-        document.getElementById("time-container").addEventListener("click", function() {calenderClick()})
+
+    while (!timeContainer) {
+        timeContainer = document.getElementById("time-container");
     }
+
+    timeContainer.addEventListener("click", function() {calenderClick()})
+    console.log("Assign click to Calender: OK");
+
 });
 
 //----------------------------------------------------------------------------------------- Time tooltip

@@ -12,21 +12,23 @@ import { getDeviceOrientation } from "./helper/orientationMode.js";
 import { gpuEnabled } from "./helper/gpu-detect.js";
 
 //----------------------------------------------------------------------------------------- Tooltip handler
-let b = 0;
-let iconOnHover = setInterval( function () {
-    document.getElementById("project").onmouseover = async function() { 
-        // Only show tooltip if Start menu is not shown
-        if (true) {
-            document.getElementById("project-tooltip").style.opacity = "1";
-        }
+let projectShortcut;
+let projectTooltip;
+$(document).ready(function() {
+    while (!projectShortcut) {
+        projectShortcut = document.getElementById("project");
     }
-    document.getElementById("project").onmouseout  = async function() { 
-        document.getElementById("project-tooltip").style.opacity = "0";
+    while (!projectTooltip) {
+        projectTooltip = document.getElementById("project-tooltip");
     }
-    if (++b === 5) {
-      clearInterval(iconOnHover);
-  }
-}, 1000);
+
+    projectShortcut.onmouseover = async function() { 
+        projectTooltip.style.opacity = "1";
+    }
+    projectShortcut.onmouseout  = async function() { 
+        projectTooltip.style.opacity = "0";
+    }
+})
 
 //---------------------------------------------------------------------------------------- My Projects click handle
 if (isMobile()) {

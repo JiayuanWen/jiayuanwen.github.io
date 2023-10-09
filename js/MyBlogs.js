@@ -11,12 +11,21 @@ import { getDeviceOrientation } from "./helper/orientationMode.js";
 import { gpuEnabled } from "./helper/gpu-detect.js";
 
 //----------------------------------------------------------------------------------------- Tooltip handler
+let blogShortcut;
+let blogTooltip;
 $(document).ready(function() {
-    document.getElementById("blog").onmouseover = async function() { 
-        document.getElementById("blog-tooltip").style.opacity = "1";
+    while (!blogShortcut) {
+        blogShortcut = document.getElementById("blog");
     }
-    document.getElementById("blog").onmouseout  = async function() { 
-        document.getElementById("blog-tooltip").style.opacity = "0";
+    while (!blogTooltip) {
+        blogTooltip = document.getElementById("blog-tooltip");
+    }
+
+    blogShortcut.onmouseover = async function() { 
+        blogTooltip.style.opacity = "1";
+    }
+    blogShortcut.onmouseout  = async function() { 
+        blogTooltip.style.opacity = "0";
     }
 })
 

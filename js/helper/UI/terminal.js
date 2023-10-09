@@ -7,9 +7,12 @@ import { enableDrag } from "../draggablewindow.js";
 let delayer;
 
 //----------------------------------------------------------------------------------------- Terminal icon click handler
+let terminalElement;
 function terminalWindow() {
-  let terminalElement = document.getElementById("terminal-window").style;
-
+  while (!terminalElement) {
+    terminalElement = document.getElementById("terminal-window").style;
+  }
+  
   console.log("Assign click to Terminal: OK");
   document.getElementById("terminal").addEventListener('click', async function(){ 
 
@@ -55,19 +58,25 @@ $(document).ready(function() {
 })
 
 //----------------------------------------------------------------------------------------- Tooltip handler
-function terminalTooltip() {
-  document.getElementById("terminal").onmouseover = async function() { 
-    if (true) {
-        document.getElementById("terminal-tooltip").style.opacity = "1";
-    }
-  }
-  document.getElementById("terminal").onmouseout  = async function() { 
-    document.getElementById("terminal-tooltip").style.opacity = "0";
-  }
-}
+let terminalShortcut;
+let terminalTooltip;
 
 $(document).ready(function() {
-  terminalTooltip();
+  while (!terminalShortcut) { 
+    terminalShortcut = document.getElementById("terminal");
+  }
+  while (!terminalTooltip) { 
+    terminalTooltip = document.getElementById("terminal-tooltip");
+  }
+
+  terminalShortcut.onmouseover = async function() { 
+    if (true) {
+      terminalTooltip.style.opacity = "1";
+    }
+  }
+  terminalShortcut.onmouseout  = async function() { 
+    terminalTooltip.style.opacity = "0";
+  }
 })
 
 
@@ -151,8 +160,14 @@ Built by me, hosted on <a id="site-source-link" rel="noopener noreferrer" target
 
 //----------------------------------------------------------------------------------------- Make the terminal draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
+let terminalWindow_;
 $(document).ready(function() {
-  enableDrag(document.getElementById("terminal-window"));
+
+  while (!terminalWindow_) {
+    terminalWindow_ = document.getElementById("terminal-window");
+  }
+
+  enableDrag(terminalWindow_);
 })
 
 //----------------------------------------------------------------------------------------- Detect user system & browser info

@@ -7,29 +7,34 @@ let delayer;
 //----------------------------------------------------------------------------------------- Contact icon click handler
 let a = 0;
 let contactElement;
-
+let contactShortcut;
 $(document).ready(function() {
-  contactElement = document.getElementById("social-window").style;
-  console.log("Assign click to Contact: OK");
-    document.getElementById("social").addEventListener('click', async function(){ 
+  while (!contactShortcut) {
+    contactShortcut = document.getElementById("social");
+  }
+  while (!contactElement) {
+    contactElement = document.getElementById("social-window").style;
+  }
 
-      if (contactElement.opacity == 0) {
-        // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-        contactElement.transition = "0.3s";
-        contactElement.opacity = 1;
+  contactShortcut.addEventListener('click', async function(){ 
+    
+    if (contactElement.opacity == 0) {
+      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+      contactElement.transition = "0.3s";
+      contactElement.opacity = 1;
 
-        // Unset transition so window can be dragged.
-        delayer = await delay(400);
-        contactElement.transition = "0s";
-        contactElement.pointerEvents = "auto"; 
-        
-      }
-      else {
-        contactElement.pointerEvents = "none"; 
-        contactElement.transition = "0.3s";
-        contactElement.opacity = 0;
-      }
-    }, false);
+      // Unset transition so window can be dragged.
+      delayer = await delay(400);
+      contactElement.transition = "0s";
+      contactElement.pointerEvents = "auto"; 
+      
+    }
+    else {
+      contactElement.pointerEvents = "none"; 
+      contactElement.transition = "0.3s";
+      contactElement.opacity = 0;
+    }
+  }, false); console.log("Assign click to Contact: OK");
 
     document.getElementById("social-minimize").addEventListener('click', function(){ 
       contactElement.transition = "0.3s";
@@ -45,22 +50,27 @@ $(document).ready(function() {
 });
 
 //----------------------------------------------------------------------------------------- Tooltip handler
+let contactTooltip;
 $(document).ready(function() {
-  document.getElementById("social").onmouseover = async function() { 
-      // Only show tooltip if Start menu is not shown
-      if (true) {
-          document.getElementById("social-tooltip").style.opacity = "1";
-      }
+  contactShortcut.onmouseover = async function() { 
+      contactTooltip = document.getElementById("social-tooltip");
+      contactTooltip.style.opacity = "1";
   }
-  document.getElementById("social").onmouseout  = async function() { 
-      document.getElementById("social-tooltip").style.opacity = "0";
+  contactShortcut.onmouseout  = async function() { 
+    contactTooltip = document.getElementById("social-tooltip");
+    contactTooltip.style.opacity = "0";
   }
 });
 
 //----------------------------------------------------------------------------------------- Make the terminal draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
+let contactWindow;
 $(document).ready(function() {
-  enableDrag(document.getElementById("social-window"));
+  while (!contactWindow) {
+    contactWindow = document.getElementById("social-window");
+  }
+
+  enableDrag(contactWindow);
 })
 
 //----------------------------------------------------------------------------------------- Menu layout base on type of system
