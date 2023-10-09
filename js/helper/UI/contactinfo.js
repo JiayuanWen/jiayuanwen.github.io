@@ -68,6 +68,22 @@ $(document).ready(function() {
   }
 });
 
+//
+$(document).ready(function() {
+  if (platform.name == "Firefox") {
+    let inquiryDisclaimer;
+    for (var i=0; i < 1000; i++) {
+      if (!inquiryDisclaimer ) {
+        inquiryDisclaimer = document.getElementById("inquiry-discalimer-firefox");
+      } else {
+        break;
+      }
+    }
+
+    inquiryDisclaimer.innerHTML = "*Firefox users: Submission require hCaptcha verification, which may not work on Firfox. Please submit your inquiries through the email provided.";
+  }
+})
+
 //----------------------------------------------------------------------------------------- Make the terminal draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
 let contactWindow;
