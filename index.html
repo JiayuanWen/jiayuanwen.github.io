@@ -123,7 +123,11 @@
         <!--<div w3-include-html="/page_components/music_player.html"></div>-->
     
         <!-- Loading screen -->
-        <div w3-include-html="/page_components/loading_screen.html"></div> 
+        <div id="loading-container"></div>
+        <script>
+            var filePath = "/page_components/loading_screen.html";
+            $('#loading-container').load(filePath);
+        </script>
     
         <!-- Site credit & source code -->
         <!--<div id="site-credit">Built by me, hosted on <a href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.</div>-->
@@ -135,25 +139,33 @@
             <!-- Time -->
             <script type="module-shim" src="/js/helper/UI/calender.js"></script>
             <!-- Start Menu -->
-            <div w3-include-html="/page_components/start_menu.html"></div> 
+            <div id="start-container"></div> 
+            <script>
+                var filePath = "/page_components/start_menu.html";
+                $('#start-container').load(filePath);
+            </script>
             <script type="module-shim" src="/js/helper/UI/startmenu.js"></script>
             <link rel="stylesheet" type="text/css" href="style/components/startmenu.css" id="mainmenu-style"/>
     
     <!-- End of UI Stuff -->
 
     <!-- Terminal window -->
-    <div w3-include-html="/page_components/terminal.html"></div> 
+    <div id="terminal-container"></div> 
+    <script>
+        var filePath = "/page_components/terminal.html";
+        $('#terminal-container').load(filePath);
+    </script>
     <link rel="stylesheet" type="text/css" href="style/components/terminal.css"/>
     <script type="module-shim" src="/js/helper/UI/terminal.js"></script>
 
     <!-- Contact information -->
-    <div w3-include-html="/page_components/contact_info.html"></div>
+    <div id="contact-container"></div>
+    <script>
+        var filePath = "/page_components/contact_info.html";
+        $('#contact-container').load(filePath);
+    </script>
     <link rel="stylesheet" type="text/css" href="style/components/contactinfo.css" id="contactinfo-style"/>
     <script type="module-shim" src="/js/helper/UI/contactinfo.js"></script>
-
-
-    <!-- Required for loading separate html files -->
-    <script>w3IncludeHTML();</script>
 
     <!-- Required for ionicons to work -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
