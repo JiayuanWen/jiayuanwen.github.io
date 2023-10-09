@@ -15,12 +15,19 @@ import { gpuEnabled } from "./helper/gpu-detect.js";
 let projectShortcut;
 let projectTooltip;
 $(document).ready(function() {
-    while (!projectShortcut) {
-        projectShortcut = document.getElementById("project");
+    for (var i=0; i < 1000; i++) {
+        if (!projectShortcut) {
+            projectShortcut = document.getElementById("project");
+        }
+        if (!projectTooltip) {
+            projectTooltip = document.getElementById("project-tooltip");
+        }
+
+        if (projectShortcut && projectTooltip) {
+            break;
+        }
     }
-    while (!projectTooltip) {
-        projectTooltip = document.getElementById("project-tooltip");
-    }
+    
 
     projectShortcut.onmouseover = async function() { 
         projectTooltip.style.opacity = "1";

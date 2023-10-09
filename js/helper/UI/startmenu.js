@@ -23,11 +23,13 @@ async function startMenuButton() {
 
     if (starMenu.style.opacity == 0) {
         starMenu.style.opacity = "1";
+        starMenu.style.pointerEvents = "auto";
         starMenu.style.bottom = "60px";
         // Hide tooltip on menu show
         document.getElementById("home-button-tooltip").style.opacity = "0";
     } else {
         starMenu.style.opacity = "0";
+        starMenu.style.pointerEvents = "none";
         starMenu.style.bottom = "0px";
     }
 }

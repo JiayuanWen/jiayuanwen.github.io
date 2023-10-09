@@ -14,8 +14,6 @@
     <link rel="stylesheet" type="text/css" href="style/components/loadingscreen.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/backbutton.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/starbg.css"/>
-    
-    
 
     <!-- Page/section stylesheets -->
     <link rel="stylesheet" type="text/css" href="style/aboutme.css" id="aboutme-style"/>
@@ -42,9 +40,6 @@
 
     <!-- Required for including Font Awesome -->
     <script src="/js/helper/fontawesome.js" crossorigin="anonymous"></script>
-
-    <!-- Required for loading separate html files -->
-    <script src="/js/helper/w3data.js"></script>
 
     <!-- JQuery support -->
     <script src="/js/helper/jquery.min.js"></script>
@@ -124,7 +119,7 @@
     
         <!-- Loading screen -->
         <div id="loading-container"></div>
-        <script>
+        <script async>
             var filePath = "/page_components/loading_screen.html";
             $('#loading-container').load(filePath);
         </script>
@@ -140,7 +135,7 @@
             <script type="module-shim" src="/js/helper/UI/calender.js"></script>
             <!-- Start Menu -->
             <div id="start-container"></div> 
-            <script>
+            <script async>
                 var filePath = "/page_components/start_menu.html";
                 $('#start-container').load(filePath);
             </script>
@@ -151,7 +146,7 @@
 
     <!-- Terminal window -->
     <div id="terminal-container"></div> 
-    <script>
+    <script async>
         var filePath = "/page_components/terminal.html";
         $('#terminal-container').load(filePath);
     </script>
@@ -160,7 +155,7 @@
 
     <!-- Contact information -->
     <div id="contact-container"></div>
-    <script>
+    <script async>
         var filePath = "/page_components/contact_info.html";
         $('#contact-container').load(filePath);
     </script>
@@ -176,7 +171,7 @@
     <canvas id="stars-bg-purple"></canvas>
 
     <!-- Disclaimer -->
-    <script type="module-shim" src="/js/helper/disclaimer.js"></script>
+    <script type="module-shim" src="/js/helper/disclaimer.js" async></script>
 
     <!-- Site main load script -->
     <script type="module-shim" src="/js/Main.js"></script>

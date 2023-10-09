@@ -19,6 +19,8 @@
     z-index: 50;
 
     overflow: hidden;
+
+    pointer-events: none;
 }
 
 #startmenu-sep {

@@ -9,13 +9,19 @@ let a = 0;
 let contactElement;
 let contactShortcut;
 $(document).ready(function() {
-  while (!contactShortcut) {
-    contactShortcut = document.getElementById("social");
-  }
-  while (!contactElement) {
-    contactElement = document.getElementById("social-window").style;
-  }
+  for (var i = 0; i < 1000; i++) {
+    if (!contactShortcut) {
+      contactShortcut = document.getElementById("social");
+    }
+    if (!contactElement) {
+      contactElement = document.getElementById("social-window").style;
+    }
 
+    if (contactShortcut && contactElement) {
+      break;
+    }
+  }
+  
   contactShortcut.addEventListener('click', async function(){ 
     
     if (contactElement.opacity == 0) {
@@ -66,8 +72,12 @@ $(document).ready(function() {
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
 let contactWindow;
 $(document).ready(function() {
-  while (!contactWindow) {
-    contactWindow = document.getElementById("social-window");
+  for (var i = 0; i < 1000; i++) {
+    if (!contactWindow) {
+      contactWindow = document.getElementById("social-window");
+    } else {
+      break;
+    }
   }
 
   enableDrag(contactWindow);

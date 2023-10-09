@@ -14,12 +14,19 @@ import { gpuEnabled } from "./helper/gpu-detect.js";
 let blogShortcut;
 let blogTooltip;
 $(document).ready(function() {
-    while (!blogShortcut) {
-        blogShortcut = document.getElementById("blog");
+    for (var i=0; i < 1000; i++) {
+        if (!blogShortcut) {
+            blogShortcut = document.getElementById("blog");
+        }
+        if (!blogTooltip) {
+            blogTooltip = document.getElementById("blog-tooltip");
+        }
+
+        if (blogTooltip && blogShortcut) {
+            break;
+        }
     }
-    while (!blogTooltip) {
-        blogTooltip = document.getElementById("blog-tooltip");
-    }
+    
 
     blogShortcut.onmouseover = async function() { 
         blogTooltip.style.opacity = "1";

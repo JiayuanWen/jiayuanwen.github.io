@@ -20,8 +20,12 @@ async function calenderClick() {
 let timeContainer;
 $(document).ready(function() {
 
-    while (!timeContainer) {
-        timeContainer = document.getElementById("time-container");
+    for (var i = 0; i < 1000; i++) {
+        if (!timeContainer) {
+            timeContainer = document.getElementById("time-container");
+        } else {
+            break;
+        }
     }
 
     timeContainer.addEventListener("click", function() {calenderClick()})

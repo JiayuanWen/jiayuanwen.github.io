@@ -9,9 +9,14 @@ let delayer;
 //----------------------------------------------------------------------------------------- Terminal icon click handler
 let terminalElement;
 function terminalWindow() {
-  while (!terminalElement) {
-    terminalElement = document.getElementById("terminal-window").style;
+  for (var i= 0; i < 1000; i++) {
+    if (!terminalElement) {
+      terminalElement = document.getElementById("terminal-window").style;
+    } else {
+      break;
+    }
   }
+  
   
   console.log("Assign click to Terminal: OK");
   document.getElementById("terminal").addEventListener('click', async function(){ 
@@ -62,12 +67,19 @@ let terminalShortcut;
 let terminalTooltip;
 
 $(document).ready(function() {
-  while (!terminalShortcut) { 
-    terminalShortcut = document.getElementById("terminal");
+  for (var i= 0; i < 1000; i++) {
+    if (!terminalShortcut) { 
+      terminalShortcut = document.getElementById("terminal");
+    }
+    if (!terminalTooltip) { 
+      terminalTooltip = document.getElementById("terminal-tooltip");
+    }
+
+    if (terminalShortcut && terminalTooltip) {
+        break;
+    }
   }
-  while (!terminalTooltip) { 
-    terminalTooltip = document.getElementById("terminal-tooltip");
-  }
+  
 
   terminalShortcut.onmouseover = async function() { 
     if (true) {
@@ -163,9 +175,14 @@ Built by me, hosted on <a id="site-source-link" rel="noopener noreferrer" target
 let terminalWindow_;
 $(document).ready(function() {
 
-  while (!terminalWindow_) {
-    terminalWindow_ = document.getElementById("terminal-window");
+  for (var i= 0; i < 1000; i++) {
+    if (!terminalWindow_) {
+      terminalWindow_ = document.getElementById("terminal-window");
+    } else {
+      break;
+    }
   }
+  
 
   enableDrag(terminalWindow_);
 })
