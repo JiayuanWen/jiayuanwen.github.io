@@ -68,7 +68,7 @@ $(document).ready(function() {
   }
 });
 
-//
+//----------------------------------------------------------------------------------------- Special discalimer for Firefox users
 $(document).ready(function() {
   if (platform.name == "Firefox") {
     let inquiryDisclaimer;
