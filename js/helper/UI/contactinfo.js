@@ -6,9 +6,9 @@ let delayer;
 
 //----------------------------------------------------------------------------------------- Contact icon click handler
 let a = 0;
-let contactElement = document.getElementById("social-window").style;
+let contactElement;
 
-jQuery(window).on("load", function () {
+$(document).ready(function() {
   contactElement = document.getElementById("social-window").style;
   console.log("Assign click to Contact: OK");
     document.getElementById("social").addEventListener('click', async function(){ 
@@ -45,7 +45,7 @@ jQuery(window).on("load", function () {
 });
 
 //----------------------------------------------------------------------------------------- Tooltip handler
-jQuery(window).on("load", function () {
+$(document).ready(function() {
   document.getElementById("social").onmouseover = async function() { 
       // Only show tooltip if Start menu is not shown
       if (true) {
@@ -59,7 +59,9 @@ jQuery(window).on("load", function () {
 
 //----------------------------------------------------------------------------------------- Make the terminal draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
-enableDrag(document.getElementById("social-window"));
+$(document).ready(function() {
+  enableDrag(document.getElementById("social-window"));
+})
 
 //----------------------------------------------------------------------------------------- Menu layout base on type of system
 if (isMobile()) { // For mobile

@@ -83,19 +83,8 @@
 
     <!-- Background stuff resides here -->
     <canvas class="fiber" id="fiber-lamp"></canvas>
-    
-
-    <!-- Terminal window -->
-    <div w3-include-html="/pages/my_blogs.html"></div>
-    <link rel="stylesheet" type="text/css" href="style/components/terminal.css"/>
-    <script type="module-shim" src="/js/helper/UI/terminal.js"></script>
-
-    <!-- Contact information -->
-    <div w3-include-html="/page_components/contact_info.html"></div>
-    <link rel="stylesheet" type="text/css" href="style/components/contactinfo.css" id="contactinfo-style"/>
 
     <!-- About Me -->
-        <div w3-include-html="/page_components/terminal.html"></div> 
         <script type="module-shim" src="/js/AboutMe.js"></script>
         <script type="module-shim" src="/js/helper/background-stars-purple.js"></script>
 
@@ -109,8 +98,8 @@
         <script type="module-shim" src="/js/helper/background-stars-grey.js"></script>
 
     <!-- Self Introduction -->
-    <h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
-    <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>
+    <!--<h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
+    <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>-->
             
 
     <!-- Below are UI stuff that must be on top of everything -->
@@ -151,6 +140,17 @@
             <link rel="stylesheet" type="text/css" href="style/components/startmenu.css" id="mainmenu-style"/>
     
     <!-- End of UI Stuff -->
+
+    <!-- Terminal window -->
+    <div w3-include-html="/page_components/terminal.html"></div> 
+    <link rel="stylesheet" type="text/css" href="style/components/terminal.css"/>
+    <script type="module-shim" src="/js/helper/UI/terminal.js"></script>
+
+    <!-- Contact information -->
+    <div w3-include-html="/page_components/contact_info.html"></div>
+    <link rel="stylesheet" type="text/css" href="style/components/contactinfo.css" id="contactinfo-style"/>
+    <script type="module-shim" src="/js/helper/UI/contactinfo.js"></script>
+
 
     <!-- Required for loading separate html files -->
     <script>w3IncludeHTML();</script>

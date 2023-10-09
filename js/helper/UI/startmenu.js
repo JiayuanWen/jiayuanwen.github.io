@@ -2,7 +2,7 @@ import { delay } from "../delay.js";
 import { isMobile } from "../mobileCheck.js";
 
 //----------------------------------------------------------------------------------------- Start Menu button tooltip
-jQuery(window).on("load", function () {
+$(document).ready(function() {
     document.getElementById("home-button").onmouseover = async function() { 
         // Only show tooltip if Start menu is not shown
         if (document.getElementById("start-menu").style.opacity == 0) {
@@ -12,10 +12,10 @@ jQuery(window).on("load", function () {
     document.getElementById("home-button").onmouseout  = async function() { 
         document.getElementById("home-button-tooltip").style.opacity = "0";
     }
-});
+})
 
 //----------------------------------------------------------------------------------------- Start Menu button click handle 
-let starMenu = document.getElementById("start-menu");
+let starMenu;
 async function startMenuButton() {
             
     starMenu = document.getElementById("start-menu");
@@ -31,8 +31,8 @@ async function startMenuButton() {
         starMenu.style.bottom = "0px";
     }
 }
-jQuery(window).on("load", function () {
+$(document).ready(function() {
     starMenu = document.getElementById("start-menu");
     console.log("Assign click to Start Menu: OK");
     document.getElementById("home-button").addEventListener("click", function() {startMenuButton()})
-});
+})

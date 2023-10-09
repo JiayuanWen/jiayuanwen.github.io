@@ -1,8 +1,6 @@
 // Advanced UI elements
 import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFade } from "./helper/UI/mainmenu.js";
-import { contactInfoFade } from "./helper/UI/contactinfo.js";
-import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
 import { backToHomepage } from "./helper/UI/back-button.js";
 
 // Other helper functions
@@ -14,6 +12,7 @@ import { gpuEnabled } from "./helper/gpu-detect.js";
 //---------------------------------------------------------------------------------------- For terminal version
 let commandEnd = `[<color class="terminal-color">user</color>@<color class="terminal-color">jiayuanwen-site</color> ~]$\n\n`;
 
+
 $(document).on("keypress", function (e) {
     //When user pressed 'A'
   if ((e.which == "97" || e.which == "65") && document.getElementById("terminal-window").style.opacity != 0) {
@@ -22,9 +21,9 @@ $(document).on("keypress", function (e) {
 
 <img id="aboutme-selfie" src="/textures/AboutMe/selfie.jpg"></img>
 
-I graduated from Pennsylvania State University with a B.S. in Computer Science. 
+My name is <color class="terminal-color-green terminal-bold">Jiayuan Wen</color>, you can refer to me as <color class="terminal-color-green terminal-bold">Weldon</color>. I graduated from Pennsylvania State University with a B.S. in Computer Science. 
 
-I enjoy developing video games and other forms of artistic mediums, as well as utilizing my skills in programming to solve problems I encounter in my daily lives.
+I enjoy developing video game addons and other forms of artistic mediums, as well as utilizing my skills in programming to solve problems I encounter in my daily lives.
 
 I like experimenting with new programming languages and tools, and strive to strike a balance between functionality and user experience in my work. 
 

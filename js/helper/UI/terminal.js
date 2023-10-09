@@ -7,7 +7,7 @@ import { enableDrag } from "../draggablewindow.js";
 let delayer;
 
 //----------------------------------------------------------------------------------------- Terminal icon click handler
-jQuery(window).on("load", function () {
+function terminalWindow() {
   let terminalElement = document.getElementById("terminal-window").style;
 
   console.log("Assign click to Terminal: OK");
@@ -48,11 +48,14 @@ jQuery(window).on("load", function () {
     document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable commands.\n`+commandEnd;
     $("#terminal-text").scrollTop(0);
   });
-  
-});
+}
+
+$(document).ready(function() {
+  terminalWindow();
+})
 
 //----------------------------------------------------------------------------------------- Tooltip handler
-jQuery(window).on("load", function () {
+function terminalTooltip() {
   document.getElementById("terminal").onmouseover = async function() { 
     if (true) {
         document.getElementById("terminal-tooltip").style.opacity = "1";
@@ -61,7 +64,11 @@ jQuery(window).on("load", function () {
   document.getElementById("terminal").onmouseout  = async function() { 
     document.getElementById("terminal-tooltip").style.opacity = "0";
   }
-});
+}
+
+$(document).ready(function() {
+  terminalTooltip();
+})
 
 
 
@@ -95,7 +102,7 @@ $(document).on("keypress", function (e) {
 
   // 'C' for Clear terminal
   if ((e.which == "99" || e.which == "67") && document.getElementById("terminal-window").style.opacity != 0) {
-    document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable shortcuts.\n`+commandEnd;
+    document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable commands.\n`+commandEnd;
 
     $("#terminal-text").scrollTop(0);
   }
@@ -144,53 +151,51 @@ Built by me, hosted on <a id="site-source-link" rel="noopener noreferrer" target
 
 //----------------------------------------------------------------------------------------- Make the terminal draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
-enableDrag(document.getElementById("terminal-window"));
+$(document).ready(function() {
+  enableDrag(document.getElementById("terminal-window"));
+})
 
+//----------------------------------------------------------------------------------------- Detect user system & browser info
+function terminalSysInfo() {
+  // OS name & version
+  document.getElementById("user-os").innerHTML = platform.os+' ';
 
-  //----------------------------------------------------------------------------------------- Detect user system & browser info
- let a = 0;
-  var failSafeLoop2 = setInterval(function () {
-    if (document.readyState == "complete" && !isMobile()) {
+  // Browser name & version
+  document.getElementById("user-browser").innerHTML = platform.name+' '+platform.version;
 
-      // OS name & version
-      document.getElementById("user-os").innerHTML = platform.os+' ';
+  // Browser name & version
+  document.getElementById("user-browser").innerHTML = platform.name+' '+platform.version;
 
-      // Browser name & version
-      document.getElementById("user-browser").innerHTML = platform.name+' '+platform.version;
+  // Browser/System language
+  document.getElementById("user-lang").innerHTML = navigator.language;
 
-      // Browser/System language
-      document.getElementById("user-lang").innerHTML = navigator.language;
+  // Web engine name
+  document.getElementById("user-engine").innerHTML = platform.layout;
 
-      // Web engine name
-      document.getElementById("user-engine").innerHTML = platform.layout;
-
-      // Browser window size
+  // Browser window size
+  document.getElementById("user-winsize").innerHTML = window.innerWidth+'x'+window.innerHeight;
+    // Change browser window size value when resized 
+    window.addEventListener('resize', function(event) {
       document.getElementById("user-winsize").innerHTML = window.innerWidth+'x'+window.innerHeight;
-        // Change browser window size value when resized 
-        window.addEventListener('resize', function(event) {
-          document.getElementById("user-winsize").innerHTML = window.innerWidth+'x'+window.innerHeight;
-        }, true);
+    }, true);
 
-      // Name of rendering hardware & software
-      document.getElementById("user-gpu").innerHTML = detectGPU();
+  // Name of rendering hardware & software
+  document.getElementById("user-gpu").innerHTML = detectGPU();
 
-      // Mode of browser theme
-      const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
-        if (darkTheme.matches) {
-          document.getElementById("user-theme").innerHTML = "Dark mode";
-        } else {
-          document.getElementById("user-theme").innerHTML = "Light mode";
-        }
-      }
-
-      // Current internet speed
-      // See below and /js/helper/speedtest.js 
-
-    if (++a === 9) {
-      window.clearInterval(failSafeLoop2);
+  // Mode of browser theme
+  const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkTheme.matches) {
+      document.getElementById("user-theme").innerHTML = "Dark mode";
+    } else {
+      document.getElementById("user-theme").innerHTML = "Light mode";
     }
-}, 500);
 
-// Current internet speed
-setInterval(function(){getInternetSpeed("k")}, 1000) 
+  // Current internet speed
+  setInterval(function(){getInternetSpeed("k")}, 1000) 
+
+}
+
+$(document).ready(function() {
+  terminalSysInfo();
+})
 

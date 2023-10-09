@@ -18,7 +18,7 @@ async function calenderClick() {
     }
 }
 
-jQuery(window).on("load", function () {
+$(document).ready(function() {
     if (document.readyState == "complete" && !isMobile()) {
         console.log("Assign click to Calender: OK");
         document.getElementById("time-container").addEventListener("click", function() {calenderClick()})
@@ -26,7 +26,7 @@ jQuery(window).on("load", function () {
 });
 
 //----------------------------------------------------------------------------------------- Time tooltip
-jQuery(window).on("load", function () {
+$(document).ready(function() {
     document.getElementById("time-container").onmouseover = async function() { 
         if (true) {
             document.getElementById("time-tooltip").style.opacity = "1";

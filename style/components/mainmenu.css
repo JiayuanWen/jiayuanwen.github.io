@@ -52,9 +52,11 @@
         /*text-decoration: underline;*/
         text-decoration-thickness: from-font;
         color: rgb(255, 255, 255);
+        
     }
         #main-menu > a:link {
             color: rgb(255, 255, 255);
+            
         }
         #main-menu > a:hover {
             color: rgb(255, 255, 255);

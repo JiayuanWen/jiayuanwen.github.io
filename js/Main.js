@@ -9,16 +9,11 @@ let delayer;
 
 // Wait a second before continuing, at low internet speed some elements might not finish loading.
 const waiter = async () => {await delay(1000);};
-	
 
-let loadingBar = document.getElementById('loading-bar');
-let loadingPercent = document.getElementById('loading-percent');
-let loadingScreen = document.querySelector('.loading-screen');
-document.addEventListener("DOMContentLoaded", function(event){
-	loadingBar = document.getElementById('loading-bar');
-	loadingPercent = document.getElementById('loading-percent');
-	loadingScreen = document.querySelector('.loading-screen');
-});
+let loadingBar;
+let loadingPercent;
+let loadingScreen;
+
 if (isMobile()) {
 	alert("The site is currently not optimized for mobile devices. It is best to visit on PC for the time being.");
 }
@@ -27,7 +22,6 @@ else {
 }
 
 // Execute during loading
-
 let total = 1000;
 let loaded = 0;
 let loading_flag = "loading";
@@ -36,10 +30,6 @@ let loading_am_list = [0,0,0,1,2,8,2,4,6];
 let loading_am = 1;
 
 async function loading() {
-	// Load wallpaper
-	var wallpaper_i = Math.floor(Math.random() * 1) + 1;
-	document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
-
 	if (!loadingBar) {
 		loadingBar = document.getElementById('loading-bar');
 	}
@@ -63,16 +53,20 @@ async function loading() {
 	return;
 } 
 
-
-jQuery(window).on("load", function () {
+$(document).ready(function() {
 	loadingBar = document.getElementById('loading-bar');
 	loadingPercent = document.getElementById('loading-percent');
 	loadingScreen = document.querySelector('.loading-screen');
+	console.log("Browser: "+platform.name);
 	loading();
 })
 
 // Execute on loading complete
 async function loadingComplete() {
+	// Load wallpaper
+	var wallpaper_i = Math.floor(Math.random() * 1) + 1;
+	document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
+
 	delayer = await delay(10);
 
 	// Hide percentage
@@ -106,3 +100,6 @@ async function loadingComplete() {
 	delayer = await delay(900);
 	document.getElementById("main-menu-container").style.opacity = "1";
 }
+
+//----------------------------------------------------------------------------------------- Other
+window.onunload = function(){}; //This forces bfcache to not cache the page
