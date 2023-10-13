@@ -8,7 +8,7 @@ let delayer;
 // Execute on loading start
 
 // Wait a second before continuing, at low internet speed some elements might not finish loading.
-const waiter = async () => {await delay(1000);};
+delayer = await delay(1000);
 
 let loadingBar;
 let loadingPercent;

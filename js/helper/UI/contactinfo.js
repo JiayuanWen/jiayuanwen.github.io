@@ -3,13 +3,17 @@ import { isMobile } from "../mobileCheck.js";
 import { enableDrag } from "../draggablewindow.js";
 
 let delayer;
+// Wait a second before continuing, at low internet speed some elements might not finish loading.
+delayer = await delay(1000);
 
 //----------------------------------------------------------------------------------------- Contact icon click handler
 let a = 0;
 let contactElement;
 let contactShortcut;
-$(document).ready(function() {
+$(document).ready(async function() {
   for (var i = 0; i < 1000; i++) {
+    
+
     if (!contactShortcut) {
       contactShortcut = document.getElementById("social");
     }
@@ -20,6 +24,8 @@ $(document).ready(function() {
     if (contactShortcut && contactElement) {
       break;
     }
+
+    
   }
   
   contactShortcut.addEventListener('click', async function(){ 
@@ -104,13 +110,13 @@ if (isMobile()) { // For mobile
     let menuHTML = "/page_components/contact_info_mobile.html";
     $(`#contact-info-container`).load(menuHTML);
     
-    document.getElementById("contactinfo-style").setAttribute("href", "style/components/contactinfo-mobile.css");
+    document.getElementById("contactinfo-style").setAttribute("href", "style/contactinfo-mobile.css");
 }
 else { // For PC
     //let menuHTML = "/page_components/contact_info.html";
     //$(`#contact-info-container`).load(menuHTML);
 
-    document.getElementById("contactinfo-style").setAttribute("href", "style/components/contactinfo.css");
+    document.getElementById("contactinfo-style").setAttribute("href", "style/contactinfo.css");
 }
 
 //----------------------------------------------------------------------------------------- Contact info fade effect

@@ -18,7 +18,7 @@
     <!-- Page/section stylesheets -->
     <link rel="stylesheet" type="text/css" href="style/aboutme.css" id="aboutme-style"/>
     <link rel="stylesheet" type="text/css" href="style/myproject.css" id="myproject-style"/>
-    <link rel="stylesheet" type="text/css" href="style/myblogs.css" id="myblogs-style"/>
+    
 
     <!-- Required stylesheet for DevIcons to work-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -87,11 +87,6 @@
         <script type="module-shim" src="/js/MyProjects.js"></script>
         <div w3-include-html="/pages/my_projects.html"></div> 
 
-    <!-- My Blogs -->
-        <script type="module-shim" src="/js/MyBlogs.js"></script>
-        <div w3-include-html="/pages/my_blogs.html"></div>
-        <script type="module-shim" src="/js/helper/background-stars-grey.js"></script>
-
     <!-- Self Introduction -->
     <!--<h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
     <script type="module-shim" src="/js/helper/UI/introname-spectrum.js"></script>-->
@@ -150,7 +145,7 @@
         var filePath = "/pages/terminal.html";
         $('#terminal-container').load(filePath);
     </script>
-    <link rel="stylesheet" type="text/css" href="style/components/terminal.css"/>
+    <link rel="stylesheet" type="text/css" href="style/terminal.css"/>
     <script type="module-shim" src="/js/helper/UI/terminal.js"></script>
 
     <!-- Contact information -->
@@ -159,8 +154,18 @@
         var filePath = "/pages/contact_info.html";
         $('#contact-container').load(filePath);
     </script>
-    <link rel="stylesheet" type="text/css" href="style/components/contactinfo.css" id="contactinfo-style"/>
+    <link rel="stylesheet" type="text/css" href="style/contactinfo.css" id="contactinfo-style"/>
     <script type="module-shim" src="/js/helper/UI/contactinfo.js"></script>
+
+    <!-- My Blogs -->
+    <div id="blog-container"></div>
+    <script async>
+        var filePath = "/pages/my_blogs.html";
+        $('#blog-container').load(filePath);
+    </script>
+    <link rel="stylesheet" type="text/css" href="style/myblogs.css" id="myblogs-style"/>
+    <script type="module-shim" src="/js/MyBlogs.js"></script>
+    <script type="module-shim" src="/js/helper/background-stars-grey.js"></script>
 
     <!-- Required for ionicons to work -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

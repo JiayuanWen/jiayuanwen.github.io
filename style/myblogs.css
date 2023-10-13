@@ -1,40 +1,97 @@
-
-#blog-background {
-    transition: 1.4s;
-    
-    background-color: rgb(19, 19, 19);
+#blog-window {
+    transition: 0s;
 
     position: absolute;
-    left: 18.5vw;
-    right: 18.5vw;
-    top: 0.001vh;
-    margin: 0 auto;
+    left: 520px;
+    top: 60px;
 
-    height: 100vh; 
-    width: 60vw; 
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(37, 37, 37, 0.774);
 
-    opacity: 0%;
+    height: 720px;
+    width: 1200px;
+
+    z-index: 3;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    opacity: 0;
+    pointer-events: none;
+
+    display: flex;
+    justify-content: center;
+}
+
+#blog-windowheader {
+    position: absolute;
+    left: 00px;
+    top: 00px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgb(31, 31, 31);
+
+    height: 30px;
+    width: inherit;
 
     z-index: 1;
 
-    pointer-events: none;
-}
+    border-radius: 0px;
 
-#blog-container {
+    overflow: hidden;
+}
+    #blog-close {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        
+        color: gray;
+    }
+    #blog-minimize {
+        position: absolute;
+        right: 20px;
+        top: 4px;
+        
+        color: gray;
+    }
+        #blog-close:hover, #blog-minimize:hover {
+            color: rgb(255, 255, 255);
+        }
+    #blog-ico {
+        position: absolute;
+        left: 6px;
+        top: 4px;
+        
+        color: rgb(255, 255, 255);
+    }
+    #blog-name {
+        position: absolute;
+        top: 4px;
+
+        width: inherit;
+
+        text-align: center;
+        font-size: small;
+        color: rgb(100, 100, 100);
+    }
+
+#blog-area {
     transition: 1.4s;
 
     background-color: rgba(0, 0, 0, 0);
 
     position: absolute;
-    left: 18.5vw;
-    right: 18.5vw;
+    left: 0px;
+    right: 0px;
     top: 5.1vh;
-    margin: 0 auto;
 
     height: 100vh; 
     width: 60vw; 
 
-    opacity: 0%; /*Set in MyBlogs.js*/
+    opacity: 1; /*Set in MyBlogs.js*/
 
     z-index: 1;
 

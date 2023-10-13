@@ -1,7 +1,6 @@
 // Advanced UI elements
 import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
 import { mainMenuFade } from "./helper/UI/mainmenu.js";
-import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
 import { backToHomepage } from "./helper/UI/back-button.js";
 
 // Other helpful functions
@@ -9,6 +8,9 @@ import { delay } from "./helper/delay.js";
 import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
 import { gpuEnabled } from "./helper/gpu-detect.js";
+import { enableDrag } from "./helper/draggablewindow.js";
+
+let delayer;
 
 //----------------------------------------------------------------------------------------- Tooltip handler
 let blogShortcut;
@@ -34,6 +36,77 @@ $(document).ready(function() {
     blogShortcut.onmouseout  = async function() { 
         blogTooltip.style.opacity = "0";
     }
+})
+
+//----------------------------------------------------------------------------------------- blog icon click handler
+let a = 0;
+let blogElement;
+$(document).ready(async function() {
+  for (var i = 0; i < 1000; i++) {
+    
+
+    if (!blogShortcut) {
+      blogShortcut = document.getElementById("blog");
+    }
+    if (!blogElement) {
+      blogElement = document.getElementById("blog-window").style;
+    }
+
+    if (blogShortcut && blogElement) {
+      break;
+    }
+
+    
+  }
+  
+  blogShortcut.addEventListener('click', async function(){ 
+    
+    if (blogElement.opacity == 0) {
+      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+      blogElement.transition = "0.3s";
+      blogElement.opacity = 1;
+
+      // Unset transition so window can be dragged.
+      delayer = await delay(400);
+      blogElement.transition = "0s";
+      blogElement.pointerEvents = "auto"; 
+      
+    }
+    else {
+      blogElement.pointerEvents = "none"; 
+      blogElement.transition = "0.3s";
+      blogElement.opacity = 0;
+    }
+  }, false); console.log("Assign click to blog: OK");
+
+    document.getElementById("blog-minimize").addEventListener('click', function(){ 
+      blogElement.transition = "0.3s";
+      blogElement.opacity = 0;
+      blogElement.pointerEvents = "none"; 
+    });
+    document.getElementById("blog-close").addEventListener('click', function(){ 
+      blogElement.transition = "0.3s";
+      blogElement.opacity = 0; 
+      blogElement.pointerEvents = "none"; 
+      //$("#terminal-text").scrollTop(0);
+    });
+});
+
+//----------------------------------------------------------------------------------------- Make window draggable
+// More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
+let blogWindow_;
+$(document).ready(function() {
+
+  for (var i= 0; i < 1000; i++) {
+    if (!blogWindow_) {
+        blogWindow_ = document.getElementById("blog-window");
+    } else {
+      break;
+    }
+  }
+  
+
+  enableDrag(blogWindow_);
 })
 
 
