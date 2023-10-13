@@ -62,6 +62,8 @@ $(document).ready(async function() {
   blogShortcut.addEventListener('click', async function(){ 
     
     if (blogElement.opacity == 0) {
+        loadBlogs();
+
       // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
       blogElement.transition = "0.3s";
       blogElement.opacity = 1;
@@ -85,6 +87,7 @@ $(document).ready(async function() {
       blogElement.pointerEvents = "none"; 
     });
     document.getElementById("blog-close").addEventListener('click', function(){ 
+        removeBlogs();
       blogElement.transition = "0.3s";
       blogElement.opacity = 0; 
       blogElement.pointerEvents = "none"; 
@@ -144,85 +147,6 @@ function toggleMobileLayout_MyBlogs(mode_) {
     }
 }
 
-//---------------------------------------------------------------------------------------- My Blogs click handle
-if (isMobile()) {
-document.getElementById("blogs").addEventListener("click", async function() {
-
-    // Enable back button to allow visitors to go back
-    document.getElementById("back-button").style.pointerEvents = "auto";
-    document.getElementById("back-button").style.display = "block";
-
-    // Hide main page
-    selfIntroFade(10,"Out");
-    mainMenuFade(10,"Out");
-
-    // Move lamp aside
-    if (gpuEnabled()) {
-        document.getElementById("fiber-lamp").style.transition = "1.9s";
-        document.getElementById("fiber-lamp").style.paddingRight = "90vw"; 
-    }
-    else {
-        document.getElementById("fiber-lamp-lite").style.left = "-100%";
-        document.getElementById("fiber-lamp-lite").style.opacity = "0";
-    }
-
-    // Show blogs
-    document.getElementById('blog-background').style.opacity = "100%";
-    if (isMobile()) {
-        document.getElementById('blog-background').style.opacity = "0%";
-    }
-    //document.getElementById('no-blog').style.opacity = "100%";
-    document.getElementById('blog-container').style.opacity = "100%";
-    loadBlogs();
-
-    // Show stars
-    let delayer = await delay(500);
-    document.getElementById("stars-bg-grey").style.visibility = "visible";
-    document.getElementById("stars-bg-grey").style.opacity = "50%";
-
-    // Make page scrollable
-    if (isMobile()) {
-        document.getElementsByTagName('body')[0].style.overflowY = "auto";
-    }
-
-    // Make page interactable
-    document.getElementById('blog-container').style.pointerEvents = "auto";
-
-    //---------------------------------------------------------------------------------------- Back button function
-    document.getElementById("back-button").addEventListener("click", async function backButton() {
-        let delayer;
-
-        backToHomepage(1);
-
-        // Make page unscrollable
-        window.scrollTo(0,0);
-        document.getElementsByTagName('body')[0].style.overflowY = "hidden";
-
-        // Hide blogs
-        document.getElementById('blog-background').style.opacity = "0%";
-        //document.getElementById('no-blog').style.opacity = "0%";
-        document.getElementById('blog-container').style.opacity = "0%";
-
-        // Hide stars
-        delayer = await delay(500);
-        document.getElementById("stars-bg-grey").style.opacity = "0%";
-        //delayer = await delay(3000); document.getElementById("stars-bg").style.visibility = "hidden";
-
-        // 
-        //delayer = await delay(1000);
-
-        // Remove back buttom function on click to prevent function overlaps
-        document.getElementById("back-button").removeEventListener("click", backButton);
-
-        // Unload blog list
-        removeBlogs();
-
-        // Make page uninteractable
-        document.getElementById('blog-container').style.pointerEvents = "none";
-    })
-})
-
-}
 //---------------------------------------------------------------------------------------- Load/Remove blogs from data repository
 let blogsTotal = 1; 
 
@@ -247,7 +171,7 @@ async function loadBlogs() {
         //blogDiv.setAttribute('href',`a`);
 
         // Insert blog element to container
-        document.getElementById("blog-container").insertAdjacentHTML('beforeend',blogDiv.outerHTML);
+        document.getElementById("blog-area").insertAdjacentHTML('beforeend',blogDiv.outerHTML);
 
         // Load blog element
         $(`#blog${blogI}`).load(filePath);
