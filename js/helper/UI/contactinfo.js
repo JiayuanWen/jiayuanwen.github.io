@@ -3,8 +3,9 @@ import { isMobile } from "../mobileCheck.js";
 import { enableDrag } from "../draggablewindow.js";
 
 let delayer;
+
 // Wait a second before continuing, at low internet speed some elements might not finish loading.
-delayer = await delay(1000);
+delayer = await delay(700);
 
 //----------------------------------------------------------------------------------------- Contact icon click handler
 let a = 0;

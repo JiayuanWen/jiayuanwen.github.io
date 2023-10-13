@@ -6,6 +6,9 @@ import { enableDrag } from "../draggablewindow.js";
 
 let delayer;
 
+// Wait a second before continuing, at low internet speed some elements might not finish loading.
+delayer = await delay(700);
+
 //----------------------------------------------------------------------------------------- Terminal icon click handler
 let terminalElement;
 let terminalShortcut;

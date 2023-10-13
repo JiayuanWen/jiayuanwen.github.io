@@ -139,14 +139,14 @@
     
     <!-- End of UI Stuff -->
 
-    <!-- Terminal window -->
+    <!-- Terminal window / About Me / Experiences -->
     <div id="terminal-container"></div> 
     <script async>
         var filePath = "/pages/terminal.html";
         $('#terminal-container').load(filePath);
     </script>
     <link rel="stylesheet" type="text/css" href="style/terminal.css"/>
-    <script type="module-shim" src="/js/helper/UI/terminal.js"></script>
+    <script type="module-shim" src="/js/helper/UI/terminal.js" async></script>
 
     <!-- Contact information -->
     <div id="contact-container"></div>
@@ -155,7 +155,7 @@
         $('#contact-container').load(filePath);
     </script>
     <link rel="stylesheet" type="text/css" href="style/contactinfo.css" id="contactinfo-style"/>
-    <script type="module-shim" src="/js/helper/UI/contactinfo.js"></script>
+    <script type="module-shim" src="/js/helper/UI/contactinfo.js" async></script>
 
     <!-- My Blogs -->
     <div id="blog-container"></div>
@@ -164,7 +164,7 @@
         $('#blog-container').load(filePath);
     </script>
     <link rel="stylesheet" type="text/css" href="style/myblogs.css" id="myblogs-style"/>
-    <script type="module-shim" src="/js/MyBlogs.js"></script>
+    <script type="module-shim" src="/js/MyBlogs.js" async></script>
     <script type="module-shim" src="/js/helper/background-stars-grey.js"></script>
 
     <!-- Required for ionicons to work -->

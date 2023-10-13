@@ -12,6 +12,9 @@ import { enableDrag } from "./helper/draggablewindow.js";
 
 let delayer;
 
+// Wait a second before continuing, at low internet speed some elements might not finish loading.
+delayer = await delay(700);
+
 //----------------------------------------------------------------------------------------- Tooltip handler
 let blogShortcut;
 let blogTooltip;
