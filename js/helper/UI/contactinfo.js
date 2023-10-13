@@ -31,6 +31,8 @@ $(document).ready(async function() {
   contactShortcut.addEventListener('click', async function(){ 
     
     if (contactElement.opacity == 0) {
+      contactShortcut.style.color = "#6100f0";
+
       // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
       contactElement.transition = "0.3s";
       contactElement.opacity = 1;
@@ -42,6 +44,8 @@ $(document).ready(async function() {
       
     }
     else {
+      contactShortcut.style.color = "#ffffff";
+
       contactElement.pointerEvents = "none"; 
       contactElement.transition = "0.3s";
       contactElement.opacity = 0;
@@ -49,11 +53,13 @@ $(document).ready(async function() {
   }, false); console.log("Assign click to Contact: OK");
 
     document.getElementById("social-minimize").addEventListener('click', function(){ 
+      contactShortcut.style.color = "#ffffff";
       contactElement.transition = "0.3s";
       contactElement.opacity = 0;
       contactElement.pointerEvents = "none"; 
     });
     document.getElementById("social-close").addEventListener('click', function(){ 
+      contactShortcut.style.color = "#ffffff";
       contactElement.transition = "0.3s";
       contactElement.opacity = 0; 
       contactElement.pointerEvents = "none"; 

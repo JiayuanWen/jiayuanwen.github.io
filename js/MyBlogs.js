@@ -62,7 +62,7 @@ $(document).ready(async function() {
   blogShortcut.addEventListener('click', async function(){ 
     
     if (blogElement.opacity == 0) {
-        loadBlogs();
+      blogShortcut.style.color = "#6100f0";
 
       // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
       blogElement.transition = "0.3s";
@@ -72,9 +72,10 @@ $(document).ready(async function() {
       delayer = await delay(400);
       blogElement.transition = "0s";
       blogElement.pointerEvents = "auto"; 
-      
+      loadBlogs();
     }
     else {
+      blogShortcut.style.color = "#ffffff";
       blogElement.pointerEvents = "none"; 
       blogElement.transition = "0.3s";
       blogElement.opacity = 0;
@@ -82,16 +83,18 @@ $(document).ready(async function() {
   }, false); console.log("Assign click to blog: OK");
 
     document.getElementById("blog-minimize").addEventListener('click', function(){ 
+      blogShortcut.style.color = "#ffffff";
       blogElement.transition = "0.3s";
       blogElement.opacity = 0;
       blogElement.pointerEvents = "none"; 
     });
     document.getElementById("blog-close").addEventListener('click', function(){ 
-        removeBlogs();
+      blogShortcut.style.color = "#ffffff";
       blogElement.transition = "0.3s";
       blogElement.opacity = 0; 
       blogElement.pointerEvents = "none"; 
       //$("#terminal-text").scrollTop(0);
+      removeBlogs();
     });
 });
 
@@ -189,7 +192,7 @@ async function removeBlogs() {
 
     for (let i = 1; i <= blogsTotal; i++) {
         blogI = i;
-        document.getElementById(`blog-${blogI}`).outerHTML = "";
+        document.getElementById(`blog${blogI}`).outerHTML = "";
     }
 }
 

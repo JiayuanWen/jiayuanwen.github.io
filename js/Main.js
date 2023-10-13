@@ -8,7 +8,7 @@ let delayer;
 // Execute on loading start
 
 // Wait a second before continuing, at low internet speed some elements might not finish loading.
-delayer = await delay(1000);
+delayer = await delay(700);
 
 let loadingBar;
 let loadingPercent;
@@ -38,7 +38,7 @@ async function loading() {
 		loading_am = loading_am_list[Math.floor(Math.random() * 9)];
 
 		loadingBar.value = (loaded / total) * 100;
-		loadingPercent.textContent =  parseInt((loaded / total) * 100)+' %';
+		loadingPercent.textContent =  'Booting...'+parseInt((loaded / total) * 100)+' %';
 
 		loaded += loading_am;
 		delayer = await delay(0.1);

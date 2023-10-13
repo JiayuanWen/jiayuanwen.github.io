@@ -8,20 +8,28 @@ let delayer;
 
 //----------------------------------------------------------------------------------------- Terminal icon click handler
 let terminalElement;
+let terminalShortcut;
 function terminalWindow() {
   for (var i= 0; i < 1000; i++) {
     if (!terminalElement) {
       terminalElement = document.getElementById("terminal-window").style;
-    } else {
+    } 
+    if (!terminalShortcut) { 
+      terminalShortcut = document.getElementById("terminal");
+    }
+
+    if (terminalElement && terminalShortcut) {
       break;
     }
   }
   
   
   console.log("Assign click to Terminal: OK");
-  document.getElementById("terminal").addEventListener('click', async function(){ 
+  terminalShortcut.addEventListener('click', async function(){ 
 
     if (terminalElement.opacity == 0) {
+      terminalShortcut.style.color = "#6100f0";
+
       // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
       terminalElement.transition = "0.3s";
       terminalElement.opacity = 1;
@@ -33,6 +41,8 @@ function terminalWindow() {
       
     }
     else {
+      terminalShortcut.style.color = "#ffffff";
+
       terminalElement.transition = "0.3s";
       terminalElement.opacity = 0;
 
@@ -44,11 +54,13 @@ function terminalWindow() {
   }, false);
 
   document.getElementById("terminal-minimize").addEventListener('click', function(){ 
+    terminalShortcut.style.color = "#ffffff";
     terminalElement.transition = "0.3s";
     terminalElement.opacity = 0; 
     terminalElement.pointerEvents = "none";
   });
   document.getElementById("terminal-close").addEventListener('click', function(){ 
+    terminalShortcut.style.color = "#ffffff";
     terminalElement.transition = "0.3s";
     terminalElement.opacity = 0; 
     terminalElement.pointerEvents = "none";
@@ -63,7 +75,6 @@ $(document).ready(function() {
 })
 
 //----------------------------------------------------------------------------------------- Tooltip handler
-let terminalShortcut;
 let terminalTooltip;
 
 $(document).ready(function() {
