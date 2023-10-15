@@ -43,6 +43,8 @@ $(document).ready(async function() {
       delayer = await delay(400);
       projectElement.transition = "0s";
       projectElement.pointerEvents = "auto"; 
+
+      // Load projects
       loadProjects();
     }
     else {
@@ -60,6 +62,9 @@ $(document).ready(async function() {
       projectElement.pointerEvents = "none"; 
     });
     document.getElementById("project-close").addEventListener('click', function(){ 
+      // Remove projects from page when closed
+      removeProjects();
+
       projectShortcut.style.color = "#ffffff";
       projectElement.transition = "0.3s";
       projectElement.opacity = 0; 
@@ -82,7 +87,6 @@ $(document).ready(function() {
 
         if (projectShortcut && projectTooltip) {
             break;
-            console.log("Done");
         }
     }
     
