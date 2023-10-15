@@ -43,6 +43,7 @@ $(document).ready(async function() {
       delayer = await delay(400);
       projectElement.transition = "0s";
       projectElement.pointerEvents = "auto"; 
+      loadProjects();
     }
     else {
       projectShortcut.style.color = "#ffffff";
