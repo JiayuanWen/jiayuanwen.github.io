@@ -1,15 +1,71 @@
 // Advanced UI elements
-import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
-import { mainMenuFade } from "./helper/UI/mainmenu.js";
-import { contactInfoFade } from "./helper/UI/contactinfo.js";
-import { fiberLampFade } from "./helper/UI/fiberlamp-fade.js";
-import { backToHomepage } from "./helper/UI/back-button.js";
+import { enableDrag } from "./helper/draggablewindow.js";
 
 // Other helpful functions
 import { delay } from "./helper/delay.js";
 import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
 import { gpuEnabled } from "./helper/gpu-detect.js";
+
+let delayer;
+
+//----------------------------------------------------------------------------------------- project icon click handler
+let a = 0;
+let projectElement;
+$(document).ready(async function() {
+  for (var i = 0; i < 1000; i++) {
+    
+
+    if (!projectShortcut) {
+      projectShortcut = document.getElementById("project");
+    }
+    if (!projectElement) {
+      projectElement = document.getElementById("project-window").style;
+    }
+
+    if (projectShortcut && projectElement) {
+      break;
+    }
+
+    
+  }
+  
+  projectShortcut.addEventListener('click', async function(){ 
+    
+    if (projectElement.opacity == 0) {
+      projectShortcut.style.color = "#6100f0";
+
+      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+      projectElement.transition = "0.3s";
+      projectElement.opacity = 1;
+
+      // Unset transition so window can be dragged.
+      delayer = await delay(400);
+      projectElement.transition = "0s";
+      projectElement.pointerEvents = "auto"; 
+    }
+    else {
+      projectShortcut.style.color = "#ffffff";
+      projectElement.pointerEvents = "none"; 
+      projectElement.transition = "0.3s";
+      projectElement.opacity = 0;
+    }
+  }, false); console.log("Assign click to project: OK");
+
+    document.getElementById("project-minimize").addEventListener('click', function(){ 
+      projectShortcut.style.color = "#ffffff";
+      projectElement.transition = "0.3s";
+      projectElement.opacity = 0;
+      projectElement.pointerEvents = "none"; 
+    });
+    document.getElementById("project-close").addEventListener('click', function(){ 
+      projectShortcut.style.color = "#ffffff";
+      projectElement.transition = "0.3s";
+      projectElement.opacity = 0; 
+      projectElement.pointerEvents = "none"; 
+      //$("#terminal-text").scrollTop(0);
+    });
+});
 
 //----------------------------------------------------------------------------------------- Tooltip handler
 let projectShortcut;
@@ -25,6 +81,7 @@ $(document).ready(function() {
 
         if (projectShortcut && projectTooltip) {
             break;
+            console.log("Done");
         }
     }
     
@@ -37,112 +94,22 @@ $(document).ready(function() {
     }
 })
 
-//---------------------------------------------------------------------------------------- My Projects click handle
-if (isMobile()) {
-document.getElementById("my-projects").addEventListener("click", async function() { 
-    let delayer;
-    let elementCheck;
+//----------------------------------------------------------------------------------------- Make window draggable
+// More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
+let projectWindow_;
+$(document).ready(function() {
 
-    // Hide main page
-    selfIntroFade(10,"Out");
-    mainMenuFade(10,"Out");
-
-    // Show projects
-    loadProjects();
-    showProjects()
-
-    // Move lamp to center
-    if (gpuEnabled()) {
-        document.getElementById("fiber-lamp").style.transition = "1.9s";
-        document.getElementById("fiber-lamp").style.paddingRight = "0vw"; 
-        delayer = await delay(1900);
-        document.getElementById("fiber-lamp").style.position = "fixed";
-    }
-    else {
-        document.getElementById("fiber-lamp-lite").style.left = "50%";
-        document.getElementById("fiber-lamp-lite").style.right = "50%";
-    }
-
-    // Make page scrollable
-    if (isMobile()) {
-        document.getElementsByTagName('body')[0].style.overflowY = "auto";
-        document.getElementById("project-page-bottom").style.top = "2150px";
-    }
-
-    // Enable back button to allow visitors to go back
-    document.getElementById("back-button").style.pointerEvents = "auto";
-    document.getElementById("back-button").style.display = "block";
-
-    //---------------------------------------------------------------------------------------- Back button function
-    document.getElementById("back-button").addEventListener("click", async function backButton() {
-        backToHomepage(1);
-
-        //Hide projects
-        document.getElementById("project-container").style.pointerEvents = "none";
-        document.getElementById("project-container").style.opacity = "0%";
-
-        // Make page unscrollable
-        window.scrollTo(0,0);
-        document.getElementsByTagName('body')[0].style.overflowY = "hidden";
-
-        // Hide project container
-        document.getElementById("project-border").style.opacity = "100%";
-        let delayer = await delay(1000);
-        document.getElementById("project-container").style.height = "0.1vh";
-        document.getElementById("project-container").style.width = "0.1vw";
-        document.getElementById("project-container").style.top = "50vh"; 
-
-        document.getElementById("project-border").style.height = "0.1vh";
-        document.getElementById("project-border").style.width = "0.1vw";
-        document.getElementById("project-border").style.top = "50vh";
-        document.getElementById("project-border").style.borderRadius = "30px";
-        
-        document.getElementById("myproject").style.visibility = "hidden";
-        
-        // Remove projects
-        removeProjects();
-
-        // Remove back buttom function on click to prevent function overlaps
-        document.getElementById("back-button").removeEventListener("click", backButton);
-
-        if (isMobile()) {
-            document.getElementById("project-page-bottom").style.top = "0px";
-        }
-    })
-})
-
-}
-
-//---------------------------------------------------------------------------------------- Show/Hide projects
-async function showProjects() {
-    let delayer;
-
-
-    document.getElementById("myproject").style.visibility = "visible";
-
-    document.getElementById("project-container").style.height = "87vh";
-    document.getElementById("project-container").style.width = "95vw";
-    document.getElementById("project-container").style.top = "5vh";
-
-    document.getElementById("project-border").style.opacity = "100%";
-    document.getElementById("project-border").style.height = "87vh";
-    document.getElementById("project-border").style.width = "95vw";
-    document.getElementById("project-border").style.top = "5vh";
-    document.getElementById("project-border").style.borderRadius = "30px";
-
-    document.getElementById("project-container").style.pointerEvents = "auto";
-
-    if (!isMobile()) {
-        delayer = await delay(800);
-        document.getElementById("project-container").style.opacity = "100%";
-        document.getElementById("project-border").style.opacity = "0%";
+  for (var i= 0; i < 1000; i++) {
+    if (!projectWindow_) {
+        projectWindow_ = document.getElementById("project-window");
     } else {
-        document.getElementById("project-container").style.opacity = "100%";
+      break;
     }
-    
-}
+  }
+  
 
-
+  enableDrag(projectWindow_);
+})
 
 //---------------------------------------------------------------------------------------- Loading projects from data repository
 let projectsNumber = 5; // Set when you add a project in https://github.com/JiayuanWen/projects
@@ -165,7 +132,7 @@ async function loadProjects() {
         projDiv.setAttribute('id',`project-${projI}`);
 
         // Insert project element to container
-        document.getElementById("project-container").insertAdjacentHTML('beforeend',projDiv.outerHTML);
+        document.getElementById("project-area").insertAdjacentHTML('beforeend',projDiv.outerHTML);
 
         // Load project from https://github.com/JiayuanWen/JiayuanWen.github.io.data
         $(`#project-${projI}`).load(filePath);

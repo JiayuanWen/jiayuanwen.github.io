@@ -1,6 +1,6 @@
-import { delay } from "../delay.js"
-import { isMobile } from "../mobileCheck.js";
-import { enableDrag } from "../draggablewindow.js";
+import { delay } from "./helper/delay.js"
+import { isMobile } from "./helper/mobileCheck.js";
+import { enableDrag } from "./helper/draggablewindow.js";
 
 let delayer;
 
