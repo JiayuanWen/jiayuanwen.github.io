@@ -51,21 +51,22 @@ $(document).ready(async function() {
       contactElement.transition = "0.3s";
       contactElement.opacity = 0;
     }
-  }, false); console.log("Assign click to Contact: OK");
+  }, false);
 
-    document.getElementById("social-minimize").addEventListener('click', function(){ 
-      contactShortcut.style.color = "#ffffff";
-      contactElement.transition = "0.3s";
-      contactElement.opacity = 0;
-      contactElement.pointerEvents = "none"; 
-    });
-    document.getElementById("social-close").addEventListener('click', function(){ 
-      contactShortcut.style.color = "#ffffff";
-      contactElement.transition = "0.3s";
-      contactElement.opacity = 0; 
-      contactElement.pointerEvents = "none"; 
-      //$("#terminal-text").scrollTop(0);
-    });
+  document.getElementById("social-minimize").addEventListener('click', function(){ 
+    contactShortcut.style.color = "#ffffff";
+    contactElement.transition = "0.3s";
+    contactElement.opacity = 0;
+    contactElement.pointerEvents = "none"; 
+  });
+  document.getElementById("social-close").addEventListener('click', function(){ 
+    contactShortcut.style.color = "#ffffff";
+    contactElement.transition = "0.3s";
+    contactElement.opacity = 0; 
+    contactElement.pointerEvents = "none"; 
+    //$("#terminal-text").scrollTop(0);
+  });
+
 });
 
 //----------------------------------------------------------------------------------------- Tooltip handler

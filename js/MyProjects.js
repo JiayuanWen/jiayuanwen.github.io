@@ -50,7 +50,7 @@ $(document).ready(async function() {
       projectElement.transition = "0.3s";
       projectElement.opacity = 0;
     }
-  }, false); console.log("Assign click to project: OK");
+  }, false);
 
     document.getElementById("project-minimize").addEventListener('click', function(){ 
       projectShortcut.style.color = "#ffffff";

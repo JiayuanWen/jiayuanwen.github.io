@@ -35,6 +35,5 @@ async function startMenuButton() {
 }
 $(document).ready(function() {
     starMenu = document.getElementById("start-menu");
-    console.log("Assign click to Start Menu: OK");
     document.getElementById("home-button").addEventListener("click", function() {startMenuButton()})
 })

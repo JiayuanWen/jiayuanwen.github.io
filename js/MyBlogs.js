@@ -83,22 +83,23 @@ $(document).ready(async function() {
       blogElement.transition = "0.3s";
       blogElement.opacity = 0;
     }
-  }, false); console.log("Assign click to blog: OK");
+  }, false);
 
-    document.getElementById("blog-minimize").addEventListener('click', function(){ 
-      blogShortcut.style.color = "#ffffff";
-      blogElement.transition = "0.3s";
-      blogElement.opacity = 0;
-      blogElement.pointerEvents = "none"; 
-    });
-    document.getElementById("blog-close").addEventListener('click', function(){ 
-      blogShortcut.style.color = "#ffffff";
-      blogElement.transition = "0.3s";
-      blogElement.opacity = 0; 
-      blogElement.pointerEvents = "none"; 
-      //$("#terminal-text").scrollTop(0);
-      removeBlogs();
-    });
+  document.getElementById("blog-minimize").addEventListener('click', function(){ 
+    blogShortcut.style.color = "#ffffff";
+    blogElement.transition = "0.3s";
+    blogElement.opacity = 0;
+    blogElement.pointerEvents = "none"; 
+  });
+  document.getElementById("blog-close").addEventListener('click', function(){ 
+    blogShortcut.style.color = "#ffffff";
+    blogElement.transition = "0.3s";
+    blogElement.opacity = 0; 
+    blogElement.pointerEvents = "none"; 
+    //$("#terminal-text").scrollTop(0);
+    removeBlogs();
+  });
+
 });
 
 //----------------------------------------------------------------------------------------- Make window draggable

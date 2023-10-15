@@ -29,7 +29,6 @@ $(document).ready(function() {
     }
 
     timeContainer.addEventListener("click", function() {calenderClick()})
-    console.log("Assign click to Calender: OK");
 
 });
 

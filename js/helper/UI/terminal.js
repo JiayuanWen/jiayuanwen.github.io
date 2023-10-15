@@ -26,8 +26,6 @@ function terminalWindow() {
     }
   }
   
-  
-  console.log("Assign click to Terminal: OK");
   terminalShortcut.addEventListener('click', async function(){ 
 
     if (terminalElement.opacity == 0) {
@@ -71,6 +69,7 @@ function terminalWindow() {
     document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable commands.\n`+commandEnd;
     $("#terminal-text").scrollTop(0);
   });
+
 }
 
 $(document).ready(function() {

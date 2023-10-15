@@ -1,6 +1,7 @@
 
 import { isMobile } from "./helper/mobileCheck.js";
 import { delay } from "./helper/delay.js";
+import { detectGPU } from "./helper/gpu-detect.js";
 
 let delayer;
 
@@ -24,7 +25,6 @@ else {
 // Execute during loading
 let total = 1000;
 let loaded = 0;
-let loading_flag = "loading";
 
 let loading_am_list = [0,0,0,1,2,8,2,4,6];
 let loading_am = 1;
@@ -47,7 +47,6 @@ async function loading() {
 		loadingBar.value = 100;
 		loadingPercent.textContent = '100%';
 	}
-	loading_flag = "complete";
 	loadingComplete();
 
 	return;
@@ -58,6 +57,8 @@ $(document).ready(function() {
 	loadingPercent = document.getElementById('loading-percent');
 	loadingScreen = document.querySelector('.loading-screen');
 	console.log("Browser: "+platform.name);
+	console.log("Mobile: "+isMobile());
+	console.log("Renderer: "+detectGPU());
 	loading();
 })
 
@@ -82,6 +83,9 @@ async function loadingComplete() {
 		loading_indicator.src = "/textures/Alan_Walker_Play.jpg";
 	}
 
+	// Console output logo
+	consoleLogo();
+
 	// Fade out loading screen
 	delayer = await delay(700);
 	var fadeOutEffect = setInterval(function () {
@@ -103,3 +107,27 @@ async function loadingComplete() {
 
 //----------------------------------------------------------------------------------------- Other
 window.onunload = function(){}; //This forces bfcache to not cache the page
+
+//----------------------------------------------------------------------------------------- Other
+
+function consoleLogo() {
+	console.log(
+`
+	  MMMMMMMMMMMMMMMMMMMMMM        
+	  M                    M        
+	  MMMMMMMMMMMMMMMMMMMMMM        
+	MMMMMMMMMMMMMMMMMMMMMMMMMM      
+	M                        M      
+	MMMMMMMMMMMMMMMMMMMMMMMMMM      
+MMMM       M   M  M   M       MMMM    
+MMMM       M   M  M   M       MMMM  
+		   M   M  M   M             
+MMMM       M   M  M   M       MMMM  
+M  M       M   M  M   M       M  M  
+M  M       M   M  M   M       M  M  
+MMMMMMMMMMMM   M  M   MMMMMMMMMMMM  
+M          M   M  M   M          M  
+MMMMMMMMMMMMMMMM  MMMMMMMMMMMMMMMM      
+`
+	);
+}
