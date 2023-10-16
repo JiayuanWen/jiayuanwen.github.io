@@ -1,24 +1,86 @@
 // Advanced UI elements
-import { selfIntroFade } from "./helper/UI/selfintro-fade.js";
-import { mainMenuFade } from "./helper/UI/mainmenu.js";
-import { backToHomepage } from "./helper/UI/back-button.js";
+import { focusWindow } from "./helper/UI/windowfocus.js";
+import { enableDrag } from "./helper/draggablewindow.js";
 
 // Other helpful functions
 import { delay } from "./helper/delay.js";
 import { isMobile } from "./helper/mobileCheck.js";
 import { getDeviceOrientation } from "./helper/orientationMode.js";
-import { gpuEnabled } from "./helper/gpu-detect.js";
-import { enableDrag } from "./helper/draggablewindow.js";
 
 let delayer;
 
 // Wait a second before continuing, at low internet speed some elements might not finish loading.
 delayer = await delay(700);
 
+//----------------------------------------------------------------------------------------- blog icon click handler
+let a = 0;
+let blogElement;
+$(document).ready(async function() {
+  // Check for element until found. Fail safe for when script load before DOM
+  for (var i = 0; i < 1000; i++) {
+
+    if (!blogShortcut) {
+      blogShortcut = document.getElementById("blog");
+    }
+    if (!blogElement) {
+      blogElement = document.getElementById("blog-window");
+    }
+
+    if (blogShortcut && blogElement) {
+      break;
+    }
+
+  }
+  
+  blogShortcut.addEventListener('click', async function(){ 
+    
+    if (blogElement.style.opacity == 0) {
+      // Make window the focus when opened
+      focusWindow(blogElement);
+
+      // Highlight shorcut
+      blogShortcut.style.color = "#6100f0";
+
+      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+      blogElement.style.transition = "0.3s";
+      blogElement.style.opacity = 1;
+
+      // Unset transition so window can be dragged.
+      delayer = await delay(400);
+      blogElement.style.transition = "0s";
+      blogElement.style.pointerEvents = "auto"; 
+      loadBlogs();
+    }
+    else {
+      blogShortcut.style.color = "#ffffff";
+      blogElement.style.pointerEvents = "none"; 
+      blogElement.style.transition = "0.3s";
+      blogElement.style.opacity = 0;
+    }
+  }, false);
+
+  document.getElementById("blog-minimize").addEventListener('click', function(){ 
+    blogShortcut.style.color = "#ffffff";
+    blogElement.style.transition = "0.3s";
+    blogElement.style.opacity = 0;
+    blogElement.style.pointerEvents = "none"; 
+  });
+  document.getElementById("blog-close").addEventListener('click', function(){ 
+    blogShortcut.style.color = "#ffffff";
+    blogElement.style.transition = "0.3s";
+    blogElement.style.opacity = 0; 
+    blogElement.style.pointerEvents = "none"; 
+    //$("#terminal-text").scrollTop(0);
+    removeBlogs();
+  });
+
+});
+
 //----------------------------------------------------------------------------------------- Tooltip handler
 let blogShortcut;
 let blogTooltip;
 $(document).ready(function() {
+    // Check for element until found. Fail safe for when script load before DOM
     for (var i=0; i < 1000; i++) {
         if (!blogShortcut) {
             blogShortcut = document.getElementById("blog");
@@ -41,72 +103,11 @@ $(document).ready(function() {
     }
 })
 
-//----------------------------------------------------------------------------------------- blog icon click handler
-let a = 0;
-let blogElement;
-$(document).ready(async function() {
-  for (var i = 0; i < 1000; i++) {
-    
-
-    if (!blogShortcut) {
-      blogShortcut = document.getElementById("blog");
-    }
-    if (!blogElement) {
-      blogElement = document.getElementById("blog-window").style;
-    }
-
-    if (blogShortcut && blogElement) {
-      break;
-    }
-
-    
-  }
-  
-  blogShortcut.addEventListener('click', async function(){ 
-    
-    if (blogElement.opacity == 0) {
-      blogShortcut.style.color = "#6100f0";
-
-      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-      blogElement.transition = "0.3s";
-      blogElement.opacity = 1;
-
-      // Unset transition so window can be dragged.
-      delayer = await delay(400);
-      blogElement.transition = "0s";
-      blogElement.pointerEvents = "auto"; 
-      loadBlogs();
-    }
-    else {
-      blogShortcut.style.color = "#ffffff";
-      blogElement.pointerEvents = "none"; 
-      blogElement.transition = "0.3s";
-      blogElement.opacity = 0;
-    }
-  }, false);
-
-  document.getElementById("blog-minimize").addEventListener('click', function(){ 
-    blogShortcut.style.color = "#ffffff";
-    blogElement.transition = "0.3s";
-    blogElement.opacity = 0;
-    blogElement.pointerEvents = "none"; 
-  });
-  document.getElementById("blog-close").addEventListener('click', function(){ 
-    blogShortcut.style.color = "#ffffff";
-    blogElement.transition = "0.3s";
-    blogElement.opacity = 0; 
-    blogElement.pointerEvents = "none"; 
-    //$("#terminal-text").scrollTop(0);
-    removeBlogs();
-  });
-
-});
-
 //----------------------------------------------------------------------------------------- Make window draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
 let blogWindow_;
 $(document).ready(function() {
-
+  // Check for element until found. Fail safe for when script load before DOM
   for (var i= 0; i < 1000; i++) {
     if (!blogWindow_) {
         blogWindow_ = document.getElementById("blog-window");

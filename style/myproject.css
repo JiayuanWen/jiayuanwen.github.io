@@ -7,7 +7,7 @@
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    background-color: rgb(24, 24, 24);
+    background-color: rgba(24, 24, 24, 0.733);
 
     height: 720px;
     width: 1200px;
@@ -92,9 +92,9 @@
 #project-search > input {
     position: absolute;
     top: 30px;
-    left: 200px;
+    left: 510px;
 
-    width: 750px;
+    width: 180px;
     height: 20px;
 
     background-color: rgb(24, 24, 24);
@@ -181,13 +181,13 @@
 
     overflow: hidden;
 
-    background-color: rgb(34, 34, 34);
+    background-color: rgb(27, 27, 27);
     
     flex: 40%;
 }
 .project-item:hover {
     border: 0px solid #ccc;
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(0, 84, 180);
 }
 .project-item:active {
     border: 0px solid rgb(162, 0, 255);

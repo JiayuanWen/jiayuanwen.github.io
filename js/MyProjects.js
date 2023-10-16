@@ -1,5 +1,6 @@
 // Advanced UI elements
 import { enableDrag } from "./helper/draggablewindow.js";
+import { focusWindow } from "./helper/UI/windowfocus.js";
 
 // Other helpful functions
 import { delay } from "./helper/delay.js";
@@ -9,66 +10,73 @@ import { gpuEnabled } from "./helper/gpu-detect.js";
 
 let delayer;
 
+// Wait a second before continuing, at low internet speed some elements might not finish loading.
+delayer = await delay(700);
+
 //----------------------------------------------------------------------------------------- project icon click handler
 let a = 0;
 let projectElement;
 $(document).ready(async function() {
+  // Check for element until found. Fail safe for when script load before DOM
   for (var i = 0; i < 1000; i++) {
-    
 
     if (!projectShortcut) {
       projectShortcut = document.getElementById("project");
     }
     if (!projectElement) {
-      projectElement = document.getElementById("project-window").style;
+      projectElement = document.getElementById("project-window");
     }
 
     if (projectShortcut && projectElement) {
       break;
     }
-
     
   }
   
+
   projectShortcut.addEventListener('click', async function(){ 
     
-    if (projectElement.opacity == 0) {
+    if (projectElement.style.opacity == 0) {
+      // Make window the focus when opened
+      focusWindow(projectElement);
+
+      // Highlight shorcut
       projectShortcut.style.color = "#6100f0";
 
       // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-      projectElement.transition = "0.3s";
-      projectElement.opacity = 1;
+      projectElement.style.transition = "0.3s";
+      projectElement.style.opacity = 1;
 
       // Unset transition so window can be dragged.
       delayer = await delay(400);
-      projectElement.transition = "0s";
-      projectElement.pointerEvents = "auto"; 
+      projectElement.style.transition = "0s";
+      projectElement.style.pointerEvents = "auto"; 
 
       // Load projects
       loadProjects();
     }
     else {
       projectShortcut.style.color = "#ffffff";
-      projectElement.pointerEvents = "none"; 
-      projectElement.transition = "0.3s";
-      projectElement.opacity = 0;
+      projectElement.style.pointerEvents = "none"; 
+      projectElement.style.transition = "0.3s";
+      projectElement.style.opacity = 0;
     }
   }, false);
 
     document.getElementById("project-minimize").addEventListener('click', function(){ 
       projectShortcut.style.color = "#ffffff";
-      projectElement.transition = "0.3s";
-      projectElement.opacity = 0;
-      projectElement.pointerEvents = "none"; 
+      projectElement.style.transition = "0.3s";
+      projectElement.style.opacity = 0;
+      projectElement.style.pointerEvents = "none"; 
     });
     document.getElementById("project-close").addEventListener('click', function(){ 
       // Remove projects from page when closed
       removeProjects();
 
       projectShortcut.style.color = "#ffffff";
-      projectElement.transition = "0.3s";
-      projectElement.opacity = 0; 
-      projectElement.pointerEvents = "none"; 
+      projectElement.style.transition = "0.3s";
+      projectElement.style.opacity = 0; 
+      projectElement.style.pointerEvents = "none"; 
       //$("#terminal-text").scrollTop(0);
     });
 });
@@ -77,18 +85,19 @@ $(document).ready(async function() {
 let projectShortcut;
 let projectTooltip;
 $(document).ready(function() {
-    for (var i=0; i < 1000; i++) {
-        if (!projectShortcut) {
-            projectShortcut = document.getElementById("project");
-        }
-        if (!projectTooltip) {
-            projectTooltip = document.getElementById("project-tooltip");
-        }
+  // Check for element until found. Fail safe for when script load before DOM
+  for (var i=0; i < 1000; i++) {
+      if (!projectShortcut) {
+          projectShortcut = document.getElementById("project");
+      }
+      if (!projectTooltip) {
+          projectTooltip = document.getElementById("project-tooltip");
+      }
 
-        if (projectShortcut && projectTooltip) {
-            break;
-        }
-    }
+      if (projectShortcut && projectTooltip) {
+          break;
+      }
+  }
     
 
     projectShortcut.onmouseover = async function() { 
@@ -103,7 +112,7 @@ $(document).ready(function() {
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
 let projectWindow_;
 $(document).ready(function() {
-
+  // Check for element until found. Fail safe for when script load before DOM
   for (var i= 0; i < 1000; i++) {
     if (!projectWindow_) {
         projectWindow_ = document.getElementById("project-window");

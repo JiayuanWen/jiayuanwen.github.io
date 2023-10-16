@@ -11,6 +11,13 @@ export function enableDrag(elmnt) {
     }
   
     function dragMouseDown(e) {
+      // Make element the main focus
+      let windows = document.querySelectorAll(".window");
+      for (var i = 0; i < windows.length; i++) {
+          windows[i].style.zIndex = "1";
+      } 
+      elmnt.style.zIndex = "50";
+      
       e = e || window.event;
       e.preventDefault();
       // Get the mouse cursor position at startup

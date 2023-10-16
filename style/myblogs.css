@@ -119,9 +119,9 @@
 #blog-search > input {
     position: absolute;
     top: 30px;
-    left: 200px;
+    left: 50px;
 
-    width: 750px;
+    width: 180px;
     height: 20px;
 
     background-color: rgb(24, 24, 24);

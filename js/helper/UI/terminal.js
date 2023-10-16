@@ -3,6 +3,7 @@ import { isMobile } from "../mobileCheck.js";
 import { getInternetSpeed } from "../speedtest.js";
 import { delay } from "../delay.js";
 import { enableDrag } from "../draggablewindow.js";
+import { focusWindow } from "/js/helper/UI/windowfocus.js";
 
 let delayer;
 
@@ -13,9 +14,10 @@ delayer = await delay(700);
 let terminalElement;
 let terminalShortcut;
 function terminalWindow() {
+  // Check for element until found. Fail safe for when script load before DOM
   for (var i= 0; i < 1000; i++) {
     if (!terminalElement) {
-      terminalElement = document.getElementById("terminal-window").style;
+      terminalElement = document.getElementById("terminal-window");
     } 
     if (!terminalShortcut) { 
       terminalShortcut = document.getElementById("terminal");
@@ -28,43 +30,47 @@ function terminalWindow() {
   
   terminalShortcut.addEventListener('click', async function(){ 
 
-    if (terminalElement.opacity == 0) {
+    if (terminalElement.style.opacity == 0) {
+      // Make window the focus when opened
+      focusWindow(terminalElement);
+
+      // Highlight shortcut
       terminalShortcut.style.color = "#6100f0";
 
       // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-      terminalElement.transition = "0.3s";
-      terminalElement.opacity = 1;
+      terminalElement.style.transition = "0.3s";
+      terminalElement.style.opacity = 1;
 
       // Unset transition so window can be dragged.
       delayer = await delay(400);
-      terminalElement.transition = "0s";
-      terminalElement.pointerEvents = "auto";
+      terminalElement.style.transition = "0s";
+      terminalElement.style.pointerEvents = "auto";
       
     }
     else {
       terminalShortcut.style.color = "#ffffff";
 
-      terminalElement.transition = "0.3s";
-      terminalElement.opacity = 0;
+      terminalElement.style.transition = "0.3s";
+      terminalElement.style.opacity = 0;
 
 
       delayer = await delay(400);
-      terminalElement.transition = "0s";
-      terminalElement.pointerEvents = "none";
+      terminalElement.style.transition = "0s";
+      terminalElement.style.pointerEvents = "none";
     }
   }, false);
 
   document.getElementById("terminal-minimize").addEventListener('click', function(){ 
     terminalShortcut.style.color = "#ffffff";
-    terminalElement.transition = "0.3s";
-    terminalElement.opacity = 0; 
-    terminalElement.pointerEvents = "none";
+    terminalElement.style.transition = "0.3s";
+    terminalElement.style.opacity = 0; 
+    terminalElement.style.pointerEvents = "none";
   });
   document.getElementById("terminal-close").addEventListener('click', function(){ 
     terminalShortcut.style.color = "#ffffff";
-    terminalElement.transition = "0.3s";
-    terminalElement.opacity = 0; 
-    terminalElement.pointerEvents = "none";
+    terminalElement.style.transition = "0.3s";
+    terminalElement.style.opacity = 0; 
+    terminalElement.style.pointerEvents = "none";
 
     document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable commands.\n`+commandEnd;
     $("#terminal-text").scrollTop(0);
@@ -80,6 +86,7 @@ $(document).ready(function() {
 let terminalTooltip;
 
 $(document).ready(function() {
+  // Check for element until found. Fail safe for when script load before DOM
   for (var i= 0; i < 1000; i++) {
     if (!terminalShortcut) { 
       terminalShortcut = document.getElementById("terminal");
@@ -187,7 +194,7 @@ Built by me, hosted on <a id="site-source-link" rel="noopener noreferrer" target
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
 let terminalWindow_;
 $(document).ready(function() {
-
+  // Check for element until found. Fail safe for when script load before DOM
   for (var i= 0; i < 1000; i++) {
     if (!terminalWindow_) {
       terminalWindow_ = document.getElementById("terminal-window");
