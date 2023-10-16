@@ -108,17 +108,18 @@
             background-color: rgb(75, 75, 75);
             border-radius: 999px;
         }
-    .terminal-color, .terminal-color-purple {
-        color: rgb(156, 69, 255);
 
-    }
-    .terminal-color-green {
-        color: rgb(134, 190, 69);
-    }
-    .terminal-bold {
-        font-weight: bolder;
+.terminal-color, .terminal-color-purple {
+    color: rgb(156, 69, 255);
 
-    }
+}
+.terminal-color-green {
+    color: rgb(134, 190, 69);
+}
+.terminal-bold {
+    font-weight: bolder;
+
+}
     
     #terminal-sys-info {
         position: absolute;
