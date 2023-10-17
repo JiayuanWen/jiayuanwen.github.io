@@ -89,12 +89,6 @@
         <!-- Tooltips on hover -->
         <link rel="stylesheet" type="text/css" href="style/components/tooltip.css"/>
     
-        <!-- Back to home button -->
-        <div id="back-button">
-            <ion-icon name="arrow-back-sharp"></ion-icon>
-            <script type="module-shim" src="/js/helper/UI/back-button.js"></script>
-        </div>
-    
         <!-- Fullscreen button -->
         <div id="fullscreen">
             <ion-icon id="fullscreen-toggle" name="scan">
@@ -118,8 +112,10 @@
         <script type="module-shim" src="/js/helper/UI/mainmenu.js"></script>
         <div id="main-menu-container"></div>
         <link rel="stylesheet" type="text/css" href="style/components/mainmenu.css" id="mainmenu-style"/>
-            <!-- Time -->
-            <script type="module-shim" src="/js/helper/UI/calender.js"></script>
+            <!-- Calendar -->
+            <div class="calendar" id="calendar"></div>
+            <link rel="stylesheet" type="text/css" href="style/components/calendar.css" id="calendar-style"/>
+            <script type="module-shim" src="/js/helper/UI/calendar.js" async></script>
             <!-- Start Menu -->
             <div id="start-container"></div> 
             <script async>

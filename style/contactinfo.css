@@ -8,7 +8,7 @@
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    background-color: rgba(37, 37, 37, 0.774);
+    background-color: rgba(26, 26, 26, 0.774);
 
     height: 720px;
     width: 750px;
@@ -112,10 +112,10 @@
 }
 #sep-line {
     position: absolute;
-    top: 220px;
-    left: 28px;
+    top: 207px;
+    left: 38px;
 
-    width: 320px;
+    width: 290px;
 
     border: solid 1px rgb(139, 50, 255);
 }
@@ -175,13 +175,13 @@
     color: rgb(255, 255, 255);
     font-size: 18px;
     
-    margin-bottom: 25px;
+    margin-bottom: 50px;
     
 }
 
 #inquiry-form-sep {
     position: absolute;
-    top: 20px;
+    top: 22px;
     right: 0px;
 
     width: 310px;

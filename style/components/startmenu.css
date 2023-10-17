@@ -7,7 +7,7 @@
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    background-color: rgba(27, 27, 27, 0.733);
+    background-color: rgba(26, 26, 26, 0.801);
 
     height: 500px;
     width: 500px;
@@ -16,7 +16,7 @@
 
     opacity: 0;
 
-    z-index: 50;
+    z-index: 100;
 
     overflow: hidden;
 
