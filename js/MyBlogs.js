@@ -35,6 +35,12 @@ $(document).ready(async function() {
   blogShortcut.addEventListener('click', async function(){ 
     
     if (blogElement.style.opacity == 0) {
+      // Hide Start Menu
+      let startMenu = document.getElementById("start-menu");
+      startMenu.style.opacity = "0";
+      startMenu.style.bottom = "0px";
+      startMenu.style.pointerEvents = "none";
+
       // Make window the focus when opened
       focusWindow(blogElement);
 

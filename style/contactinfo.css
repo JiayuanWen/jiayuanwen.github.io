@@ -112,7 +112,7 @@
 }
 #sep-line {
     position: absolute;
-    top: 207px;
+    top: 217px;
     left: 38px;
 
     width: 290px;
@@ -175,13 +175,13 @@
     color: rgb(255, 255, 255);
     font-size: 18px;
     
-    margin-bottom: 50px;
+    margin-bottom: 45px;
     
 }
 
 #inquiry-form-sep {
     position: absolute;
-    top: 22px;
+    top: 32px;
     right: 0px;
 
     width: 310px;

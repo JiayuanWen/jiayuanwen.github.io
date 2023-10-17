@@ -37,6 +37,12 @@ $(document).ready(async function() {
   projectShortcut.addEventListener('click', async function(){ 
     
     if (projectElement.style.opacity == 0) {
+      // Hide Start Menu
+      let startMenu = document.getElementById("start-menu");
+      startMenu.style.opacity = "0";
+      startMenu.style.bottom = "0px";
+      startMenu.style.pointerEvents = "none";
+
       // Make window the focus when opened
       focusWindow(projectElement);
 

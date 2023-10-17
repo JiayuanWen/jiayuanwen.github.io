@@ -33,6 +33,12 @@ $(document).ready(async function() {
   contactShortcut.addEventListener('click', async function(){ 
     
     if (contactElement.style.opacity == 0) {
+      // Hide Start Menu
+      let startMenu = document.getElementById("start-menu");
+      startMenu.style.opacity = "0";
+      startMenu.style.bottom = "0px";
+      startMenu.style.pointerEvents = "none";
+
       // Make window the main focus on open
       focusWindow(contactElement);
 

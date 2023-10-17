@@ -92,7 +92,7 @@
         cursor: pointer;
     }
     #menu-assets ion-icon:hover {
-        background-color: rgba(61, 61, 61, 0.493);
+        background-color: rgb(98, 0, 255);
     }
 
 /* --------------------------------------------------------------------------------- Clock */
@@ -167,54 +167,5 @@
         filter: grayscale(0%);
 
     }
-/* --------------------------------------------------------------------------------- Calender*/
-#calender-container {
-    transition: 0.2s;
 
-    position: absolute;
-    bottom: 0px; /*Set in js/helper/UI/contactinfo.js*/
-    right: 5px;
-
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    background-color: rgb(27, 27, 27);
-
-    height: 180px;
-    width: 500px;
-
-    border-radius: 20px;
-
-    opacity: 0;
-
-    z-index: 50;
-
-    font-family: monospace, monospace, monospace;
-
-    display: flex;
-    justify-content: center;
-
-    pointer-events: none;
-}
-    #calender-container #year {
-        position: absolute;
-        top: 32px;
-        
-        font-size: 15px;
-        color:rgb(100, 100, 100);
-        letter-spacing: 10px;
-    }
-    #calender-container #date {
-        position: absolute;
-        top: 50px;
-        
-        font-size: 25px;
-
-    }
-    #calender-container #time-big {
-        position: absolute;
-        top: 90px;
-        
-        font-size: 60px;
-
-    }
 

@@ -17,6 +17,12 @@ export function enableDrag(elmnt) {
           windows[i].style.zIndex = "1";
       } 
       elmnt.style.zIndex = "50";
+
+      // Hide Start Menu
+      let startMenu = document.getElementById("start-menu");
+      startMenu.style.opacity = "0";
+      startMenu.style.bottom = "0px";
+      startMenu.style.pointerEvents = "none";
       
       e = e || window.event;
       e.preventDefault();
