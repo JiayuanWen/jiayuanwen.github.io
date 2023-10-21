@@ -7,7 +7,7 @@
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    background-color: rgba(26, 26, 26, 0.801);
+    background-color: rgba(24, 24, 24, 0.842);
 
     height: 500px;
     width: 500px;
@@ -30,6 +30,23 @@
 
     width: 450px;
 
-    border: 1px solid rgb(83, 83, 83);
+    border: 1px solid rgb(123, 0, 224);
 }
 
+#settings-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+
+    font-size: 22px;
+    color: rgb(87, 87, 87);
+}
+
+#power-button {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+
+    font-size: 22px;
+    color: rgb(85, 85, 85);
+}
