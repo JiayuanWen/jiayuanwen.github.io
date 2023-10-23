@@ -3,15 +3,15 @@
     transition: 0s;
 
     position: absolute;
-    left: 820px;
+    left: 405px;
     top: 60px;
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
     background-color: rgba(26, 26, 26, 0.774);
 
-    height: 61px;
-    width: 405px;
+    height: 720px;
+    width: 750px;
 
     z-index: 2;
 
