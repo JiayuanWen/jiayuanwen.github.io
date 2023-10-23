@@ -26,6 +26,7 @@ setInterval(function () {
     }
 }, 1000);
 //----------------------------------------------------------------------------------------- Calender Date
+/*
 function formatDate(date) {
     const month = date.toLocaleDateString('en-US', { month: 'long' });
     const day = date.getDate();
@@ -45,7 +46,7 @@ setInterval(function () {
         clockBigElement.innerHTML = new Date().toLocaleTimeString([],{ hour12: false });
     }
 }, 1000);
-
+*/
 
 //----------------------------------------------------------------------------------------- Material You wallpaper color
 /*

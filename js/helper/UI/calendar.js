@@ -215,10 +215,10 @@ function CalendarControl() {
           calendarControl.navigateToPreviousMonth
         );
         nextBtn.addEventListener("click", calendarControl.navigateToNextMonth);
-        todayDate.addEventListener(
+        /*todayDate.addEventListener(
           "click",
           calendarControl.navigateToCurrentMonth
-        );
+        );*/
         for (var i = 0; i < dateNumber.length; i++) {
             dateNumber[i].addEventListener(
               "click",
