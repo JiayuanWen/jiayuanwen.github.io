@@ -23,14 +23,75 @@
     pointer-events: none;
 }
 
+/* --------------------------------------------------------------- Search field*/
+#start-header-search {
+    display: flex;
+    justify-content: center;
+}
+#start-search > input{
+    background-color: rgba(15, 15, 15, 0.521);
+    border-style: none;
+
+    margin-top: 20px;
+
+    height: 30px;
+    width: 450px;
+
+    border-radius: 90px;
+
+    color: white;
+
+    text-align: center;
+}
+
+#start-search-ico {
+    position: absolute;
+    top: 27px;
+    left: 30px;
+
+    color: gray;
+}
+
 #startmenu-sep {
     position: absolute;
-    top: 50px;
+    top: 65px;
     left: 25px;
 
     width: 450px;
 
     border: 1px solid rgb(123, 0, 224);
+}
+
+/**/
+#start-shorcuts {
+    background-color: rgba(165, 42, 42, 0);
+    
+    position: absolute;
+    top: 90px;
+    left: 25px;
+
+    height: 350px;
+    width: 452px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.shortcut {
+    text-align: center;
+    font-size: 35px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+}
+    .shortcut:hover {
+        cursor: pointer;
+    }
+.shortcut-name {
+    font-size: 12px;
+    word-wrap: normal;
+    width: 80px;
 }
 
 #settings-button {
@@ -41,6 +102,10 @@
     font-size: 22px;
     color: rgb(87, 87, 87);
 }
+#settings-button:hover {
+    color: rgb(214, 214, 214);
+    cursor: pointer;
+}
 
 #power-button {
     position: absolute;
@@ -50,3 +115,8 @@
     font-size: 22px;
     color: rgb(85, 85, 85);
 }
+#power-button:hover {
+    color: rgb(214, 214, 214);
+    cursor: pointer;
+}
+

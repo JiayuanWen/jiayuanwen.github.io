@@ -20,51 +20,53 @@ function terminalWindow() {
       terminalElement = document.getElementById("terminal-window");
     } 
     if (!terminalShortcut) { 
-      terminalShortcut = document.getElementById("terminal");
+      //terminalShortcut = document.getElementById("terminal");
+      terminalShortcut = document.getElementById('terminal');
     }
 
     if (terminalElement && terminalShortcut) {
       break;
     }
   }
+  document.querySelectorAll('.terminal').forEach(function(shortcut_) {
+    shortcut_.addEventListener('click', async function(){ 
+
+      if (terminalElement.style.opacity == 0) {
+        // Hide Start Menu
+        let startMenu = document.getElementById("start-menu");
+        startMenu.style.opacity = "0";
+        startMenu.style.bottom = "0px";
+        startMenu.style.pointerEvents = "none";
   
-  terminalShortcut.addEventListener('click', async function(){ 
-
-    if (terminalElement.style.opacity == 0) {
-      // Hide Start Menu
-      let startMenu = document.getElementById("start-menu");
-      startMenu.style.opacity = "0";
-      startMenu.style.bottom = "0px";
-      startMenu.style.pointerEvents = "none";
-
-      // Make window the focus when opened
-      focusWindow(terminalElement);
-
-      // Highlight shortcut
-      terminalShortcut.style.color = "#6100f0";
-
-      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-      terminalElement.style.transition = "0.3s";
-      terminalElement.style.opacity = 1;
-
-      // Unset transition so window can be dragged.
-      delayer = await delay(400);
-      terminalElement.style.transition = "0s";
-      terminalElement.style.pointerEvents = "auto";
-      
-    }
-    else {
-      terminalShortcut.style.color = "#ffffff";
-
-      terminalElement.style.transition = "0.3s";
-      terminalElement.style.opacity = 0;
-
-
-      delayer = await delay(400);
-      terminalElement.style.transition = "0s";
-      terminalElement.style.pointerEvents = "none";
-    }
-  }, false);
+        // Make window the focus when opened
+        focusWindow(terminalElement);
+  
+        // Highlight shortcut
+        terminalShortcut.style.color = "#6100f0";
+  
+        // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+        terminalElement.style.transition = "0.3s";
+        terminalElement.style.opacity = 1;
+  
+        // Unset transition so window can be dragged.
+        delayer = await delay(400);
+        terminalElement.style.transition = "0s";
+        terminalElement.style.pointerEvents = "auto";
+        
+      }
+      else {
+        terminalShortcut.style.color = "#ffffff";
+  
+        terminalElement.style.transition = "0.3s";
+        terminalElement.style.opacity = 0;
+  
+  
+        delayer = await delay(400);
+        terminalElement.style.transition = "0s";
+        terminalElement.style.pointerEvents = "none";
+      }
+    }, false);
+  })
 
   document.getElementById("terminal-minimize").addEventListener('click', function(){ 
     terminalShortcut.style.color = "#ffffff";

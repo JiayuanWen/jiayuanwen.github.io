@@ -33,58 +33,59 @@ $(document).ready(async function() {
     
   }
   
-
-  projectShortcut.addEventListener('click', async function(){ 
+  document.querySelectorAll('.project').forEach(function(shortcut_) {
+    shortcut_.addEventListener('click', async function(){ 
     
-    if (projectElement.style.opacity == 0) {
-      // Hide Start Menu
-      let startMenu = document.getElementById("start-menu");
-      startMenu.style.opacity = "0";
-      startMenu.style.bottom = "0px";
-      startMenu.style.pointerEvents = "none";
+      if (projectElement.style.opacity == 0) {
+        // Hide Start Menu
+        let startMenu = document.getElementById("start-menu");
+        startMenu.style.opacity = "0";
+        startMenu.style.bottom = "0px";
+        startMenu.style.pointerEvents = "none";
+  
+        // Make window the focus when opened
+        focusWindow(projectElement);
+  
+        // Highlight shorcut
+        projectShortcut.style.color = "#6100f0";
+  
+        // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+        projectElement.style.transition = "0.3s";
+        projectElement.style.opacity = 1;
+  
+        // Unset transition so window can be dragged.
+        delayer = await delay(400);
+        projectElement.style.transition = "0s";
+        projectElement.style.pointerEvents = "auto"; 
+  
+        // Load projects
+        loadProjects();
+      }
+      else {
+        projectShortcut.style.color = "#ffffff";
+        projectElement.style.pointerEvents = "none"; 
+        projectElement.style.transition = "0.3s";
+        projectElement.style.opacity = 0;
+      }
+    }, false);
+  });
 
-      // Make window the focus when opened
-      focusWindow(projectElement);
+  document.getElementById("project-minimize").addEventListener('click', function(){ 
+    projectShortcut.style.color = "#ffffff";
+    projectElement.style.transition = "0.3s";
+    projectElement.style.opacity = 0;
+    projectElement.style.pointerEvents = "none"; 
+  });
+  document.getElementById("project-close").addEventListener('click', function(){ 
+    // Remove projects from page when closed
+    removeProjects();
 
-      // Highlight shorcut
-      projectShortcut.style.color = "#6100f0";
-
-      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-      projectElement.style.transition = "0.3s";
-      projectElement.style.opacity = 1;
-
-      // Unset transition so window can be dragged.
-      delayer = await delay(400);
-      projectElement.style.transition = "0s";
-      projectElement.style.pointerEvents = "auto"; 
-
-      // Load projects
-      loadProjects();
-    }
-    else {
-      projectShortcut.style.color = "#ffffff";
-      projectElement.style.pointerEvents = "none"; 
-      projectElement.style.transition = "0.3s";
-      projectElement.style.opacity = 0;
-    }
-  }, false);
-
-    document.getElementById("project-minimize").addEventListener('click', function(){ 
-      projectShortcut.style.color = "#ffffff";
-      projectElement.style.transition = "0.3s";
-      projectElement.style.opacity = 0;
-      projectElement.style.pointerEvents = "none"; 
-    });
-    document.getElementById("project-close").addEventListener('click', function(){ 
-      // Remove projects from page when closed
-      removeProjects();
-
-      projectShortcut.style.color = "#ffffff";
-      projectElement.style.transition = "0.3s";
-      projectElement.style.opacity = 0; 
-      projectElement.style.pointerEvents = "none"; 
-      //$("#terminal-text").scrollTop(0);
-    });
+    projectShortcut.style.color = "#ffffff";
+    projectElement.style.transition = "0.3s";
+    projectElement.style.opacity = 0; 
+    projectElement.style.pointerEvents = "none"; 
+    //$("#terminal-text").scrollTop(0);
+  });
 });
 
 //----------------------------------------------------------------------------------------- Tooltip handler

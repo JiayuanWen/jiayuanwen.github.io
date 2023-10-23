@@ -107,6 +107,8 @@
     color: white;
 
     z-index: 50;
+
+    text-align: center;
 }
 
 #project-header-right {

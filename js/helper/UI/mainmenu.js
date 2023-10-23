@@ -25,28 +25,6 @@ setInterval(function () {
         clockElement.innerHTML = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     }
 }, 1000);
-//----------------------------------------------------------------------------------------- Calender Date
-/*
-function formatDate(date) {
-    const month = date.toLocaleDateString('en-US', { month: 'long' });
-    const day = date.getDate();
-    const suffix = day === 1 ? 'st' : day === 2 ? 'nd' : day === 3 ? 'rd' : 'th';
-  
-    return `${month}, ${day}${suffix}`;
-}
-
-setInterval(function () {
-    var yearElement = document.getElementById("year");
-    var dateElement = document.getElementById("date");
-    var clockBigElement = document.getElementById("time-big");
-
-    if (document.readyState == "complete" && !isMobile()) {
-        yearElement.innerHTML = new Date().toLocaleDateString([], { year: 'numeric' });
-        dateElement.innerHTML = formatDate(new Date());
-        clockBigElement.innerHTML = new Date().toLocaleTimeString([],{ hour12: false });
-    }
-}, 1000);
-*/
 
 //----------------------------------------------------------------------------------------- Material You wallpaper color
 /*

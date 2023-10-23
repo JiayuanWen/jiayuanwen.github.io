@@ -1,8 +1,22 @@
 <div id="start-menu">
+
+    <div id="start-header-search">
+        <form onsubmit="return false;" id="start-search">
+            <input type="text" placeholder="" name="search">
+            <!--<button type="submit">Submit</button>-->
+            <ion-icon id="start-search-ico" name="search"></ion-icon>
+        </form>
+    </div>
     
     <hr id="startmenu-sep"/>
-
     
+    <div id="start-shorcuts">
+        <!-- Shortcuts -->
+        <a class="terminal shortcut"><ion-icon name="terminal-outline"></ion-icon> <div class="shortcut-name">Terminal</div></a> 
+        <a class="project shortcut"><ion-icon name="file-tray"></ion-icon> <div class="shortcut-name">My Projects</div></a> 
+        <a class="blog shortcut"><ion-icon name="newspaper-outline"></ion-icon> <div class="shortcut-name">My Blogs</div></a> 
+        <a class="social shortcut"><ion-icon name="mail-outline"></ion-icon> <div class="shortcut-name">Contact</div></a> 
+    </div>
 
     <ion-icon id="power-button" name="power"></ion-icon>
     <ion-icon id="settings-button" name="settings"></ion-icon>

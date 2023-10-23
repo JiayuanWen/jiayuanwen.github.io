@@ -29,40 +29,42 @@ $(document).ready(async function() {
 
     
   }
-  
-  contactShortcut.addEventListener('click', async function(){ 
+
+  document.querySelectorAll('.social').forEach(function(shortcut_) {
+    shortcut_.addEventListener('click', async function(){ 
     
-    if (contactElement.style.opacity == 0) {
-      // Hide Start Menu
-      let startMenu = document.getElementById("start-menu");
-      startMenu.style.opacity = "0";
-      startMenu.style.bottom = "0px";
-      startMenu.style.pointerEvents = "none";
-
-      // Make window the main focus on open
-      focusWindow(contactElement);
-
-      // Hightlight shorcut
-      contactShortcut.style.color = "#6100f0";
-
-      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-      contactElement.style.transition = "0.3s";
-      contactElement.style.opacity = 1;
-
-      // Unset transition so window can be dragged.
-      delayer = await delay(400);
-      contactElement.style.transition = "0s";
-      contactElement.style.pointerEvents = "auto"; 
-      
-    }
-    else {
-      contactShortcut.style.color = "#ffffff";
-
-      contactElement.style.pointerEvents = "none"; 
-      contactElement.style.transition = "0.3s";
-      contactElement.style.opacity = 0;
-    }
-  }, false);
+      if (contactElement.style.opacity == 0) {
+        // Hide Start Menu
+        let startMenu = document.getElementById("start-menu");
+        startMenu.style.opacity = "0";
+        startMenu.style.bottom = "0px";
+        startMenu.style.pointerEvents = "none";
+  
+        // Make window the main focus on open
+        focusWindow(contactElement);
+  
+        // Hightlight shorcut
+        contactShortcut.style.color = "#6100f0";
+  
+        // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+        contactElement.style.transition = "0.3s";
+        contactElement.style.opacity = 1;
+  
+        // Unset transition so window can be dragged.
+        delayer = await delay(400);
+        contactElement.style.transition = "0s";
+        contactElement.style.pointerEvents = "auto"; 
+        
+      }
+      else {
+        contactShortcut.style.color = "#ffffff";
+  
+        contactElement.style.pointerEvents = "none"; 
+        contactElement.style.transition = "0.3s";
+        contactElement.style.opacity = 0;
+      }
+    }, false);
+  });
 
   document.getElementById("social-minimize").addEventListener('click', function(){ 
     contactShortcut.style.color = "#ffffff";

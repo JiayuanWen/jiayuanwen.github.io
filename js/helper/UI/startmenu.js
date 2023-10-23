@@ -37,3 +37,20 @@ $(document).ready(function() {
     starMenu = document.getElementById("start-menu");
     document.getElementById("home-button").addEventListener("click", function() {startMenuButton()})
 })
+
+//----------------------------------------------------------------------------------------- Power button handle
+let powerButton;
+$(document).ready(function() {
+    for (var i= 0; i < 1000; i++) {
+        if (!powerButton) {
+            powerButton = document.getElementById("power-button");
+        }
+        else {
+            break;
+        }
+    }
+
+    powerButton.addEventListener('click', function(){ 
+        window.close();
+    });
+})

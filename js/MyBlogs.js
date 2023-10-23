@@ -32,38 +32,40 @@ $(document).ready(async function() {
 
   }
   
-  blogShortcut.addEventListener('click', async function(){ 
+  document.querySelectorAll('.blog').forEach(function(shortcut_) {
+    shortcut_.addEventListener('click', async function(){ 
     
-    if (blogElement.style.opacity == 0) {
-      // Hide Start Menu
-      let startMenu = document.getElementById("start-menu");
-      startMenu.style.opacity = "0";
-      startMenu.style.bottom = "0px";
-      startMenu.style.pointerEvents = "none";
-
-      // Make window the focus when opened
-      focusWindow(blogElement);
-
-      // Highlight shorcut
-      blogShortcut.style.color = "#6100f0";
-
-      // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-      blogElement.style.transition = "0.3s";
-      blogElement.style.opacity = 1;
-
-      // Unset transition so window can be dragged.
-      delayer = await delay(400);
-      blogElement.style.transition = "0s";
-      blogElement.style.pointerEvents = "auto"; 
-      loadBlogs();
-    }
-    else {
-      blogShortcut.style.color = "#ffffff";
-      blogElement.style.pointerEvents = "none"; 
-      blogElement.style.transition = "0.3s";
-      blogElement.style.opacity = 0;
-    }
-  }, false);
+      if (blogElement.style.opacity == 0) {
+        // Hide Start Menu
+        let startMenu = document.getElementById("start-menu");
+        startMenu.style.opacity = "0";
+        startMenu.style.bottom = "0px";
+        startMenu.style.pointerEvents = "none";
+  
+        // Make window the focus when opened
+        focusWindow(blogElement);
+  
+        // Highlight shorcut
+        blogShortcut.style.color = "#6100f0";
+  
+        // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+        blogElement.style.transition = "0.3s";
+        blogElement.style.opacity = 1;
+  
+        // Unset transition so window can be dragged.
+        delayer = await delay(400);
+        blogElement.style.transition = "0s";
+        blogElement.style.pointerEvents = "auto"; 
+        loadBlogs();
+      }
+      else {
+        blogShortcut.style.color = "#ffffff";
+        blogElement.style.pointerEvents = "none"; 
+        blogElement.style.transition = "0.3s";
+        blogElement.style.opacity = 0;
+      }
+    }, false);
+  });
 
   document.getElementById("blog-minimize").addEventListener('click', function(){ 
     blogShortcut.style.color = "#ffffff";
