@@ -68,15 +68,16 @@
     
     position: absolute;
     top: 90px;
-    left: 25px;
+    left: 45px;
 
-    height: 350px;
-    width: 452px;
+    height: fit-content;
+    width: 412px;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
-
+    flex-wrap: wrap;
+    row-gap: 25px;
 }
 .shortcut {
     text-align: center;

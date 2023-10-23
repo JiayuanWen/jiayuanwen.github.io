@@ -16,7 +16,7 @@ let loadingPercent;
 let loadingScreen;
 
 if (isMobile()) {
-	alert("The site is currently not optimized for mobile devices. It is best to visit on PC for the time being.");
+	alert("The site is currently not made for mobile devices. Please view on PC or Desktop Mode on portrait");
 }
 else {
 	//alert("Note: Site is still under construction.");
