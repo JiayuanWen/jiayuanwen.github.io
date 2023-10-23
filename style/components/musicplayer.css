@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 /* --------------------------------------------------------------------------------- Music Player */
 #player-window {
     position: fixed;
@@ -128,7 +130,7 @@
 #song-info {
     display: flex;
     flex-direction: row;
-    font-family: monospace,monospace,monospace;
+    font-family: 'Poppins', sans-serif;
     color: rgb(255, 255, 255);
     text-align: left;
     font-size: 14px;

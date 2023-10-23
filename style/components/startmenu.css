@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 #start-menu {
     transition: 0.2s;
 
@@ -106,6 +108,8 @@
 .shortcut-name {
     font-size: 12px;
     word-wrap: normal;
+    font-family: 'Poppins', sans-serif;
+
     width: 80px;
 }
 
