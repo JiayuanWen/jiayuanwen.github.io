@@ -1,15 +1,41 @@
 /* --------------------------------------------------------------------------------- Music Player */
-.music-player {
+#player-window {
     position: fixed;
-    background: rgba(0, 0, 0, 0);
-    left: 20px;
-    bottom: 20px;
-    text-align: center;
-    width: 350px;
+    right: 120px;
+    bottom: 0px;
+
+    width: 390px;
+    height: 180px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(24, 24, 24, 0.842);
+
+    transition: 0.25s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+
     opacity: 0;
+    pointer-events: none;
+}
+.music-player {
+    background: rgba(34, 34, 34, 0);
+
+    width: 350px;
+    
+    
+    text-align: center;
+    
+    opacity: 1;
     transition: 0.3s;
 
-    pointer-events: none;
+    pointer-events: auto;
+
+    
 }
     .music-player:hover {
         opacity: 1;
@@ -56,7 +82,17 @@
         border-radius: 50%;
         border: 8px solid rgb(255, 255, 255);
         box-shadow: 0 5px 5px rgba(255, 255, 255, 22);
+        transition: 0.25s;
     } 
+        #player-progress::-webkit-slider-thumb:hover {
+            -webkit-appearance: none;
+            background: #000;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 8px solid rgb(98, 0, 255);
+            box-shadow: 0 5px 5px rgba(98, 0, 255, 22);
+        } 
 
     #player-progress::-moz-range-thumb {
         -moz-appearance: none;
@@ -67,21 +103,35 @@
         border: 8px solid rgb(255, 255, 255);
         box-shadow: 0 5px 5px rgba(255, 255, 255, 22);
     }
+        #player-progress::-moz-range-thumb {
+            -moz-appearance: none;
+            background: #000;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 8px solid rgb(98, 0, 255);
+            box-shadow: 0 5px 5px rgba(98, 0, 255, 22);
+        }
     
 #album-cover {
-    width: 120px;
-    border-radius:0px;
+    width: 100px;
+    height: 100px;
+
+    border-radius:12px;
     border-style: solid;
+    border-width: 0px;
     border-color:rgb(255, 255, 255);
+    
     overflow: hidden;
     margin-bottom: 25px;
 }
 #song-info {
     display: flex;
     flex-direction: row;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(170, 170, 170);
+    font-family: monospace,monospace,monospace;
+    color: rgb(255, 255, 255);
     text-align: left;
+    font-size: 14px;
 }
 #song-author {
     margin-bottom: 20px;

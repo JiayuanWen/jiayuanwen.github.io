@@ -95,9 +95,6 @@
             <script type="module-shim" src="/js/helper/UI/fullscreen-button.js"></script>
         </div>
     
-        <!-- Music player -->
-        <!--<div w3-include-html="/page_components/music_player.html"></div>-->
-    
         <!-- Loading screen -->
         <div id="loading-container"></div>
         <script async>
@@ -116,6 +113,7 @@
             <div class="calendar" id="calendar"></div>
             <link rel="stylesheet" type="text/css" href="style/components/calendar.css" id="calendar-style"/>
             <script type="module-shim" src="/js/helper/UI/calendar.js" async></script>
+
             <!-- Start Menu -->
             <div id="start-container"></div> 
             <script async>
@@ -124,6 +122,15 @@
             </script>
             <script type="module-shim" src="/js/helper/UI/startmenu.js"></script>
             <link rel="stylesheet" type="text/css" href="style/components/startmenu.css" id="mainmenu-style"/>
+
+            <!-- Music Player -->
+            <div id="player-container"></div> 
+            <script async>
+                var filePath = "/page_components/music_player.html";
+                $('#player-container').load(filePath);
+            </script>
+            <script type="module-shim" src="/js/helper/UI/musicplayer.js" async></script>
+            <link rel="stylesheet" type="text/css" href="style/components/musicplayer.css" id="player-style"/>
     
     <!-- End of UI Stuff -->
 
