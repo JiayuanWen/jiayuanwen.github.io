@@ -26,7 +26,7 @@ else {
 let total = 1000;
 let loaded = 0;
 
-let loading_am_list = [0,0,0,1,2,8,2,4,6];
+let loading_am_list = [0,0,0,2,4,16,4,8,6];
 let loading_am = 1;
 
 async function loading() {
