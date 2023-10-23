@@ -172,7 +172,7 @@
     margin-top: 12px;
     margin-left: 24px;
     margin-right: 24px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
 
     border: 0px solid rgb(128, 128, 128);
     float: left;
@@ -193,7 +193,7 @@
 }
 .project-item:active {
     border: 0px solid rgb(162, 0, 255);
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(74, 0, 143);
 }
     
 
