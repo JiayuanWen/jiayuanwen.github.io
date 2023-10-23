@@ -79,9 +79,16 @@
     flex-wrap: wrap;
     row-gap: 25px;
 }
+#start-shorcuts > a:visited {
+    color: white;
+}
+#start-shorcuts > a:hover {
+    color: rgb(132, 0, 255);
+}
 .shortcut {
     text-align: center;
     font-size: 35px;
+    text-decoration: none;
 
     margin-left: 10px;
     margin-right: 10px;
@@ -89,11 +96,20 @@
     .shortcut:hover {
         cursor: pointer;
     }
+.shortcut > img {
+    height: 35px;
+    width: auto;
+}
+.shortcut:visited {
+    text-decoration: none;
+}
 .shortcut-name {
     font-size: 12px;
     word-wrap: normal;
     width: 80px;
 }
+
+
 
 #settings-button {
     position: absolute;
