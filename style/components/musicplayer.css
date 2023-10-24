@@ -47,11 +47,13 @@
     display: flex;
     color: #c0c0c0;
     flex-direction: row;
+    transition: 0.25s;
 }
     #controls > div > ion-icon {
         margin-right: 10px;
         margin-top: -4px;
         font-size: 22px;
+        transition: 0.2s;
     }
     #controls > div:hover {
         color: #ffffff;
@@ -104,8 +106,9 @@
         border-radius: 50%;
         border: 8px solid rgb(255, 255, 255);
         box-shadow: 0 5px 5px rgba(255, 255, 255, 22);
+        transition: 0.25s;
     }
-        #player-progress::-moz-range-thumb {
+        #player-progress::-moz-range-thumb:hover {
             -moz-appearance: none;
             background: #000;
             width: 15px;
