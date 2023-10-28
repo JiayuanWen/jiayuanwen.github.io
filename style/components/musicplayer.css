@@ -23,6 +23,8 @@
 
     opacity: 0;
     pointer-events: none;
+
+    z-index: 99;
 }
 .music-player {
     background: rgba(34, 34, 34, 0);
@@ -34,8 +36,6 @@
     
     opacity: 1;
     transition: 0.3s;
-
-    pointer-events: auto;
 
     
 }
@@ -146,4 +146,8 @@
         margin: 0px;
         margin-bottom: 20px;
         margin-top: 15px;
+    }
+    #song-author > small {
+        color: gray;
+        font-weight: 500;
     }

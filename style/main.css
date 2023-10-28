@@ -17,7 +17,7 @@ html, body {
     /*background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)), url(/textures/env_map/guangzhou.jpg);*/
     background-size:     cover;                      
     background-repeat:   no-repeat;
-    margin:     -8px; 
+    margin:     0px; 
     height:     102%;
     
     z-index: 1;

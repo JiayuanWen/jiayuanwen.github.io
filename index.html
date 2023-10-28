@@ -7,10 +7,8 @@
     <link rel="stylesheet" type="text/css" href="style/main.css"/>          
 
     <!-- Component stylesheets -->
-    <link rel="stylesheet" type="text/css" href="style/components/3dfiber.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/selfintroduction.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/fullscreen.css"/>
-    <link rel="stylesheet" type="text/css" href="style/components/musicplayer.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/loadingscreen.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/backbutton.css"/>
     <link rel="stylesheet" type="text/css" href="style/components/starbg.css"/>
@@ -75,7 +73,7 @@
     </script>
 
     <!-- Background stuff resides here -->
-    <canvas class="fiber" id="fiber-lamp"></canvas>
+    
 
     <!-- Self Introduction -->
     <!--<h1 id="site-intro"><hi>Hi!</hi> My name is <name id="site-intro-name">Jiayuan Wen</name><senglow>,</senglow> you can call me <name id="site-intro-nickname">Weldon</name><senglow>.</senglow></h1>
@@ -172,9 +170,14 @@
     <script type="module-shim" src="/js/MyBlogs.js" async></script>
     <script type="module-shim" src="/js/helper/background-stars-grey.js"></script>
 
-    <!-- Required for ionicons to work -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- ThreeJS demo -->
+    <div id="threejs-container"></div>
+    <script async>
+        var filePath = "/pages/threejs_demo.html";
+        $('#threejs-container').load(filePath);
+    </script>
+    <link rel="stylesheet" type="text/css" href="style/threejs.css"/>
+    <script type="module-shim" src="/js/Three.js" async></script>
 
     <!-- Background stars -->
     <canvas id="stars-bg-grey"></canvas>
@@ -182,5 +185,9 @@
 
     <!-- Disclaimer -->
     <script type="module-shim" src="/js/helper/disclaimer.js" async></script>
+
+    <!-- Required for ionicons to work -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

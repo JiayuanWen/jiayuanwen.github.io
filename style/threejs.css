@@ -1,0 +1,87 @@
+#threejs-window {
+    transition: 0s;
+
+    position: absolute;
+    left: 240px;
+    top: 120px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(31, 31, 31, 0.705);
+
+    height: 720px;
+    width: 1200px;
+
+    z-index: 1;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    opacity: 1;
+}
+
+#threejs-windowheader {
+    position: absolute;
+    left: 00px;
+    top: 00px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(31, 31, 31, 0.705);
+
+    height: 30px;
+    width: inherit;
+
+    z-index: 1;
+
+    border-radius: 0px;
+
+    overflow: hidden;
+}
+    #threejs-close {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        
+        color: gray;
+    }
+    #threejs-minimize {
+        position: absolute;
+        right: 20px;
+        top: 4px;
+        
+        color: gray;
+    }
+        #threejs-close:hover, #threejs-minimize:hover {
+            color: rgb(255, 255, 255);
+        }
+    #threejs-ico {
+        position: absolute;
+        left: 6px;
+        top: 4px;
+        
+        color: rgb(255, 255, 255);
+    }
+    #threejs-name {
+        position: absolute;
+        top: 4px;
+
+        width: inherit;
+
+        text-align: center;
+        font-size: small;
+        color: rgb(100, 100, 100);
+    }
+
+#threejs-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+/* --------------------------------------------------------------------------------- 3D Fiber Lamp */
+.fiber {
+    position:absolute;
+    top: 0px;
+    left: 0px;
+}
