@@ -59,10 +59,16 @@ $(document).ready(async function() {
         loadBlogs();
       }
       else {
-        blogShortcut.style.color = "#ffffff";
-        blogElement.style.pointerEvents = "none"; 
-        blogElement.style.transition = "0.3s";
-        blogElement.style.opacity = 0;
+        //blogShortcut.style.color = "#ffffff";
+        //blogElement.style.pointerEvents = "none"; 
+        //blogElement.style.transition = "0.3s";
+        //blogElement.style.opacity = 0;
+        let startMenu = document.getElementById("start-menu");
+        startMenu.style.opacity = "0";
+        startMenu.style.bottom = "0px";
+        startMenu.style.pointerEvents = "none";
+
+        focusWindow(blogElement);
       }
     }, false);
   });

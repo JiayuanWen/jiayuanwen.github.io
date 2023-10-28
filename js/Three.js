@@ -29,6 +29,22 @@ delayer = await delay(1200);
 // Dev outputs for dev purposes
 let dev_output = false;
 
+//----------------------------------------------------------------------------------------- Shorcut handler
+let threeShortcut;
+let threeElement;
+$(document).ready(function() {
+	for (var i = 0; i < 1000; i++) {
+		if (!threeShortcut && !threeElement) {
+			threeShortcut = document.getElementById("threejs-window");
+			threeElement = document.getElementById("threejs-window");
+		} else {
+			break;
+		}
+	}
+
+	
+})
+
 //----------------------------------------------------------------------------------------- Make window draggable
 // More details see here: https://www.w3schools.com/howto/howto_js_draggable.asp
 let threeWindow_;

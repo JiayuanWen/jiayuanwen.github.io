@@ -55,15 +55,22 @@ function terminalWindow() {
         
       }
       else {
-        terminalShortcut.style.color = "#ffffff";
+        //terminalShortcut.style.color = "#ffffff";
   
-        terminalElement.style.transition = "0.3s";
-        terminalElement.style.opacity = 0;
+        //terminalElement.style.transition = "0.3s";
+        //terminalElement.style.opacity = 0;
   
   
-        delayer = await delay(400);
-        terminalElement.style.transition = "0s";
-        terminalElement.style.pointerEvents = "none";
+        //delayer = await delay(400);
+        //terminalElement.style.transition = "0s";
+        //terminalElement.style.pointerEvents = "none";
+        // Hide Start Menu
+        let startMenu = document.getElementById("start-menu");
+        startMenu.style.opacity = "0";
+        startMenu.style.bottom = "0px";
+        startMenu.style.pointerEvents = "none";
+
+        focusWindow(terminalElement);
       }
     }, false);
   })

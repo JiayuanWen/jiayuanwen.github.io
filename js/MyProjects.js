@@ -62,10 +62,16 @@ $(document).ready(async function() {
         loadProjects();
       }
       else {
-        projectShortcut.style.color = "#ffffff";
-        projectElement.style.pointerEvents = "none"; 
-        projectElement.style.transition = "0.3s";
-        projectElement.style.opacity = 0;
+        //projectShortcut.style.color = "#ffffff";
+        //projectElement.style.pointerEvents = "none"; 
+        //projectElement.style.transition = "0.3s";
+        //projectElement.style.opacity = 0;
+        let startMenu = document.getElementById("start-menu");
+        startMenu.style.opacity = "0";
+        startMenu.style.bottom = "0px";
+        startMenu.style.pointerEvents = "none";
+
+        focusWindow(projectElement);
       }
     }, false);
   });

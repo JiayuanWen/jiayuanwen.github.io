@@ -57,11 +57,17 @@ $(document).ready(async function() {
         
       }
       else {
-        contactShortcut.style.color = "#ffffff";
+        //contactShortcut.style.color = "#ffffff";
   
-        contactElement.style.pointerEvents = "none"; 
-        contactElement.style.transition = "0.3s";
-        contactElement.style.opacity = 0;
+        //contactElement.style.pointerEvents = "none"; 
+        //contactElement.style.transition = "0.3s";
+        //contactElement.style.opacity = 0;
+        let startMenu = document.getElementById("start-menu");
+        startMenu.style.opacity = "0";
+        startMenu.style.bottom = "0px";
+        startMenu.style.pointerEvents = "none";
+
+        focusWindow(contactElement);
       }
     }, false);
   });
