@@ -10,7 +10,7 @@ let delayer;
 // Wait a second before continuing, at low internet speed some elements might not finish loading.
 delayer = await delay(700);
 
-//----------------------------------------------------------------------------------------- Terminal icon click handler
+//----------------------------------------------------------------------------------------- Shortcut click handler
 let terminalElement;
 let terminalShortcut;
 function terminalWindow() {

@@ -20,6 +20,7 @@ import { rgbToHex } from "../js/helper/rgbToHex.js";
 import { isMobile } from "../js/helper/mobileCheck.js";
 import { gpuEnabled } from "../js/helper/gpu-detect.js";
 import { enableDrag } from "./helper/draggablewindow.js";
+import { focusWindow } from "./helper/UI/windowfocus.js";
 
 let delayer;
 
@@ -42,7 +43,65 @@ $(document).ready(function() {
 		}
 	}
 
+	document.querySelectorAll('.threedemo').forEach(function(shortcut_) {
+		shortcut_.addEventListener('click', async function(){ 
 	
+		  if (threeElement.style.opacity == 0) {
+			// Hide Start Menu
+			let startMenu = document.getElementById("start-menu");
+			startMenu.style.opacity = "0";
+			startMenu.style.bottom = "0px";
+			startMenu.style.pointerEvents = "none";
+	  
+			// Make window the focus when opened
+			focusWindow(threeElement);
+	  
+			// Highlight shortcut
+			//threeShortcut.style.color = "#6100f0";
+	  
+			// Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+			threeElement.style.transition = "0.3s";
+			threeElement.style.opacity = 1;
+	  
+			// Unset transition so window can be dragged.
+			delayer = await delay(400);
+			threeElement.style.transition = "0s";
+			threeElement.style.pointerEvents = "auto";
+			
+		  }
+		  else {
+			//threeShortcut.style.color = "#ffffff";
+	  
+			//threeElement.style.transition = "0.3s";
+			//threeElement.style.opacity = 0;
+	  
+	  
+			//delayer = await delay(400);
+			//threeElement.style.transition = "0s";
+			//threeElement.style.pointerEvents = "none";
+			// Hide Start Menu
+			let startMenu = document.getElementById("start-menu");
+			startMenu.style.opacity = "0";
+			startMenu.style.bottom = "0px";
+			startMenu.style.pointerEvents = "none";
+	
+			focusWindow(threeElement);
+		  }
+		}, false);
+	})
+
+	document.getElementById("threejs-minimize").addEventListener('click', function(){ 
+		threeShortcut.style.color = "#ffffff";
+		threeElement.style.transition = "0.3s";
+		threeElement.style.opacity = 0; 
+		threeElement.style.pointerEvents = "none";
+	});
+	document.getElementById("threejs-close").addEventListener('click', function(){ 
+		threeShortcut.style.color = "#ffffff";
+		threeElement.style.transition = "0.3s";
+		threeElement.style.opacity = 0; 
+		threeElement.style.pointerEvents = "none";
+	});
 })
 
 //----------------------------------------------------------------------------------------- Make window draggable
