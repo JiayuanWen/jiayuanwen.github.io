@@ -7,7 +7,7 @@
 
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    background-color: rgba(31, 31, 31, 0.705);
+    background-color: rgb(0, 0, 0);
 
     height: 720px;
     width: 1200px;
@@ -82,6 +82,6 @@
 /* --------------------------------------------------------------------------------- 3D Fiber Lamp */
 .fiber {
     position:absolute;
-    top: 0px;
+    top: 30px;
     left: 0px;
 }

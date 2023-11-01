@@ -19,6 +19,7 @@
     overflow: hidden;
 
     opacity: 0;
+
 }
 
 #terminal-windowheader {
@@ -90,6 +91,7 @@
 
     font-size: small;
     white-space: pre-wrap;
+    font-family: monospace, monospace, monospace;
     
 }
     #terminal-text::-webkit-scrollbar {
