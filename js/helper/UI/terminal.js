@@ -178,6 +178,7 @@ $(document).on("keypress", function (e) {
 * <a href="https://www.geeksforgeeks.org/how-to-detect-network-speed-using-javascript/#">Internet Speed Test</a> by <a href="https://auth.geeksforgeeks.org/user/romy421kumari">romy421kumari</a>
 * <a href="">Email form</a> by <a href="https://usebasin.com/">Basin</a>
 * <a href="https://codepen.io/alvarotrigo/pen/bGLpROa">Reponsive Calendar</a> by <a href="https://codepen.io/alvarotrigo">Álvaro</a>
+* <a href="https://threejs.org/">Three.js</a> by <a href="https://mrdoob.com/">mrdoob</a>
 
 Built by me, hosted on <a id="site-source-link" rel="noopener noreferrer" target="about:blank" href="https://github.com/JiayuanWen/jiayuanwen.github.io">Github</a>.
 
