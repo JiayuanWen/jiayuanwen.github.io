@@ -67,6 +67,17 @@ $(document).ready(function() {
 			delayer = await delay(400);
 			threeElement.style.transition = "0s";
 			threeElement.style.pointerEvents = "auto";
+
+			// Add icon to main menu
+			document.getElementById('main-menu').insertAdjacentHTML(
+				'beforeend',
+				'<a id="threedemo" class="threedemo"><ion-icon name="cube-outline"></ion-icon></a>'
+			);
+			threeShortcut = document.getElementById('threedemo');
+			threeShortcut.style.color = "#6100f0";
+			threeShortcut.addEventListener('click', function() {
+				focusWindow(threeElement);
+			});
 			
 			// Enable rendering
 			animateStart();
@@ -106,9 +117,13 @@ $(document).ready(function() {
 		threeElement.style.pointerEvents = "none";
 	});
 	document.getElementById("threejs-close").addEventListener('click', function(){ 
-		//Stop rendering
+		// Stop rendering
 		animateStop();
 
+		// Remove icon from main menu
+		document.getElementById("threedemo").remove();
+
+		// Close window
 		threeShortcut.style.color = "#ffffff";
 		threeElement.style.transition = "0.3s";
 		threeElement.style.opacity = 0; 

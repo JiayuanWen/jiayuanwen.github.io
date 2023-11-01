@@ -85,3 +85,53 @@
     top: 30px;
     left: 0px;
 }
+
+/**/
+#threejs-desc {
+    position: absolute;
+    top: 40px;
+    text-align: center;
+
+    width: 1200px;
+
+    z-index: 90;
+
+    color: white;
+    font-family: monospace, monospace, monospace;
+    font-size: 13px;
+}
+#threejs-desc > a {
+    text-decoration: none;
+}
+
+/**/
+#threejs-srccode {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.185);
+
+    z-index: 90;
+
+    color: white;
+    font-size: 25px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#threejs-srccode:hover {
+    background: rgba(255, 255, 255, 0.281);
+    cursor: pointer;
+}
+#threejs-srccode:active {
+    background: rgb(98, 0, 255);
+    cursor: pointer;
+}
