@@ -137,9 +137,16 @@
 
 #contact-info > a{
     color: rgb(255, 255, 255);
+    font-weight: 500;
+
     margin-bottom: 25px;
+    
     transition: 0.3s;
     text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
 }
 
 #contact-info > a:hover{
