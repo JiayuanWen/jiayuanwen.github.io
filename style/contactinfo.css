@@ -102,15 +102,15 @@
 
 }
 
-/* --------------------------------------------------------------------------------- Separation line */
-#sep-name {
+/* --------------------------------------------------------------------------------- Social Media links */
+#contact-sec {
     position: absolute;
     top: 185px;
     left: 40px;
     font-size: 18px;
     color: rgb(255, 255, 255);
 }
-#sep-line {
+#contact-sep {
     position: absolute;
     top: 217px;
     left: 38px;
@@ -120,7 +120,6 @@
     border: solid 1px rgb(139, 50, 255);
 }
 
-/* --------------------------------------------------------------------------------- Social Media links */
 #contact-info {
     font-size: 2.1rem;
     position: absolute;
@@ -166,7 +165,7 @@
 /* --------------------------------------------------------------------------------- Inquiry form */
 #inquiry-form{
     position: absolute;
-    top: 50px;
+    top: 100px;
     right: 40px;
 
     opacity: 1;
@@ -277,4 +276,62 @@
         cursor: pointer;
     }
 
-/**/
+/* --------------------------------------------------------------------------------- Resume Download */
+#resume-download {
+    position: absolute;
+    top: 470px;
+    left: 40px;
+}
+#resume-download > sectitle {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
+
+#resume-sep {
+    position: absolute;
+    top: 35px;
+    left: 0px;
+
+    width: 310px;
+
+    border: blueviolet 1px solid;
+
+    opacity: 1;
+}
+
+#resume-link {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+
+    transition: 0.25s;
+
+    margin-bottom: 15px;
+    
+    height: 40px;
+    width: 110px;
+
+    background-color: rgb(111, 0, 255); 
+
+    border: solid rgb(255, 255, 255) 0px;
+    border-radius: 5px;
+
+    color: white;
+    font-family: monospace;
+    font-weight: bolder;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    #resume-link:hover {
+        background-color: rgb(255, 255, 255); 
+        color:black;
+        cursor: pointer;
+    }
+    #resume-link:active {
+        background-color: rgb(43, 43, 43); 
+        color:rgb(255, 255, 255);
+        cursor: pointer;
+    }
