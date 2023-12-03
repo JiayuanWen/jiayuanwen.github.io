@@ -6,8 +6,30 @@ import { detectGPU } from "./helper/gpu-detect.js";
 let delayer;
 
 //----------------------------------------------------------------------------------------- Loading management
+// Wait a second before continuing, at low internet speed some elements might not finish loading.
+delayer = await delay(700);
+
+let loadingBar;
+let loadingPercent;
+let loadingScreen;
+
+if (isMobile()) {
+	alert("The site is currently not made for mobile devices. Please view on PC or Desktop Mode on portrait");
+}
+else {
+	//alert("Note: Site is still under construction.");
+}
+
+// Execute during loading
+let total = 1000;
+let loaded = 0;
+
+let loading_am_list = [0,0,0,2,4,16,4,8,6];
+let loading_am = 1;
+
 // Execute on loading start
 var logoBlink;
+/*
 (function(){
 	var mode = "out";
 
@@ -39,27 +61,7 @@ var logoBlink;
 
 	}, 500);
 })();
-
-// Wait a second before continuing, at low internet speed some elements might not finish loading.
-delayer = await delay(700);
-
-let loadingBar;
-let loadingPercent;
-let loadingScreen;
-
-if (isMobile()) {
-	alert("The site is currently not made for mobile devices. Please view on PC or Desktop Mode on portrait");
-}
-else {
-	//alert("Note: Site is still under construction.");
-}
-
-// Execute during loading
-let total = 1000;
-let loaded = 0;
-
-let loading_am_list = [0,0,0,2,4,16,4,8,6];
-let loading_am = 1;
+*/
 
 async function loading() {
 	if (!loadingBar) {
@@ -104,10 +106,12 @@ async function loadingComplete() {
 	document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
 
 	// Stop logo blink
+	/*
 	clearInterval(logoBlink);
 	document.getElementById('loading-icon').style.transition = "0s";
 	document.getElementById('loading-icon').style.opacity = "1";
-
+	*/
+	
 	delayer = await delay(10);
 
 	// Hide percentage
