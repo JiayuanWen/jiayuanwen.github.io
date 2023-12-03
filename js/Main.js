@@ -7,6 +7,38 @@ let delayer;
 
 //----------------------------------------------------------------------------------------- Loading management
 // Execute on loading start
+var logoBlink;
+(function(){
+	var mode = "out";
+
+	document.getElementById('loading-icon').style.opacity = 1;
+	var logo_op = document.getElementById('loading-icon');
+	
+	logoBlink = setInterval(async function(){
+		
+
+		if (parseInt(logo_op.style.opacity) >= 1) {
+			mode = "out";
+		}
+		else if (parseInt(logo_op.style.opacity) <= 0) {
+			mode = "in";
+		}
+
+		if (mode == "out") {
+			logo_op.style.opacity = 0;
+			//delayer = await delay(1000);
+			//console.log(logo_op.style.opacity);
+		} 
+		else {
+			logo_op.style.opacity = 1;
+			//delayer = await delay(1000);
+			//console.log(logo_op.style.opacity);
+		}
+
+		logo_op = document.getElementById('loading-icon');
+
+	}, 500);
+})();
 
 // Wait a second before continuing, at low internet speed some elements might not finish loading.
 delayer = await delay(700);
@@ -38,7 +70,7 @@ async function loading() {
 		loading_am = loading_am_list[Math.floor(Math.random() * 9)];
 
 		loadingBar.value = (loaded / total) * 100;
-		loadingPercent.textContent =  'Booting...'+parseInt((loaded / total) * 100)+' %';
+		loadingPercent.textContent =  'Booting......'+parseInt(loadingBar.value)+' %';
 
 		loaded += loading_am;
 		delayer = await delay(0.1);
@@ -51,6 +83,9 @@ async function loading() {
 
 	return;
 } 
+	
+
+	
 
 $(document).ready(function() {
 	loadingBar = document.getElementById('loading-bar');
@@ -67,6 +102,11 @@ async function loadingComplete() {
 	// Load wallpaper
 	var wallpaper_i = Math.floor(Math.random() * 1) + 1;
 	document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
+
+	// Stop logo blink
+	clearInterval(logoBlink);
+	document.getElementById('loading-icon').style.transition = "0s";
+	document.getElementById('loading-icon').style.opacity = "1";
 
 	delayer = await delay(10);
 

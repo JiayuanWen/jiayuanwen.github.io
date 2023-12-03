@@ -24,17 +24,10 @@
   }
   
     #loading-icon {
-      position: fixed;
-      top: 50vh; 
-      transform: translateY(-100%);
-
-      opacity: 1;
-
-      transition: 0.5s;
-
-      max-width: 8rem;
+      position: relative;
+      /* top: 10vh; */
+      max-width: 15rem;
       min-width: 5rem;
-      
       margin: 3rem 1rem 8rem 1rem;
     }
   
@@ -53,13 +46,9 @@
     }
   
     #loading-percent {
-        position: fixed;
-        bottom: 250px;
-
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-weight: 120;
+        font-weight: 520;
         font-size: 1.3rem;
-        
     }
   
     #loading-bar[value] {
