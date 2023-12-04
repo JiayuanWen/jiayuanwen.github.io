@@ -5,16 +5,10 @@
     left: 440px;
     top: 120px;
 
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    background-color: rgba(31, 31, 31, 0.705);
-
     height: 500px;
     width: 700px;
 
     z-index: 1;
-
-    border-radius: 12px;
 
     overflow: hidden;
 

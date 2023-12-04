@@ -146,8 +146,9 @@ $(document).on("keypress", function (e) {
 'F' - Fun facts about me
 'S' - Site credits
 'C' - Clear terminal output
+--------------------------------------
+'H' - Shows list of commands 
 
-*Pages can be long, don't forget to scroll.
 
 `
 +commandEnd;

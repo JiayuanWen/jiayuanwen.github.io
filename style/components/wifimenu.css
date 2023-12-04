@@ -1,0 +1,71 @@
+#wifi-menu {
+    position: fixed;
+    bottom: 0px;
+    right: 120px;
+
+    width: 450px;
+    height: 450px;
+
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(24, 24, 24, 0.842);
+
+    border-radius: 15px;
+
+    transition: 0.2s;
+
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+#wifi-title {
+    position: fixed;
+    top: 15px;
+    left: 10px;
+
+    color: rgb(114, 114, 114);
+    font-size: 22px;
+}
+
+#wifi-sep {
+    position: fixed;
+    top: 50px;
+    left: 10px;
+
+    width: 427px;
+
+    border: blueviolet 1px solid;
+}
+
+#wifi-list {
+    position: fixed;
+    top: 70px;
+    left: 20px;
+
+    width: 417px;
+
+    word-wrap: break-word;
+
+    list-style-type: none;
+
+}
+    #wifi-list > li {
+        margin-bottom: 10px;
+
+        display: flex;
+        align-items: center;
+
+        font-size: 13px;
+        
+    }
+    #wifi-list > li:hover {
+        color: blueviolet;
+        cursor: pointer;
+    }
+    #wifi-list > li > ion-icon {
+        font-size: 30px;
+    }
+    #wifi-connected {
+        font-size: 20px !important;
+    }

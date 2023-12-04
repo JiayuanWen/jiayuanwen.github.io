@@ -78,7 +78,16 @@ a:active {
     color:rgb(29, 0, 107);
 }
 
-/* --------------------------------------------------------------------------------- Site credit at bottom */
+/* --------------------------------------------------------------------------------- Main styles for app windows */
+.window {
+    -webkit-backdrop-filter: blur(40px) ; 
+    backdrop-filter: blur(40px);
+    background-color: rgba(31, 31, 31, 0.705);
+
+    border-radius: 12px;
+}
+
+/* --------------------------------------------------------------------------------- Site credit at bottom (deprecated) */
 #site-credit {
     position: fixed;
     color: rgb(139, 139, 139);
@@ -123,7 +132,8 @@ a:active {
     
 }
 
-/* Used for color picking algorithms to pick color base on wallpaper, no need to be visible */
+/* --------------------------------------------------------------------------------- Wallpaper */
+/* For color picking algorithms to pick color base on wallpaper, not visible. */
 #wallpaper {
     opacity: 0;
     height: 1000px;
