@@ -7,9 +7,15 @@
     left: 165px;
     top: 47px;
 
+    /*
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
-    background-image: linear-gradient(to right, rgb(27, 0, 58) , rgb(0, 25, 53));
+    background-color: rgba(24, 24, 24, 1);
+    background-image: linear-gradient(to right, rgb(50, 0, 107) ,rgb(0, 49, 109));
+    */
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(31, 31, 31, 0.705);
 
     height: 720px;
     width: 1200px;
@@ -189,11 +195,12 @@
 }
 .project-item:hover {
     border: 0px solid #ccc;
-    background-color: #3b3b3b80;
+    background-color: #2e2e2e;
 }
 .project-item:active {
-    border: 0px solid rgb(162, 0, 255);
-    background-color: rgb(62, 0, 143);
+    background-color: rgb(255, 255, 255);
+    
+    color: black;
 }
     
 

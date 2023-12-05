@@ -74,7 +74,7 @@
         #main-menu > a > ion-icon:active {
             color: rgb(89, 0, 255);
             transform: translateY(-15px);
-            cursor: pointer;
+            cursor: progress;
         }
     /* Tiny glow below shortcuts */
     .app-opened {

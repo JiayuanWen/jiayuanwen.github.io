@@ -86,6 +86,14 @@
 }
 #start-shorcuts > a:hover {
     color: rgb(132, 0, 255);
+    /*filter: invert(22%) sepia(100%) saturate(7098%) hue-rotate(269deg) brightness(100%) contrast(122%);*/
+    
+}
+#start-shorcuts > a > .shortcut-custom-icon {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(6deg) brightness(104%) contrast(102%);
+}
+#start-shorcuts > a:hover > .shortcut-custom-icon {
+    filter: invert(22%) sepia(100%) saturate(7098%) hue-rotate(269deg) brightness(100%) contrast(122%);
 }
 .shortcut {
     text-align: center;
@@ -94,9 +102,18 @@
 
     margin-left: 10px;
     margin-right: 10px;
+
+    border-radius: 12px;
 }
     .shortcut:hover {
         cursor: pointer;
+        /*color: white;*/
+        /*background-color: rgba(68, 68, 68, 0.295);*/
+    }
+    .shortcut:active {
+        cursor: progress;
+        color: rgb(34, 34, 34);
+        /*background-color: rgba(68, 68, 68, 0.295);*/
     }
 .shortcut > img {
     height: 35px;
