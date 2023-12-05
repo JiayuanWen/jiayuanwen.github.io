@@ -7,9 +7,9 @@
     left: 165px;
     top: 47px;
 
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    background-color: rgba(24, 24, 24, 0.733);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-image: linear-gradient(to right, rgb(27, 0, 58) , rgb(0, 25, 53));
 
     height: 720px;
     width: 1200px;
@@ -189,11 +189,11 @@
 }
 .project-item:hover {
     border: 0px solid #ccc;
-    background-color: rgb(0, 84, 180);
+    background-color: #3b3b3b80;
 }
 .project-item:active {
     border: 0px solid rgb(162, 0, 255);
-    background-color: rgb(74, 0, 143);
+    background-color: rgb(62, 0, 143);
 }
     
 
@@ -246,18 +246,18 @@
     }
 
 #more-project {
-    position: fixed;
+    position: absolute;
     right: 40px;
     bottom: 30px;
 
-    z-index: 50;
+    z-index: 90;
 }
 #project-experiment {
-    position: fixed;
+    position: absolute;
     right: 40px;;
     bottom: 60px;
 
-    z-index: 50;
+    z-index: 90;
 }
 
 #project-page-bottom {
