@@ -20,7 +20,7 @@ function terminalWindow() {
       terminalElement = document.getElementById("terminal-window");
     } 
     if (!terminalShortcut) { 
-      //terminalShortcut = document.getElementById("terminal");
+
       terminalShortcut = document.getElementById('terminal');
     }
 
@@ -37,6 +37,9 @@ function terminalWindow() {
         startMenu.style.opacity = "0";
         startMenu.style.bottom = "0px";
         startMenu.style.pointerEvents = "none";
+
+        // Add glow below shortcut icon
+        terminalShortcut.getElementsByClassName("app-opened")[0].style.opacity = "1";
   
         // Make window the focus when opened
         focusWindow(terminalElement);
@@ -87,6 +90,10 @@ function terminalWindow() {
     terminalElement.style.opacity = 0; 
     terminalElement.style.pointerEvents = "none";
 
+    // Remove glow below shortcut icon
+    terminalShortcut.getElementsByClassName("app-opened")[0].style.opacity = "0";
+
+    // Reset terminal
     document.getElementById("terminal-line").innerHTML = `Press 'H' for a list of avaliable commands.\n`+commandEnd;
     $("#terminal-text").scrollTop(0);
   });

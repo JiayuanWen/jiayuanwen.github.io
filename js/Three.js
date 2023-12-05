@@ -43,71 +43,85 @@ $(document).ready(function() {
 		}
 	}
 
-	document.querySelectorAll('.threedemo').forEach(function(shortcut_) {
-		shortcut_.addEventListener('click', async function(){ 
+	async function addShortCutClick(){ 
 	
-		  if (threeElement.style.opacity == 0) {
-			// Hide Start Menu
-			let startMenu = document.getElementById("start-menu");
-			startMenu.style.opacity = "0";
-			startMenu.style.bottom = "0px";
-			startMenu.style.pointerEvents = "none";
-	  
-			// Make window the focus when opened
-			focusWindow(threeElement);
-	  
-			// Highlight shortcut
-			//threeShortcut.style.color = "#6100f0";
-	  
-			// Window cannot be dragged when transition is set, set temporarily for transition then unset. 
-			threeElement.style.transition = "0.3s";
-			threeElement.style.opacity = 1;
-	  
-			// Unset transition so window can be dragged.
-			delayer = await delay(400);
-			threeElement.style.transition = "0s";
-			threeElement.style.pointerEvents = "auto";
+		if (threeElement.style.opacity == 0) {
+		  // Hide Start Menu
+		  let startMenu = document.getElementById("start-menu"); 
+		  startMenu.style.opacity = "0";
+		  startMenu.style.bottom = "0px";
+		  startMenu.style.pointerEvents = "none";
+	
+		  // Make window the focus when opened
+		  focusWindow(threeElement);
+	
+		  // Highlight shortcut
+		  //threeShortcut.style.color = "#6100f0";
+	
+		  // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
+		  threeElement.style.transition = "0.3s";
+		  threeElement.style.opacity = 1;
+	
+		  // Unset transition so window can be dragged.
+		  delayer = await delay(400);
+		  threeElement.style.transition = "0s";
+		  threeElement.style.pointerEvents = "auto";
 
-			// Add icon to main menu
+		  // Add icon to main menu, no need to do so if app is already opened and/or minimized
+		  if (!document.getElementById('threedemo')) {
 			document.getElementById('main-menu').insertAdjacentHTML(
 				'beforeend',
-				'<a id="threedemo" class="threedemo"><ion-icon name="cube-outline"></ion-icon></a>'
+				'<a id="threedemo" class="threedemo"><ion-icon name="cube-outline"></ion-icon><img class="app-opened" src="/textures/UI/opened_app.png"/></a>'
 			);
-			threeShortcut = document.getElementById('threedemo');
-			threeShortcut.style.color = "#6100f0";
-			threeShortcut.addEventListener('click', function() {
-				focusWindow(threeElement);
-			});
-			
-			// Enable rendering
-			animateStart();
-
-			camera.aspect = 1200 / 700;
-			camera.updateProjectionMatrix(); 
-
-			renderer.setSize( 1200, 700 ); 
-			composer.setSize( 1200, 700 );
-			renderer.setPixelRatio( window.devicePixelRatio );
 		  }
-		  else {
-			//threeShortcut.style.color = "#ffffff";
-	  
-			//threeElement.style.transition = "0.3s";
-			//threeElement.style.opacity = 0;
-	  
-	  
-			//delayer = await delay(400);
-			//threeElement.style.transition = "0s";
-			//threeElement.style.pointerEvents = "none";
-			// Hide Start Menu
-			let startMenu = document.getElementById("start-menu");
-			startMenu.style.opacity = "0";
-			startMenu.style.bottom = "0px";
-			startMenu.style.pointerEvents = "none";
+		  
+		  threeShortcut = document.getElementById('threedemo');
+		  console.log(threeShortcut);
+		  threeShortcut.style.color = "#6100f0";
+		  threeShortcut.addEventListener('click', function() {
+			  focusWindow(threeElement);
+		  });
+		  threeShortcut.addEventListener('click', function() {
+			addShortCutClick();
+		  });
+
+		  // Add glow below shortcut icon
+		  threeShortcut.getElementsByClassName("app-opened")[0].style.opacity = "1";
+		  
+		  // Enable rendering
+		  animateStart();
+
+		  camera.aspect = 1200 / 700;
+		  camera.updateProjectionMatrix(); 
+
+		  renderer.setSize( 1200, 700 ); 
+		  composer.setSize( 1200, 700 );
+		  renderer.setPixelRatio( window.devicePixelRatio );
+		}
+		else {
+		  //threeShortcut.style.color = "#ffffff";
 	
-			focusWindow(threeElement);
-		  }
-		}, false);
+		  //threeElement.style.transition = "0.3s";
+		  //threeElement.style.opacity = 0;
+	
+	
+		  //delayer = await delay(400);
+		  //threeElement.style.transition = "0s";
+		  //threeElement.style.pointerEvents = "none";
+		  // Hide Start Menu
+		  let startMenu = document.getElementById("start-menu");
+		  startMenu.style.opacity = "0";
+		  startMenu.style.bottom = "0px";
+		  startMenu.style.pointerEvents = "none";
+  
+		  focusWindow(threeElement);
+		}
+
+
+	}
+
+	document.querySelectorAll('.threedemo').forEach(function(shortcut_) {
+		shortcut_.addEventListener('click', function(){addShortCutClick()}, false);
 	})
 
 	document.getElementById("threejs-minimize").addEventListener('click', function(){ 

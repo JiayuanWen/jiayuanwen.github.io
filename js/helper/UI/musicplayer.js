@@ -16,14 +16,30 @@ let playerWindow = document.getElementById("player-window");
 
 playerShortcut.addEventListener('click', async function(){ 
     if (playerWindow.style.opacity == 0) {
+        // Hide other menus if any
+        document.querySelectorAll(".sub-menu").forEach((menu) => {
+            menu.style.opacity = 0;
+            menu.style.bottom = "0px";
+            menu.style.pointerEvents = "none";
+        });
+        // Unhightlight menu icons if any
+        document.querySelectorAll(".menu-icon").forEach((icon) => {
+            icon.style.background = "transparent";
+        });
+        // Show Music Player 
         playerWindow.style.opacity = 1;
         playerWindow.style.bottom = "60px";
         playerWindow.style.pointerEvents = "auto";
+        // Hightlight icon
+        playerShortcut.style.background = "rgba(89, 0, 255, 0.815)";
     }
     else {
+        // Hide Music Player
         playerWindow.style.opacity = 0;
         playerWindow.style.bottom = "0px";
         playerWindow.style.pointerEvents = "none";
+        // Unhightlight icon
+        playerShortcut.style.background = "rgba(89, 0, 255, 0)";
     }
 })
 

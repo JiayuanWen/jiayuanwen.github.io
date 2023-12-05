@@ -48,26 +48,43 @@
         margin-top: 7px;
         margin-left: 5px;
         margin-right: 5px;
+
         transition: 0.3s;
+
         /*text-decoration: underline;*/
         text-decoration-thickness: from-font;
         color: rgb(255, 255, 255);
+
+        display: flex;
+        justify-content: center;
         
     }
         #main-menu > a:link {
             color: rgb(255, 255, 255);
             
         }
-        #main-menu > a:hover {
+        #main-menu > a > ion-icon {
+            transition: 0.3s;
+        }
+        #main-menu > a > ion-icon:hover {
             color: rgb(255, 255, 255);
             transform: translateY(-5px);
             cursor: pointer;
         }
-        #main-menu > a:active {
+        #main-menu > a > ion-icon:active {
             color: rgb(89, 0, 255);
             transform: translateY(-15px);
             cursor: pointer;
         }
+    /* Tiny glow below shortcuts */
+    .app-opened {
+        position: absolute;
+        bottom: -10px;
+
+        transition: 0.3s;
+
+        opacity: 0;
+    }
 
 /* --------------------------------------------------------------------------------- Left icons */
 #menu-assets {

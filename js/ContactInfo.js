@@ -39,6 +39,9 @@ $(document).ready(async function() {
         startMenu.style.opacity = "0";
         startMenu.style.bottom = "0px";
         startMenu.style.pointerEvents = "none";
+
+        // Add glow below shortcut icon
+        contactShortcut.getElementsByClassName("app-opened")[0].style.opacity = "1";
   
         // Make window the main focus on open
         focusWindow(contactElement);
@@ -83,7 +86,9 @@ $(document).ready(async function() {
     contactElement.style.transition = "0.3s";
     contactElement.style.opacity = 0; 
     contactElement.style.pointerEvents = "none"; 
-    //$("#terminal-text").scrollTop(0);
+
+    // Remove glow below shortcut icon
+    contactShortcut.getElementsByClassName("app-opened")[0].style.opacity = "0";
   });
 
 });

@@ -81,6 +81,22 @@
     top: 0px;
     left: 0px;
 }
+
+/* --------------------------------------------------------------------------------- 3D Fiber Lamp */
+#threedemo {
+    position: relative;
+    
+    display: flex;
+    justify-content: center;
+}
+
+#threejs-opened {
+    position: absolute;
+    bottom: -9px;
+
+    
+}
+
 /* --------------------------------------------------------------------------------- 3D Fiber Lamp */
 .fiber {
     position:absolute;

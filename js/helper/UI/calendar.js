@@ -9,45 +9,55 @@ delayer = await delay(700);
 //----------------------------------------------------------------------------------------- Calender button (bottom right) click handle 
 async function calendarClick() {
             
-    let calendarMenu = document.getElementById("calendar");
+  let calendarMenu = document.getElementById("calendar");
 
-    if (calendarMenu.style.opacity == 0) {
-        calendarMenu.style.opacity = "1";
-        calendarMenu.style.bottom = "40px";
-        calendarMenu.style.pointerEvents = "auto";
-        // Hide tooltip on menu show
-        document.getElementById("time-tooltip").style.opacity = "0";
-    } else {
-        calendarMenu.style.opacity = "0";
-        calendarMenu.style.bottom = "0px";
-        calendarMenu.style.pointerEvents = "none";
-    }
+  if (calendarMenu.style.opacity == 0) {
+    // Hide other menus if any
+    document.querySelectorAll(".sub-menu").forEach((menu) => {
+      menu.style.opacity = 0;
+      menu.style.bottom = "0px";
+      menu.style.pointerEvents = "none";
+    });
+    // Unhightlight menu icons if any
+    document.querySelectorAll(".menu-icon").forEach((icon) => {
+      icon.style.background = "transparent";
+    });
+    // Show Calender
+    calendarMenu.style.opacity = "1";
+    calendarMenu.style.bottom = "40px";
+    calendarMenu.style.pointerEvents = "auto";
+
+    // Hide tooltip on menu show
+    document.getElementById("time-tooltip").style.opacity = "0";
+  } else {
+    calendarMenu.style.opacity = "0";
+    calendarMenu.style.bottom = "0px";
+    calendarMenu.style.pointerEvents = "none";
+  }
 }
 let calendarContainer;
 $(document).ready(function() {
 
-    for (var i = 0; i < 1000; i++) {
-        if (!calendarContainer) {
-          calendarContainer = document.getElementById("time-container");
-        } else {
-            break;
-        }
+  for (var i = 0; i < 1000; i++) {
+    if (!calendarContainer) {
+      calendarContainer = document.getElementById("time-container");
+    } else {
+        break;
     }
+  }
 
-    calendarContainer.addEventListener("click", function() {calendarClick()})
+  calendarContainer.addEventListener("click", function() {calendarClick()})
 
 });
 
 //----------------------------------------------------------------------------------------- Calender tooltip
 $(document).ready(function() {
-    document.getElementById("time-container").onmouseover = async function() { 
-        if (true) {
-            document.getElementById("time-tooltip").style.opacity = "1";
-        }
-    }
-    document.getElementById("time-container").onmouseout  = async function() { 
-        document.getElementById("time-tooltip").style.opacity = "0";
-    }
+  document.getElementById("time-container").onmouseover = async function() { 
+    document.getElementById("time-tooltip").style.opacity = "1";
+  }
+  document.getElementById("time-container").onmouseout  = async function() { 
+    document.getElementById("time-tooltip").style.opacity = "0";
+  }
 });
 
 //----------------------------------------------------------------------------------------- Main Calender function

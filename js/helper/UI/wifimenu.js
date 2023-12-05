@@ -11,13 +11,29 @@ let wifiWindow = document.getElementById("wifi-menu");
 
 wifiShortcut.addEventListener('click', async function(){ 
     if (wifiWindow.style.opacity == 0) {
+        // Hide other menus if any
+        document.querySelectorAll(".sub-menu").forEach((menu) => {
+            menu.style.opacity = 0;
+            menu.style.bottom = "0px";
+            menu.style.pointerEvents = "none";
+        });
+        // Unhightlight menu icons if any
+        document.querySelectorAll(".menu-icon").forEach((icon) => {
+            icon.style.background = "transparent";
+        });
+        // Show WiFi menu
         wifiWindow.style.opacity = 1;
         wifiWindow.style.bottom = "60px";
         wifiWindow.style.pointerEvents = "auto";
+        // Hightlight icon
+        wifiShortcut.style.background = "rgba(89, 0, 255, 0.815)";
     }
     else {
+        // Hide WiFi menu
         wifiWindow.style.opacity = 0;
         wifiWindow.style.bottom = "0px";
         wifiWindow.style.pointerEvents = "none";
+
+        wifiShortcut.style.background = "transparent";
     }
 })

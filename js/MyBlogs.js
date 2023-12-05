@@ -41,6 +41,9 @@ $(document).ready(async function() {
         startMenu.style.opacity = "0";
         startMenu.style.bottom = "0px";
         startMenu.style.pointerEvents = "none";
+
+        // Add glow below shortcut icon
+        blogShortcut.getElementsByClassName("app-opened")[0].style.opacity = "1";
   
         // Make window the focus when opened
         focusWindow(blogElement);
@@ -84,8 +87,11 @@ $(document).ready(async function() {
     blogElement.style.transition = "0.3s";
     blogElement.style.opacity = 0; 
     blogElement.style.pointerEvents = "none"; 
-    //$("#terminal-text").scrollTop(0);
+    
     removeBlogs();
+
+    // Remove glow below shortcut icon
+    blogShortcut.getElementsByClassName("app-opened")[0].style.opacity = "0";
   });
 
 });
