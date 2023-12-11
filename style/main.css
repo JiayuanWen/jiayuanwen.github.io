@@ -90,7 +90,10 @@ a:active {
     background-color: rgba(31, 31, 31, 0.705);
 
     border-radius: 12px;
-    
+}
+
+.windowheader {
+    background-color: rgb(22, 22, 22) !important;
 }
 
 /* --------------------------------------------------------------------------------- Site credit at bottom (deprecated) */
