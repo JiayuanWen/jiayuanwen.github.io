@@ -77,7 +77,7 @@ $(document).ready(function() {
 		  
 		  threeShortcut = document.getElementById('threedemo');
 		  console.log(threeShortcut);
-		  threeShortcut.style.color = "#6100f0";
+		  threeShortcut.style.color = "var(--firefly)";
 		  threeShortcut.addEventListener('click', function() {
 			  focusWindow(threeElement);
 		  });
