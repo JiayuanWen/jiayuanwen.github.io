@@ -6,10 +6,6 @@
     left: 405px;
     top: 60px;
 
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    background-color: rgba(26, 26, 26, 0.774);
-
     height: 720px;
     width: 750px;
 
@@ -44,42 +40,6 @@
 
     overflow: hidden;
 }
-    #social-close {
-        position: absolute;
-        right: 4px;
-        top: 4px;
-        
-        color: gray;
-    }
-    #social-minimize {
-        position: absolute;
-        right: 20px;
-        top: 4px;
-        
-        color: gray;
-    }
-        #social-close:hover, #social-minimize:hover {
-            color: rgb(255, 255, 255);
-        }
-    #social-ico {
-        position: absolute;
-        left: 6px;
-        top: 4px;
-        
-        color: rgb(255, 255, 255);
-    }
-    #social-name {
-        position: absolute;
-        top: 4px;
-
-        width: inherit;
-
-        text-align: center;
-        font-size: small;
-        color: rgb(100, 100, 100);
-    }
-
-
 
 /* --------------------------------------------------------------------------------- Avatar & Name*/
 #contact-avatar {

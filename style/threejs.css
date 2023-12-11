@@ -41,40 +41,6 @@
 
     overflow: hidden;
 }
-    #threejs-close {
-        position: absolute;
-        right: 4px;
-        top: 4px;
-        
-        color: gray;
-    }
-    #threejs-minimize {
-        position: absolute;
-        right: 20px;
-        top: 4px;
-        
-        color: gray;
-    }
-        #threejs-close:hover, #threejs-minimize:hover {
-            color: rgb(255, 255, 255);
-        }
-    #threejs-ico {
-        position: absolute;
-        left: 6px;
-        top: 4px;
-        
-        color: rgb(255, 255, 255);
-    }
-    #threejs-name {
-        position: absolute;
-        top: 4px;
-
-        width: inherit;
-
-        text-align: center;
-        font-size: small;
-        color: rgb(100, 100, 100);
-    }
 
 #threejs-container {
     position: absolute;

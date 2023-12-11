@@ -34,40 +34,6 @@
 
     overflow: hidden;
 }
-    #terminal-close {
-        position: absolute;
-        right: 4px;
-        top: 4px;
-        
-        color: gray;
-    }
-    #terminal-minimize {
-        position: absolute;
-        right: 20px;
-        top: 4px;
-        
-        color: gray;
-    }
-        #terminal-close:hover, #terminal-minimize:hover {
-            color: rgb(255, 255, 255);
-        }
-    #terminal-ico {
-        position: absolute;
-        left: 6px;
-        top: 4px;
-        
-        color: rgb(255, 255, 255);
-    }
-    #terminal-name {
-        position: absolute;
-        top: 4px;
-
-        width: inherit;
-
-        text-align: center;
-        font-size: small;
-        color: rgb(100, 100, 100);
-    }
 
 #terminal-text {
     position: absolute;

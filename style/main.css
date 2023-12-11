@@ -87,7 +87,7 @@ a:active {
 .window {
     -webkit-backdrop-filter: blur(40px) ; 
     backdrop-filter: blur(40px);
-    background-color: rgba(31, 31, 31, 0.705);
+    background-color: rgba(24, 24, 24, 0.705);
 
     border-radius: 12px;
 }
@@ -95,6 +95,43 @@ a:active {
 .windowheader {
     background-color: rgb(22, 22, 22) !important;
 }
+
+.window-name {
+    position: absolute;
+    top: 4px;
+
+    width: inherit;
+
+    text-align: center;
+    font-size: small;
+    color: rgb(165, 165, 165);
+}
+
+.window-icon {
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    
+    color: rgb(255, 255, 255);
+}
+
+.close-window {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    
+    color: gray;
+}
+.minimize-window {
+    position: absolute;
+    right: 20px;
+    top: 4px;
+    
+    color: gray;
+}
+    .close-window:hover, .minimize-window:hover {
+        color: rgb(255, 255, 255);
+    }
 
 /* --------------------------------------------------------------------------------- Site credit at bottom (deprecated) */
 #site-credit {
