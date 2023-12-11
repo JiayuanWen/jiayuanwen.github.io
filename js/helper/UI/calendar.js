@@ -21,6 +21,7 @@ async function calendarClick() {
     // Unhightlight menu icons if any
     document.querySelectorAll(".menu-icon").forEach((icon) => {
       icon.style.background = "transparent";
+      icon.style.color = "white";
     });
     // Show Calender
     calendarMenu.style.opacity = "1";
