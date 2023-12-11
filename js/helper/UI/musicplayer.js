@@ -25,13 +25,15 @@ playerShortcut.addEventListener('click', async function(){
         // Unhightlight menu icons if any
         document.querySelectorAll(".menu-icon").forEach((icon) => {
             icon.style.background = "transparent";
+            icon.style.color = "white";
         });
         // Show Music Player 
         playerWindow.style.opacity = 1;
         playerWindow.style.bottom = "60px";
         playerWindow.style.pointerEvents = "auto";
         // Hightlight icon
-        playerShortcut.style.background = "rgba(89, 0, 255, 0.815)";
+        playerShortcut.style.background = "var(--firefly)";
+        playerShortcut.style.color = "black";
     }
     else {
         // Hide Music Player
@@ -40,6 +42,7 @@ playerShortcut.addEventListener('click', async function(){
         playerWindow.style.pointerEvents = "none";
         // Unhightlight icon
         playerShortcut.style.background = "rgba(89, 0, 255, 0)";
+        playerShortcut.style.color = "white";
     }
 })
 

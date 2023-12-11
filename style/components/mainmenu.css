@@ -72,7 +72,7 @@
             cursor: pointer;
         }
         #main-menu > a > ion-icon:active {
-            color: rgb(89, 0, 255);
+            color: var(--firefly);
             transform: translateY(-15px);
             cursor: progress;
         }
@@ -109,7 +109,7 @@
         cursor: pointer;
     }
     #menu-assets ion-icon:hover {
-        background-color: rgb(98, 0, 255);
+        background-color: var(--firefly);
     }
 
 /* --------------------------------------------------------------------------------- Clock */
@@ -134,7 +134,8 @@
 }
     #time-container:hover {
         cursor: pointer;
-        background-color: rgba(89, 0, 255, 0.815);
+        background-color: var(--firefly);
+        color: black;
     }
 #time {
     text-align: center;
@@ -165,7 +166,7 @@
 }
 #home-button:hover {
     cursor: pointer;
-    background-color: #652dff;
+    background-color: var(--firefly);
 }
     #home-button img {
         transition: 0.25s;

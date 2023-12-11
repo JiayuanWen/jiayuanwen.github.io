@@ -49,7 +49,7 @@ $(document).ready(async function() {
         focusWindow(blogElement);
   
         // Highlight shorcut
-        blogShortcut.style.color = "#6100f0";
+        blogShortcut.style.color = "var(--firefly)";
   
         // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
         blogElement.style.transition = "0.3s";

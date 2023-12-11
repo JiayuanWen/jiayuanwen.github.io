@@ -20,13 +20,15 @@ wifiShortcut.addEventListener('click', async function(){
         // Unhightlight menu icons if any
         document.querySelectorAll(".menu-icon").forEach((icon) => {
             icon.style.background = "transparent";
+            icon.style.color = "white";
         });
         // Show WiFi menu
         wifiWindow.style.opacity = 1;
         wifiWindow.style.bottom = "60px";
         wifiWindow.style.pointerEvents = "auto";
         // Hightlight icon
-        wifiShortcut.style.background = "rgba(89, 0, 255, 0.815)";
+        wifiShortcut.style.background = "var(--firefly)";
+        wifiShortcut.style.color = "black";
     }
     else {
         // Hide WiFi menu
@@ -35,5 +37,6 @@ wifiShortcut.addEventListener('click', async function(){
         wifiWindow.style.pointerEvents = "none";
 
         wifiShortcut.style.background = "transparent";
+        wifiShortcut.style.color = "white";
     }
 })

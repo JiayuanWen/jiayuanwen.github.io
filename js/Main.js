@@ -102,8 +102,9 @@ $(document).ready(function() {
 // Execute on loading complete
 async function loadingComplete() {
 	// Load wallpaper
-	var wallpaper_i = Math.floor(Math.random() * 1) + 1;
-	document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
+	//var wallpaper_i = Math.floor(Math.random() * 3) + 1;
+	//document.body.style.backgroundImage = `url('/textures/Background/wallpapers/${wallpaper_i}.jpg')`;
+	document.body.style.backgroundImage = `url('/textures/Background/wallpapers/3.jpg')`;
 
 	// Stop logo blink
 	/*

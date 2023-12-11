@@ -45,7 +45,7 @@ function terminalWindow() {
         focusWindow(terminalElement);
   
         // Highlight shortcut
-        terminalShortcut.style.color = "#6100f0";
+        terminalShortcut.style.color = "var(--firefly)";
   
         // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
         terminalElement.style.transition = "0.3s";

@@ -6,7 +6,7 @@
     --weekdays-border-bottom-color: #404040;
     --calendar-date-hover-color: #505050;
     --calendar-current-date-color: #1b1f21;
-    --calendar-today-color: #4b03f4;
+    --calendar-today-color: var(--firefly);
     --calendar-today-innerborder-color: transparent;
     --calendar-nextprev-bg-color: transparent;
     --next-prev-arrow-color : #FFF;
@@ -184,5 +184,5 @@
 
     width: 370px;
     
-    border-color: #6b21f3;
+    border-color: var(--firefly);
 }

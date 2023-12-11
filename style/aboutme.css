@@ -62,7 +62,7 @@ experience > section {
         transition: 0.3s;
     }
         #scroll-indicator > #scroll-up:hover {
-            color:blueviolet;
+            color:var(--firefly);
             transform: translateY(-10%);
         }
         #scroll-indicator > #scroll-up:active {
@@ -78,7 +78,7 @@ experience > section {
         transition: 0.3s;
     }
         #scroll-indicator > #scroll-down:hover {
-            color:blueviolet;
+            color:var(--firefly);
             transform: translateX(-10%) translateY(10%);
         }
         #scroll-indicator > #scroll-down:active {

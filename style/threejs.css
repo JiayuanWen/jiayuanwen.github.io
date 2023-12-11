@@ -150,6 +150,6 @@
     cursor: pointer;
 }
 #threejs-srccode:active {
-    background: rgb(98, 0, 255);
+    background: var(--firefly);
     cursor: pointer;
 }

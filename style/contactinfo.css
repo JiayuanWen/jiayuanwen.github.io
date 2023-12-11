@@ -117,7 +117,7 @@
 
     width: 290px;
 
-    border: solid 1px rgb(139, 50, 255);
+    border: solid 1px var(--firefly);
 }
 
 #contact-info {
@@ -154,7 +154,7 @@
 }
 #contact-info > a:active{
     transform: translateX(10px);
-    color: rgb(132, 0, 255);
+    color: var(--firefly);
 }
 
 #contact-info > a > span {
@@ -192,7 +192,7 @@
 
     width: 310px;
 
-    border: blueviolet 1px solid;
+    border: var(--firefly) 1px solid;
 
     opacity: 1;
 }
@@ -256,12 +256,12 @@
     height: 40px;
     width: 110px;
 
-    background-color: rgb(111, 0, 255); 
+    background-color: var(--firefly); 
 
     border: solid rgb(255, 255, 255) 0px;
     border-radius: 5px;
 
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: monospace;
     font-weight: bolder;
 }
@@ -294,7 +294,7 @@
 
     width: 310px;
 
-    border: blueviolet 1px solid;
+    border: var(--firefly) 1px solid;
 
     opacity: 1;
 }
@@ -311,12 +311,12 @@
     height: 40px;
     width: 110px;
 
-    background-color: rgb(111, 0, 255); 
+    background-color: var(--firefly); 
 
     border: solid rgb(255, 255, 255) 0px;
     border-radius: 5px;
 
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: monospace;
     font-weight: bolder;
     text-decoration: none;

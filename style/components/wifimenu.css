@@ -37,7 +37,7 @@
 
     width: 427px;
 
-    border: blueviolet 1px solid;
+    border: var(--firefly) 1px solid;
 }
 
 #wifi-list {
@@ -62,7 +62,7 @@
         
     }
     #wifi-list > li:hover {
-        color: blueviolet;
+        color: var(--firefly);
         cursor: pointer;
     }
     #wifi-list > li > ion-icon {

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
 
+/* --------------------------------------------------------------------------------- Common colors */
+:root {
+    --firefly:rgb(208, 255, 0);
+}
+
 /* --------------------------------------------------------------------------------- General */
 
 body {
@@ -72,10 +77,10 @@ a:visited {
     color:rgb(139, 139, 139);
 }
 a:hover {
-    color:rgb(98, 0, 255);
+    color: var(--firefly);
 }
 a:active {
-    color:rgb(29, 0, 107);
+    color: #3f5000;
 }
 
 /* --------------------------------------------------------------------------------- Main styles for app windows */
@@ -85,6 +90,7 @@ a:active {
     background-color: rgba(31, 31, 31, 0.705);
 
     border-radius: 12px;
+    
 }
 
 /* --------------------------------------------------------------------------------- Site credit at bottom (deprecated) */

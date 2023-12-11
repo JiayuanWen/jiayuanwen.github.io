@@ -106,7 +106,7 @@
         }
 
 .terminal-color, .terminal-color-purple {
-    color: rgb(156, 69, 255);
+    color: var(--firefly);
 
 }
 .terminal-color-green {
@@ -145,7 +145,7 @@
         color: rgb(255, 255, 255);
     }
     #terminal-line > #site-source-link {
-        color: rgb(137, 74, 255);
+        color: rgb(102, 143, 255);
     }
     #terminal-line > #site-source-link:hover {
         color: rgb(255, 255, 255);

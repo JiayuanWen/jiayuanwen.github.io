@@ -47,7 +47,7 @@ $(document).ready(async function() {
         focusWindow(contactElement);
   
         // Hightlight shorcut
-        contactShortcut.style.color = "#6100f0";
+        contactShortcut.style.color = "var(--firefly)";
   
         // Window cannot be dragged when transition is set, set temporarily for transition then unset. 
         contactElement.style.transition = "0.3s";
