@@ -1,8 +1,8 @@
-import { detectGPU } from "../gpu-detect.js";
-import { isMobile } from "../mobileCheck.js";
-import { getInternetSpeed } from "../speedtest.js";
-import { delay } from "../delay.js";
-import { enableDrag } from "../draggablewindow.js";
+import { detectGPU, detectGPUVendor } from "./helper/gpu-detect.js";
+import { isMobile } from "./helper/mobileCheck.js";
+import { getInternetSpeed } from "./helper/speedtest.js";
+import { delay } from "./helper/delay.js";
+import { enableDrag } from "./helper/draggablewindow.js";
 import { focusWindow } from "/js/helper/UI/windowfocus.js";
 
 let delayer;
@@ -258,6 +258,11 @@ function terminalSysInfo() {
 
   // Name of rendering hardware & software
   document.getElementById("user-gpu").innerHTML = detectGPU();
+
+  /*
+  // Name of rendering hardware & software vendor
+  document.getElementById("user-gpu-vendor").innerHTML = detectGPUVendor();
+  //*/
 
   // Mode of browser theme
   const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
