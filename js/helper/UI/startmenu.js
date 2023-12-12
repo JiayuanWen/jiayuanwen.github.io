@@ -15,43 +15,29 @@ $(document).ready(function() {
 })
 
 //----------------------------------------------------------------------------------------- Start Menu button click handle 
-let starMenu;
+let startMenu;
 async function startMenuButton() {
             
-    starMenu = document.getElementById("start-menu");
+    startMenu = document.getElementById("start-menu");
     let delayer;
 
-    if (starMenu.style.opacity == 0) {
-        starMenu.style.opacity = "1";
-        starMenu.style.pointerEvents = "auto";
-        starMenu.style.bottom = "60px";
+    if (startMenu.style.opacity == 0) {
+        startMenu.style.opacity = "1";
+        startMenu.style.pointerEvents = "auto";
+        startMenu.style.bottom = "60px";
         // Hide tooltip on menu show
         document.getElementById("home-button-tooltip").style.opacity = "0";
     } else {
-        starMenu.style.opacity = "0";
-        starMenu.style.pointerEvents = "none";
-        starMenu.style.bottom = "0px";
+        startMenu.style.opacity = "0";
+        startMenu.style.pointerEvents = "none";
+        startMenu.style.bottom = "0px";
     }
 }
 $(document).ready(function() {
-    starMenu = document.getElementById("start-menu");
+    startMenu = document.getElementById("start-menu");
     document.getElementById("home-button").addEventListener("click", function() {startMenuButton()})
 })
 
 //----------------------------------------------------------------------------------------- Power button handle
-let powerButton;
-$(document).ready(function() {
-    for (var i= 0; i < 1000; i++) {
-        if (!powerButton) {
-            powerButton = document.getElementById("power-button");
-        }
-        else {
-            break;
-        }
-    }
-
-    powerButton.addEventListener('click', function(){ 
-        window.close();
-    });
-})
+// See shutdownprompt.js 
 

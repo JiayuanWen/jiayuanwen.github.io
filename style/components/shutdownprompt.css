@@ -1,0 +1,75 @@
+#shutdown-container {
+    z-index: 99999;
+}
+
+#shutdown-prompt {
+    height: 200px;
+    width: 400px;
+
+    position: fixed;
+    left: 50vw; transform: translate(-50%,-50%);
+    top: 50vh; 
+
+    opacity: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+
+    z-index: 9999 !important;
+
+    transition: 0.25s;
+
+    pointer-events: none;
+}
+
+.shutdown-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+    .shutdown-options:hover {
+        cursor: pointer;
+    }
+    .shutdown-options:active {
+        cursor: progress;
+    }
+
+.shutdown-options > ion-icon {
+    font-size: 50px;
+}
+
+/*
+#shutdown-cancel {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    height: 25px;
+    width: 55px;
+
+    border: 0px none;
+    border-radius: 6px;
+
+    background-color: rgb(53, 53, 53);
+
+    color: white;
+
+    transition: 0.2s;
+}
+    #shutdown-cancel:hover {
+        background-color: rgb(83, 83, 83);
+
+        color: white;
+        cursor: pointer;
+    }
+    #shutdown-cancel:active {
+        background-color: rgb(255, 255, 255);
+
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+    }
+    //*/

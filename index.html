@@ -138,6 +138,15 @@
             </script>
             <script type="module-shim" src="/js/helper/UI/wifimenu.js" async></script>
             <link rel="stylesheet" type="text/css" href="style/components/wifimenu.css" id="player-style"/>
+
+            <!-- Shutdown Prompt -->
+            <div id="shutdown-container"></div>
+            <script async>
+                var filePath = "/page_components/shutdown_prompt.html";
+                $('#shutdown-container').load(filePath);
+            </script>
+            <script type="module-shim" src="/js/helper/UI/shutdownprompt.js" async></script>
+            <link rel="stylesheet" type="text/css" href="style/components/shutdownprompt.css" id="player-style"/>
     
     <!-- End of UI Stuff -->
 

@@ -38,7 +38,27 @@ experience > section {
     width: 200px;
 }
 
-/* --------------------------------------------------------------------------------- General */
+.funfact-sec {
+    border: 1px solid white;
+    border-radius: 15px;
+
+    width: 660px;
+ 
+    display: flex;
+    flex-direction: row;
+}
+    .funfact-sec > a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+
+        border-radius: 15px;
+    }
+    .funfact-sec > a > img, .funfact-sec > a > video{
+        border-radius: 15px;
+    }
+
+/* --------------------------------------------------------------------------------- Other */
 #aboutme {
     transition: 0s;
     /*display: "none"; Does't work*/

@@ -14,18 +14,21 @@ let commandEnd = `[<color class="terminal-color">user</color>@<color class="term
 
 
 $(document).on("keypress", function (e) {
+    // Debug use
+    //console.log(e);
+
     //When user pressed 'A'
-  if ((e.which == "97" || e.which == "65") && document.getElementById("terminal-window").style.opacity != 0) {
-    document.getElementById("terminal-line").innerHTML += 
+    if ((e.which == "97" || e.which == "65") && document.getElementById("terminal-window").style.opacity != 0) {
+        document.getElementById("terminal-line").innerHTML += 
 `============ About Me ============
 
 <img id="aboutme-selfie" src="/textures/AboutMe/selfie.jpg"></img>
 
 My name is <color class="terminal-color-green terminal-bold">Jiayuan Wen</color>, you can refer to me as <color class="terminal-color-green terminal-bold">Weldon</color>. I graduated from Pennsylvania State University with a B.S. in Computer Science. 
 
-I enjoy developing video game addons and other forms of artistic mediums, as well as utilizing my skills in programming to solve problems I encounter in my daily lives.
+I enjoy developing artistic mediums as well as addons for video games. I also utilizing my skills in programming to solve problems I encounter in my daily lives.
 
-I like experimenting with new programming languages and tools, and strive to strike a balance between functionality and user experience in my work. 
+I like experimenting with new programming languages and software tools. I also strive to strike a balance between functionality, visual, and user experience in my work. 
 
 Whether I'm working independently or collaborating with a team, I bring a strong attention to detail and a passion for continuous learning to every project I undertake.
 
@@ -125,7 +128,46 @@ With 4+ years of experience working on personal and academic projects, I am expe
 
     $("#terminal-text").scrollTop($("#terminal-text").scrollTop()+300);
   }
+
+  // When user press 'F'
+  if ((e.which == "102" || e.which == "70") && document.getElementById("terminal-window").style.opacity != 0) {
+    document.getElementById("terminal-line").innerHTML += 
+`============ Fun facts about Me ============
+<span>
+* Interested in Art and Filmmaking, planning on making animation as side hobby. 
+<subsec></subsec>
+* My favirote movies:
+<movies class="funfact-sec movies">
+    <a target="_blank" href="https://www.themoviedb.org/movie/157336-interstellar"><img src="/textures/AboutMe/movies/interstellar.jpg" width="120" height="179"/></a>
+
+    <a target="_blank" href="https://www.themoviedb.org/movie/620249"><img src="/textures/AboutMe/movies/hei.jpg" width="120" height="179"/></a>
+
+    <a target="_blank" href="https://www.themoviedb.org/movie/74037"><img src="/textures/AboutMe/movies/nezha.jpg" width="120" height="179"/></a>
+
+    <a target="_blank" href="https://www.themoviedb.org/movie/603-the-matrix"><img src="/textures/AboutMe/movies/matrix.jpg" width="120" height="179"/></a>
+
+    <a target="_blank" href="https://www.themoviedb.org/movie/128"><img src="/textures/AboutMe/movies/princess.jpg" width="120" height="179"/></a>
+</movies>
+* Fan of Narrative-driven, Rhythm, and Puzzle games. My favorite games:
+<games class="funfact-sec">
+    <a target="_blank" href="https://www.half-life.com/en/alyx" ><video src="/textures/AboutMe/games/alyx.webm" width="120" type="video/webm" autoplay loop></video></a>
+
+    <a target="_blank" href="https://www.thinkwithportals.com/about.php" href=""><img src="/textures/AboutMe/games/portal.jpg" width="120"/></a>
+
+    <a target="_blank" href="https://www.beatsaber.com/"><img src="/textures/AboutMe/games/beatsaber.jpg" width="120"/></a>
+
+    <a target="_blank" href="https://www.half-life.com/en/halflife2"><img src="/textures/AboutMe/games/halflife.webp" width="120" type="video/webp" autoplay loop></video></a>
+
+    <a target="_blank" href="https://web.archive.org/web/20180612014340/http://www.audio-surf.com/"><video src="/textures/AboutMe/games/audiosurf.webm" width="120" type="video/webm" autoplay loop></video></a>
+</games>
+</span>`
++'\n'+commandEnd;
+
+    $("#terminal-text").scrollTop($("#terminal-text").scrollTop()+300);
+  }
 })
+
+
 
 //---------------------------------------------------------------------------------------- About Me click handle
 if (isMobile()) {
