@@ -136,6 +136,10 @@ With 4+ years of experience working on personal and academic projects, I am expe
 <span>
 * Interested in Art and Filmmaking, planning on making animation as side hobby. 
 <subsec></subsec>
+* Enthusiast of VR and Linux. 
+<subsec></subsec>
+* Big fan of the Half-Life series. Please Gabe just tell us what 1+2 is!
+<subsec></subsec>
 * My favirote movies:
 <movies class="funfact-sec movies">
     <a target="_blank" href="https://www.themoviedb.org/movie/157336-interstellar"><img src="/textures/AboutMe/movies/interstellar.jpg" width="120" height="179"/></a>
