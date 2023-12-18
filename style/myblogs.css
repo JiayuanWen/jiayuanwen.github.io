@@ -184,7 +184,6 @@
         /*border: #ffffff 1px solid;*/
 
         position: absolute;
-
         left: 352px;
         margin-top: 80px;
 
@@ -200,8 +199,7 @@
     }
     .blog-read-more {
         position: absolute;
-
-        top: 190px;
+        margin-top: 150px;
         right: 70px;
 
         display:inline;
