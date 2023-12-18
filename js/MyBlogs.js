@@ -176,7 +176,7 @@ function toggleMobileLayout_MyBlogs(mode_) {
 }
 
 //---------------------------------------------------------------------------------------- Load/Remove blogs from data repository
-let blogsTotal = 1; 
+let blogsTotal = 2; 
 
 async function loadBlogs() {
     let blogI = 1;
