@@ -234,4 +234,3 @@ function expandBlog(blogID) {
     // Redirect to blog article
     window.location.href = `http://jiayuanwen.github.io/blogs/resources/${blogID}/redirect.html`;
 }
-
