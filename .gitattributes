@@ -1,11 +1,11 @@
 # Exclude Three.JS from repo contribution
-js/three/** linguist-vendored
-js/three.interactive/** linguist-vendored
+js/three/**** linguist-vendored
+js/three.interactive/**** linguist-vendored
 
 # Exclude Helper from repo contribution
 js/helper/** linguist-vendored
 
 # Include certain self-made functions from repo contribution
-js/helper/rgbToHex.js linguist-detectable
-js/helper/delay.js linguist-detectable
+js/helper/rgbToHex.js -linguist-detectable
+js/helper/delay.js -linguist-detectable
 js/helper/UI/** linguist-detectable
